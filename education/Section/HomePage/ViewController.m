@@ -14,7 +14,7 @@
 
 #define IMAGEHEIGHT (160 * ([UIScreen mainScreen].bounds.size.height/568.0))
 #define USERINTROHEIGHT (64 * ([UIScreen mainScreen].bounds.size.height/568.0))
-#define BUTTONVIEWHEIGHT (228 * ([UIScreen mainScreen].bounds.size.height/568.0))
+#define BUTTONVIEWHEIGHT (216 * ([UIScreen mainScreen].bounds.size.height/568.0))
 
 @interface ViewController () {
     CGFloat scale;
