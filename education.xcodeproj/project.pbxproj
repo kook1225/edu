@@ -7,6 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1808B3121B43D4990050E3B4 /* EDSubjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1808B3101B43D4990050E3B4 /* EDSubjectViewController.m */; };
+		1808B3131B43D4990050E3B4 /* EDSubjectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1808B3111B43D4990050E3B4 /* EDSubjectViewController.xib */; };
+		1808B3181B43D6480050E3B4 /* EDGradeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1808B3161B43D6480050E3B4 /* EDGradeCell.m */; };
+		1808B3191B43D6480050E3B4 /* EDGradeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1808B3171B43D6480050E3B4 /* EDGradeCell.xib */; };
+		1808B31D1B43D6650050E3B4 /* EDSubjectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1808B31B1B43D6650050E3B4 /* EDSubjectCell.m */; };
+		1808B31E1B43D6650050E3B4 /* EDSubjectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1808B31C1B43D6650050E3B4 /* EDSubjectCell.xib */; };
+		187F7DBA1B43BA1C005CC8D8 /* EDMyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187F7DB81B43BA1C005CC8D8 /* EDMyViewController.m */; };
+		187F7DBB1B43BA1C005CC8D8 /* EDMyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187F7DB91B43BA1C005CC8D8 /* EDMyViewController.xib */; };
+		187F7DC01B43BC51005CC8D8 /* EDGradeRecodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187F7DBE1B43BC51005CC8D8 /* EDGradeRecodeViewController.m */; };
+		187F7DC11B43BC51005CC8D8 /* EDGradeRecodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187F7DBF1B43BC51005CC8D8 /* EDGradeRecodeViewController.xib */; };
+		187F7DC71B43BDDF005CC8D8 /* EDGradeRecodeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 187F7DC51B43BDDF005CC8D8 /* EDGradeRecodeCell.m */; };
+		187F7DC81B43BDDF005CC8D8 /* EDGradeRecodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187F7DC61B43BDDF005CC8D8 /* EDGradeRecodeCell.xib */; };
+		187F7DCC1B43C074005CC8D8 /* EDGradeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187F7DCA1B43C074005CC8D8 /* EDGradeDetailViewController.m */; };
+		187F7DCD1B43C074005CC8D8 /* EDGradeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187F7DCB1B43C074005CC8D8 /* EDGradeDetailViewController.xib */; };
+		187F7DD01B43C469005CC8D8 /* Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 187F7DCF1B43C469005CC8D8 /* Tools.m */; };
 		768FFAF11B4238D9008E577F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF01B4238D9008E577F /* main.m */; };
 		768FFAF41B4238D9008E577F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF31B4238D9008E577F /* AppDelegate.m */; };
 		768FFAFC1B4238D9008E577F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 768FFAFB1B4238D9008E577F /* Images.xcassets */; };
@@ -35,6 +50,30 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1808B30F1B43D4990050E3B4 /* EDSubjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDSubjectViewController.h; sourceTree = "<group>"; };
+		1808B3101B43D4990050E3B4 /* EDSubjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDSubjectViewController.m; sourceTree = "<group>"; };
+		1808B3111B43D4990050E3B4 /* EDSubjectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDSubjectViewController.xib; sourceTree = "<group>"; };
+		1808B3151B43D6480050E3B4 /* EDGradeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDGradeCell.h; sourceTree = "<group>"; };
+		1808B3161B43D6480050E3B4 /* EDGradeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDGradeCell.m; sourceTree = "<group>"; };
+		1808B3171B43D6480050E3B4 /* EDGradeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDGradeCell.xib; sourceTree = "<group>"; };
+		1808B31A1B43D6650050E3B4 /* EDSubjectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDSubjectCell.h; sourceTree = "<group>"; };
+		1808B31B1B43D6650050E3B4 /* EDSubjectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDSubjectCell.m; sourceTree = "<group>"; };
+		1808B31C1B43D6650050E3B4 /* EDSubjectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDSubjectCell.xib; sourceTree = "<group>"; };
+		187F7DB71B43BA1C005CC8D8 /* EDMyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDMyViewController.h; sourceTree = "<group>"; };
+		187F7DB81B43BA1C005CC8D8 /* EDMyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDMyViewController.m; sourceTree = "<group>"; };
+		187F7DB91B43BA1C005CC8D8 /* EDMyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDMyViewController.xib; sourceTree = "<group>"; };
+		187F7DBD1B43BC51005CC8D8 /* EDGradeRecodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDGradeRecodeViewController.h; sourceTree = "<group>"; };
+		187F7DBE1B43BC51005CC8D8 /* EDGradeRecodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDGradeRecodeViewController.m; sourceTree = "<group>"; };
+		187F7DBF1B43BC51005CC8D8 /* EDGradeRecodeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDGradeRecodeViewController.xib; sourceTree = "<group>"; };
+		187F7DC41B43BDDF005CC8D8 /* EDGradeRecodeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDGradeRecodeCell.h; sourceTree = "<group>"; };
+		187F7DC51B43BDDF005CC8D8 /* EDGradeRecodeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDGradeRecodeCell.m; sourceTree = "<group>"; };
+		187F7DC61B43BDDF005CC8D8 /* EDGradeRecodeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDGradeRecodeCell.xib; sourceTree = "<group>"; };
+		187F7DC91B43C074005CC8D8 /* EDGradeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDGradeDetailViewController.h; sourceTree = "<group>"; };
+		187F7DCA1B43C074005CC8D8 /* EDGradeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDGradeDetailViewController.m; sourceTree = "<group>"; };
+		187F7DCB1B43C074005CC8D8 /* EDGradeDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDGradeDetailViewController.xib; sourceTree = "<group>"; };
+		187F7DCE1B43C469005CC8D8 /* Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tools.h; sourceTree = "<group>"; };
+		187F7DCF1B43C469005CC8D8 /* Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tools.m; sourceTree = "<group>"; };
+		187F7DD11B43C789005CC8D8 /* education-PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "education-PrefixHeader.pch"; sourceTree = "<group>"; };
 		4A377B404F6F3665E19C14D4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		768FFAEB1B4238D9008E577F /* education.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = education.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		768FFAEF1B4238D9008E577F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -83,6 +122,73 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1808B30E1B43D4700050E3B4 /* 科目选择 */ = {
+			isa = PBXGroup;
+			children = (
+				1808B30F1B43D4990050E3B4 /* EDSubjectViewController.h */,
+				1808B3101B43D4990050E3B4 /* EDSubjectViewController.m */,
+				1808B3111B43D4990050E3B4 /* EDSubjectViewController.xib */,
+			);
+			path = "科目选择";
+			sourceTree = "<group>";
+		};
+		1808B3141B43D6100050E3B4 /* 科目Cell */ = {
+			isa = PBXGroup;
+			children = (
+				1808B3151B43D6480050E3B4 /* EDGradeCell.h */,
+				1808B3161B43D6480050E3B4 /* EDGradeCell.m */,
+				1808B3171B43D6480050E3B4 /* EDGradeCell.xib */,
+				1808B31A1B43D6650050E3B4 /* EDSubjectCell.h */,
+				1808B31B1B43D6650050E3B4 /* EDSubjectCell.m */,
+				1808B31C1B43D6650050E3B4 /* EDSubjectCell.xib */,
+			);
+			path = "科目Cell";
+			sourceTree = "<group>";
+		};
+		187F7DB61B43B9CB005CC8D8 /* My */ = {
+			isa = PBXGroup;
+			children = (
+				1808B30E1B43D4700050E3B4 /* 科目选择 */,
+				187F7DBC1B43BB7B005CC8D8 /* 成绩 */,
+				187F7DB71B43BA1C005CC8D8 /* EDMyViewController.h */,
+				187F7DB81B43BA1C005CC8D8 /* EDMyViewController.m */,
+				187F7DB91B43BA1C005CC8D8 /* EDMyViewController.xib */,
+			);
+			path = My;
+			sourceTree = "<group>";
+		};
+		187F7DBC1B43BB7B005CC8D8 /* 成绩 */ = {
+			isa = PBXGroup;
+			children = (
+				187F7DBD1B43BC51005CC8D8 /* EDGradeRecodeViewController.h */,
+				187F7DBE1B43BC51005CC8D8 /* EDGradeRecodeViewController.m */,
+				187F7DBF1B43BC51005CC8D8 /* EDGradeRecodeViewController.xib */,
+				187F7DC91B43C074005CC8D8 /* EDGradeDetailViewController.h */,
+				187F7DCA1B43C074005CC8D8 /* EDGradeDetailViewController.m */,
+				187F7DCB1B43C074005CC8D8 /* EDGradeDetailViewController.xib */,
+			);
+			path = "成绩";
+			sourceTree = "<group>";
+		};
+		187F7DC21B43BDAB005CC8D8 /* 我的 */ = {
+			isa = PBXGroup;
+			children = (
+				1808B3141B43D6100050E3B4 /* 科目Cell */,
+				187F7DC31B43BDAB005CC8D8 /* 成绩cell */,
+			);
+			path = "我的";
+			sourceTree = "<group>";
+		};
+		187F7DC31B43BDAB005CC8D8 /* 成绩cell */ = {
+			isa = PBXGroup;
+			children = (
+				187F7DC41B43BDDF005CC8D8 /* EDGradeRecodeCell.h */,
+				187F7DC51B43BDDF005CC8D8 /* EDGradeRecodeCell.m */,
+				187F7DC61B43BDDF005CC8D8 /* EDGradeRecodeCell.xib */,
+			);
+			path = "成绩cell";
+			sourceTree = "<group>";
+		};
 		768FFAE21B4238D9008E577F = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				768FFAEF1B4238D9008E577F /* Info.plist */,
+				187F7DD11B43C789005CC8D8 /* education-PrefixHeader.pch */,
 				768FFAF01B4238D9008E577F /* main.m */,
 			);
 			name = "Supporting Files";
@@ -148,6 +255,7 @@
 		768FFB161B423BAC008E577F /* Section */ = {
 			isa = PBXGroup;
 			children = (
+				187F7DB61B43B9CB005CC8D8 /* My */,
 				768FFB1A1B423BE8008E577F /* HomePage */,
 			);
 			path = Section;
@@ -171,6 +279,8 @@
 		768FFB191B423BCB008E577F /* component */ = {
 			isa = PBXGroup;
 			children = (
+				187F7DCE1B43C469005CC8D8 /* Tools.h */,
+				187F7DCF1B43C469005CC8D8 /* Tools.m */,
 				768FFB201B423C76008E577F /* SETabBarViewController.h */,
 				768FFB211B423C76008E577F /* SETabBarViewController.m */,
 			);
@@ -190,6 +300,7 @@
 		768FFB2E1B42C325008E577F /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				187F7DC21B43BDAB005CC8D8 /* 我的 */,
 				768FFB2F1B42C333008E577F /* UserIntroCell.h */,
 				768FFB301B42C333008E577F /* UserIntroCell.m */,
 				768FFB311B42C333008E577F /* UserIntroCell.xib */,
@@ -302,12 +413,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1808B3191B43D6480050E3B4 /* EDGradeCell.xib in Resources */,
+				187F7DCD1B43C074005CC8D8 /* EDGradeDetailViewController.xib in Resources */,
+				1808B3131B43D4990050E3B4 /* EDSubjectViewController.xib in Resources */,
 				768FFAFF1B4238D9008E577F /* LaunchScreen.xib in Resources */,
 				768FFB3D1B42DE44008E577F /* HomePageListCell.xib in Resources */,
+				187F7DBB1B43BA1C005CC8D8 /* EDMyViewController.xib in Resources */,
 				768FFB331B42C333008E577F /* UserIntroCell.xib in Resources */,
 				768FFB1F1B423C0A008E577F /* ViewController.xib in Resources */,
+				187F7DC11B43BC51005CC8D8 /* EDGradeRecodeViewController.xib in Resources */,
 				768FFAFC1B4238D9008E577F /* Images.xcassets in Resources */,
 				768FFB381B42C8C4008E577F /* ButtonViewCell.xib in Resources */,
+				187F7DC81B43BDDF005CC8D8 /* EDGradeRecodeCell.xib in Resources */,
+				1808B31E1B43D6650050E3B4 /* EDSubjectCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,13 +476,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				187F7DC01B43BC51005CC8D8 /* EDGradeRecodeViewController.m in Sources */,
 				768FFB3C1B42DE44008E577F /* HomePageListCell.m in Sources */,
+				187F7DC71B43BDDF005CC8D8 /* EDGradeRecodeCell.m in Sources */,
+				187F7DD01B43C469005CC8D8 /* Tools.m in Sources */,
+				1808B3181B43D6480050E3B4 /* EDGradeCell.m in Sources */,
 				768FFB1E1B423C0A008E577F /* ViewController.m in Sources */,
 				768FFAF41B4238D9008E577F /* AppDelegate.m in Sources */,
 				768FFB371B42C8C4008E577F /* ButtonViewCell.m in Sources */,
+				1808B3121B43D4990050E3B4 /* EDSubjectViewController.m in Sources */,
 				768FFB221B423C76008E577F /* SETabBarViewController.m in Sources */,
+				187F7DBA1B43BA1C005CC8D8 /* EDMyViewController.m in Sources */,
 				768FFAF11B4238D9008E577F /* main.m in Sources */,
+				1808B31D1B43D6650050E3B4 /* EDSubjectCell.m in Sources */,
 				768FFB321B42C333008E577F /* UserIntroCell.m in Sources */,
+				187F7DCC1B43C074005CC8D8 /* EDGradeDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,6 +609,7 @@
 			baseConfigurationReference = 86CBB787C78559948FB65193 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/education/education-PrefixHeader.pch";
 				INFOPLIST_FILE = education/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -494,6 +621,7 @@
 			baseConfigurationReference = 4A377B404F6F3665E19C14D4 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/education/education-PrefixHeader.pch";
 				INFOPLIST_FILE = education/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

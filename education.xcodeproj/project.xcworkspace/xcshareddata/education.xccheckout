@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>B4BA99A8-07A4-4F56-9588-229C18A7B70E</string>
+	<key>IDESourceControlProjectName</key>
+	<string>education</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>558C0D82C5C5E65D752B50882E18344D91EDA523</key>
+		<string>https://github.com/kook1225/edu.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>education.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>558C0D82C5C5E65D752B50882E18344D91EDA523</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/kook1225/edu.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>558C0D82C5C5E65D752B50882E18344D91EDA523</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>558C0D82C5C5E65D752B50882E18344D91EDA523</string>
+			<key>IDESourceControlWCCName</key>
+			<string>edu</string>
+		</dict>
+	</array>
+</dict>
+</plist>

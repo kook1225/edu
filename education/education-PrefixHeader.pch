@@ -1,0 +1,27 @@
+//
+//  education-PrefixHeader.pch
+//  education
+//
+//  Created by Apple on 15/7/1.
+//  Copyright (c) 2015年 zhujun. All rights reserved.
+//
+
+#ifndef education_education_PrefixHeader_pch
+#define education_education_PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import "AFNetworking.h"
+#import "MBProgressHUD.h"
+#import <Foundation/Foundation.h>
+#import "AppDelegate.h"
+#import "Tools.h"
+
+#define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
+#define SCREENWIDTH [UIScreen mainScreen].bounds.size.width
+
+#endif
+#endif
