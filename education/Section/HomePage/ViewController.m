@@ -14,13 +14,15 @@
 
 #define IMAGEHEIGHT (160 * ([UIScreen mainScreen].bounds.size.height/568.0))
 #define USERINTROHEIGHT (64 * ([UIScreen mainScreen].bounds.size.height/568.0))
-#define BUTTONVIEWHEIGHT (216 * ([UIScreen mainScreen].bounds.size.height/568.0))
+#define BUTTONVIEWHEIGHT (204 * ([UIScreen mainScreen].bounds.size.height/568.0))
 
 @interface ViewController () {
     CGFloat scale;
     NSArray *stringArray;
     NSArray *imagesArray;
-    
+    UIView *borderView;
+    UIButton *imageBtn;
+    NSTimer *myTimer;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic,strong) UIScrollView *scrollView;
@@ -98,7 +100,7 @@
         
         // 假定需要滚动的图片数量为5张，编号为1~5，则此时scrollView中对应的图片编号为5，1，2，3，4，5，1共7张.
         
-        //[self performSelector:@selector(updateScrollView) withObject:nil afterDelay:0.0f];
+        [self performSelector:@selector(updateScrollView) withObject:nil afterDelay:0.0f];
     }
     
     // UIPageControl页面控件
@@ -117,11 +119,59 @@
     [_tableView addSubview:_page];
     
     
+    // cell
+    borderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, 6 * scale)];
+    borderView.backgroundColor = [UIColor colorWithRed:232.0/255.0 green:232.0/255.0 blue:232.0/255.0 alpha:1.000];
+
+    
+    imageBtn = [[UIButton alloc] initWithFrame:CGRectMake(10, 12, 56 * scale, 20 * scale)];
+    imageBtn.titleLabel.font = [UIFont systemFontOfSize:11];
+    [imageBtn setTitleColor:[UIColor colorWithRed:255.0/255.0 green:124.0/255.0 blue:6.0/255.0 alpha:1.000] forState:UIControlStateNormal];
+    [imageBtn setTitle:@"最新.班级圈" forState:UIControlStateNormal];
+    
+    imageBtn.layer.cornerRadius = 5.0;
+    imageBtn.layer.borderWidth = 1;
+    imageBtn.layer.borderColor = [UIColor colorWithRed:255.0/255.0 green:124.0/255.0 blue:6.0/255.0 alpha:1.000].CGColor;
+    
+    
     [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+    [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell2"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     self.navigationController.navigationBar.hidden = YES;
+}
+
+#pragma mark - Custom Method
+- (void) updateScrollView
+{
+    [myTimer invalidate];
+    myTimer = nil;
+    //time duration
+    NSTimeInterval timeInterval = 5;
+    //timer
+    myTimer = [NSTimer scheduledTimerWithTimeInterval:timeInterval target:self
+                                             selector:@selector(handleMaxShowTimer:)
+                                             userInfo: nil
+                                              repeats:YES];
+}
+
+- (void)handleMaxShowTimer:(NSTimer*)theTimer
+{
+    // scrollView的偏移量
+    CGPoint pt = _scrollView.contentOffset;
+    
+    NSUInteger count = [slideImages count];
+    
+    // 如果scrollView的横向偏移量为屏幕宽度的整数倍.
+    if(pt.x == SCREENWIDTH * count){
+        [_scrollView setContentOffset:CGPointMake(0, 0)];
+        [self.scrollView scrollRectToVisible:CGRectMake(SCREENWIDTH,0,SCREENWIDTH,IMAGEHEIGHT) animated:YES];
+    }else{
+        [self.scrollView scrollRectToVisible:CGRectMake(pt.x+SCREENWIDTH,0,SCREENWIDTH,IMAGEHEIGHT) animated:YES];
+    }
+    
+    
 }
 
 #pragma mark - UITableViewDelegate Method
@@ -139,6 +189,9 @@
     else if (indexPath.row == 2) {
         return BUTTONVIEWHEIGHT;
     }
+    else if (indexPath.row == 3) {
+        return 32 * scale;
+    }
     else {
         UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
         return cell.frame.size.height + 10;
@@ -148,7 +201,7 @@
 
 #pragma mark - UITableViewDataSource Method
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3 + [stringArray count];
+    return 4 + [stringArray count];
 }
 
 
@@ -167,6 +220,7 @@
             //通过xib的名称加载自定义的cell
             cell = [[[NSBundle mainBundle] loadNibNamed:@"UserIntroCell" owner:self options:nil] lastObject];
         }
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         return cell;
     }
     else if (indexPath.row == 2) {
@@ -175,6 +229,15 @@
             //通过xib的名称加载自定义的cell
             cell = [[[NSBundle mainBundle] loadNibNamed:@"ButtonViewCell" owner:self options:nil] lastObject];
         }
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        return cell;
+    }
+    else if (indexPath.row == 3) {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell2"];
+        cell.contentView.backgroundColor = [UIColor whiteColor];
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        [cell.contentView addSubview:imageBtn];
+        [cell.contentView addSubview:borderView];
         return cell;
     }
     else {
@@ -183,7 +246,7 @@
             cell = [[[NSBundle mainBundle] loadNibNamed:@"HomePageListCell" owner:self options:nil] lastObject];
         }
         
-        [cell setIntroductionText:[stringArray objectAtIndex:[indexPath row] - 3] image:imagesArray reply:@[@"啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊a",@"范德萨范德萨范德萨范德萨大叔大叔的"] index:indexPath.row - 3];
+        [cell setIntroductionText:[stringArray objectAtIndex:[indexPath row] - 4] image:imagesArray reply:@[@"啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊a",@"范德萨范德萨范德萨范德萨大叔大叔的"] index:indexPath.row - 4];
         
         return cell;
     }

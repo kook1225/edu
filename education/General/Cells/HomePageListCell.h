@@ -20,7 +20,12 @@
 @property (nonatomic,strong) UIButton *shareBtn;
 @property (nonatomic,strong) UIButton *evaluteBtn;
 @property (nonatomic,strong) UIButton *replyBtn;
-@property (nonatomic,strong) UITableView *tableView;
+@property (nonatomic,strong) UIView *btnView;
+@property (nonatomic,strong) UIView *btnView2;
+@property (nonatomic,strong) UIImageView *praiseImageView;
+@property (nonatomic,strong) UIImageView *evaluteImageView;
+@property (nonatomic,strong) UILabel *praiseLabel;
+@property (nonatomic,strong) UILabel *evaluteLabel;
 
 - (void)setIntroductionText:(NSString*)text image:(NSArray *)imagesArray reply:(NSArray *)replyArray index:(NSInteger)indexRow;
 

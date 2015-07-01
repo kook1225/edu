@@ -19,7 +19,6 @@
 
 - (void)prepareForReuse {
     [_backView removeFromSuperview];
-    [_tableView removeFromSuperview];
     [_shareBtn removeFromSuperview];
     [_evaluteBtn removeFromSuperview];
     [_replyBtn removeFromSuperview];
@@ -112,7 +111,9 @@
         [imageButton setFrame:CGRectMake((IMAGE_HEIGHT + 5)*(i - 3*(i/3)), (IMAGE_HEIGHT + 5) * (i/3), IMAGE_HEIGHT , IMAGE_HEIGHT)];
         imageButton.tag = indexRow*100 +i;
         [imageButton addTarget:self action:@selector(imageIntro:) forControlEvents:UIControlEventTouchUpInside];
-        [_backView addSubview:imageButton];
+        
+        // 取消图片点击
+        //[_backView addSubview:imageButton];
         
         
         [_backView addSubview:imageView];
@@ -154,21 +155,32 @@
     
     [self.contentView addSubview:_backView];
     
-    /*
-    _shareBtn = [[UIButton alloc] initWithFrame:CGRectMake(_contentLabel.frame.origin.x, CGRectGetMaxY(_backView.frame) + 5*((([imagesArray count] - 1)/3) + 1), 40, 24)];
-    [_shareBtn setBackgroundImage:[UIImage imageNamed:@"shareBtn"] forState:UIControlStateNormal];
     
-    _evaluteBtn = [[UIButton alloc] initWithFrame:CGRectMake(_contentLabel.frame.origin.x + IMAGE_HEIGHT*2, CGRectGetMaxY(_backView.frame) + 5*((([imagesArray count] - 1)/3) + 1), 40, 24)];
-    [_evaluteBtn setBackgroundImage:[UIImage imageNamed:@"evaluteBtn"] forState:UIControlStateNormal];
+    _btnView = [[UIView alloc] initWithFrame:CGRectMake(_contentLabel.frame.origin.x, CGRectGetMaxY(_backView.frame) + 5*((([imagesArray count] - 1)/3) + 1), 45, 24)];
+    [self.contentView addSubview:_btnView];
     
-    _replyBtn = [[UIButton alloc] initWithFrame:CGRectMake(_contentLabel.frame.origin.x + IMAGE_HEIGHT*3 - 30, CGRectGetMaxY(_backView.frame) + 5*((([imagesArray count] - 1)/3) + 1), 40, 24)];
-    [_replyBtn setBackgroundImage:[UIImage imageNamed:@"replyBtn"] forState:UIControlStateNormal];
+    _praiseImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 45, 24)];
+    [_praiseImageView setImage:[UIImage imageNamed:@"praiseImage"]];
+    [_btnView addSubview:_praiseImageView];
     
+    _praiseLabel = [[UILabel alloc] initWithFrame:CGRectMake(_btnView.frame.size.width - 18, 5, 15, 15)];
+    _praiseLabel.textAlignment = NSTextAlignmentCenter;
+    _praiseLabel.font = [UIFont systemFontOfSize:11];
+    _praiseLabel.text = @"6";
+    [_btnView addSubview:_praiseLabel];
     
-    [self.contentView addSubview:_shareBtn];
-    [self.contentView addSubview:_evaluteBtn];
-    [self.contentView addSubview:_replyBtn];
-    */
+    _btnView2 = [[UIView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(_btnView.frame) + 10, CGRectGetMaxY(_backView.frame) + 5*((([imagesArray count] - 1)/3) + 1), 45, 24)];
+    [self.contentView addSubview:_btnView2];
+    
+    _evaluteImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 45, 24)];
+    [_evaluteImageView setImage:[UIImage imageNamed:@"evaluteImage"]];
+    [_btnView2 addSubview:_evaluteImageView];
+    
+    _evaluteLabel = [[UILabel alloc] initWithFrame:CGRectMake(_btnView.frame.size.width - 18, 5, 15, 15)];
+    _evaluteLabel.textAlignment = NSTextAlignmentCenter;
+    _evaluteLabel.font = [UIFont systemFontOfSize:11];
+    _evaluteLabel.text = @"26";
+    [_btnView2 addSubview:_evaluteLabel];
     
     
     //计算出自适应的高度
