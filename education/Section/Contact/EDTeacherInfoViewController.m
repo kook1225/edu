@@ -8,6 +8,7 @@
 
 #import "EDTeacherInfoViewController.h"
 #import "SETabBarViewController.h"
+#import "EDSendMsgViewController.h"
 
 @interface EDTeacherInfoViewController ()
 {
@@ -39,5 +40,9 @@
 - (void)back
 {
     [self.navigationController popViewControllerAnimated:YES];
+}
+- (IBAction)sendMsgBtn:(id)sender {
+    EDSendMsgViewController *sendMsgVC = [[EDSendMsgViewController alloc]init];
+    [self.navigationController pushViewController:sendMsgVC animated:YES];
 }
 @end
