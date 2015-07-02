@@ -11,6 +11,7 @@
 #import "SETabBarViewController.h"
 #import "EDMyViewController.h"
 #import "EDContactViewController.h"
+#import "MineViewController.h"
 
 @interface AppDelegate ()
 
@@ -43,8 +44,8 @@
     EDContactViewController *contactVC = [[EDContactViewController alloc] init];
     UINavigationController *nav2 = [[UINavigationController alloc] initWithRootViewController:contactVC];
     
-    EDMyViewController *myVC = [[EDMyViewController alloc] init];
-    UINavigationController *nav3 = [[UINavigationController alloc] initWithRootViewController:myVC];
+    MineViewController *mineVC = [[MineViewController alloc] init];
+    UINavigationController *nav3 = [[UINavigationController alloc] initWithRootViewController:mineVC];
     
     UIViewController *forthVC = [[UIViewController alloc] init];
     forthVC.view.backgroundColor = [UIColor yellowColor];

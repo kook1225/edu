@@ -11,6 +11,7 @@
 #import "UserIntroCell.h"
 #import "ButtonViewCell.h"
 #import "HomePageListCell.h"
+#import "SETabBarViewController.h"
 
 #define IMAGEHEIGHT (160 * ([UIScreen mainScreen].bounds.size.height/568.0))
 #define USERINTROHEIGHT (64 * ([UIScreen mainScreen].bounds.size.height/568.0))
@@ -23,6 +24,7 @@
     UIView *borderView;
     UIButton *imageBtn;
     NSTimer *myTimer;
+    SETabBarViewController *tabBarViewController;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic,strong) UIScrollView *scrollView;
@@ -43,6 +45,8 @@
     imagesArray = @[@"1",@"1",@"1"];
     
     slideImages = [NSMutableArray arrayWithArray:@[@"example1",@"example2",@"example3"]];
+    
+    tabBarViewController = (SETabBarViewController *)self.navigationController.parentViewController;
     
     // 是否设置回弹效果
     _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, IMAGEHEIGHT)];
@@ -140,6 +144,8 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     self.navigationController.navigationBar.hidden = YES;
+    
+    [tabBarViewController tabBarViewShow];
 }
 
 #pragma mark - Custom Method

@@ -36,6 +36,8 @@
 		187F7DCC1B43C074005CC8D8 /* EDGradeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187F7DCA1B43C074005CC8D8 /* EDGradeDetailViewController.m */; };
 		187F7DCD1B43C074005CC8D8 /* EDGradeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187F7DCB1B43C074005CC8D8 /* EDGradeDetailViewController.xib */; };
 		187F7DD01B43C469005CC8D8 /* Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 187F7DCF1B43C469005CC8D8 /* Tools.m */; };
+		761749041B451C87006DD0AA /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 761749021B451C87006DD0AA /* MineViewController.m */; };
+		761749051B451C87006DD0AA /* MineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 761749031B451C87006DD0AA /* MineViewController.xib */; };
 		768FFAF11B4238D9008E577F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF01B4238D9008E577F /* main.m */; };
 		768FFAF41B4238D9008E577F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF31B4238D9008E577F /* AppDelegate.m */; };
 		768FFAFC1B4238D9008E577F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 768FFAFB1B4238D9008E577F /* Images.xcassets */; };
@@ -110,6 +112,9 @@
 		187F7DCF1B43C469005CC8D8 /* Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tools.m; sourceTree = "<group>"; };
 		187F7DD11B43C789005CC8D8 /* education-PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "education-PrefixHeader.pch"; sourceTree = "<group>"; };
 		4A377B404F6F3665E19C14D4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		761749011B451C87006DD0AA /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
+		761749021B451C87006DD0AA /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
+		761749031B451C87006DD0AA /* MineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MineViewController.xib; sourceTree = "<group>"; };
 		768FFAEB1B4238D9008E577F /* education.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = education.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		768FFAEF1B4238D9008E577F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		768FFAF01B4238D9008E577F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -275,6 +280,16 @@
 			path = "成绩cell";
 			sourceTree = "<group>";
 		};
+		761749001B451C6C006DD0AA /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				761749011B451C87006DD0AA /* MineViewController.h */,
+				761749021B451C87006DD0AA /* MineViewController.m */,
+				761749031B451C87006DD0AA /* MineViewController.xib */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
 		768FFAE21B4238D9008E577F = {
 			isa = PBXGroup;
 			children = (
@@ -341,6 +356,7 @@
 		768FFB161B423BAC008E577F /* Section */ = {
 			isa = PBXGroup;
 			children = (
+				761749001B451C6C006DD0AA /* Mine */,
 				1808B32B1B4439C60050E3B4 /* Contact */,
 				187F7DB61B43B9CB005CC8D8 /* My */,
 				768FFB1A1B423BE8008E577F /* HomePage */,
@@ -509,6 +525,7 @@
 				1808B3131B43D4990050E3B4 /* EDSubjectViewController.xib in Resources */,
 				768FFAFF1B4238D9008E577F /* LaunchScreen.xib in Resources */,
 				768FFB3D1B42DE44008E577F /* HomePageListCell.xib in Resources */,
+				761749051B451C87006DD0AA /* MineViewController.xib in Resources */,
 				1808B32A1B44293C0050E3B4 /* EDDayInfoCell.xib in Resources */,
 				187F7DBB1B43BA1C005CC8D8 /* EDMyViewController.xib in Resources */,
 				1808B3451B44EADB0050E3B4 /* EDTeacherInfoViewController.xib in Resources */,
@@ -580,6 +597,7 @@
 				768FFB1E1B423C0A008E577F /* ViewController.m in Sources */,
 				768FFAF41B4238D9008E577F /* AppDelegate.m in Sources */,
 				768FFB371B42C8C4008E577F /* ButtonViewCell.m in Sources */,
+				761749041B451C87006DD0AA /* MineViewController.m in Sources */,
 				1808B34E1B44FD1C0050E3B4 /* EDSendMsgViewController.m in Sources */,
 				1808B3121B43D4990050E3B4 /* EDSubjectViewController.m in Sources */,
 				768FFB221B423C76008E577F /* SETabBarViewController.m in Sources */,
