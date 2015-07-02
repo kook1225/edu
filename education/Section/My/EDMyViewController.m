@@ -10,6 +10,7 @@
 #import "EDGradeRecodeViewController.h"
 #import "SETabBarViewController.h"
 #import "EDSubjectViewController.h"
+#import "EDInfomationViewController.h"
 
 @interface EDMyViewController ()
 {
@@ -38,6 +39,10 @@
 - (IBAction)subjectBtn:(id)sender {
     EDSubjectViewController *subjectVC = [[EDSubjectViewController alloc]init];
     [self.navigationController pushViewController:subjectVC animated:YES];
+}
+- (IBAction)infoBtn:(id)sender {
+    EDInfomationViewController *infoVC = [[EDInfomationViewController alloc]init];
+    [self.navigationController pushViewController:infoVC animated:YES];
 }
 
 /*

@@ -13,6 +13,12 @@
 		1808B3191B43D6480050E3B4 /* EDGradeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1808B3171B43D6480050E3B4 /* EDGradeCell.xib */; };
 		1808B31D1B43D6650050E3B4 /* EDSubjectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1808B31B1B43D6650050E3B4 /* EDSubjectCell.m */; };
 		1808B31E1B43D6650050E3B4 /* EDSubjectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1808B31C1B43D6650050E3B4 /* EDSubjectCell.xib */; };
+		1808B3231B4428770050E3B4 /* EDInfomationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1808B3211B4428770050E3B4 /* EDInfomationViewController.m */; };
+		1808B3241B4428770050E3B4 /* EDInfomationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1808B3221B4428770050E3B4 /* EDInfomationViewController.xib */; };
+		1808B3291B44293C0050E3B4 /* EDDayInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1808B3271B44293C0050E3B4 /* EDDayInfoCell.m */; };
+		1808B32A1B44293C0050E3B4 /* EDDayInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1808B3281B44293C0050E3B4 /* EDDayInfoCell.xib */; };
+		1808B32F1B4439ED0050E3B4 /* EDContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1808B32D1B4439ED0050E3B4 /* EDContactViewController.m */; };
+		1808B3301B4439ED0050E3B4 /* EDContactViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1808B32E1B4439ED0050E3B4 /* EDContactViewController.xib */; };
 		187F7DBA1B43BA1C005CC8D8 /* EDMyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187F7DB81B43BA1C005CC8D8 /* EDMyViewController.m */; };
 		187F7DBB1B43BA1C005CC8D8 /* EDMyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187F7DB91B43BA1C005CC8D8 /* EDMyViewController.xib */; };
 		187F7DC01B43BC51005CC8D8 /* EDGradeRecodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187F7DBE1B43BC51005CC8D8 /* EDGradeRecodeViewController.m */; };
@@ -59,6 +65,15 @@
 		1808B31A1B43D6650050E3B4 /* EDSubjectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDSubjectCell.h; sourceTree = "<group>"; };
 		1808B31B1B43D6650050E3B4 /* EDSubjectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDSubjectCell.m; sourceTree = "<group>"; };
 		1808B31C1B43D6650050E3B4 /* EDSubjectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDSubjectCell.xib; sourceTree = "<group>"; };
+		1808B3201B4428770050E3B4 /* EDInfomationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDInfomationViewController.h; sourceTree = "<group>"; };
+		1808B3211B4428770050E3B4 /* EDInfomationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDInfomationViewController.m; sourceTree = "<group>"; };
+		1808B3221B4428770050E3B4 /* EDInfomationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDInfomationViewController.xib; sourceTree = "<group>"; };
+		1808B3261B44293C0050E3B4 /* EDDayInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDDayInfoCell.h; sourceTree = "<group>"; };
+		1808B3271B44293C0050E3B4 /* EDDayInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDDayInfoCell.m; sourceTree = "<group>"; };
+		1808B3281B44293C0050E3B4 /* EDDayInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDDayInfoCell.xib; sourceTree = "<group>"; };
+		1808B32C1B4439ED0050E3B4 /* EDContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDContactViewController.h; sourceTree = "<group>"; };
+		1808B32D1B4439ED0050E3B4 /* EDContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDContactViewController.m; sourceTree = "<group>"; };
+		1808B32E1B4439ED0050E3B4 /* EDContactViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDContactViewController.xib; sourceTree = "<group>"; };
 		187F7DB71B43BA1C005CC8D8 /* EDMyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDMyViewController.h; sourceTree = "<group>"; };
 		187F7DB81B43BA1C005CC8D8 /* EDMyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDMyViewController.m; sourceTree = "<group>"; };
 		187F7DB91B43BA1C005CC8D8 /* EDMyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDMyViewController.xib; sourceTree = "<group>"; };
@@ -145,9 +160,40 @@
 			path = "科目Cell";
 			sourceTree = "<group>";
 		};
+		1808B31F1B44284D0050E3B4 /* 天天资讯 */ = {
+			isa = PBXGroup;
+			children = (
+				1808B3201B4428770050E3B4 /* EDInfomationViewController.h */,
+				1808B3211B4428770050E3B4 /* EDInfomationViewController.m */,
+				1808B3221B4428770050E3B4 /* EDInfomationViewController.xib */,
+			);
+			path = "天天资讯";
+			sourceTree = "<group>";
+		};
+		1808B3251B4429170050E3B4 /* 天天资讯Cell */ = {
+			isa = PBXGroup;
+			children = (
+				1808B3261B44293C0050E3B4 /* EDDayInfoCell.h */,
+				1808B3271B44293C0050E3B4 /* EDDayInfoCell.m */,
+				1808B3281B44293C0050E3B4 /* EDDayInfoCell.xib */,
+			);
+			path = "天天资讯Cell";
+			sourceTree = "<group>";
+		};
+		1808B32B1B4439C60050E3B4 /* Contact */ = {
+			isa = PBXGroup;
+			children = (
+				1808B32C1B4439ED0050E3B4 /* EDContactViewController.h */,
+				1808B32D1B4439ED0050E3B4 /* EDContactViewController.m */,
+				1808B32E1B4439ED0050E3B4 /* EDContactViewController.xib */,
+			);
+			path = Contact;
+			sourceTree = "<group>";
+		};
 		187F7DB61B43B9CB005CC8D8 /* My */ = {
 			isa = PBXGroup;
 			children = (
+				1808B31F1B44284D0050E3B4 /* 天天资讯 */,
 				1808B30E1B43D4700050E3B4 /* 科目选择 */,
 				187F7DBC1B43BB7B005CC8D8 /* 成绩 */,
 				187F7DB71B43BA1C005CC8D8 /* EDMyViewController.h */,
@@ -173,6 +219,7 @@
 		187F7DC21B43BDAB005CC8D8 /* 我的 */ = {
 			isa = PBXGroup;
 			children = (
+				1808B3251B4429170050E3B4 /* 天天资讯Cell */,
 				1808B3141B43D6100050E3B4 /* 科目Cell */,
 				187F7DC31B43BDAB005CC8D8 /* 成绩cell */,
 			);
@@ -255,6 +302,7 @@
 		768FFB161B423BAC008E577F /* Section */ = {
 			isa = PBXGroup;
 			children = (
+				1808B32B1B4439C60050E3B4 /* Contact */,
 				187F7DB61B43B9CB005CC8D8 /* My */,
 				768FFB1A1B423BE8008E577F /* HomePage */,
 			);
@@ -413,11 +461,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1808B3301B4439ED0050E3B4 /* EDContactViewController.xib in Resources */,
 				1808B3191B43D6480050E3B4 /* EDGradeCell.xib in Resources */,
 				187F7DCD1B43C074005CC8D8 /* EDGradeDetailViewController.xib in Resources */,
 				1808B3131B43D4990050E3B4 /* EDSubjectViewController.xib in Resources */,
 				768FFAFF1B4238D9008E577F /* LaunchScreen.xib in Resources */,
 				768FFB3D1B42DE44008E577F /* HomePageListCell.xib in Resources */,
+				1808B32A1B44293C0050E3B4 /* EDDayInfoCell.xib in Resources */,
 				187F7DBB1B43BA1C005CC8D8 /* EDMyViewController.xib in Resources */,
 				768FFB331B42C333008E577F /* UserIntroCell.xib in Resources */,
 				768FFB1F1B423C0A008E577F /* ViewController.xib in Resources */,
@@ -426,6 +476,7 @@
 				768FFB381B42C8C4008E577F /* ButtonViewCell.xib in Resources */,
 				187F7DC81B43BDDF005CC8D8 /* EDGradeRecodeCell.xib in Resources */,
 				1808B31E1B43D6650050E3B4 /* EDSubjectCell.xib in Resources */,
+				1808B3241B4428770050E3B4 /* EDInfomationViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,6 +530,7 @@
 				187F7DC01B43BC51005CC8D8 /* EDGradeRecodeViewController.m in Sources */,
 				768FFB3C1B42DE44008E577F /* HomePageListCell.m in Sources */,
 				187F7DC71B43BDDF005CC8D8 /* EDGradeRecodeCell.m in Sources */,
+				1808B3231B4428770050E3B4 /* EDInfomationViewController.m in Sources */,
 				187F7DD01B43C469005CC8D8 /* Tools.m in Sources */,
 				1808B3181B43D6480050E3B4 /* EDGradeCell.m in Sources */,
 				768FFB1E1B423C0A008E577F /* ViewController.m in Sources */,
@@ -490,6 +542,8 @@
 				768FFAF11B4238D9008E577F /* main.m in Sources */,
 				1808B31D1B43D6650050E3B4 /* EDSubjectCell.m in Sources */,
 				768FFB321B42C333008E577F /* UserIntroCell.m in Sources */,
+				1808B3291B44293C0050E3B4 /* EDDayInfoCell.m in Sources */,
+				1808B32F1B4439ED0050E3B4 /* EDContactViewController.m in Sources */,
 				187F7DCC1B43C074005CC8D8 /* EDGradeDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

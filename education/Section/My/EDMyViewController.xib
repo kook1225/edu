@@ -32,6 +32,15 @@
                         <action selector="subjectBtn:" destination="-1" eventType="touchUpInside" id="Upf-Co-fRV"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oyi-pG-NUy">
+                    <rect key="frame" x="130" y="200" width="60" height="30"/>
+                    <state key="normal" title="天天资讯">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="infoBtn:" destination="-1" eventType="touchUpInside" id="JiP-WJ-ImG"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
