@@ -38,6 +38,16 @@
 		187F7DD01B43C469005CC8D8 /* Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 187F7DCF1B43C469005CC8D8 /* Tools.m */; };
 		761749041B451C87006DD0AA /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 761749021B451C87006DD0AA /* MineViewController.m */; };
 		761749051B451C87006DD0AA /* MineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 761749031B451C87006DD0AA /* MineViewController.xib */; };
+		7644064D1B458B1700541C86 /* BottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 764406421B458B1700541C86 /* BottomCell.m */; };
+		7644064E1B458B1700541C86 /* BottomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 764406431B458B1700541C86 /* BottomCell.xib */; };
+		7644064F1B458B1700541C86 /* ClassCircleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 764406451B458B1700541C86 /* ClassCircleCell.m */; };
+		764406501B458B1700541C86 /* ClassCircleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 764406461B458B1700541C86 /* ClassCircleCell.xib */; };
+		764406511B458B1700541C86 /* ReplyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 764406481B458B1700541C86 /* ReplyCell.m */; };
+		764406521B458B1700541C86 /* ReplyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 764406491B458B1700541C86 /* ReplyCell.xib */; };
+		764406531B458B1700541C86 /* TopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7644064B1B458B1700541C86 /* TopCell.m */; };
+		764406541B458B1700541C86 /* TopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7644064C1B458B1700541C86 /* TopCell.xib */; };
+		764406591B458C2C00541C86 /* ClassCircleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 764406571B458C2C00541C86 /* ClassCircleViewController.m */; };
+		7644065A1B458C2C00541C86 /* ClassCircleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 764406581B458C2C00541C86 /* ClassCircleViewController.xib */; };
 		768FFAF11B4238D9008E577F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF01B4238D9008E577F /* main.m */; };
 		768FFAF41B4238D9008E577F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF31B4238D9008E577F /* AppDelegate.m */; };
 		768FFAFC1B4238D9008E577F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 768FFAFB1B4238D9008E577F /* Images.xcassets */; };
@@ -115,6 +125,21 @@
 		761749011B451C87006DD0AA /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
 		761749021B451C87006DD0AA /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
 		761749031B451C87006DD0AA /* MineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MineViewController.xib; sourceTree = "<group>"; };
+		764406411B458B1700541C86 /* BottomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BottomCell.h; sourceTree = "<group>"; };
+		764406421B458B1700541C86 /* BottomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BottomCell.m; sourceTree = "<group>"; };
+		764406431B458B1700541C86 /* BottomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BottomCell.xib; sourceTree = "<group>"; };
+		764406441B458B1700541C86 /* ClassCircleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassCircleCell.h; sourceTree = "<group>"; };
+		764406451B458B1700541C86 /* ClassCircleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassCircleCell.m; sourceTree = "<group>"; };
+		764406461B458B1700541C86 /* ClassCircleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassCircleCell.xib; sourceTree = "<group>"; };
+		764406471B458B1700541C86 /* ReplyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReplyCell.h; sourceTree = "<group>"; };
+		764406481B458B1700541C86 /* ReplyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReplyCell.m; sourceTree = "<group>"; };
+		764406491B458B1700541C86 /* ReplyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReplyCell.xib; sourceTree = "<group>"; };
+		7644064A1B458B1700541C86 /* TopCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopCell.h; sourceTree = "<group>"; };
+		7644064B1B458B1700541C86 /* TopCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopCell.m; sourceTree = "<group>"; };
+		7644064C1B458B1700541C86 /* TopCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopCell.xib; sourceTree = "<group>"; };
+		764406561B458C2C00541C86 /* ClassCircleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassCircleViewController.h; sourceTree = "<group>"; };
+		764406571B458C2C00541C86 /* ClassCircleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassCircleViewController.m; sourceTree = "<group>"; };
+		764406581B458C2C00541C86 /* ClassCircleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassCircleViewController.xib; sourceTree = "<group>"; };
 		768FFAEB1B4238D9008E577F /* education.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = education.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		768FFAEF1B4238D9008E577F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		768FFAF01B4238D9008E577F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -290,6 +315,43 @@
 			path = Mine;
 			sourceTree = "<group>";
 		};
+		7644063F1B458B0E00541C86 /* 首页 */ = {
+			isa = PBXGroup;
+			children = (
+				764406401B458B1700541C86 /* 班级圈cell */,
+			);
+			path = "首页";
+			sourceTree = "<group>";
+		};
+		764406401B458B1700541C86 /* 班级圈cell */ = {
+			isa = PBXGroup;
+			children = (
+				764406411B458B1700541C86 /* BottomCell.h */,
+				764406421B458B1700541C86 /* BottomCell.m */,
+				764406431B458B1700541C86 /* BottomCell.xib */,
+				764406441B458B1700541C86 /* ClassCircleCell.h */,
+				764406451B458B1700541C86 /* ClassCircleCell.m */,
+				764406461B458B1700541C86 /* ClassCircleCell.xib */,
+				764406471B458B1700541C86 /* ReplyCell.h */,
+				764406481B458B1700541C86 /* ReplyCell.m */,
+				764406491B458B1700541C86 /* ReplyCell.xib */,
+				7644064A1B458B1700541C86 /* TopCell.h */,
+				7644064B1B458B1700541C86 /* TopCell.m */,
+				7644064C1B458B1700541C86 /* TopCell.xib */,
+			);
+			path = "班级圈cell";
+			sourceTree = "<group>";
+		};
+		764406551B458C2C00541C86 /* 班级圈 */ = {
+			isa = PBXGroup;
+			children = (
+				764406561B458C2C00541C86 /* ClassCircleViewController.h */,
+				764406571B458C2C00541C86 /* ClassCircleViewController.m */,
+				764406581B458C2C00541C86 /* ClassCircleViewController.xib */,
+			);
+			path = "班级圈";
+			sourceTree = "<group>";
+		};
 		768FFAE21B4238D9008E577F = {
 			isa = PBXGroup;
 			children = (
@@ -393,6 +455,7 @@
 		768FFB1A1B423BE8008E577F /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				764406551B458C2C00541C86 /* 班级圈 */,
 				768FFB1B1B423C0A008E577F /* ViewController.h */,
 				768FFB1C1B423C0A008E577F /* ViewController.m */,
 				768FFB1D1B423C0A008E577F /* ViewController.xib */,
@@ -403,6 +466,7 @@
 		768FFB2E1B42C325008E577F /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				7644063F1B458B0E00541C86 /* 首页 */,
 				1808B3311B44DE680050E3B4 /* 通讯录 */,
 				187F7DC21B43BDAB005CC8D8 /* 我的 */,
 				768FFB2F1B42C333008E577F /* UserIntroCell.h */,
@@ -518,10 +582,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				1808B3301B4439ED0050E3B4 /* EDContactViewController.xib in Resources */,
+				7644065A1B458C2C00541C86 /* ClassCircleViewController.xib in Resources */,
 				1808B34F1B44FD1C0050E3B4 /* EDSendMsgViewController.xib in Resources */,
+				764406521B458B1700541C86 /* ReplyCell.xib in Resources */,
 				1808B3191B43D6480050E3B4 /* EDGradeCell.xib in Resources */,
+				764406501B458B1700541C86 /* ClassCircleCell.xib in Resources */,
 				1808B34A1B44F1CB0050E3B4 /* EDStudentViewController.xib in Resources */,
 				187F7DCD1B43C074005CC8D8 /* EDGradeDetailViewController.xib in Resources */,
+				764406541B458B1700541C86 /* TopCell.xib in Resources */,
 				1808B3131B43D4990050E3B4 /* EDSubjectViewController.xib in Resources */,
 				768FFAFF1B4238D9008E577F /* LaunchScreen.xib in Resources */,
 				768FFB3D1B42DE44008E577F /* HomePageListCell.xib in Resources */,
@@ -535,6 +603,7 @@
 				768FFAFC1B4238D9008E577F /* Images.xcassets in Resources */,
 				768FFB381B42C8C4008E577F /* ButtonViewCell.xib in Resources */,
 				187F7DC81B43BDDF005CC8D8 /* EDGradeRecodeCell.xib in Resources */,
+				7644064E1B458B1700541C86 /* BottomCell.xib in Resources */,
 				1808B31E1B43D6650050E3B4 /* EDSubjectCell.xib in Resources */,
 				1808B33B1B44DEB00050E3B4 /* EDContactContentCell.xib in Resources */,
 				1808B3241B4428770050E3B4 /* EDInfomationViewController.xib in Resources */,
@@ -596,6 +665,7 @@
 				1808B3181B43D6480050E3B4 /* EDGradeCell.m in Sources */,
 				768FFB1E1B423C0A008E577F /* ViewController.m in Sources */,
 				768FFAF41B4238D9008E577F /* AppDelegate.m in Sources */,
+				7644064F1B458B1700541C86 /* ClassCircleCell.m in Sources */,
 				768FFB371B42C8C4008E577F /* ButtonViewCell.m in Sources */,
 				761749041B451C87006DD0AA /* MineViewController.m in Sources */,
 				1808B34E1B44FD1C0050E3B4 /* EDSendMsgViewController.m in Sources */,
@@ -604,11 +674,15 @@
 				187F7DBA1B43BA1C005CC8D8 /* EDMyViewController.m in Sources */,
 				768FFAF11B4238D9008E577F /* main.m in Sources */,
 				1808B31D1B43D6650050E3B4 /* EDSubjectCell.m in Sources */,
+				764406591B458C2C00541C86 /* ClassCircleViewController.m in Sources */,
 				768FFB321B42C333008E577F /* UserIntroCell.m in Sources */,
 				1808B3291B44293C0050E3B4 /* EDDayInfoCell.m in Sources */,
 				1808B3491B44F1CB0050E3B4 /* EDStudentViewController.m in Sources */,
 				1808B3441B44EADB0050E3B4 /* EDTeacherInfoViewController.m in Sources */,
+				7644064D1B458B1700541C86 /* BottomCell.m in Sources */,
+				764406511B458B1700541C86 /* ReplyCell.m in Sources */,
 				1808B33A1B44DEB00050E3B4 /* EDContactContentCell.m in Sources */,
+				764406531B458B1700541C86 /* TopCell.m in Sources */,
 				1808B32F1B4439ED0050E3B4 /* EDContactViewController.m in Sources */,
 				187F7DCC1B43C074005CC8D8 /* EDGradeDetailViewController.m in Sources */,
 			);
