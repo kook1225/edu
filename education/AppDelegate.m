@@ -10,6 +10,7 @@
 #import "ViewController.h"
 #import "SETabBarViewController.h"
 #import "EDMyViewController.h"
+#import "EDContactViewController.h"
 
 @interface AppDelegate ()
 
@@ -39,9 +40,8 @@
     ViewController *viewController = [[ViewController alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:viewController];
     
-    UIViewController *secondVC = [[UIViewController alloc] init];
-    secondVC.view.backgroundColor = [UIColor redColor];
-    UINavigationController *nav2 = [[UINavigationController alloc] initWithRootViewController:secondVC];
+    EDContactViewController *contactVC = [[EDContactViewController alloc] init];
+    UINavigationController *nav2 = [[UINavigationController alloc] initWithRootViewController:contactVC];
     
     EDMyViewController *myVC = [[EDMyViewController alloc] init];
     UINavigationController *nav3 = [[UINavigationController alloc] initWithRootViewController:myVC];

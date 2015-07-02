@@ -19,6 +19,14 @@
 		1808B32A1B44293C0050E3B4 /* EDDayInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1808B3281B44293C0050E3B4 /* EDDayInfoCell.xib */; };
 		1808B32F1B4439ED0050E3B4 /* EDContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1808B32D1B4439ED0050E3B4 /* EDContactViewController.m */; };
 		1808B3301B4439ED0050E3B4 /* EDContactViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1808B32E1B4439ED0050E3B4 /* EDContactViewController.xib */; };
+		1808B33A1B44DEB00050E3B4 /* EDContactContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1808B3381B44DEB00050E3B4 /* EDContactContentCell.m */; };
+		1808B33B1B44DEB00050E3B4 /* EDContactContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1808B3391B44DEB00050E3B4 /* EDContactContentCell.xib */; };
+		1808B3441B44EADB0050E3B4 /* EDTeacherInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1808B3421B44EADB0050E3B4 /* EDTeacherInfoViewController.m */; };
+		1808B3451B44EADB0050E3B4 /* EDTeacherInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1808B3431B44EADB0050E3B4 /* EDTeacherInfoViewController.xib */; };
+		1808B3491B44F1CB0050E3B4 /* EDStudentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1808B3471B44F1CB0050E3B4 /* EDStudentViewController.m */; };
+		1808B34A1B44F1CB0050E3B4 /* EDStudentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1808B3481B44F1CB0050E3B4 /* EDStudentViewController.xib */; };
+		1808B34E1B44FD1C0050E3B4 /* EDSendMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1808B34C1B44FD1C0050E3B4 /* EDSendMsgViewController.m */; };
+		1808B34F1B44FD1C0050E3B4 /* EDSendMsgViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1808B34D1B44FD1C0050E3B4 /* EDSendMsgViewController.xib */; };
 		187F7DBA1B43BA1C005CC8D8 /* EDMyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187F7DB81B43BA1C005CC8D8 /* EDMyViewController.m */; };
 		187F7DBB1B43BA1C005CC8D8 /* EDMyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187F7DB91B43BA1C005CC8D8 /* EDMyViewController.xib */; };
 		187F7DC01B43BC51005CC8D8 /* EDGradeRecodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187F7DBE1B43BC51005CC8D8 /* EDGradeRecodeViewController.m */; };
@@ -74,6 +82,18 @@
 		1808B32C1B4439ED0050E3B4 /* EDContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDContactViewController.h; sourceTree = "<group>"; };
 		1808B32D1B4439ED0050E3B4 /* EDContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDContactViewController.m; sourceTree = "<group>"; };
 		1808B32E1B4439ED0050E3B4 /* EDContactViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDContactViewController.xib; sourceTree = "<group>"; };
+		1808B3371B44DEB00050E3B4 /* EDContactContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDContactContentCell.h; sourceTree = "<group>"; };
+		1808B3381B44DEB00050E3B4 /* EDContactContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDContactContentCell.m; sourceTree = "<group>"; };
+		1808B3391B44DEB00050E3B4 /* EDContactContentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDContactContentCell.xib; sourceTree = "<group>"; };
+		1808B3411B44EADB0050E3B4 /* EDTeacherInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDTeacherInfoViewController.h; sourceTree = "<group>"; };
+		1808B3421B44EADB0050E3B4 /* EDTeacherInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDTeacherInfoViewController.m; sourceTree = "<group>"; };
+		1808B3431B44EADB0050E3B4 /* EDTeacherInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDTeacherInfoViewController.xib; sourceTree = "<group>"; };
+		1808B3461B44F1CB0050E3B4 /* EDStudentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDStudentViewController.h; sourceTree = "<group>"; };
+		1808B3471B44F1CB0050E3B4 /* EDStudentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDStudentViewController.m; sourceTree = "<group>"; };
+		1808B3481B44F1CB0050E3B4 /* EDStudentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDStudentViewController.xib; sourceTree = "<group>"; };
+		1808B34B1B44FD1C0050E3B4 /* EDSendMsgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDSendMsgViewController.h; sourceTree = "<group>"; };
+		1808B34C1B44FD1C0050E3B4 /* EDSendMsgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDSendMsgViewController.m; sourceTree = "<group>"; };
+		1808B34D1B44FD1C0050E3B4 /* EDSendMsgViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDSendMsgViewController.xib; sourceTree = "<group>"; };
 		187F7DB71B43BA1C005CC8D8 /* EDMyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDMyViewController.h; sourceTree = "<group>"; };
 		187F7DB81B43BA1C005CC8D8 /* EDMyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDMyViewController.m; sourceTree = "<group>"; };
 		187F7DB91B43BA1C005CC8D8 /* EDMyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDMyViewController.xib; sourceTree = "<group>"; };
@@ -186,8 +206,27 @@
 				1808B32C1B4439ED0050E3B4 /* EDContactViewController.h */,
 				1808B32D1B4439ED0050E3B4 /* EDContactViewController.m */,
 				1808B32E1B4439ED0050E3B4 /* EDContactViewController.xib */,
+				1808B3411B44EADB0050E3B4 /* EDTeacherInfoViewController.h */,
+				1808B3421B44EADB0050E3B4 /* EDTeacherInfoViewController.m */,
+				1808B3431B44EADB0050E3B4 /* EDTeacherInfoViewController.xib */,
+				1808B3461B44F1CB0050E3B4 /* EDStudentViewController.h */,
+				1808B3471B44F1CB0050E3B4 /* EDStudentViewController.m */,
+				1808B3481B44F1CB0050E3B4 /* EDStudentViewController.xib */,
+				1808B34B1B44FD1C0050E3B4 /* EDSendMsgViewController.h */,
+				1808B34C1B44FD1C0050E3B4 /* EDSendMsgViewController.m */,
+				1808B34D1B44FD1C0050E3B4 /* EDSendMsgViewController.xib */,
 			);
 			path = Contact;
+			sourceTree = "<group>";
+		};
+		1808B3311B44DE680050E3B4 /* 通讯录 */ = {
+			isa = PBXGroup;
+			children = (
+				1808B3371B44DEB00050E3B4 /* EDContactContentCell.h */,
+				1808B3381B44DEB00050E3B4 /* EDContactContentCell.m */,
+				1808B3391B44DEB00050E3B4 /* EDContactContentCell.xib */,
+			);
+			path = "通讯录";
 			sourceTree = "<group>";
 		};
 		187F7DB61B43B9CB005CC8D8 /* My */ = {
@@ -348,6 +387,7 @@
 		768FFB2E1B42C325008E577F /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				1808B3311B44DE680050E3B4 /* 通讯录 */,
 				187F7DC21B43BDAB005CC8D8 /* 我的 */,
 				768FFB2F1B42C333008E577F /* UserIntroCell.h */,
 				768FFB301B42C333008E577F /* UserIntroCell.m */,
@@ -462,13 +502,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				1808B3301B4439ED0050E3B4 /* EDContactViewController.xib in Resources */,
+				1808B34F1B44FD1C0050E3B4 /* EDSendMsgViewController.xib in Resources */,
 				1808B3191B43D6480050E3B4 /* EDGradeCell.xib in Resources */,
+				1808B34A1B44F1CB0050E3B4 /* EDStudentViewController.xib in Resources */,
 				187F7DCD1B43C074005CC8D8 /* EDGradeDetailViewController.xib in Resources */,
 				1808B3131B43D4990050E3B4 /* EDSubjectViewController.xib in Resources */,
 				768FFAFF1B4238D9008E577F /* LaunchScreen.xib in Resources */,
 				768FFB3D1B42DE44008E577F /* HomePageListCell.xib in Resources */,
 				1808B32A1B44293C0050E3B4 /* EDDayInfoCell.xib in Resources */,
 				187F7DBB1B43BA1C005CC8D8 /* EDMyViewController.xib in Resources */,
+				1808B3451B44EADB0050E3B4 /* EDTeacherInfoViewController.xib in Resources */,
 				768FFB331B42C333008E577F /* UserIntroCell.xib in Resources */,
 				768FFB1F1B423C0A008E577F /* ViewController.xib in Resources */,
 				187F7DC11B43BC51005CC8D8 /* EDGradeRecodeViewController.xib in Resources */,
@@ -476,6 +519,7 @@
 				768FFB381B42C8C4008E577F /* ButtonViewCell.xib in Resources */,
 				187F7DC81B43BDDF005CC8D8 /* EDGradeRecodeCell.xib in Resources */,
 				1808B31E1B43D6650050E3B4 /* EDSubjectCell.xib in Resources */,
+				1808B33B1B44DEB00050E3B4 /* EDContactContentCell.xib in Resources */,
 				1808B3241B4428770050E3B4 /* EDInfomationViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -536,6 +580,7 @@
 				768FFB1E1B423C0A008E577F /* ViewController.m in Sources */,
 				768FFAF41B4238D9008E577F /* AppDelegate.m in Sources */,
 				768FFB371B42C8C4008E577F /* ButtonViewCell.m in Sources */,
+				1808B34E1B44FD1C0050E3B4 /* EDSendMsgViewController.m in Sources */,
 				1808B3121B43D4990050E3B4 /* EDSubjectViewController.m in Sources */,
 				768FFB221B423C76008E577F /* SETabBarViewController.m in Sources */,
 				187F7DBA1B43BA1C005CC8D8 /* EDMyViewController.m in Sources */,
@@ -543,6 +588,9 @@
 				1808B31D1B43D6650050E3B4 /* EDSubjectCell.m in Sources */,
 				768FFB321B42C333008E577F /* UserIntroCell.m in Sources */,
 				1808B3291B44293C0050E3B4 /* EDDayInfoCell.m in Sources */,
+				1808B3491B44F1CB0050E3B4 /* EDStudentViewController.m in Sources */,
+				1808B3441B44EADB0050E3B4 /* EDTeacherInfoViewController.m in Sources */,
+				1808B33A1B44DEB00050E3B4 /* EDContactContentCell.m in Sources */,
 				1808B32F1B4439ED0050E3B4 /* EDContactViewController.m in Sources */,
 				187F7DCC1B43C074005CC8D8 /* EDGradeDetailViewController.m in Sources */,
 			);

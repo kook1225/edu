@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EDContactViewController : UIViewController
+@interface EDContactViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
 @end
