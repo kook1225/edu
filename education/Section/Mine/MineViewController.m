@@ -8,6 +8,7 @@
 
 #import "MineViewController.h"
 #import "SETabBarViewController.h"
+#import "EDEditInfoViewController.h"
 
 @interface MineViewController () {
     SETabBarViewController *tabBarViewController;
@@ -36,9 +37,16 @@
     [tabBarViewController tabBarViewShow];
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    self.navigationController.navigationBar.hidden = NO;
+    [self.navigationController.navigationBar setTranslucent:NO];
+    
+}
 #pragma mark - Custom Method
 - (IBAction)userIntroTap:(id)sender {
-    NSLog(@"1");
+    EDEditInfoViewController *editInfoVC = [[EDEditInfoViewController alloc]init];
+    [self.navigationController pushViewController:editInfoVC animated:YES];
 }
 
 - (IBAction)userOrderTap:(id)sender {

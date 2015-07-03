@@ -10,9 +10,11 @@
 #import "EDContactContentCell.h"
 #import "EDTeacherInfoViewController.h"
 #import "EDStudentViewController.h"
+#import "SETabBarViewController.h"
 
 @interface EDContactViewController ()
 {
+    SETabBarViewController *tabBarView;
     NSArray *dataArray;
 }
 @property (weak, nonatomic) IBOutlet UIView *buttonView;
@@ -32,6 +34,12 @@
     dataArray = @[@"陈意涵",@"杨洋",@"胡歌"];
     [self drawlayer];
     
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    tabBarView = (SETabBarViewController *)self.navigationController.parentViewController;
+    [tabBarView tabBarViewShow];
 }
 
 #pragma mark 常用方法
