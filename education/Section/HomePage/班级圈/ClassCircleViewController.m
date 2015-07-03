@@ -9,6 +9,7 @@
 #import "ClassCircleViewController.h"
 #import "SETabBarViewController.h"
 #import "ClassCircleCell.h"
+#import "SendViewController.h"
 
 @interface ClassCircleViewController () {
     SETabBarViewController *tabBarViewController;
@@ -54,7 +55,8 @@
 }
 
 - (void)sendBtn {
-    NSLog(@"11");
+    SendViewController *sendVC = [[SendViewController alloc] init];
+    [self.navigationController pushViewController:sendVC animated:YES];
 }
 
 #pragma mark - UITableViewDelegate Method

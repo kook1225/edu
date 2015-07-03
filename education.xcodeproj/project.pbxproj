@@ -50,6 +50,8 @@
 		764406541B458B1700541C86 /* TopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7644064C1B458B1700541C86 /* TopCell.xib */; };
 		764406591B458C2C00541C86 /* ClassCircleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 764406571B458C2C00541C86 /* ClassCircleViewController.m */; };
 		7644065A1B458C2C00541C86 /* ClassCircleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 764406581B458C2C00541C86 /* ClassCircleViewController.xib */; };
+		7644065E1B46669C00541C86 /* SendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7644065C1B46669C00541C86 /* SendViewController.m */; };
+		7644065F1B46669C00541C86 /* SendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7644065D1B46669C00541C86 /* SendViewController.xib */; };
 		768FFAF11B4238D9008E577F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF01B4238D9008E577F /* main.m */; };
 		768FFAF41B4238D9008E577F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF31B4238D9008E577F /* AppDelegate.m */; };
 		768FFAFC1B4238D9008E577F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 768FFAFB1B4238D9008E577F /* Images.xcassets */; };
@@ -145,6 +147,9 @@
 		764406561B458C2C00541C86 /* ClassCircleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassCircleViewController.h; sourceTree = "<group>"; };
 		764406571B458C2C00541C86 /* ClassCircleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassCircleViewController.m; sourceTree = "<group>"; };
 		764406581B458C2C00541C86 /* ClassCircleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassCircleViewController.xib; sourceTree = "<group>"; };
+		7644065B1B46669C00541C86 /* SendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendViewController.h; sourceTree = "<group>"; };
+		7644065C1B46669C00541C86 /* SendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendViewController.m; sourceTree = "<group>"; };
+		7644065D1B46669C00541C86 /* SendViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SendViewController.xib; sourceTree = "<group>"; };
 		768FFAEB1B4238D9008E577F /* education.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = education.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		768FFAEF1B4238D9008E577F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		768FFAF01B4238D9008E577F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -364,6 +369,9 @@
 				764406561B458C2C00541C86 /* ClassCircleViewController.h */,
 				764406571B458C2C00541C86 /* ClassCircleViewController.m */,
 				764406581B458C2C00541C86 /* ClassCircleViewController.xib */,
+				7644065B1B46669C00541C86 /* SendViewController.h */,
+				7644065C1B46669C00541C86 /* SendViewController.m */,
+				7644065D1B46669C00541C86 /* SendViewController.xib */,
 			);
 			path = "班级圈";
 			sourceTree = "<group>";
@@ -601,6 +609,7 @@
 				7644065A1B458C2C00541C86 /* ClassCircleViewController.xib in Resources */,
 				1808B34F1B44FD1C0050E3B4 /* EDSendMsgViewController.xib in Resources */,
 				764406521B458B1700541C86 /* ReplyCell.xib in Resources */,
+				7644065F1B46669C00541C86 /* SendViewController.xib in Resources */,
 				1808B3191B43D6480050E3B4 /* EDGradeCell.xib in Resources */,
 				764406501B458B1700541C86 /* ClassCircleCell.xib in Resources */,
 				1808B34A1B44F1CB0050E3B4 /* EDStudentViewController.xib in Resources */,
@@ -680,6 +689,7 @@
 				1808B3231B4428770050E3B4 /* EDInfomationViewController.m in Sources */,
 				187F7DD01B43C469005CC8D8 /* Tools.m in Sources */,
 				1808B3181B43D6480050E3B4 /* EDGradeCell.m in Sources */,
+				7644065E1B46669C00541C86 /* SendViewController.m in Sources */,
 				768FFB1E1B423C0A008E577F /* ViewController.m in Sources */,
 				768FFAF41B4238D9008E577F /* AppDelegate.m in Sources */,
 				7644064F1B458B1700541C86 /* ClassCircleCell.m in Sources */,
