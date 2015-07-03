@@ -12,6 +12,7 @@
 #import "ButtonViewCell.h"
 #import "HomePageListCell.h"
 #import "SETabBarViewController.h"
+#import "ClassCircleViewController.h"
 
 #define IMAGEHEIGHT (160 * ([UIScreen mainScreen].bounds.size.height/568.0))
 #define USERINTROHEIGHT (64 * ([UIScreen mainScreen].bounds.size.height/568.0))
@@ -144,8 +145,12 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     self.navigationController.navigationBar.hidden = YES;
-    
+    [_scrollView setContentOffset:CGPointMake(SCREENWIDTH, 0)];
     [tabBarViewController tabBarViewShow];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    self.navigationController.navigationBar.hidden = NO;
 }
 
 #pragma mark - Custom Method
@@ -178,6 +183,55 @@
     }
     
     
+}
+
+- (void)schoolTimeTable {
+    NSLog(@"1");
+}
+
+- (void)myLetter {
+    NSLog(@"2");
+}
+
+- (void)notice {
+    NSLog(@"3");
+}
+
+- (void)classSection {
+    ClassCircleViewController *classCircleVC  = [[ClassCircleViewController alloc] init];
+    [self.navigationController pushViewController:classCircleVC animated:YES];
+}
+
+- (void)lifeService {
+    NSLog(@"5");
+}
+
+- (void)introDay {
+    NSLog(@"6");
+}
+
+- (void)problem {
+    NSLog(@"7");
+}
+
+- (void)score {
+    NSLog(@"8");
+}
+
+- (void)homework {
+    NSLog(@"9");
+}
+
+- (void)growUp {
+    NSLog(@"10");
+}
+
+- (void)body {
+    NSLog(@"11");
+}
+
+- (void)courseOnLine {
+    NSLog(@"12");
 }
 
 #pragma mark - UITableViewDelegate Method
@@ -236,6 +290,20 @@
             cell = [[[NSBundle mainBundle] loadNibNamed:@"ButtonViewCell" owner:self options:nil] lastObject];
         }
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        
+        [cell.btn1 addTarget:self action:@selector(schoolTimeTable) forControlEvents:UIControlEventTouchUpInside];
+        [cell.btn2 addTarget:self action:@selector(myLetter) forControlEvents:UIControlEventTouchUpInside];
+        [cell.btn3 addTarget:self action:@selector(notice) forControlEvents:UIControlEventTouchUpInside];
+        [cell.btn4 addTarget:self action:@selector(classSection) forControlEvents:UIControlEventTouchUpInside];
+        [cell.btn5 addTarget:self action:@selector(lifeService) forControlEvents:UIControlEventTouchUpInside];
+        [cell.btn6 addTarget:self action:@selector(introDay) forControlEvents:UIControlEventTouchUpInside];
+        [cell.btn7 addTarget:self action:@selector(problem) forControlEvents:UIControlEventTouchUpInside];
+        [cell.btn8 addTarget:self action:@selector(score) forControlEvents:UIControlEventTouchUpInside];
+        [cell.btn9 addTarget:self action:@selector(homework) forControlEvents:UIControlEventTouchUpInside];
+        [cell.btn10 addTarget:self action:@selector(growUp) forControlEvents:UIControlEventTouchUpInside];
+        [cell.btn11 addTarget:self action:@selector(body) forControlEvents:UIControlEventTouchUpInside];
+        [cell.btn12 addTarget:self action:@selector(courseOnLine) forControlEvents:UIControlEventTouchUpInside];
+        
         return cell;
     }
     else if (indexPath.row == 3) {

@@ -413,7 +413,21 @@
                     <constraint firstItem="SYQ-Kt-7XJ" firstAttribute="width" secondItem="iyB-MR-aaU" secondAttribute="width" id="zuA-1z-Byx"/>
                 </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="238" y="235"/>
+            <connections>
+                <outlet property="btn1" destination="YhD-Xr-IRd" id="cEw-kX-euQ"/>
+                <outlet property="btn10" destination="SN7-pm-Y5G" id="0it-ev-cbf"/>
+                <outlet property="btn11" destination="h1c-YA-Mx9" id="JoT-P1-ZR9"/>
+                <outlet property="btn12" destination="des-sE-DRW" id="vcN-H6-zxe"/>
+                <outlet property="btn2" destination="RtK-YZ-Oge" id="8LO-Ab-DCV"/>
+                <outlet property="btn3" destination="P6L-nd-shp" id="es2-9g-qhR"/>
+                <outlet property="btn4" destination="dHo-H9-pUp" id="ikN-ku-0P5"/>
+                <outlet property="btn5" destination="Ajb-gG-5KW" id="R17-lR-fCR"/>
+                <outlet property="btn6" destination="KNA-9p-WZT" id="1cF-aE-wL1"/>
+                <outlet property="btn7" destination="fIr-8Y-ati" id="sGH-3z-dZN"/>
+                <outlet property="btn8" destination="xL9-kp-hrP" id="MNq-zf-txg"/>
+                <outlet property="btn9" destination="tSW-FG-f41" id="bgy-EV-Fr3"/>
+            </connections>
+            <point key="canvasLocation" x="341" y="184"/>
         </tableViewCell>
     </objects>
     <resources>
