@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-FXBlurView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-IQKeyboardManager.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,32 +42,37 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>02D75AA955A7338A080C4067</key>
+		<key>27D4449DCA25B88D08882070</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>43FD568A608180CEBF37F2BB</key>
+		<key>296E04A0C22A6BA5E67907E4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9D4732CB9AD147E13468DAAE</key>
+		<key>370E686E14405AFE43872139</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A6A6FB39CA42429260F65146</key>
+		<key>A11CB5C72ED0FC15FC102255</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E1859FF2DA6B687D24378378</key>
+		<key>CCC732DB8C23FA898E7EA0FC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E71126DE0FDB3905A3A57BB2</key>
+		<key>DD2F7149C843E6B277DB040E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E257D4FD050437FA60AD6064</key>
 		<dict>
 			<key>primary</key>
 			<true/>

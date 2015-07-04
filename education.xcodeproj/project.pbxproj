@@ -52,6 +52,10 @@
 		7644065A1B458C2C00541C86 /* ClassCircleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 764406581B458C2C00541C86 /* ClassCircleViewController.xib */; };
 		7644065E1B46669C00541C86 /* SendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7644065C1B46669C00541C86 /* SendViewController.m */; };
 		7644065F1B46669C00541C86 /* SendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7644065D1B46669C00541C86 /* SendViewController.xib */; };
+		764406641B4671BC00541C86 /* LifeServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 764406621B4671BC00541C86 /* LifeServiceViewController.m */; };
+		764406651B4671BC00541C86 /* LifeServiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 764406631B4671BC00541C86 /* LifeServiceViewController.xib */; };
+		764406731B479E7E00541C86 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 764406721B479E7E00541C86 /* Accelerate.framework */; };
+		7644067B1B47BEC600541C86 /* LifeServiceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7644067A1B47BEC600541C86 /* LifeServiceCell.m */; };
 		768FFAF11B4238D9008E577F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF01B4238D9008E577F /* main.m */; };
 		768FFAF41B4238D9008E577F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF31B4238D9008E577F /* AppDelegate.m */; };
 		768FFAFC1B4238D9008E577F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 768FFAFB1B4238D9008E577F /* Images.xcassets */; };
@@ -150,6 +154,12 @@
 		7644065B1B46669C00541C86 /* SendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendViewController.h; sourceTree = "<group>"; };
 		7644065C1B46669C00541C86 /* SendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendViewController.m; sourceTree = "<group>"; };
 		7644065D1B46669C00541C86 /* SendViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SendViewController.xib; sourceTree = "<group>"; };
+		764406611B4671BC00541C86 /* LifeServiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LifeServiceViewController.h; sourceTree = "<group>"; };
+		764406621B4671BC00541C86 /* LifeServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LifeServiceViewController.m; sourceTree = "<group>"; };
+		764406631B4671BC00541C86 /* LifeServiceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LifeServiceViewController.xib; sourceTree = "<group>"; };
+		764406721B479E7E00541C86 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		764406791B47BEC600541C86 /* LifeServiceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LifeServiceCell.h; sourceTree = "<group>"; };
+		7644067A1B47BEC600541C86 /* LifeServiceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LifeServiceCell.m; sourceTree = "<group>"; };
 		768FFAEB1B4238D9008E577F /* education.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = education.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		768FFAEF1B4238D9008E577F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		768FFAF01B4238D9008E577F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -183,6 +193,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				764406731B479E7E00541C86 /* Accelerate.framework in Frameworks */,
 				9D81F842D79E02A44AC30DFF /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,6 +350,7 @@
 		7644063F1B458B0E00541C86 /* 首页 */ = {
 			isa = PBXGroup;
 			children = (
+				764406781B47BEB700541C86 /* 生活服务 */,
 				764406401B458B1700541C86 /* 班级圈cell */,
 			);
 			path = "首页";
@@ -374,6 +386,25 @@
 				7644065D1B46669C00541C86 /* SendViewController.xib */,
 			);
 			path = "班级圈";
+			sourceTree = "<group>";
+		};
+		764406601B4671A600541C86 /* 生活服务 */ = {
+			isa = PBXGroup;
+			children = (
+				764406611B4671BC00541C86 /* LifeServiceViewController.h */,
+				764406621B4671BC00541C86 /* LifeServiceViewController.m */,
+				764406631B4671BC00541C86 /* LifeServiceViewController.xib */,
+			);
+			path = "生活服务";
+			sourceTree = "<group>";
+		};
+		764406781B47BEB700541C86 /* 生活服务 */ = {
+			isa = PBXGroup;
+			children = (
+				764406791B47BEC600541C86 /* LifeServiceCell.h */,
+				7644067A1B47BEC600541C86 /* LifeServiceCell.m */,
+			);
+			path = "生活服务";
 			sourceTree = "<group>";
 		};
 		768FFAE21B4238D9008E577F = {
@@ -479,6 +510,7 @@
 		768FFB1A1B423BE8008E577F /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				764406601B4671A600541C86 /* 生活服务 */,
 				764406551B458C2C00541C86 /* 班级圈 */,
 				768FFB1B1B423C0A008E577F /* ViewController.h */,
 				768FFB1C1B423C0A008E577F /* ViewController.m */,
@@ -518,6 +550,7 @@
 		F1EB6EBBFAC28762B81FD7B0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				764406721B479E7E00541C86 /* Accelerate.framework */,
 				C9198941CC0961AE3F3185DE /* libPods.a */,
 			);
 			name = Frameworks;
@@ -616,6 +649,7 @@
 				187F7DCD1B43C074005CC8D8 /* EDGradeDetailViewController.xib in Resources */,
 				764406541B458B1700541C86 /* TopCell.xib in Resources */,
 				1808B3131B43D4990050E3B4 /* EDSubjectViewController.xib in Resources */,
+				764406651B4671BC00541C86 /* LifeServiceViewController.xib in Resources */,
 				768FFAFF1B4238D9008E577F /* LaunchScreen.xib in Resources */,
 				768FFB3D1B42DE44008E577F /* HomePageListCell.xib in Resources */,
 				761749051B451C87006DD0AA /* MineViewController.xib in Resources */,
@@ -697,6 +731,7 @@
 				761749041B451C87006DD0AA /* MineViewController.m in Sources */,
 				1808B34E1B44FD1C0050E3B4 /* EDSendMsgViewController.m in Sources */,
 				1808B3121B43D4990050E3B4 /* EDSubjectViewController.m in Sources */,
+				764406641B4671BC00541C86 /* LifeServiceViewController.m in Sources */,
 				768FFB221B423C76008E577F /* SETabBarViewController.m in Sources */,
 				187F7DBA1B43BA1C005CC8D8 /* EDMyViewController.m in Sources */,
 				768FFAF11B4238D9008E577F /* main.m in Sources */,
@@ -711,6 +746,7 @@
 				764406511B458B1700541C86 /* ReplyCell.m in Sources */,
 				1808B33A1B44DEB00050E3B4 /* EDContactContentCell.m in Sources */,
 				764406531B458B1700541C86 /* TopCell.m in Sources */,
+				7644067B1B47BEC600541C86 /* LifeServiceCell.m in Sources */,
 				1808B32F1B4439ED0050E3B4 /* EDContactViewController.m in Sources */,
 				187F7DCC1B43C074005CC8D8 /* EDGradeDetailViewController.m in Sources */,
 			);

@@ -13,6 +13,7 @@
 #import "HomePageListCell.h"
 #import "SETabBarViewController.h"
 #import "ClassCircleViewController.h"
+#import "LifeServiceViewController.h"
 
 #define IMAGEHEIGHT (160 * ([UIScreen mainScreen].bounds.size.height/568.0))
 #define USERINTROHEIGHT (64 * ([UIScreen mainScreen].bounds.size.height/568.0))
@@ -203,7 +204,8 @@
 }
 
 - (void)lifeService {
-    NSLog(@"5");
+    LifeServiceViewController *lifeServiceVC = [[LifeServiceViewController alloc] init];
+    [self.navigationController pushViewController:lifeServiceVC animated:YES];
 }
 
 - (void)introDay {

@@ -20,6 +20,7 @@ PODS:
   - AFNetworking/UIKit (2.5.2):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - FXBlurView (1.6.3)
   - IQKeyboardManager (3.0.8)
   - JSONModel (1.0.2)
   - MBProgressHUD (0.9.1)
@@ -27,6 +28,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
+  - FXBlurView (~> 1.6.3)
   - IQKeyboardManager (~> 3.0.6)
   - JSONModel (~> 1.0.1)
   - MBProgressHUD (~> 0.9)
@@ -34,6 +36,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: fefbce9660acb17f48ae0011292d4da0f457bf36
+  FXBlurView: c6d23f3d35af2c6282296a2930f61c6e2c788d01
   IQKeyboardManager: 99636798d52f410d6fbea9cdbf4deafc43ecc1f6
   JSONModel: 6ffcb4ffa3659c9e9a2e5d45d6c7705bab187c03
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
