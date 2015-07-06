@@ -7,6 +7,7 @@
 //
 
 #import "SureOrderViewController.h"
+#import "SelectAddViewController.h"
 
 @interface SureOrderViewController () {
     int num;
@@ -96,7 +97,8 @@
 }
 
 - (IBAction)addTap:(id)sender {
-    NSLog(@"1111");
+    SelectAddViewController *selectAddVC = [[SelectAddViewController alloc] init];
+    [self.navigationController pushViewController:selectAddVC animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
