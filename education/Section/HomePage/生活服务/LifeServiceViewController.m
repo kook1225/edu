@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "LifeServiceCell.h"
 #import "FXBlurView.h"
+#import "LifeServiceIntroViewController.h"
 
 #define OFFSET ([UIScreen mainScreen].bounds.size.width > 320 ? 45 : 100)
 
@@ -237,8 +238,12 @@
 //UICollectionView被选中时调用的方法
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    /*
     UICollectionViewCell * cell = (UICollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
     NSLog(@"%ld",(long)indexPath.row);
+     */
+    LifeServiceIntroViewController *lifeServiceIntroVC = [[LifeServiceIntroViewController alloc] init];
+    [self.navigationController pushViewController:lifeServiceIntroVC animated:YES];
 }
 //返回这个UICollectionView是否可以被选择
 -(BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath

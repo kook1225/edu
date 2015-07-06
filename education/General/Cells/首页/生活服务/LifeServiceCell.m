@@ -70,8 +70,8 @@
         //NSUInteger length2=[oldPrice length];
         
         NSMutableAttributedString *attri2 =[[NSMutableAttributedString alloc]initWithString:saledStr];
-        [attri2 addAttribute:NSStrikethroughColorAttributeName value:[UIColor colorWithRed:255.0/255.0 green:42.0/255.0 blue:45.0/255.0 alpha:1.000]
-                      range:NSMakeRange(0, 3)];
+        [attri2 addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:255.0/255.0 green:42.0/255.0 blue:45.0/255.0 alpha:1.000]
+                      range:NSMakeRange(2, 2)];
         [_saledLabel setAttributedText:attri2];
         [_mainView addSubview:_saledLabel];
     }

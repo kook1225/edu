@@ -56,6 +56,8 @@
 		764406651B4671BC00541C86 /* LifeServiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 764406631B4671BC00541C86 /* LifeServiceViewController.xib */; };
 		764406731B479E7E00541C86 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 764406721B479E7E00541C86 /* Accelerate.framework */; };
 		7644067B1B47BEC600541C86 /* LifeServiceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7644067A1B47BEC600541C86 /* LifeServiceCell.m */; };
+		764406851B4A5CAA00541C86 /* LifeServiceIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 764406831B4A5CAA00541C86 /* LifeServiceIntroViewController.m */; };
+		764406861B4A5CAA00541C86 /* LifeServiceIntroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 764406841B4A5CAA00541C86 /* LifeServiceIntroViewController.xib */; };
 		768FFAF11B4238D9008E577F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF01B4238D9008E577F /* main.m */; };
 		768FFAF41B4238D9008E577F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF31B4238D9008E577F /* AppDelegate.m */; };
 		768FFAFC1B4238D9008E577F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 768FFAFB1B4238D9008E577F /* Images.xcassets */; };
@@ -160,6 +162,9 @@
 		764406721B479E7E00541C86 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		764406791B47BEC600541C86 /* LifeServiceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LifeServiceCell.h; sourceTree = "<group>"; };
 		7644067A1B47BEC600541C86 /* LifeServiceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LifeServiceCell.m; sourceTree = "<group>"; };
+		764406821B4A5CAA00541C86 /* LifeServiceIntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LifeServiceIntroViewController.h; sourceTree = "<group>"; };
+		764406831B4A5CAA00541C86 /* LifeServiceIntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LifeServiceIntroViewController.m; sourceTree = "<group>"; };
+		764406841B4A5CAA00541C86 /* LifeServiceIntroViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LifeServiceIntroViewController.xib; sourceTree = "<group>"; };
 		768FFAEB1B4238D9008E577F /* education.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = education.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		768FFAEF1B4238D9008E577F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		768FFAF01B4238D9008E577F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -394,6 +399,9 @@
 				764406611B4671BC00541C86 /* LifeServiceViewController.h */,
 				764406621B4671BC00541C86 /* LifeServiceViewController.m */,
 				764406631B4671BC00541C86 /* LifeServiceViewController.xib */,
+				764406821B4A5CAA00541C86 /* LifeServiceIntroViewController.h */,
+				764406831B4A5CAA00541C86 /* LifeServiceIntroViewController.m */,
+				764406841B4A5CAA00541C86 /* LifeServiceIntroViewController.xib */,
 			);
 			path = "生活服务";
 			sourceTree = "<group>";
@@ -659,6 +667,7 @@
 				768FFB331B42C333008E577F /* UserIntroCell.xib in Resources */,
 				768FFB1F1B423C0A008E577F /* ViewController.xib in Resources */,
 				187F7DC11B43BC51005CC8D8 /* EDGradeRecodeViewController.xib in Resources */,
+				764406861B4A5CAA00541C86 /* LifeServiceIntroViewController.xib in Resources */,
 				768FFAFC1B4238D9008E577F /* Images.xcassets in Resources */,
 				768FFB381B42C8C4008E577F /* ButtonViewCell.xib in Resources */,
 				187F7DC81B43BDDF005CC8D8 /* EDGradeRecodeCell.xib in Resources */,
@@ -723,6 +732,7 @@
 				1808B3231B4428770050E3B4 /* EDInfomationViewController.m in Sources */,
 				187F7DD01B43C469005CC8D8 /* Tools.m in Sources */,
 				1808B3181B43D6480050E3B4 /* EDGradeCell.m in Sources */,
+				764406851B4A5CAA00541C86 /* LifeServiceIntroViewController.m in Sources */,
 				7644065E1B46669C00541C86 /* SendViewController.m in Sources */,
 				768FFB1E1B423C0A008E577F /* ViewController.m in Sources */,
 				768FFAF41B4238D9008E577F /* AppDelegate.m in Sources */,
