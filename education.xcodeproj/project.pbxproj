@@ -58,6 +58,8 @@
 		7644067B1B47BEC600541C86 /* LifeServiceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7644067A1B47BEC600541C86 /* LifeServiceCell.m */; };
 		764406851B4A5CAA00541C86 /* LifeServiceIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 764406831B4A5CAA00541C86 /* LifeServiceIntroViewController.m */; };
 		764406861B4A5CAA00541C86 /* LifeServiceIntroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 764406841B4A5CAA00541C86 /* LifeServiceIntroViewController.xib */; };
+		7644068A1B4A783A00541C86 /* SureOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 764406881B4A783A00541C86 /* SureOrderViewController.m */; };
+		7644068B1B4A783A00541C86 /* SureOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 764406891B4A783A00541C86 /* SureOrderViewController.xib */; };
 		768FFAF11B4238D9008E577F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF01B4238D9008E577F /* main.m */; };
 		768FFAF41B4238D9008E577F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF31B4238D9008E577F /* AppDelegate.m */; };
 		768FFAFC1B4238D9008E577F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 768FFAFB1B4238D9008E577F /* Images.xcassets */; };
@@ -165,6 +167,9 @@
 		764406821B4A5CAA00541C86 /* LifeServiceIntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LifeServiceIntroViewController.h; sourceTree = "<group>"; };
 		764406831B4A5CAA00541C86 /* LifeServiceIntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LifeServiceIntroViewController.m; sourceTree = "<group>"; };
 		764406841B4A5CAA00541C86 /* LifeServiceIntroViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LifeServiceIntroViewController.xib; sourceTree = "<group>"; };
+		764406871B4A783A00541C86 /* SureOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SureOrderViewController.h; sourceTree = "<group>"; };
+		764406881B4A783A00541C86 /* SureOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SureOrderViewController.m; sourceTree = "<group>"; };
+		764406891B4A783A00541C86 /* SureOrderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SureOrderViewController.xib; sourceTree = "<group>"; };
 		768FFAEB1B4238D9008E577F /* education.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = education.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		768FFAEF1B4238D9008E577F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		768FFAF01B4238D9008E577F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -402,6 +407,9 @@
 				764406821B4A5CAA00541C86 /* LifeServiceIntroViewController.h */,
 				764406831B4A5CAA00541C86 /* LifeServiceIntroViewController.m */,
 				764406841B4A5CAA00541C86 /* LifeServiceIntroViewController.xib */,
+				764406871B4A783A00541C86 /* SureOrderViewController.h */,
+				764406881B4A783A00541C86 /* SureOrderViewController.m */,
+				764406891B4A783A00541C86 /* SureOrderViewController.xib */,
 			);
 			path = "生活服务";
 			sourceTree = "<group>";
@@ -674,6 +682,7 @@
 				7644064E1B458B1700541C86 /* BottomCell.xib in Resources */,
 				1808B31E1B43D6650050E3B4 /* EDSubjectCell.xib in Resources */,
 				18579F8E1B45401100501EA0 /* EDEditInfoViewController.xib in Resources */,
+				7644068B1B4A783A00541C86 /* SureOrderViewController.xib in Resources */,
 				1808B33B1B44DEB00050E3B4 /* EDContactContentCell.xib in Resources */,
 				1808B3241B4428770050E3B4 /* EDInfomationViewController.xib in Resources */,
 			);
@@ -740,6 +749,7 @@
 				768FFB371B42C8C4008E577F /* ButtonViewCell.m in Sources */,
 				761749041B451C87006DD0AA /* MineViewController.m in Sources */,
 				1808B34E1B44FD1C0050E3B4 /* EDSendMsgViewController.m in Sources */,
+				7644068A1B4A783A00541C86 /* SureOrderViewController.m in Sources */,
 				1808B3121B43D4990050E3B4 /* EDSubjectViewController.m in Sources */,
 				764406641B4671BC00541C86 /* LifeServiceViewController.m in Sources */,
 				768FFB221B423C76008E577F /* SETabBarViewController.m in Sources */,

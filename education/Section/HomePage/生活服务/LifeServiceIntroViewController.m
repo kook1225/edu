@@ -7,6 +7,7 @@
 //
 
 #import "LifeServiceIntroViewController.h"
+#import "SureOrderViewController.h"
 
 @interface LifeServiceIntroViewController ()<UIWebViewDelegate> {
     CGFloat scale;
@@ -109,7 +110,8 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 - (IBAction)buyBtn:(id)sender {
-    NSLog(@"1231231");
+    SureOrderViewController *sureOrderVC = [[SureOrderViewController alloc] init];
+    [self.navigationController pushViewController:sureOrderVC animated:YES];
 }
 
 #pragma UIWebView Delegate
