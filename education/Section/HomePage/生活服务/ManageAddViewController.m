@@ -9,6 +9,7 @@
 #import "ManageAddViewController.h"
 #import "SelectAddCell.h"
 #import "AddReceiveAddressViewController.h"
+#import "EditAddViewController.h"
 
 @interface ManageAddViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -39,6 +40,8 @@
 
 #pragma mark - UITableViewDelegate Method
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    EditAddViewController *editAddVC = [[EditAddViewController alloc] init];
+    [self.navigationController pushViewController:editAddVC animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -94,6 +94,8 @@
 		7644069A1B4BBE2000541C86 /* ManageAddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 764406981B4BBE2000541C86 /* ManageAddViewController.xib */; };
 		7644069E1B4BC1F900541C86 /* AddReceiveAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7644069C1B4BC1F900541C86 /* AddReceiveAddressViewController.m */; };
 		7644069F1B4BC1F900541C86 /* AddReceiveAddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7644069D1B4BC1F900541C86 /* AddReceiveAddressViewController.xib */; };
+		764406A31B4BCD4600541C86 /* EditAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 764406A11B4BCD4600541C86 /* EditAddViewController.m */; };
+		764406A41B4BCD4600541C86 /* EditAddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 764406A21B4BCD4600541C86 /* EditAddViewController.xib */; };
 		768FFAF11B4238D9008E577F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF01B4238D9008E577F /* main.m */; };
 		768FFAF41B4238D9008E577F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF31B4238D9008E577F /* AppDelegate.m */; };
 		768FFAFC1B4238D9008E577F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 768FFAFB1B4238D9008E577F /* Images.xcassets */; };
@@ -255,6 +257,9 @@
 		7644069B1B4BC1F900541C86 /* AddReceiveAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddReceiveAddressViewController.h; sourceTree = "<group>"; };
 		7644069C1B4BC1F900541C86 /* AddReceiveAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddReceiveAddressViewController.m; sourceTree = "<group>"; };
 		7644069D1B4BC1F900541C86 /* AddReceiveAddressViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddReceiveAddressViewController.xib; sourceTree = "<group>"; };
+		764406A01B4BCD4600541C86 /* EditAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditAddViewController.h; sourceTree = "<group>"; };
+		764406A11B4BCD4600541C86 /* EditAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditAddViewController.m; sourceTree = "<group>"; };
+		764406A21B4BCD4600541C86 /* EditAddViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditAddViewController.xib; sourceTree = "<group>"; };
 		768FFAEB1B4238D9008E577F /* education.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = education.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		768FFAEF1B4238D9008E577F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		768FFAF01B4238D9008E577F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -585,6 +590,9 @@
 				7644069B1B4BC1F900541C86 /* AddReceiveAddressViewController.h */,
 				7644069C1B4BC1F900541C86 /* AddReceiveAddressViewController.m */,
 				7644069D1B4BC1F900541C86 /* AddReceiveAddressViewController.xib */,
+				764406A01B4BCD4600541C86 /* EditAddViewController.h */,
+				764406A11B4BCD4600541C86 /* EditAddViewController.m */,
+				764406A21B4BCD4600541C86 /* EditAddViewController.xib */,
 			);
 			path = "生活服务";
 			sourceTree = "<group>";
@@ -862,6 +870,7 @@
 				7644069A1B4BBE2000541C86 /* ManageAddViewController.xib in Resources */,
 				761749051B451C87006DD0AA /* MineViewController.xib in Resources */,
 				1808B32A1B44293C0050E3B4 /* EDDayInfoCell.xib in Resources */,
+				764406A41B4BCD4600541C86 /* EditAddViewController.xib in Resources */,
 				187F7DBB1B43BA1C005CC8D8 /* EDMyViewController.xib in Resources */,
 				1808B3451B44EADB0050E3B4 /* EDTeacherInfoViewController.xib in Resources */,
 				18579FF81B4BC2B800501EA0 /* EDMyOrderViewController.xib in Resources */,
@@ -980,6 +989,7 @@
 				764406511B458B1700541C86 /* ReplyCell.m in Sources */,
 				18579FFB1B4BC2B800501EA0 /* EDAlterPwdViewController.m in Sources */,
 				1808B33A1B44DEB00050E3B4 /* EDContactContentCell.m in Sources */,
+				764406A31B4BCD4600541C86 /* EditAddViewController.m in Sources */,
 				18579FE51B4BC24E00501EA0 /* EDSettingViewController.m in Sources */,
 				764406531B458B1700541C86 /* TopCell.m in Sources */,
 				764406941B4ACD0200541C86 /* SelectAddCell.m in Sources */,
