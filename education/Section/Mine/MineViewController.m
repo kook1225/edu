@@ -10,6 +10,7 @@
 #import "SETabBarViewController.h"
 #import "EDEditInfoViewController.h"
 #import "EDMyOrderViewController.h"
+#import "EDAlterPwdViewController.h"
 
 @interface MineViewController () {
     SETabBarViewController *tabBarViewController;
@@ -64,7 +65,8 @@
 }
 
 - (IBAction)changePwdTap:(id)sender {
-    NSLog(@"5");
+    EDAlterPwdViewController *alterPwdVC = [[EDAlterPwdViewController alloc]init];
+    [self.navigationController pushViewController:alterPwdVC animated:YES];
 }
 
 
