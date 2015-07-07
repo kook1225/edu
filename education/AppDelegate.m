@@ -12,6 +12,7 @@
 #import "EDMyViewController.h"
 #import "EDContactViewController.h"
 #import "MineViewController.h"
+#import "EDSettingViewController.h"
 
 @interface AppDelegate ()
 
@@ -47,9 +48,8 @@
     MineViewController *mineVC = [[MineViewController alloc] init];
     UINavigationController *nav3 = [[UINavigationController alloc] initWithRootViewController:mineVC];
     
-    UIViewController *forthVC = [[UIViewController alloc] init];
-    forthVC.view.backgroundColor = [UIColor yellowColor];
-    UINavigationController *nav4 = [[UINavigationController alloc] initWithRootViewController:forthVC];
+    EDSettingViewController *settingVC = [[EDSettingViewController alloc] init];
+    UINavigationController *nav4 = [[UINavigationController alloc] initWithRootViewController:settingVC];
     
     SETabBarViewController *tabBarVC = [[SETabBarViewController alloc] initWithViewController:@[nav,nav2,nav3,nav4]];
     

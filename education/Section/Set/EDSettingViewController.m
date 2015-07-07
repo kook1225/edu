@@ -1,0 +1,50 @@
+//
+//  EDSettingViewController.m
+//  education
+//
+//  Created by Apple on 15/7/7.
+//  Copyright (c) 2015年 zhujun. All rights reserved.
+//
+
+#import "EDSettingViewController.h"
+#import "SETabBarViewController.h"
+#import "EDSetProblemViewController.h"
+
+@interface EDSettingViewController ()
+{
+    SETabBarViewController *tabBarView;
+}
+@end
+
+@implementation EDSettingViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+    self.title = @"设置";
+    
+    tabBarView = (SETabBarViewController *)self.navigationController.parentViewController;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [tabBarView tabBarViewShow];
+    
+}
+
+#pragma mark TAP
+- (IBAction)contactUsTap:(id)sender {
+    //联系我们
+}
+- (IBAction)problemTap:(id)sender {
+    //问题反馈
+    EDSetProblemViewController *setProblemVC = [[EDSetProblemViewController alloc]init];
+    [self.navigationController pushViewController:setProblemVC animated:YES];
+}
+
+- (IBAction)aboutUsTap:(id)sender {
+    //关于我们
+    
+}
+
+@end

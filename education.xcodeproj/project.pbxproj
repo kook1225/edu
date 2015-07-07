@@ -13,8 +13,6 @@
 		1808B3191B43D6480050E3B4 /* EDGradeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1808B3171B43D6480050E3B4 /* EDGradeCell.xib */; };
 		1808B31D1B43D6650050E3B4 /* EDSubjectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1808B31B1B43D6650050E3B4 /* EDSubjectCell.m */; };
 		1808B31E1B43D6650050E3B4 /* EDSubjectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1808B31C1B43D6650050E3B4 /* EDSubjectCell.xib */; };
-		1808B3231B4428770050E3B4 /* EDInfomationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1808B3211B4428770050E3B4 /* EDInfomationViewController.m */; };
-		1808B3241B4428770050E3B4 /* EDInfomationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1808B3221B4428770050E3B4 /* EDInfomationViewController.xib */; };
 		1808B3291B44293C0050E3B4 /* EDDayInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1808B3271B44293C0050E3B4 /* EDDayInfoCell.m */; };
 		1808B32A1B44293C0050E3B4 /* EDDayInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1808B3281B44293C0050E3B4 /* EDDayInfoCell.xib */; };
 		1808B32F1B4439ED0050E3B4 /* EDContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1808B32D1B4439ED0050E3B4 /* EDContactViewController.m */; };
@@ -29,6 +27,34 @@
 		1808B34F1B44FD1C0050E3B4 /* EDSendMsgViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1808B34D1B44FD1C0050E3B4 /* EDSendMsgViewController.xib */; };
 		18579F8D1B45401100501EA0 /* EDEditInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18579F8B1B45401100501EA0 /* EDEditInfoViewController.m */; };
 		18579F8E1B45401100501EA0 /* EDEditInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18579F8C1B45401100501EA0 /* EDEditInfoViewController.xib */; };
+		18579FE31B4BC24E00501EA0 /* EDSetProblemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18579FDE1B4BC24E00501EA0 /* EDSetProblemViewController.m */; };
+		18579FE41B4BC24E00501EA0 /* EDSetProblemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18579FDF1B4BC24E00501EA0 /* EDSetProblemViewController.xib */; };
+		18579FE51B4BC24E00501EA0 /* EDSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18579FE11B4BC24E00501EA0 /* EDSettingViewController.m */; };
+		18579FE61B4BC24E00501EA0 /* EDSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18579FE21B4BC24E00501EA0 /* EDSettingViewController.xib */; };
+		18579FEA1B4BC28A00501EA0 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18579FE81B4BC28A00501EA0 /* LoginViewController.m */; };
+		18579FEB1B4BC28A00501EA0 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18579FE91B4BC28A00501EA0 /* LoginViewController.xib */; };
+		18579FF71B4BC2B800501EA0 /* EDMyOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18579FEE1B4BC2B800501EA0 /* EDMyOrderViewController.m */; };
+		18579FF81B4BC2B800501EA0 /* EDMyOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18579FEF1B4BC2B800501EA0 /* EDMyOrderViewController.xib */; };
+		18579FF91B4BC2B800501EA0 /* EDOrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18579FF11B4BC2B800501EA0 /* EDOrderDetailViewController.m */; };
+		18579FFA1B4BC2B800501EA0 /* EDOrderDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18579FF21B4BC2B800501EA0 /* EDOrderDetailViewController.xib */; };
+		18579FFB1B4BC2B800501EA0 /* EDAlterPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18579FF51B4BC2B800501EA0 /* EDAlterPwdViewController.m */; };
+		18579FFC1B4BC2B800501EA0 /* EDAlterPwdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18579FF61B4BC2B800501EA0 /* EDAlterPwdViewController.xib */; };
+		1857A0081B4BC2E800501EA0 /* EDPhysicalDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18579FFF1B4BC2E800501EA0 /* EDPhysicalDetailViewController.m */; };
+		1857A0091B4BC2E800501EA0 /* EDPhysicalDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1857A0001B4BC2E800501EA0 /* EDPhysicalDetailViewController.xib */; };
+		1857A00A1B4BC2E800501EA0 /* EDPhySicalTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A0021B4BC2E800501EA0 /* EDPhySicalTestViewController.m */; };
+		1857A00B1B4BC2E800501EA0 /* EDPhySicalTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1857A0031B4BC2E800501EA0 /* EDPhySicalTestViewController.xib */; };
+		1857A00C1B4BC2E800501EA0 /* EDInfomationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A0061B4BC2E800501EA0 /* EDInfomationViewController.m */; };
+		1857A00D1B4BC2E800501EA0 /* EDInfomationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1857A0071B4BC2E800501EA0 /* EDInfomationViewController.xib */; };
+		1857A0151B4BC3CB00501EA0 /* EDPhysicalContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A0101B4BC3CB00501EA0 /* EDPhysicalContentCell.m */; };
+		1857A0161B4BC3CB00501EA0 /* EDPhysicalContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1857A0111B4BC3CB00501EA0 /* EDPhysicalContentCell.xib */; };
+		1857A0171B4BC3CB00501EA0 /* EDPhysicalDetailHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A0131B4BC3CB00501EA0 /* EDPhysicalDetailHeadCell.m */; };
+		1857A0181B4BC3CB00501EA0 /* EDPhysicalDetailHeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1857A0141B4BC3CB00501EA0 /* EDPhysicalDetailHeadCell.xib */; };
+		1857A0231B4BC3FB00501EA0 /* EDMyOrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A01B1B4BC3FB00501EA0 /* EDMyOrderCell.m */; };
+		1857A0241B4BC3FB00501EA0 /* EDMyOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1857A01C1B4BC3FB00501EA0 /* EDMyOrderCell.xib */; };
+		1857A0251B4BC3FB00501EA0 /* EDOrderBottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A01E1B4BC3FB00501EA0 /* EDOrderBottomCell.m */; };
+		1857A0261B4BC3FB00501EA0 /* EDOrderBottomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1857A01F1B4BC3FB00501EA0 /* EDOrderBottomCell.xib */; };
+		1857A0271B4BC3FB00501EA0 /* EDOrderHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A0211B4BC3FB00501EA0 /* EDOrderHeadCell.m */; };
+		1857A0281B4BC3FB00501EA0 /* EDOrderHeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1857A0221B4BC3FB00501EA0 /* EDOrderHeadCell.xib */; };
 		187F7DBA1B43BA1C005CC8D8 /* EDMyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187F7DB81B43BA1C005CC8D8 /* EDMyViewController.m */; };
 		187F7DBB1B43BA1C005CC8D8 /* EDMyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187F7DB91B43BA1C005CC8D8 /* EDMyViewController.xib */; };
 		187F7DC01B43BC51005CC8D8 /* EDGradeRecodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187F7DBE1B43BC51005CC8D8 /* EDGradeRecodeViewController.m */; };
@@ -103,9 +129,6 @@
 		1808B31A1B43D6650050E3B4 /* EDSubjectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDSubjectCell.h; sourceTree = "<group>"; };
 		1808B31B1B43D6650050E3B4 /* EDSubjectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDSubjectCell.m; sourceTree = "<group>"; };
 		1808B31C1B43D6650050E3B4 /* EDSubjectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDSubjectCell.xib; sourceTree = "<group>"; };
-		1808B3201B4428770050E3B4 /* EDInfomationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDInfomationViewController.h; sourceTree = "<group>"; };
-		1808B3211B4428770050E3B4 /* EDInfomationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDInfomationViewController.m; sourceTree = "<group>"; };
-		1808B3221B4428770050E3B4 /* EDInfomationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDInfomationViewController.xib; sourceTree = "<group>"; };
 		1808B3261B44293C0050E3B4 /* EDDayInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDDayInfoCell.h; sourceTree = "<group>"; };
 		1808B3271B44293C0050E3B4 /* EDDayInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDDayInfoCell.m; sourceTree = "<group>"; };
 		1808B3281B44293C0050E3B4 /* EDDayInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDDayInfoCell.xib; sourceTree = "<group>"; };
@@ -127,6 +150,48 @@
 		18579F8A1B45401100501EA0 /* EDEditInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDEditInfoViewController.h; sourceTree = "<group>"; };
 		18579F8B1B45401100501EA0 /* EDEditInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDEditInfoViewController.m; sourceTree = "<group>"; };
 		18579F8C1B45401100501EA0 /* EDEditInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDEditInfoViewController.xib; sourceTree = "<group>"; };
+		18579FDD1B4BC24E00501EA0 /* EDSetProblemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDSetProblemViewController.h; sourceTree = "<group>"; };
+		18579FDE1B4BC24E00501EA0 /* EDSetProblemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDSetProblemViewController.m; sourceTree = "<group>"; };
+		18579FDF1B4BC24E00501EA0 /* EDSetProblemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDSetProblemViewController.xib; sourceTree = "<group>"; };
+		18579FE01B4BC24E00501EA0 /* EDSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDSettingViewController.h; sourceTree = "<group>"; };
+		18579FE11B4BC24E00501EA0 /* EDSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDSettingViewController.m; sourceTree = "<group>"; };
+		18579FE21B4BC24E00501EA0 /* EDSettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDSettingViewController.xib; sourceTree = "<group>"; };
+		18579FE71B4BC28A00501EA0 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		18579FE81B4BC28A00501EA0 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		18579FE91B4BC28A00501EA0 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		18579FED1B4BC2B800501EA0 /* EDMyOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDMyOrderViewController.h; sourceTree = "<group>"; };
+		18579FEE1B4BC2B800501EA0 /* EDMyOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDMyOrderViewController.m; sourceTree = "<group>"; };
+		18579FEF1B4BC2B800501EA0 /* EDMyOrderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDMyOrderViewController.xib; sourceTree = "<group>"; };
+		18579FF01B4BC2B800501EA0 /* EDOrderDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDOrderDetailViewController.h; sourceTree = "<group>"; };
+		18579FF11B4BC2B800501EA0 /* EDOrderDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDOrderDetailViewController.m; sourceTree = "<group>"; };
+		18579FF21B4BC2B800501EA0 /* EDOrderDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDOrderDetailViewController.xib; sourceTree = "<group>"; };
+		18579FF41B4BC2B800501EA0 /* EDAlterPwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDAlterPwdViewController.h; sourceTree = "<group>"; };
+		18579FF51B4BC2B800501EA0 /* EDAlterPwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDAlterPwdViewController.m; sourceTree = "<group>"; };
+		18579FF61B4BC2B800501EA0 /* EDAlterPwdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDAlterPwdViewController.xib; sourceTree = "<group>"; };
+		18579FFE1B4BC2E800501EA0 /* EDPhysicalDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDPhysicalDetailViewController.h; sourceTree = "<group>"; };
+		18579FFF1B4BC2E800501EA0 /* EDPhysicalDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDPhysicalDetailViewController.m; sourceTree = "<group>"; };
+		1857A0001B4BC2E800501EA0 /* EDPhysicalDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDPhysicalDetailViewController.xib; sourceTree = "<group>"; };
+		1857A0011B4BC2E800501EA0 /* EDPhySicalTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDPhySicalTestViewController.h; sourceTree = "<group>"; };
+		1857A0021B4BC2E800501EA0 /* EDPhySicalTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDPhySicalTestViewController.m; sourceTree = "<group>"; };
+		1857A0031B4BC2E800501EA0 /* EDPhySicalTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDPhySicalTestViewController.xib; sourceTree = "<group>"; };
+		1857A0051B4BC2E800501EA0 /* EDInfomationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDInfomationViewController.h; sourceTree = "<group>"; };
+		1857A0061B4BC2E800501EA0 /* EDInfomationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDInfomationViewController.m; sourceTree = "<group>"; };
+		1857A0071B4BC2E800501EA0 /* EDInfomationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDInfomationViewController.xib; sourceTree = "<group>"; };
+		1857A00F1B4BC3CB00501EA0 /* EDPhysicalContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDPhysicalContentCell.h; sourceTree = "<group>"; };
+		1857A0101B4BC3CB00501EA0 /* EDPhysicalContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDPhysicalContentCell.m; sourceTree = "<group>"; };
+		1857A0111B4BC3CB00501EA0 /* EDPhysicalContentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDPhysicalContentCell.xib; sourceTree = "<group>"; };
+		1857A0121B4BC3CB00501EA0 /* EDPhysicalDetailHeadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDPhysicalDetailHeadCell.h; sourceTree = "<group>"; };
+		1857A0131B4BC3CB00501EA0 /* EDPhysicalDetailHeadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDPhysicalDetailHeadCell.m; sourceTree = "<group>"; };
+		1857A0141B4BC3CB00501EA0 /* EDPhysicalDetailHeadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDPhysicalDetailHeadCell.xib; sourceTree = "<group>"; };
+		1857A01A1B4BC3FB00501EA0 /* EDMyOrderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDMyOrderCell.h; sourceTree = "<group>"; };
+		1857A01B1B4BC3FB00501EA0 /* EDMyOrderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDMyOrderCell.m; sourceTree = "<group>"; };
+		1857A01C1B4BC3FB00501EA0 /* EDMyOrderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDMyOrderCell.xib; sourceTree = "<group>"; };
+		1857A01D1B4BC3FB00501EA0 /* EDOrderBottomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDOrderBottomCell.h; sourceTree = "<group>"; };
+		1857A01E1B4BC3FB00501EA0 /* EDOrderBottomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDOrderBottomCell.m; sourceTree = "<group>"; };
+		1857A01F1B4BC3FB00501EA0 /* EDOrderBottomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDOrderBottomCell.xib; sourceTree = "<group>"; };
+		1857A0201B4BC3FB00501EA0 /* EDOrderHeadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDOrderHeadCell.h; sourceTree = "<group>"; };
+		1857A0211B4BC3FB00501EA0 /* EDOrderHeadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDOrderHeadCell.m; sourceTree = "<group>"; };
+		1857A0221B4BC3FB00501EA0 /* EDOrderHeadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDOrderHeadCell.xib; sourceTree = "<group>"; };
 		187F7DB71B43BA1C005CC8D8 /* EDMyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDMyViewController.h; sourceTree = "<group>"; };
 		187F7DB81B43BA1C005CC8D8 /* EDMyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDMyViewController.m; sourceTree = "<group>"; };
 		187F7DB91B43BA1C005CC8D8 /* EDMyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDMyViewController.xib; sourceTree = "<group>"; };
@@ -256,16 +321,6 @@
 			path = "科目Cell";
 			sourceTree = "<group>";
 		};
-		1808B31F1B44284D0050E3B4 /* 天天资讯 */ = {
-			isa = PBXGroup;
-			children = (
-				1808B3201B4428770050E3B4 /* EDInfomationViewController.h */,
-				1808B3211B4428770050E3B4 /* EDInfomationViewController.m */,
-				1808B3221B4428770050E3B4 /* EDInfomationViewController.xib */,
-			);
-			path = "天天资讯";
-			sourceTree = "<group>";
-		};
 		1808B3251B4429170050E3B4 /* 天天资讯Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -315,10 +370,97 @@
 			path = "我的资料";
 			sourceTree = "<group>";
 		};
+		18579FDC1B4BC24E00501EA0 /* Set */ = {
+			isa = PBXGroup;
+			children = (
+				18579FDD1B4BC24E00501EA0 /* EDSetProblemViewController.h */,
+				18579FDE1B4BC24E00501EA0 /* EDSetProblemViewController.m */,
+				18579FDF1B4BC24E00501EA0 /* EDSetProblemViewController.xib */,
+				18579FE01B4BC24E00501EA0 /* EDSettingViewController.h */,
+				18579FE11B4BC24E00501EA0 /* EDSettingViewController.m */,
+				18579FE21B4BC24E00501EA0 /* EDSettingViewController.xib */,
+			);
+			path = Set;
+			sourceTree = "<group>";
+		};
+		18579FEC1B4BC2B800501EA0 /* 我的订单 */ = {
+			isa = PBXGroup;
+			children = (
+				18579FED1B4BC2B800501EA0 /* EDMyOrderViewController.h */,
+				18579FEE1B4BC2B800501EA0 /* EDMyOrderViewController.m */,
+				18579FEF1B4BC2B800501EA0 /* EDMyOrderViewController.xib */,
+				18579FF01B4BC2B800501EA0 /* EDOrderDetailViewController.h */,
+				18579FF11B4BC2B800501EA0 /* EDOrderDetailViewController.m */,
+				18579FF21B4BC2B800501EA0 /* EDOrderDetailViewController.xib */,
+			);
+			path = "我的订单";
+			sourceTree = "<group>";
+		};
+		18579FF31B4BC2B800501EA0 /* 修改密码 */ = {
+			isa = PBXGroup;
+			children = (
+				18579FF41B4BC2B800501EA0 /* EDAlterPwdViewController.h */,
+				18579FF51B4BC2B800501EA0 /* EDAlterPwdViewController.m */,
+				18579FF61B4BC2B800501EA0 /* EDAlterPwdViewController.xib */,
+			);
+			path = "修改密码";
+			sourceTree = "<group>";
+		};
+		18579FFD1B4BC2E800501EA0 /* 体能测试 */ = {
+			isa = PBXGroup;
+			children = (
+				1857A0011B4BC2E800501EA0 /* EDPhySicalTestViewController.h */,
+				1857A0021B4BC2E800501EA0 /* EDPhySicalTestViewController.m */,
+				1857A0031B4BC2E800501EA0 /* EDPhySicalTestViewController.xib */,
+				18579FFE1B4BC2E800501EA0 /* EDPhysicalDetailViewController.h */,
+				18579FFF1B4BC2E800501EA0 /* EDPhysicalDetailViewController.m */,
+				1857A0001B4BC2E800501EA0 /* EDPhysicalDetailViewController.xib */,
+			);
+			path = "体能测试";
+			sourceTree = "<group>";
+		};
+		1857A0041B4BC2E800501EA0 /* 天天资讯 */ = {
+			isa = PBXGroup;
+			children = (
+				1857A0051B4BC2E800501EA0 /* EDInfomationViewController.h */,
+				1857A0061B4BC2E800501EA0 /* EDInfomationViewController.m */,
+				1857A0071B4BC2E800501EA0 /* EDInfomationViewController.xib */,
+			);
+			path = "天天资讯";
+			sourceTree = "<group>";
+		};
+		1857A00E1B4BC3CB00501EA0 /* 体能Cell */ = {
+			isa = PBXGroup;
+			children = (
+				1857A00F1B4BC3CB00501EA0 /* EDPhysicalContentCell.h */,
+				1857A0101B4BC3CB00501EA0 /* EDPhysicalContentCell.m */,
+				1857A0111B4BC3CB00501EA0 /* EDPhysicalContentCell.xib */,
+				1857A0121B4BC3CB00501EA0 /* EDPhysicalDetailHeadCell.h */,
+				1857A0131B4BC3CB00501EA0 /* EDPhysicalDetailHeadCell.m */,
+				1857A0141B4BC3CB00501EA0 /* EDPhysicalDetailHeadCell.xib */,
+			);
+			path = "体能Cell";
+			sourceTree = "<group>";
+		};
+		1857A0191B4BC3FB00501EA0 /* 订单Cell */ = {
+			isa = PBXGroup;
+			children = (
+				1857A01A1B4BC3FB00501EA0 /* EDMyOrderCell.h */,
+				1857A01B1B4BC3FB00501EA0 /* EDMyOrderCell.m */,
+				1857A01C1B4BC3FB00501EA0 /* EDMyOrderCell.xib */,
+				1857A01D1B4BC3FB00501EA0 /* EDOrderBottomCell.h */,
+				1857A01E1B4BC3FB00501EA0 /* EDOrderBottomCell.m */,
+				1857A01F1B4BC3FB00501EA0 /* EDOrderBottomCell.xib */,
+				1857A0201B4BC3FB00501EA0 /* EDOrderHeadCell.h */,
+				1857A0211B4BC3FB00501EA0 /* EDOrderHeadCell.m */,
+				1857A0221B4BC3FB00501EA0 /* EDOrderHeadCell.xib */,
+			);
+			path = "订单Cell";
+			sourceTree = "<group>";
+		};
 		187F7DB61B43B9CB005CC8D8 /* My */ = {
 			isa = PBXGroup;
 			children = (
-				1808B31F1B44284D0050E3B4 /* 天天资讯 */,
 				1808B30E1B43D4700050E3B4 /* 科目选择 */,
 				187F7DBC1B43BB7B005CC8D8 /* 成绩 */,
 				187F7DB71B43BA1C005CC8D8 /* EDMyViewController.h */,
@@ -344,6 +486,7 @@
 		187F7DC21B43BDAB005CC8D8 /* 我的 */ = {
 			isa = PBXGroup;
 			children = (
+				1857A0191B4BC3FB00501EA0 /* 订单Cell */,
 				1808B3251B4429170050E3B4 /* 天天资讯Cell */,
 				1808B3141B43D6100050E3B4 /* 科目Cell */,
 				187F7DC31B43BDAB005CC8D8 /* 成绩cell */,
@@ -364,6 +507,8 @@
 		761749001B451C6C006DD0AA /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				18579FEC1B4BC2B800501EA0 /* 我的订单 */,
+				18579FF31B4BC2B800501EA0 /* 修改密码 */,
 				18579F891B453FF400501EA0 /* 我的资料 */,
 				761749011B451C87006DD0AA /* MineViewController.h */,
 				761749021B451C87006DD0AA /* MineViewController.m */,
@@ -375,6 +520,7 @@
 		7644063F1B458B0E00541C86 /* 首页 */ = {
 			isa = PBXGroup;
 			children = (
+				1857A00E1B4BC3CB00501EA0 /* 体能Cell */,
 				764406781B47BEB700541C86 /* 生活服务 */,
 				764406401B458B1700541C86 /* 班级圈cell */,
 			);
@@ -476,6 +622,9 @@
 				768FFB191B423BCB008E577F /* component */,
 				768FFAF21B4238D9008E577F /* AppDelegate.h */,
 				768FFAF31B4238D9008E577F /* AppDelegate.m */,
+				18579FE71B4BC28A00501EA0 /* LoginViewController.h */,
+				18579FE81B4BC28A00501EA0 /* LoginViewController.m */,
+				18579FE91B4BC28A00501EA0 /* LoginViewController.xib */,
 				768FFAFB1B4238D9008E577F /* Images.xcassets */,
 				768FFAFD1B4238D9008E577F /* LaunchScreen.xib */,
 				768FFAEE1B4238D9008E577F /* Supporting Files */,
@@ -513,6 +662,7 @@
 		768FFB161B423BAC008E577F /* Section */ = {
 			isa = PBXGroup;
 			children = (
+				18579FDC1B4BC24E00501EA0 /* Set */,
 				761749001B451C6C006DD0AA /* Mine */,
 				1808B32B1B4439C60050E3B4 /* Contact */,
 				187F7DB61B43B9CB005CC8D8 /* My */,
@@ -550,6 +700,8 @@
 		768FFB1A1B423BE8008E577F /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				18579FFD1B4BC2E800501EA0 /* 体能测试 */,
+				1857A0041B4BC2E800501EA0 /* 天天资讯 */,
 				764406601B4671A600541C86 /* 生活服务 */,
 				764406551B458C2C00541C86 /* 班级圈 */,
 				768FFB1B1B423C0A008E577F /* ViewController.h */,
@@ -681,37 +833,50 @@
 				1808B3301B4439ED0050E3B4 /* EDContactViewController.xib in Resources */,
 				7644065A1B458C2C00541C86 /* ClassCircleViewController.xib in Resources */,
 				1808B34F1B44FD1C0050E3B4 /* EDSendMsgViewController.xib in Resources */,
+				1857A0241B4BC3FB00501EA0 /* EDMyOrderCell.xib in Resources */,
 				764406521B458B1700541C86 /* ReplyCell.xib in Resources */,
 				7644065F1B46669C00541C86 /* SendViewController.xib in Resources */,
 				1808B3191B43D6480050E3B4 /* EDGradeCell.xib in Resources */,
+				18579FE61B4BC24E00501EA0 /* EDSettingViewController.xib in Resources */,
+				1857A0091B4BC2E800501EA0 /* EDPhysicalDetailViewController.xib in Resources */,
 				764406501B458B1700541C86 /* ClassCircleCell.xib in Resources */,
+				1857A0281B4BC3FB00501EA0 /* EDOrderHeadCell.xib in Resources */,
 				1808B34A1B44F1CB0050E3B4 /* EDStudentViewController.xib in Resources */,
 				187F7DCD1B43C074005CC8D8 /* EDGradeDetailViewController.xib in Resources */,
 				764406541B458B1700541C86 /* TopCell.xib in Resources */,
 				1808B3131B43D4990050E3B4 /* EDSubjectViewController.xib in Resources */,
 				764406651B4671BC00541C86 /* LifeServiceViewController.xib in Resources */,
 				764406951B4ACD0200541C86 /* SelectAddCell.xib in Resources */,
+				18579FE41B4BC24E00501EA0 /* EDSetProblemViewController.xib in Resources */,
 				768FFAFF1B4238D9008E577F /* LaunchScreen.xib in Resources */,
+				1857A0261B4BC3FB00501EA0 /* EDOrderBottomCell.xib in Resources */,
 				768FFB3D1B42DE44008E577F /* HomePageListCell.xib in Resources */,
 				7644069A1B4BBE2000541C86 /* ManageAddViewController.xib in Resources */,
 				761749051B451C87006DD0AA /* MineViewController.xib in Resources */,
 				1808B32A1B44293C0050E3B4 /* EDDayInfoCell.xib in Resources */,
 				187F7DBB1B43BA1C005CC8D8 /* EDMyViewController.xib in Resources */,
 				1808B3451B44EADB0050E3B4 /* EDTeacherInfoViewController.xib in Resources */,
+				18579FF81B4BC2B800501EA0 /* EDMyOrderViewController.xib in Resources */,
+				1857A0181B4BC3CB00501EA0 /* EDPhysicalDetailHeadCell.xib in Resources */,
 				768FFB331B42C333008E577F /* UserIntroCell.xib in Resources */,
+				18579FFA1B4BC2B800501EA0 /* EDOrderDetailViewController.xib in Resources */,
+				1857A0161B4BC3CB00501EA0 /* EDPhysicalContentCell.xib in Resources */,
 				768FFB1F1B423C0A008E577F /* ViewController.xib in Resources */,
 				764406901B4AC4FA00541C86 /* SelectAddViewController.xib in Resources */,
+				18579FEB1B4BC28A00501EA0 /* LoginViewController.xib in Resources */,
+				1857A00B1B4BC2E800501EA0 /* EDPhySicalTestViewController.xib in Resources */,
 				187F7DC11B43BC51005CC8D8 /* EDGradeRecodeViewController.xib in Resources */,
 				764406861B4A5CAA00541C86 /* LifeServiceIntroViewController.xib in Resources */,
 				768FFAFC1B4238D9008E577F /* Images.xcassets in Resources */,
 				768FFB381B42C8C4008E577F /* ButtonViewCell.xib in Resources */,
+				18579FFC1B4BC2B800501EA0 /* EDAlterPwdViewController.xib in Resources */,
 				187F7DC81B43BDDF005CC8D8 /* EDGradeRecodeCell.xib in Resources */,
 				7644064E1B458B1700541C86 /* BottomCell.xib in Resources */,
 				1808B31E1B43D6650050E3B4 /* EDSubjectCell.xib in Resources */,
 				18579F8E1B45401100501EA0 /* EDEditInfoViewController.xib in Resources */,
 				7644068B1B4A783A00541C86 /* SureOrderViewController.xib in Resources */,
 				1808B33B1B44DEB00050E3B4 /* EDContactContentCell.xib in Resources */,
-				1808B3241B4428770050E3B4 /* EDInfomationViewController.xib in Resources */,
+				1857A00D1B4BC2E800501EA0 /* EDInfomationViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -765,34 +930,47 @@
 				187F7DC01B43BC51005CC8D8 /* EDGradeRecodeViewController.m in Sources */,
 				768FFB3C1B42DE44008E577F /* HomePageListCell.m in Sources */,
 				187F7DC71B43BDDF005CC8D8 /* EDGradeRecodeCell.m in Sources */,
-				1808B3231B4428770050E3B4 /* EDInfomationViewController.m in Sources */,
+				18579FE31B4BC24E00501EA0 /* EDSetProblemViewController.m in Sources */,
 				187F7DD01B43C469005CC8D8 /* Tools.m in Sources */,
 				1808B3181B43D6480050E3B4 /* EDGradeCell.m in Sources */,
 				764406991B4BBE2000541C86 /* ManageAddViewController.m in Sources */,
 				764406851B4A5CAA00541C86 /* LifeServiceIntroViewController.m in Sources */,
+				1857A0251B4BC3FB00501EA0 /* EDOrderBottomCell.m in Sources */,
+				18579FF91B4BC2B800501EA0 /* EDOrderDetailViewController.m in Sources */,
 				7644065E1B46669C00541C86 /* SendViewController.m in Sources */,
 				768FFB1E1B423C0A008E577F /* ViewController.m in Sources */,
+				18579FF71B4BC2B800501EA0 /* EDMyOrderViewController.m in Sources */,
 				768FFAF41B4238D9008E577F /* AppDelegate.m in Sources */,
+				1857A0151B4BC3CB00501EA0 /* EDPhysicalContentCell.m in Sources */,
 				7644064F1B458B1700541C86 /* ClassCircleCell.m in Sources */,
 				768FFB371B42C8C4008E577F /* ButtonViewCell.m in Sources */,
 				761749041B451C87006DD0AA /* MineViewController.m in Sources */,
+				1857A00C1B4BC2E800501EA0 /* EDInfomationViewController.m in Sources */,
+				1857A0081B4BC2E800501EA0 /* EDPhysicalDetailViewController.m in Sources */,
 				1808B34E1B44FD1C0050E3B4 /* EDSendMsgViewController.m in Sources */,
+				1857A00A1B4BC2E800501EA0 /* EDPhySicalTestViewController.m in Sources */,
 				7644068A1B4A783A00541C86 /* SureOrderViewController.m in Sources */,
+				1857A0271B4BC3FB00501EA0 /* EDOrderHeadCell.m in Sources */,
 				1808B3121B43D4990050E3B4 /* EDSubjectViewController.m in Sources */,
 				764406641B4671BC00541C86 /* LifeServiceViewController.m in Sources */,
 				768FFB221B423C76008E577F /* SETabBarViewController.m in Sources */,
 				187F7DBA1B43BA1C005CC8D8 /* EDMyViewController.m in Sources */,
+				1857A0171B4BC3CB00501EA0 /* EDPhysicalDetailHeadCell.m in Sources */,
 				768FFAF11B4238D9008E577F /* main.m in Sources */,
 				18579F8D1B45401100501EA0 /* EDEditInfoViewController.m in Sources */,
 				1808B31D1B43D6650050E3B4 /* EDSubjectCell.m in Sources */,
+				18579FEA1B4BC28A00501EA0 /* LoginViewController.m in Sources */,
 				764406591B458C2C00541C86 /* ClassCircleViewController.m in Sources */,
 				768FFB321B42C333008E577F /* UserIntroCell.m in Sources */,
 				1808B3291B44293C0050E3B4 /* EDDayInfoCell.m in Sources */,
 				1808B3491B44F1CB0050E3B4 /* EDStudentViewController.m in Sources */,
 				1808B3441B44EADB0050E3B4 /* EDTeacherInfoViewController.m in Sources */,
 				7644064D1B458B1700541C86 /* BottomCell.m in Sources */,
+				1857A0231B4BC3FB00501EA0 /* EDMyOrderCell.m in Sources */,
 				764406511B458B1700541C86 /* ReplyCell.m in Sources */,
+				18579FFB1B4BC2B800501EA0 /* EDAlterPwdViewController.m in Sources */,
 				1808B33A1B44DEB00050E3B4 /* EDContactContentCell.m in Sources */,
+				18579FE51B4BC24E00501EA0 /* EDSettingViewController.m in Sources */,
 				764406531B458B1700541C86 /* TopCell.m in Sources */,
 				764406941B4ACD0200541C86 /* SelectAddCell.m in Sources */,
 				7644068F1B4AC4FA00541C86 /* SelectAddViewController.m in Sources */,
