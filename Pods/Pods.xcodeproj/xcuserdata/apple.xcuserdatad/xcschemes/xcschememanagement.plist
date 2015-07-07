@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
+		<key>Pods-FXBlurView.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
 		<key>Pods-IQKeyboardManager.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -37,7 +42,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>27D4449DCA25B88D08882070</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>296E04A0C22A6BA5E67907E4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>2D81517CE318BC44138E9CB8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>370E686E14405AFE43872139</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -52,7 +72,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>A11CB5C72ED0FC15FC102255</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CCC732DB8C23FA898E7EA0FC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>CFA64541CB6F290D5F269E47</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DD2F7149C843E6B277DB040E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E257D4FD050437FA60AD6064</key>
 		<dict>
 			<key>primary</key>
 			<true/>

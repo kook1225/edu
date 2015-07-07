@@ -9,6 +9,7 @@
 #import "MineViewController.h"
 #import "SETabBarViewController.h"
 #import "EDEditInfoViewController.h"
+#import "EDMyOrderViewController.h"
 
 @interface MineViewController () {
     SETabBarViewController *tabBarViewController;
@@ -50,7 +51,8 @@
 }
 
 - (IBAction)userOrderTap:(id)sender {
-    NSLog(@"2");
+    EDMyOrderViewController *orderVC = [[EDMyOrderViewController alloc]init];
+    [self.navigationController pushViewController:orderVC animated:YES];
 }
 
 - (IBAction)userAddTap:(id)sender {

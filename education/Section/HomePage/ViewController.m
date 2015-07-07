@@ -14,6 +14,8 @@
 #import "SETabBarViewController.h"
 #import "ClassCircleViewController.h"
 #import "LifeServiceViewController.h"
+#import "EDPhySicalTestViewController.h"
+#import "EDInfomationViewController.h"
 
 #define IMAGEHEIGHT (160 * ([UIScreen mainScreen].bounds.size.height/568.0))
 #define USERINTROHEIGHT (64 * ([UIScreen mainScreen].bounds.size.height/568.0))
@@ -209,7 +211,8 @@
 }
 
 - (void)introDay {
-    NSLog(@"6");
+    EDInfomationViewController *infoVC = [[EDInfomationViewController alloc]init];
+    [self.navigationController pushViewController:infoVC animated:YES];
 }
 
 - (void)problem {
@@ -229,7 +232,8 @@
 }
 
 - (void)body {
-    NSLog(@"11");
+    EDPhySicalTestViewController *physicalVC = [[EDPhySicalTestViewController alloc]init];
+    [self.navigationController pushViewController:physicalVC animated:YES];
 }
 
 - (void)courseOnLine {

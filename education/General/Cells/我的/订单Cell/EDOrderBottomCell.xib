@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="orderBottom" id="KGk-i7-Jjw" customClass="EDOrderBottomCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="共2件商品，实付:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S2b-j3-0OY">
+                        <rect key="frame" x="176" y="14" width="97" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="97" id="7An-yB-Knu"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥60" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2CL-Kh-Hrb">
+                        <rect key="frame" x="272" y="13" width="40" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="8Yd-YV-Bjz"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" red="0.98431372549999996" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fG6-WU-9i8">
+                        <rect key="frame" x="0.0" y="40" width="320" height="3"/>
+                        <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="S2b-j3-0OY" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="560-ab-P9t"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="2CL-Kh-Hrb" secondAttribute="trailing" id="6JT-99-Q6f"/>
+                    <constraint firstAttribute="bottom" secondItem="fG6-WU-9i8" secondAttribute="bottom" id="7rN-EU-FMe"/>
+                    <constraint firstItem="2CL-Kh-Hrb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="C51-eK-6xT"/>
+                    <constraint firstItem="S2b-j3-0OY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="6" id="Fes-xd-Tmd"/>
+                    <constraint firstItem="fG6-WU-9i8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Rhj-12-lTk"/>
+                    <constraint firstAttribute="trailing" secondItem="fG6-WU-9i8" secondAttribute="trailing" id="YY4-pD-s0e"/>
+                    <constraint firstItem="fG6-WU-9i8" firstAttribute="top" secondItem="2CL-Kh-Hrb" secondAttribute="bottom" constant="12" id="b3G-hi-3sc"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="S2b-j3-0OY" secondAttribute="trailing" constant="39" id="baL-9T-bCM"/>
+                    <constraint firstItem="fG6-WU-9i8" firstAttribute="top" secondItem="S2b-j3-0OY" secondAttribute="bottom" constant="11" id="saJ-KR-zgp"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="245" y="325"/>
+        </tableViewCell>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
