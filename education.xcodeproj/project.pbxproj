@@ -96,6 +96,10 @@
 		7644069F1B4BC1F900541C86 /* AddReceiveAddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7644069D1B4BC1F900541C86 /* AddReceiveAddressViewController.xib */; };
 		764406A31B4BCD4600541C86 /* EditAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 764406A11B4BCD4600541C86 /* EditAddViewController.m */; };
 		764406A41B4BCD4600541C86 /* EditAddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 764406A21B4BCD4600541C86 /* EditAddViewController.xib */; };
+		764406A81B4BD07F00541C86 /* SelectPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 764406A61B4BD07F00541C86 /* SelectPayViewController.m */; };
+		764406A91B4BD07F00541C86 /* SelectPayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 764406A71B4BD07F00541C86 /* SelectPayViewController.xib */; };
+		764406AD1B4BD5CF00541C86 /* PayEndViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 764406AB1B4BD5CF00541C86 /* PayEndViewController.m */; };
+		764406AE1B4BD5CF00541C86 /* PayEndViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 764406AC1B4BD5CF00541C86 /* PayEndViewController.xib */; };
 		768FFAF11B4238D9008E577F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF01B4238D9008E577F /* main.m */; };
 		768FFAF41B4238D9008E577F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF31B4238D9008E577F /* AppDelegate.m */; };
 		768FFAFC1B4238D9008E577F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 768FFAFB1B4238D9008E577F /* Images.xcassets */; };
@@ -260,6 +264,12 @@
 		764406A01B4BCD4600541C86 /* EditAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditAddViewController.h; sourceTree = "<group>"; };
 		764406A11B4BCD4600541C86 /* EditAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditAddViewController.m; sourceTree = "<group>"; };
 		764406A21B4BCD4600541C86 /* EditAddViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditAddViewController.xib; sourceTree = "<group>"; };
+		764406A51B4BD07F00541C86 /* SelectPayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectPayViewController.h; sourceTree = "<group>"; };
+		764406A61B4BD07F00541C86 /* SelectPayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectPayViewController.m; sourceTree = "<group>"; };
+		764406A71B4BD07F00541C86 /* SelectPayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectPayViewController.xib; sourceTree = "<group>"; };
+		764406AA1B4BD5CF00541C86 /* PayEndViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayEndViewController.h; sourceTree = "<group>"; };
+		764406AB1B4BD5CF00541C86 /* PayEndViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayEndViewController.m; sourceTree = "<group>"; };
+		764406AC1B4BD5CF00541C86 /* PayEndViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayEndViewController.xib; sourceTree = "<group>"; };
 		768FFAEB1B4238D9008E577F /* education.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = education.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		768FFAEF1B4238D9008E577F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		768FFAF01B4238D9008E577F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -593,6 +603,12 @@
 				764406A01B4BCD4600541C86 /* EditAddViewController.h */,
 				764406A11B4BCD4600541C86 /* EditAddViewController.m */,
 				764406A21B4BCD4600541C86 /* EditAddViewController.xib */,
+				764406A51B4BD07F00541C86 /* SelectPayViewController.h */,
+				764406A61B4BD07F00541C86 /* SelectPayViewController.m */,
+				764406A71B4BD07F00541C86 /* SelectPayViewController.xib */,
+				764406AA1B4BD5CF00541C86 /* PayEndViewController.h */,
+				764406AB1B4BD5CF00541C86 /* PayEndViewController.m */,
+				764406AC1B4BD5CF00541C86 /* PayEndViewController.xib */,
 			);
 			path = "生活服务";
 			sourceTree = "<group>";
@@ -851,6 +867,7 @@
 				1808B34F1B44FD1C0050E3B4 /* EDSendMsgViewController.xib in Resources */,
 				1857A0241B4BC3FB00501EA0 /* EDMyOrderCell.xib in Resources */,
 				764406521B458B1700541C86 /* ReplyCell.xib in Resources */,
+				764406AE1B4BD5CF00541C86 /* PayEndViewController.xib in Resources */,
 				7644065F1B46669C00541C86 /* SendViewController.xib in Resources */,
 				1808B3191B43D6480050E3B4 /* EDGradeCell.xib in Resources */,
 				18579FE61B4BC24E00501EA0 /* EDSettingViewController.xib in Resources */,
@@ -875,6 +892,7 @@
 				1808B3451B44EADB0050E3B4 /* EDTeacherInfoViewController.xib in Resources */,
 				18579FF81B4BC2B800501EA0 /* EDMyOrderViewController.xib in Resources */,
 				1857A0181B4BC3CB00501EA0 /* EDPhysicalDetailHeadCell.xib in Resources */,
+				764406A91B4BD07F00541C86 /* SelectPayViewController.xib in Resources */,
 				768FFB331B42C333008E577F /* UserIntroCell.xib in Resources */,
 				18579FFA1B4BC2B800501EA0 /* EDOrderDetailViewController.xib in Resources */,
 				1857A0161B4BC3CB00501EA0 /* EDPhysicalContentCell.xib in Resources */,
@@ -947,6 +965,7 @@
 			files = (
 				187F7DC01B43BC51005CC8D8 /* EDGradeRecodeViewController.m in Sources */,
 				768FFB3C1B42DE44008E577F /* HomePageListCell.m in Sources */,
+				764406A81B4BD07F00541C86 /* SelectPayViewController.m in Sources */,
 				187F7DC71B43BDDF005CC8D8 /* EDGradeRecodeCell.m in Sources */,
 				18579FE31B4BC24E00501EA0 /* EDSetProblemViewController.m in Sources */,
 				187F7DD01B43C469005CC8D8 /* Tools.m in Sources */,
@@ -963,6 +982,7 @@
 				1857A0151B4BC3CB00501EA0 /* EDPhysicalContentCell.m in Sources */,
 				7644064F1B458B1700541C86 /* ClassCircleCell.m in Sources */,
 				768FFB371B42C8C4008E577F /* ButtonViewCell.m in Sources */,
+				764406AD1B4BD5CF00541C86 /* PayEndViewController.m in Sources */,
 				761749041B451C87006DD0AA /* MineViewController.m in Sources */,
 				1857A00C1B4BC2E800501EA0 /* EDInfomationViewController.m in Sources */,
 				1857A0081B4BC2E800501EA0 /* EDPhysicalDetailViewController.m in Sources */,

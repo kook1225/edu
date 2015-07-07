@@ -8,6 +8,7 @@
 
 #import "SureOrderViewController.h"
 #import "SelectAddViewController.h"
+#import "SelectPayViewController.h"
 
 @interface SureOrderViewController ()<SelectAddViewControllerDelegate> {
     int num;
@@ -105,6 +106,12 @@
     selectAddVC.checkRow = checkRow;
     [self.navigationController pushViewController:selectAddVC animated:YES];
 }
+
+- (IBAction)surePayBtn:(id)sender {
+    SelectPayViewController *selectPayVC = [[SelectPayViewController alloc] init];
+    [self.navigationController pushViewController:selectPayVC animated:YES];
+}
+
 
 #pragma mark - SelectAddViewControllerDelegate Method
 - (void)selectedAdd:(int)row {
