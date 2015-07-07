@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol SelectAddViewControllerDelegate <NSObject>
+
+- (void)selectedAdd:(int)row;
+
+@end
+
 @interface SelectAddViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@property (nonatomic) int checkRow;
+@property (nonatomic,weak) id<SelectAddViewControllerDelegate> delegate;
 
 @end

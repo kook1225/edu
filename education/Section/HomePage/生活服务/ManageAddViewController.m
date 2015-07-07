@@ -1,28 +1,27 @@
 //
-//  SelectAddViewController.m
+//  ManageAddViewController.m
 //  education
 //
-//  Created by zhujun on 15/7/6.
+//  Created by zhujun on 15/7/7.
 //  Copyright (c) 2015年 zhujun. All rights reserved.
 //
 
-#import "SelectAddViewController.h"
-#import "SelectAddCell.h"
 #import "ManageAddViewController.h"
+#import "SelectAddCell.h"
 
-@interface SelectAddViewController ()
-@property (weak, nonatomic) IBOutlet UIButton *manageAddBtn;
+@interface ManageAddViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIButton *addAddressBtn;
 
 @end
 
-@implementation SelectAddViewController
+@implementation ManageAddViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"选择收货地址";
+    self.title = @"管理收货地址";
     
-    _manageAddBtn.layer.cornerRadius = 5.0f;
+    _addAddressBtn.layer.cornerRadius = 5.0f;
     
     self.navigationItem.leftBarButtonItem = [Tools getNavBarItem:self clickAction:@selector(back)];
 }
@@ -32,16 +31,8 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (IBAction)manageAddBtn:(id)sender {
-    ManageAddViewController *manageAddVC = [[ManageAddViewController alloc] init];
-    manageAddVC.checkRow = _checkRow;
-    [self.navigationController pushViewController:manageAddVC animated:YES];
-}
-
 #pragma mark - UITableViewDelegate Method
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self.delegate selectedAdd:(int)indexPath.row];
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -60,9 +51,11 @@
         //通过xib的名称加载自定义的cell
         cell = [[[NSBundle mainBundle] loadNibNamed:@"SelectAddCell" owner:self options:nil] lastObject];
     }
+    
     if (_checkRow == indexPath.row) {
         [cell setData];
     }
+
     return cell;
 }
 
@@ -71,6 +64,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 
 @end

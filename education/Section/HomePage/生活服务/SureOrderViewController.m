@@ -9,8 +9,9 @@
 #import "SureOrderViewController.h"
 #import "SelectAddViewController.h"
 
-@interface SureOrderViewController () {
+@interface SureOrderViewController ()<SelectAddViewControllerDelegate> {
     int num;
+    int checkRow;
 }
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *addLabel;
@@ -31,6 +32,8 @@
     self.title = @"确认订单";
     
     num = 1;
+    
+    checkRow = 0;
     
     _addLabel.text = @"份水电费水电费水电费水电费水电费水电费水电费大大叔水电费水电费水电费大大水电费水电费水电费大大";
     _addLabel.numberOfLines = 2;
@@ -98,7 +101,14 @@
 
 - (IBAction)addTap:(id)sender {
     SelectAddViewController *selectAddVC = [[SelectAddViewController alloc] init];
+    selectAddVC.delegate = self;
+    selectAddVC.checkRow = checkRow;
     [self.navigationController pushViewController:selectAddVC animated:YES];
+}
+
+#pragma mark - SelectAddViewControllerDelegate Method
+- (void)selectedAdd:(int)row {
+    checkRow = row;
 }
 
 - (void)didReceiveMemoryWarning {

@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface SelectAddCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *checkImageView;
+
+
+- (void)setData;
 
 @end

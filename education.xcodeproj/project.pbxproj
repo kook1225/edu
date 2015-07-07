@@ -64,6 +64,8 @@
 		764406901B4AC4FA00541C86 /* SelectAddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7644068E1B4AC4FA00541C86 /* SelectAddViewController.xib */; };
 		764406941B4ACD0200541C86 /* SelectAddCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 764406921B4ACD0200541C86 /* SelectAddCell.m */; };
 		764406951B4ACD0200541C86 /* SelectAddCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 764406931B4ACD0200541C86 /* SelectAddCell.xib */; };
+		764406991B4BBE2000541C86 /* ManageAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 764406971B4BBE2000541C86 /* ManageAddViewController.m */; };
+		7644069A1B4BBE2000541C86 /* ManageAddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 764406981B4BBE2000541C86 /* ManageAddViewController.xib */; };
 		768FFAF11B4238D9008E577F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF01B4238D9008E577F /* main.m */; };
 		768FFAF41B4238D9008E577F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF31B4238D9008E577F /* AppDelegate.m */; };
 		768FFAFC1B4238D9008E577F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 768FFAFB1B4238D9008E577F /* Images.xcassets */; };
@@ -180,6 +182,9 @@
 		764406911B4ACD0200541C86 /* SelectAddCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectAddCell.h; sourceTree = "<group>"; };
 		764406921B4ACD0200541C86 /* SelectAddCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectAddCell.m; sourceTree = "<group>"; };
 		764406931B4ACD0200541C86 /* SelectAddCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectAddCell.xib; sourceTree = "<group>"; };
+		764406961B4BBE2000541C86 /* ManageAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageAddViewController.h; sourceTree = "<group>"; };
+		764406971B4BBE2000541C86 /* ManageAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManageAddViewController.m; sourceTree = "<group>"; };
+		764406981B4BBE2000541C86 /* ManageAddViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManageAddViewController.xib; sourceTree = "<group>"; };
 		768FFAEB1B4238D9008E577F /* education.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = education.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		768FFAEF1B4238D9008E577F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		768FFAF01B4238D9008E577F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -423,6 +428,9 @@
 				7644068C1B4AC4FA00541C86 /* SelectAddViewController.h */,
 				7644068D1B4AC4FA00541C86 /* SelectAddViewController.m */,
 				7644068E1B4AC4FA00541C86 /* SelectAddViewController.xib */,
+				764406961B4BBE2000541C86 /* ManageAddViewController.h */,
+				764406971B4BBE2000541C86 /* ManageAddViewController.m */,
+				764406981B4BBE2000541C86 /* ManageAddViewController.xib */,
 			);
 			path = "生活服务";
 			sourceTree = "<group>";
@@ -685,6 +693,7 @@
 				764406951B4ACD0200541C86 /* SelectAddCell.xib in Resources */,
 				768FFAFF1B4238D9008E577F /* LaunchScreen.xib in Resources */,
 				768FFB3D1B42DE44008E577F /* HomePageListCell.xib in Resources */,
+				7644069A1B4BBE2000541C86 /* ManageAddViewController.xib in Resources */,
 				761749051B451C87006DD0AA /* MineViewController.xib in Resources */,
 				1808B32A1B44293C0050E3B4 /* EDDayInfoCell.xib in Resources */,
 				187F7DBB1B43BA1C005CC8D8 /* EDMyViewController.xib in Resources */,
@@ -759,6 +768,7 @@
 				1808B3231B4428770050E3B4 /* EDInfomationViewController.m in Sources */,
 				187F7DD01B43C469005CC8D8 /* Tools.m in Sources */,
 				1808B3181B43D6480050E3B4 /* EDGradeCell.m in Sources */,
+				764406991B4BBE2000541C86 /* ManageAddViewController.m in Sources */,
 				764406851B4A5CAA00541C86 /* LifeServiceIntroViewController.m in Sources */,
 				7644065E1B46669C00541C86 /* SendViewController.m in Sources */,
 				768FFB1E1B423C0A008E577F /* ViewController.m in Sources */,
