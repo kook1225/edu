@@ -66,6 +66,8 @@
 		764406951B4ACD0200541C86 /* SelectAddCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 764406931B4ACD0200541C86 /* SelectAddCell.xib */; };
 		764406991B4BBE2000541C86 /* ManageAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 764406971B4BBE2000541C86 /* ManageAddViewController.m */; };
 		7644069A1B4BBE2000541C86 /* ManageAddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 764406981B4BBE2000541C86 /* ManageAddViewController.xib */; };
+		7644069E1B4BC1F900541C86 /* AddReceiveAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7644069C1B4BC1F900541C86 /* AddReceiveAddressViewController.m */; };
+		7644069F1B4BC1F900541C86 /* AddReceiveAddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7644069D1B4BC1F900541C86 /* AddReceiveAddressViewController.xib */; };
 		768FFAF11B4238D9008E577F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF01B4238D9008E577F /* main.m */; };
 		768FFAF41B4238D9008E577F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF31B4238D9008E577F /* AppDelegate.m */; };
 		768FFAFC1B4238D9008E577F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 768FFAFB1B4238D9008E577F /* Images.xcassets */; };
@@ -185,6 +187,9 @@
 		764406961B4BBE2000541C86 /* ManageAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageAddViewController.h; sourceTree = "<group>"; };
 		764406971B4BBE2000541C86 /* ManageAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManageAddViewController.m; sourceTree = "<group>"; };
 		764406981B4BBE2000541C86 /* ManageAddViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManageAddViewController.xib; sourceTree = "<group>"; };
+		7644069B1B4BC1F900541C86 /* AddReceiveAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddReceiveAddressViewController.h; sourceTree = "<group>"; };
+		7644069C1B4BC1F900541C86 /* AddReceiveAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddReceiveAddressViewController.m; sourceTree = "<group>"; };
+		7644069D1B4BC1F900541C86 /* AddReceiveAddressViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddReceiveAddressViewController.xib; sourceTree = "<group>"; };
 		768FFAEB1B4238D9008E577F /* education.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = education.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		768FFAEF1B4238D9008E577F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		768FFAF01B4238D9008E577F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -431,6 +436,9 @@
 				764406961B4BBE2000541C86 /* ManageAddViewController.h */,
 				764406971B4BBE2000541C86 /* ManageAddViewController.m */,
 				764406981B4BBE2000541C86 /* ManageAddViewController.xib */,
+				7644069B1B4BC1F900541C86 /* AddReceiveAddressViewController.h */,
+				7644069C1B4BC1F900541C86 /* AddReceiveAddressViewController.m */,
+				7644069D1B4BC1F900541C86 /* AddReceiveAddressViewController.xib */,
 			);
 			path = "生活服务";
 			sourceTree = "<group>";
@@ -706,6 +714,7 @@
 				768FFAFC1B4238D9008E577F /* Images.xcassets in Resources */,
 				768FFB381B42C8C4008E577F /* ButtonViewCell.xib in Resources */,
 				187F7DC81B43BDDF005CC8D8 /* EDGradeRecodeCell.xib in Resources */,
+				7644069F1B4BC1F900541C86 /* AddReceiveAddressViewController.xib in Resources */,
 				7644064E1B458B1700541C86 /* BottomCell.xib in Resources */,
 				1808B31E1B43D6650050E3B4 /* EDSubjectCell.xib in Resources */,
 				18579F8E1B45401100501EA0 /* EDEditInfoViewController.xib in Resources */,
@@ -767,6 +776,7 @@
 				187F7DC71B43BDDF005CC8D8 /* EDGradeRecodeCell.m in Sources */,
 				1808B3231B4428770050E3B4 /* EDInfomationViewController.m in Sources */,
 				187F7DD01B43C469005CC8D8 /* Tools.m in Sources */,
+				7644069E1B4BC1F900541C86 /* AddReceiveAddressViewController.m in Sources */,
 				1808B3181B43D6480050E3B4 /* EDGradeCell.m in Sources */,
 				764406991B4BBE2000541C86 /* ManageAddViewController.m in Sources */,
 				764406851B4A5CAA00541C86 /* LifeServiceIntroViewController.m in Sources */,

@@ -8,6 +8,7 @@
 
 #import "ManageAddViewController.h"
 #import "SelectAddCell.h"
+#import "AddReceiveAddressViewController.h"
 
 @interface ManageAddViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -29,6 +30,11 @@
 #pragma mark - Custom Method
 - (void)back {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)addBtn:(id)sender {
+    AddReceiveAddressViewController *addReceiveAddressVC = [[AddReceiveAddressViewController alloc] init];
+    [self.navigationController pushViewController:addReceiveAddressVC animated:YES];
 }
 
 #pragma mark - UITableViewDelegate Method
