@@ -18,6 +18,7 @@
 #import "EDInfomationViewController.h"
 #import "EDGradeRecodeViewController.h"
 #import "GrowthTrailViewController.h"
+#import "EDPrivateNoteViewController.h"
 
 #define IMAGEHEIGHT (160 * ([UIScreen mainScreen].bounds.size.height/568.0))
 #define USERINTROHEIGHT (64 * ([UIScreen mainScreen].bounds.size.height/568.0))
@@ -195,7 +196,8 @@
 }
 
 - (void)myLetter {
-    NSLog(@"2");
+    EDPrivateNoteViewController *privateNoteVC = [[EDPrivateNoteViewController alloc]init];
+    [self.navigationController pushViewController:privateNoteVC animated:YES];
 }
 
 - (void)notice {

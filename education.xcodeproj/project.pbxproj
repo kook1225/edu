@@ -68,6 +68,12 @@
 		1857A0641B4D082100501EA0 /* EDPhotoDetailHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A0621B4D082100501EA0 /* EDPhotoDetailHeadCell.m */; };
 		1857A0651B4D082100501EA0 /* EDPhotoDetailHeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1857A0631B4D082100501EA0 /* EDPhotoDetailHeadCell.xib */; };
 		1857A0681B4D0BF700501EA0 /* EDPhotoDetailContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A0671B4D0BF700501EA0 /* EDPhotoDetailContentCell.m */; };
+		1857A07E1B4D6E8000501EA0 /* EDPrivateNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A07C1B4D6E8000501EA0 /* EDPrivateNoteViewController.m */; };
+		1857A07F1B4D6E8000501EA0 /* EDPrivateNoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1857A07D1B4D6E8000501EA0 /* EDPrivateNoteViewController.xib */; };
+		1857A0871B4D6E9800501EA0 /* EDPrivateNoteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A0821B4D6E9800501EA0 /* EDPrivateNoteCell.m */; };
+		1857A0881B4D6E9800501EA0 /* EDPrivateNoteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1857A0831B4D6E9800501EA0 /* EDPrivateNoteCell.xib */; };
+		1857A0891B4D6E9800501EA0 /* EDPrivateNoteSelectedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A0851B4D6E9800501EA0 /* EDPrivateNoteSelectedCell.m */; };
+		1857A08A1B4D6E9800501EA0 /* EDPrivateNoteSelectedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1857A0861B4D6E9800501EA0 /* EDPrivateNoteSelectedCell.xib */; };
 		187F7DC71B43BDDF005CC8D8 /* EDGradeRecodeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 187F7DC51B43BDDF005CC8D8 /* EDGradeRecodeCell.m */; };
 		187F7DC81B43BDDF005CC8D8 /* EDGradeRecodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187F7DC61B43BDDF005CC8D8 /* EDGradeRecodeCell.xib */; };
 		187F7DD01B43C469005CC8D8 /* Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 187F7DCF1B43C469005CC8D8 /* Tools.m */; };
@@ -234,6 +240,15 @@
 		1857A0631B4D082100501EA0 /* EDPhotoDetailHeadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDPhotoDetailHeadCell.xib; sourceTree = "<group>"; };
 		1857A0661B4D0BF700501EA0 /* EDPhotoDetailContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDPhotoDetailContentCell.h; sourceTree = "<group>"; };
 		1857A0671B4D0BF700501EA0 /* EDPhotoDetailContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDPhotoDetailContentCell.m; sourceTree = "<group>"; };
+		1857A07B1B4D6E8000501EA0 /* EDPrivateNoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDPrivateNoteViewController.h; sourceTree = "<group>"; };
+		1857A07C1B4D6E8000501EA0 /* EDPrivateNoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDPrivateNoteViewController.m; sourceTree = "<group>"; };
+		1857A07D1B4D6E8000501EA0 /* EDPrivateNoteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDPrivateNoteViewController.xib; sourceTree = "<group>"; };
+		1857A0811B4D6E9800501EA0 /* EDPrivateNoteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDPrivateNoteCell.h; sourceTree = "<group>"; };
+		1857A0821B4D6E9800501EA0 /* EDPrivateNoteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDPrivateNoteCell.m; sourceTree = "<group>"; };
+		1857A0831B4D6E9800501EA0 /* EDPrivateNoteCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDPrivateNoteCell.xib; sourceTree = "<group>"; };
+		1857A0841B4D6E9800501EA0 /* EDPrivateNoteSelectedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDPrivateNoteSelectedCell.h; sourceTree = "<group>"; };
+		1857A0851B4D6E9800501EA0 /* EDPrivateNoteSelectedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDPrivateNoteSelectedCell.m; sourceTree = "<group>"; };
+		1857A0861B4D6E9800501EA0 /* EDPrivateNoteSelectedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDPrivateNoteSelectedCell.xib; sourceTree = "<group>"; };
 		187F7DC41B43BDDF005CC8D8 /* EDGradeRecodeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDGradeRecodeCell.h; sourceTree = "<group>"; };
 		187F7DC51B43BDDF005CC8D8 /* EDGradeRecodeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDGradeRecodeCell.m; sourceTree = "<group>"; };
 		187F7DC61B43BDDF005CC8D8 /* EDGradeRecodeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDGradeRecodeCell.xib; sourceTree = "<group>"; };
@@ -554,6 +569,29 @@
 			path = "科目选择";
 			sourceTree = "<group>";
 		};
+		1857A07A1B4D6E8000501EA0 /* 我的私信 */ = {
+			isa = PBXGroup;
+			children = (
+				1857A07B1B4D6E8000501EA0 /* EDPrivateNoteViewController.h */,
+				1857A07C1B4D6E8000501EA0 /* EDPrivateNoteViewController.m */,
+				1857A07D1B4D6E8000501EA0 /* EDPrivateNoteViewController.xib */,
+			);
+			path = "我的私信";
+			sourceTree = "<group>";
+		};
+		1857A0801B4D6E9800501EA0 /* 我的私信Cell */ = {
+			isa = PBXGroup;
+			children = (
+				1857A0811B4D6E9800501EA0 /* EDPrivateNoteCell.h */,
+				1857A0821B4D6E9800501EA0 /* EDPrivateNoteCell.m */,
+				1857A0831B4D6E9800501EA0 /* EDPrivateNoteCell.xib */,
+				1857A0841B4D6E9800501EA0 /* EDPrivateNoteSelectedCell.h */,
+				1857A0851B4D6E9800501EA0 /* EDPrivateNoteSelectedCell.m */,
+				1857A0861B4D6E9800501EA0 /* EDPrivateNoteSelectedCell.xib */,
+			);
+			path = "我的私信Cell";
+			sourceTree = "<group>";
+		};
 		187F7DC21B43BDAB005CC8D8 /* 我的 */ = {
 			isa = PBXGroup;
 			children = (
@@ -594,6 +632,7 @@
 		7644063F1B458B0E00541C86 /* 首页 */ = {
 			isa = PBXGroup;
 			children = (
+				1857A0801B4D6E9800501EA0 /* 我的私信Cell */,
 				764406B51B4D54B100541C86 /* 成长足迹Cell */,
 				1857A00E1B4BC3CB00501EA0 /* 体能Cell */,
 				764406781B47BEB700541C86 /* 生活服务 */,
@@ -816,6 +855,7 @@
 		768FFB1A1B423BE8008E577F /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				1857A07A1B4D6E8000501EA0 /* 我的私信 */,
 				764406AF1B4D4BA800541C86 /* 成长足迹 */,
 				1857A0461B4CF74B00501EA0 /* 成绩 */,
 				1857A04D1B4CF74B00501EA0 /* 科目选择 */,
@@ -959,6 +999,7 @@
 				7644065F1B46669C00541C86 /* SendViewController.xib in Resources */,
 				1808B3191B43D6480050E3B4 /* EDGradeCell.xib in Resources */,
 				18579FE61B4BC24E00501EA0 /* EDSettingViewController.xib in Resources */,
+				1857A08A1B4D6E9800501EA0 /* EDPrivateNoteSelectedCell.xib in Resources */,
 				764406B41B4D4C0600541C86 /* GrowthTrailViewController.xib in Resources */,
 				1857A0091B4BC2E800501EA0 /* EDPhysicalDetailViewController.xib in Resources */,
 				764406501B458B1700541C86 /* ClassCircleCell.xib in Resources */,
@@ -999,11 +1040,13 @@
 				187F7DC81B43BDDF005CC8D8 /* EDGradeRecodeCell.xib in Resources */,
 				7644069F1B4BC1F900541C86 /* AddReceiveAddressViewController.xib in Resources */,
 				7644064E1B458B1700541C86 /* BottomCell.xib in Resources */,
+				1857A07F1B4D6E8000501EA0 /* EDPrivateNoteViewController.xib in Resources */,
 				1808B31E1B43D6650050E3B4 /* EDSubjectCell.xib in Resources */,
 				18579F8E1B45401100501EA0 /* EDEditInfoViewController.xib in Resources */,
 				1857A02E1B4CAB2B00501EA0 /* EDMyPhotoViewController.xib in Resources */,
 				7644068B1B4A783A00541C86 /* SureOrderViewController.xib in Resources */,
 				1808B33B1B44DEB00050E3B4 /* EDContactContentCell.xib in Resources */,
+				1857A0881B4D6E9800501EA0 /* EDPrivateNoteCell.xib in Resources */,
 				1857A00D1B4BC2E800501EA0 /* EDInfomationViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1057,6 +1100,7 @@
 			files = (
 				768FFB3C1B42DE44008E577F /* HomePageListCell.m in Sources */,
 				764406A81B4BD07F00541C86 /* SelectPayViewController.m in Sources */,
+				1857A0891B4D6E9800501EA0 /* EDPrivateNoteSelectedCell.m in Sources */,
 				187F7DC71B43BDDF005CC8D8 /* EDGradeRecodeCell.m in Sources */,
 				18579FE31B4BC24E00501EA0 /* EDSetProblemViewController.m in Sources */,
 				1857A0511B4CF74B00501EA0 /* EDGradeDetailViewController.m in Sources */,
@@ -1081,6 +1125,7 @@
 				1857A0081B4BC2E800501EA0 /* EDPhysicalDetailViewController.m in Sources */,
 				1808B34E1B44FD1C0050E3B4 /* EDSendMsgViewController.m in Sources */,
 				1857A00A1B4BC2E800501EA0 /* EDPhySicalTestViewController.m in Sources */,
+				1857A07E1B4D6E8000501EA0 /* EDPrivateNoteViewController.m in Sources */,
 				1857A0641B4D082100501EA0 /* EDPhotoDetailHeadCell.m in Sources */,
 				7644068A1B4A783A00541C86 /* SureOrderViewController.m in Sources */,
 				1857A0681B4D0BF700501EA0 /* EDPhotoDetailContentCell.m in Sources */,
@@ -1094,6 +1139,7 @@
 				1808B31D1B43D6650050E3B4 /* EDSubjectCell.m in Sources */,
 				18579FEA1B4BC28A00501EA0 /* LoginViewController.m in Sources */,
 				764406591B458C2C00541C86 /* ClassCircleViewController.m in Sources */,
+				1857A0871B4D6E9800501EA0 /* EDPrivateNoteCell.m in Sources */,
 				1857A05A1B4CF9A600501EA0 /* EDPhotoDetailViewController.m in Sources */,
 				764406B31B4D4C0600541C86 /* GrowthTrailViewController.m in Sources */,
 				768FFB321B42C333008E577F /* UserIntroCell.m in Sources */,
