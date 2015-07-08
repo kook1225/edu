@@ -26,7 +26,7 @@
 
 #pragma mark - Custom Method
 - (void)back {
-    [self.navigationController popViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (IBAction)nextBtn:(id)sender {
 }

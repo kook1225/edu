@@ -12,6 +12,7 @@
 #import "EDContactViewController.h"
 #import "MineViewController.h"
 #import "EDSettingViewController.h"
+#import "LoginViewController.h"
 
 @interface AppDelegate ()
 
@@ -38,6 +39,8 @@
         [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName]];
     }
     
+    LoginViewController *loginVC = [[LoginViewController alloc] init];
+    /*
     ViewController *viewController = [[ViewController alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:viewController];
     
@@ -54,6 +57,8 @@
     
      
     self.window.rootViewController = tabBarVC;
+     */
+    self.window.rootViewController = loginVC;
     [self.window makeKeyAndVisible];
     
     return YES;
