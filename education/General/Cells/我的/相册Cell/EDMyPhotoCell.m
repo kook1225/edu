@@ -38,6 +38,8 @@
         _contentLabel = [[UILabel alloc]initWithFrame:CGRectMake(80, 15, SCREENWIDTH-90, 20)];
         _contentLabel.textColor = TEXTCOLOR;
         _contentLabel.font = [UIFont systemFontOfSize:12];
+        _contentLabel.numberOfLines = 0;
+        
         
         [self.contentView addSubview:_contentLabel];
         

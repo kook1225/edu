@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1808B3121B43D4990050E3B4 /* EDSubjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1808B3101B43D4990050E3B4 /* EDSubjectViewController.m */; };
-		1808B3131B43D4990050E3B4 /* EDSubjectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1808B3111B43D4990050E3B4 /* EDSubjectViewController.xib */; };
 		1808B3181B43D6480050E3B4 /* EDGradeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1808B3161B43D6480050E3B4 /* EDGradeCell.m */; };
 		1808B3191B43D6480050E3B4 /* EDGradeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1808B3171B43D6480050E3B4 /* EDGradeCell.xib */; };
 		1808B31D1B43D6650050E3B4 /* EDSubjectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1808B31B1B43D6650050E3B4 /* EDSubjectCell.m */; };
@@ -58,14 +56,20 @@
 		1857A02D1B4CAB2B00501EA0 /* EDMyPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A02B1B4CAB2B00501EA0 /* EDMyPhotoViewController.m */; };
 		1857A02E1B4CAB2B00501EA0 /* EDMyPhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1857A02C1B4CAB2B00501EA0 /* EDMyPhotoViewController.xib */; };
 		1857A0331B4CACC300501EA0 /* EDMyPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A0311B4CACC300501EA0 /* EDMyPhotoCell.m */; };
-		187F7DBA1B43BA1C005CC8D8 /* EDMyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187F7DB81B43BA1C005CC8D8 /* EDMyViewController.m */; };
-		187F7DBB1B43BA1C005CC8D8 /* EDMyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187F7DB91B43BA1C005CC8D8 /* EDMyViewController.xib */; };
-		187F7DC01B43BC51005CC8D8 /* EDGradeRecodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187F7DBE1B43BC51005CC8D8 /* EDGradeRecodeViewController.m */; };
-		187F7DC11B43BC51005CC8D8 /* EDGradeRecodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187F7DBF1B43BC51005CC8D8 /* EDGradeRecodeViewController.xib */; };
+		1857A0511B4CF74B00501EA0 /* EDGradeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A0481B4CF74B00501EA0 /* EDGradeDetailViewController.m */; };
+		1857A0521B4CF74B00501EA0 /* EDGradeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1857A0491B4CF74B00501EA0 /* EDGradeDetailViewController.xib */; };
+		1857A0531B4CF74B00501EA0 /* EDGradeRecodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A04B1B4CF74B00501EA0 /* EDGradeRecodeViewController.m */; };
+		1857A0541B4CF74B00501EA0 /* EDGradeRecodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1857A04C1B4CF74B00501EA0 /* EDGradeRecodeViewController.xib */; };
+		1857A0551B4CF74B00501EA0 /* EDSubjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A04F1B4CF74B00501EA0 /* EDSubjectViewController.m */; };
+		1857A0561B4CF74B00501EA0 /* EDSubjectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1857A0501B4CF74B00501EA0 /* EDSubjectViewController.xib */; };
+		1857A05A1B4CF9A600501EA0 /* EDPhotoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A0581B4CF9A600501EA0 /* EDPhotoDetailViewController.m */; };
+		1857A05B1B4CF9A600501EA0 /* EDPhotoDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1857A0591B4CF9A600501EA0 /* EDPhotoDetailViewController.xib */; };
+		1857A05F1B4CFAB500501EA0 /* EDPhotoDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A05D1B4CFAB500501EA0 /* EDPhotoDetailCell.m */; };
+		1857A0641B4D082100501EA0 /* EDPhotoDetailHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A0621B4D082100501EA0 /* EDPhotoDetailHeadCell.m */; };
+		1857A0651B4D082100501EA0 /* EDPhotoDetailHeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1857A0631B4D082100501EA0 /* EDPhotoDetailHeadCell.xib */; };
+		1857A0681B4D0BF700501EA0 /* EDPhotoDetailContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A0671B4D0BF700501EA0 /* EDPhotoDetailContentCell.m */; };
 		187F7DC71B43BDDF005CC8D8 /* EDGradeRecodeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 187F7DC51B43BDDF005CC8D8 /* EDGradeRecodeCell.m */; };
 		187F7DC81B43BDDF005CC8D8 /* EDGradeRecodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187F7DC61B43BDDF005CC8D8 /* EDGradeRecodeCell.xib */; };
-		187F7DCC1B43C074005CC8D8 /* EDGradeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187F7DCA1B43C074005CC8D8 /* EDGradeDetailViewController.m */; };
-		187F7DCD1B43C074005CC8D8 /* EDGradeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187F7DCB1B43C074005CC8D8 /* EDGradeDetailViewController.xib */; };
 		187F7DD01B43C469005CC8D8 /* Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 187F7DCF1B43C469005CC8D8 /* Tools.m */; };
 		761749041B451C87006DD0AA /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 761749021B451C87006DD0AA /* MineViewController.m */; };
 		761749051B451C87006DD0AA /* MineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 761749031B451C87006DD0AA /* MineViewController.xib */; };
@@ -131,9 +135,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1808B30F1B43D4990050E3B4 /* EDSubjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDSubjectViewController.h; sourceTree = "<group>"; };
-		1808B3101B43D4990050E3B4 /* EDSubjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDSubjectViewController.m; sourceTree = "<group>"; };
-		1808B3111B43D4990050E3B4 /* EDSubjectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDSubjectViewController.xib; sourceTree = "<group>"; };
 		1808B3151B43D6480050E3B4 /* EDGradeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDGradeCell.h; sourceTree = "<group>"; };
 		1808B3161B43D6480050E3B4 /* EDGradeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDGradeCell.m; sourceTree = "<group>"; };
 		1808B3171B43D6480050E3B4 /* EDGradeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDGradeCell.xib; sourceTree = "<group>"; };
@@ -208,18 +209,28 @@
 		1857A02C1B4CAB2B00501EA0 /* EDMyPhotoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDMyPhotoViewController.xib; sourceTree = "<group>"; };
 		1857A0301B4CACC300501EA0 /* EDMyPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDMyPhotoCell.h; sourceTree = "<group>"; };
 		1857A0311B4CACC300501EA0 /* EDMyPhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDMyPhotoCell.m; sourceTree = "<group>"; };
-		187F7DB71B43BA1C005CC8D8 /* EDMyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDMyViewController.h; sourceTree = "<group>"; };
-		187F7DB81B43BA1C005CC8D8 /* EDMyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDMyViewController.m; sourceTree = "<group>"; };
-		187F7DB91B43BA1C005CC8D8 /* EDMyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDMyViewController.xib; sourceTree = "<group>"; };
-		187F7DBD1B43BC51005CC8D8 /* EDGradeRecodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDGradeRecodeViewController.h; sourceTree = "<group>"; };
-		187F7DBE1B43BC51005CC8D8 /* EDGradeRecodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDGradeRecodeViewController.m; sourceTree = "<group>"; };
-		187F7DBF1B43BC51005CC8D8 /* EDGradeRecodeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDGradeRecodeViewController.xib; sourceTree = "<group>"; };
+		1857A0471B4CF74B00501EA0 /* EDGradeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDGradeDetailViewController.h; sourceTree = "<group>"; };
+		1857A0481B4CF74B00501EA0 /* EDGradeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDGradeDetailViewController.m; sourceTree = "<group>"; };
+		1857A0491B4CF74B00501EA0 /* EDGradeDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDGradeDetailViewController.xib; sourceTree = "<group>"; };
+		1857A04A1B4CF74B00501EA0 /* EDGradeRecodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDGradeRecodeViewController.h; sourceTree = "<group>"; };
+		1857A04B1B4CF74B00501EA0 /* EDGradeRecodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDGradeRecodeViewController.m; sourceTree = "<group>"; };
+		1857A04C1B4CF74B00501EA0 /* EDGradeRecodeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDGradeRecodeViewController.xib; sourceTree = "<group>"; };
+		1857A04E1B4CF74B00501EA0 /* EDSubjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDSubjectViewController.h; sourceTree = "<group>"; };
+		1857A04F1B4CF74B00501EA0 /* EDSubjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDSubjectViewController.m; sourceTree = "<group>"; };
+		1857A0501B4CF74B00501EA0 /* EDSubjectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDSubjectViewController.xib; sourceTree = "<group>"; };
+		1857A0571B4CF9A600501EA0 /* EDPhotoDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDPhotoDetailViewController.h; sourceTree = "<group>"; };
+		1857A0581B4CF9A600501EA0 /* EDPhotoDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDPhotoDetailViewController.m; sourceTree = "<group>"; };
+		1857A0591B4CF9A600501EA0 /* EDPhotoDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDPhotoDetailViewController.xib; sourceTree = "<group>"; };
+		1857A05C1B4CFAB500501EA0 /* EDPhotoDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDPhotoDetailCell.h; sourceTree = "<group>"; };
+		1857A05D1B4CFAB500501EA0 /* EDPhotoDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDPhotoDetailCell.m; sourceTree = "<group>"; };
+		1857A0611B4D082100501EA0 /* EDPhotoDetailHeadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDPhotoDetailHeadCell.h; sourceTree = "<group>"; };
+		1857A0621B4D082100501EA0 /* EDPhotoDetailHeadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDPhotoDetailHeadCell.m; sourceTree = "<group>"; };
+		1857A0631B4D082100501EA0 /* EDPhotoDetailHeadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDPhotoDetailHeadCell.xib; sourceTree = "<group>"; };
+		1857A0661B4D0BF700501EA0 /* EDPhotoDetailContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDPhotoDetailContentCell.h; sourceTree = "<group>"; };
+		1857A0671B4D0BF700501EA0 /* EDPhotoDetailContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDPhotoDetailContentCell.m; sourceTree = "<group>"; };
 		187F7DC41B43BDDF005CC8D8 /* EDGradeRecodeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDGradeRecodeCell.h; sourceTree = "<group>"; };
 		187F7DC51B43BDDF005CC8D8 /* EDGradeRecodeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDGradeRecodeCell.m; sourceTree = "<group>"; };
 		187F7DC61B43BDDF005CC8D8 /* EDGradeRecodeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDGradeRecodeCell.xib; sourceTree = "<group>"; };
-		187F7DC91B43C074005CC8D8 /* EDGradeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDGradeDetailViewController.h; sourceTree = "<group>"; };
-		187F7DCA1B43C074005CC8D8 /* EDGradeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDGradeDetailViewController.m; sourceTree = "<group>"; };
-		187F7DCB1B43C074005CC8D8 /* EDGradeDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDGradeDetailViewController.xib; sourceTree = "<group>"; };
 		187F7DCE1B43C469005CC8D8 /* Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tools.h; sourceTree = "<group>"; };
 		187F7DCF1B43C469005CC8D8 /* Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tools.m; sourceTree = "<group>"; };
 		187F7DD11B43C789005CC8D8 /* education-PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "education-PrefixHeader.pch"; sourceTree = "<group>"; };
@@ -326,16 +337,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1808B30E1B43D4700050E3B4 /* 科目选择 */ = {
-			isa = PBXGroup;
-			children = (
-				1808B30F1B43D4990050E3B4 /* EDSubjectViewController.h */,
-				1808B3101B43D4990050E3B4 /* EDSubjectViewController.m */,
-				1808B3111B43D4990050E3B4 /* EDSubjectViewController.xib */,
-			);
-			path = "科目选择";
-			sourceTree = "<group>";
-		};
 		1808B3141B43D6100050E3B4 /* 科目Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -492,6 +493,9 @@
 				1857A02A1B4CAB2B00501EA0 /* EDMyPhotoViewController.h */,
 				1857A02B1B4CAB2B00501EA0 /* EDMyPhotoViewController.m */,
 				1857A02C1B4CAB2B00501EA0 /* EDMyPhotoViewController.xib */,
+				1857A0571B4CF9A600501EA0 /* EDPhotoDetailViewController.h */,
+				1857A0581B4CF9A600501EA0 /* EDPhotoDetailViewController.m */,
+				1857A0591B4CF9A600501EA0 /* EDPhotoDetailViewController.xib */,
 			);
 			path = "我的相册";
 			sourceTree = "<group>";
@@ -501,33 +505,38 @@
 			children = (
 				1857A0301B4CACC300501EA0 /* EDMyPhotoCell.h */,
 				1857A0311B4CACC300501EA0 /* EDMyPhotoCell.m */,
+				1857A05C1B4CFAB500501EA0 /* EDPhotoDetailCell.h */,
+				1857A05D1B4CFAB500501EA0 /* EDPhotoDetailCell.m */,
+				1857A0611B4D082100501EA0 /* EDPhotoDetailHeadCell.h */,
+				1857A0621B4D082100501EA0 /* EDPhotoDetailHeadCell.m */,
+				1857A0631B4D082100501EA0 /* EDPhotoDetailHeadCell.xib */,
+				1857A0661B4D0BF700501EA0 /* EDPhotoDetailContentCell.h */,
+				1857A0671B4D0BF700501EA0 /* EDPhotoDetailContentCell.m */,
 			);
 			path = "相册Cell";
 			sourceTree = "<group>";
 		};
-		187F7DB61B43B9CB005CC8D8 /* My */ = {
+		1857A0461B4CF74B00501EA0 /* 成绩 */ = {
 			isa = PBXGroup;
 			children = (
-				1808B30E1B43D4700050E3B4 /* 科目选择 */,
-				187F7DBC1B43BB7B005CC8D8 /* 成绩 */,
-				187F7DB71B43BA1C005CC8D8 /* EDMyViewController.h */,
-				187F7DB81B43BA1C005CC8D8 /* EDMyViewController.m */,
-				187F7DB91B43BA1C005CC8D8 /* EDMyViewController.xib */,
-			);
-			path = My;
-			sourceTree = "<group>";
-		};
-		187F7DBC1B43BB7B005CC8D8 /* 成绩 */ = {
-			isa = PBXGroup;
-			children = (
-				187F7DBD1B43BC51005CC8D8 /* EDGradeRecodeViewController.h */,
-				187F7DBE1B43BC51005CC8D8 /* EDGradeRecodeViewController.m */,
-				187F7DBF1B43BC51005CC8D8 /* EDGradeRecodeViewController.xib */,
-				187F7DC91B43C074005CC8D8 /* EDGradeDetailViewController.h */,
-				187F7DCA1B43C074005CC8D8 /* EDGradeDetailViewController.m */,
-				187F7DCB1B43C074005CC8D8 /* EDGradeDetailViewController.xib */,
+				1857A04A1B4CF74B00501EA0 /* EDGradeRecodeViewController.h */,
+				1857A04B1B4CF74B00501EA0 /* EDGradeRecodeViewController.m */,
+				1857A04C1B4CF74B00501EA0 /* EDGradeRecodeViewController.xib */,
+				1857A0471B4CF74B00501EA0 /* EDGradeDetailViewController.h */,
+				1857A0481B4CF74B00501EA0 /* EDGradeDetailViewController.m */,
+				1857A0491B4CF74B00501EA0 /* EDGradeDetailViewController.xib */,
 			);
 			path = "成绩";
+			sourceTree = "<group>";
+		};
+		1857A04D1B4CF74B00501EA0 /* 科目选择 */ = {
+			isa = PBXGroup;
+			children = (
+				1857A04E1B4CF74B00501EA0 /* EDSubjectViewController.h */,
+				1857A04F1B4CF74B00501EA0 /* EDSubjectViewController.m */,
+				1857A0501B4CF74B00501EA0 /* EDSubjectViewController.xib */,
+			);
+			path = "科目选择";
 			sourceTree = "<group>";
 		};
 		187F7DC21B43BDAB005CC8D8 /* 我的 */ = {
@@ -726,7 +735,6 @@
 				18579FDC1B4BC24E00501EA0 /* Set */,
 				761749001B451C6C006DD0AA /* Mine */,
 				1808B32B1B4439C60050E3B4 /* Contact */,
-				187F7DB61B43B9CB005CC8D8 /* My */,
 				768FFB1A1B423BE8008E577F /* HomePage */,
 			);
 			path = Section;
@@ -761,6 +769,8 @@
 		768FFB1A1B423BE8008E577F /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				1857A0461B4CF74B00501EA0 /* 成绩 */,
+				1857A04D1B4CF74B00501EA0 /* 科目选择 */,
 				18579FFD1B4BC2E800501EA0 /* 体能测试 */,
 				1857A0041B4BC2E800501EA0 /* 天天资讯 */,
 				764406601B4671A600541C86 /* 生活服务 */,
@@ -894,6 +904,7 @@
 				1808B3301B4439ED0050E3B4 /* EDContactViewController.xib in Resources */,
 				7644065A1B458C2C00541C86 /* ClassCircleViewController.xib in Resources */,
 				1808B34F1B44FD1C0050E3B4 /* EDSendMsgViewController.xib in Resources */,
+				1857A0541B4CF74B00501EA0 /* EDGradeRecodeViewController.xib in Resources */,
 				1857A0241B4BC3FB00501EA0 /* EDMyOrderCell.xib in Resources */,
 				764406521B458B1700541C86 /* ReplyCell.xib in Resources */,
 				764406AE1B4BD5CF00541C86 /* PayEndViewController.xib in Resources */,
@@ -903,10 +914,9 @@
 				1857A0091B4BC2E800501EA0 /* EDPhysicalDetailViewController.xib in Resources */,
 				764406501B458B1700541C86 /* ClassCircleCell.xib in Resources */,
 				1857A0281B4BC3FB00501EA0 /* EDOrderHeadCell.xib in Resources */,
+				1857A05B1B4CF9A600501EA0 /* EDPhotoDetailViewController.xib in Resources */,
 				1808B34A1B44F1CB0050E3B4 /* EDStudentViewController.xib in Resources */,
-				187F7DCD1B43C074005CC8D8 /* EDGradeDetailViewController.xib in Resources */,
 				764406541B458B1700541C86 /* TopCell.xib in Resources */,
-				1808B3131B43D4990050E3B4 /* EDSubjectViewController.xib in Resources */,
 				764406651B4671BC00541C86 /* LifeServiceViewController.xib in Resources */,
 				764406951B4ACD0200541C86 /* SelectAddCell.xib in Resources */,
 				18579FE41B4BC24E00501EA0 /* EDSetProblemViewController.xib in Resources */,
@@ -916,8 +926,9 @@
 				7644069A1B4BBE2000541C86 /* ManageAddViewController.xib in Resources */,
 				761749051B451C87006DD0AA /* MineViewController.xib in Resources */,
 				1808B32A1B44293C0050E3B4 /* EDDayInfoCell.xib in Resources */,
+				1857A0561B4CF74B00501EA0 /* EDSubjectViewController.xib in Resources */,
+				1857A0651B4D082100501EA0 /* EDPhotoDetailHeadCell.xib in Resources */,
 				764406A41B4BCD4600541C86 /* EditAddViewController.xib in Resources */,
-				187F7DBB1B43BA1C005CC8D8 /* EDMyViewController.xib in Resources */,
 				1808B3451B44EADB0050E3B4 /* EDTeacherInfoViewController.xib in Resources */,
 				18579FF81B4BC2B800501EA0 /* EDMyOrderViewController.xib in Resources */,
 				1857A0181B4BC3CB00501EA0 /* EDPhysicalDetailHeadCell.xib in Resources */,
@@ -929,11 +940,11 @@
 				764406901B4AC4FA00541C86 /* SelectAddViewController.xib in Resources */,
 				18579FEB1B4BC28A00501EA0 /* LoginViewController.xib in Resources */,
 				1857A00B1B4BC2E800501EA0 /* EDPhySicalTestViewController.xib in Resources */,
-				187F7DC11B43BC51005CC8D8 /* EDGradeRecodeViewController.xib in Resources */,
 				764406861B4A5CAA00541C86 /* LifeServiceIntroViewController.xib in Resources */,
 				768FFAFC1B4238D9008E577F /* Images.xcassets in Resources */,
 				768FFB381B42C8C4008E577F /* ButtonViewCell.xib in Resources */,
 				18579FFC1B4BC2B800501EA0 /* EDAlterPwdViewController.xib in Resources */,
+				1857A0521B4CF74B00501EA0 /* EDGradeDetailViewController.xib in Resources */,
 				187F7DC81B43BDDF005CC8D8 /* EDGradeRecodeCell.xib in Resources */,
 				7644069F1B4BC1F900541C86 /* AddReceiveAddressViewController.xib in Resources */,
 				7644064E1B458B1700541C86 /* BottomCell.xib in Resources */,
@@ -993,11 +1004,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				187F7DC01B43BC51005CC8D8 /* EDGradeRecodeViewController.m in Sources */,
 				768FFB3C1B42DE44008E577F /* HomePageListCell.m in Sources */,
 				764406A81B4BD07F00541C86 /* SelectPayViewController.m in Sources */,
 				187F7DC71B43BDDF005CC8D8 /* EDGradeRecodeCell.m in Sources */,
 				18579FE31B4BC24E00501EA0 /* EDSetProblemViewController.m in Sources */,
+				1857A0511B4CF74B00501EA0 /* EDGradeDetailViewController.m in Sources */,
+				1857A0531B4CF74B00501EA0 /* EDGradeRecodeViewController.m in Sources */,
 				187F7DD01B43C469005CC8D8 /* Tools.m in Sources */,
 				7644069E1B4BC1F900541C86 /* AddReceiveAddressViewController.m in Sources */,
 				1808B3181B43D6480050E3B4 /* EDGradeCell.m in Sources */,
@@ -1018,25 +1030,28 @@
 				1857A0081B4BC2E800501EA0 /* EDPhysicalDetailViewController.m in Sources */,
 				1808B34E1B44FD1C0050E3B4 /* EDSendMsgViewController.m in Sources */,
 				1857A00A1B4BC2E800501EA0 /* EDPhySicalTestViewController.m in Sources */,
+				1857A0641B4D082100501EA0 /* EDPhotoDetailHeadCell.m in Sources */,
 				7644068A1B4A783A00541C86 /* SureOrderViewController.m in Sources */,
+				1857A0681B4D0BF700501EA0 /* EDPhotoDetailContentCell.m in Sources */,
 				1857A0271B4BC3FB00501EA0 /* EDOrderHeadCell.m in Sources */,
 				1857A0331B4CACC300501EA0 /* EDMyPhotoCell.m in Sources */,
-				1808B3121B43D4990050E3B4 /* EDSubjectViewController.m in Sources */,
 				764406641B4671BC00541C86 /* LifeServiceViewController.m in Sources */,
 				768FFB221B423C76008E577F /* SETabBarViewController.m in Sources */,
-				187F7DBA1B43BA1C005CC8D8 /* EDMyViewController.m in Sources */,
 				1857A0171B4BC3CB00501EA0 /* EDPhysicalDetailHeadCell.m in Sources */,
 				768FFAF11B4238D9008E577F /* main.m in Sources */,
 				18579F8D1B45401100501EA0 /* EDEditInfoViewController.m in Sources */,
 				1808B31D1B43D6650050E3B4 /* EDSubjectCell.m in Sources */,
 				18579FEA1B4BC28A00501EA0 /* LoginViewController.m in Sources */,
 				764406591B458C2C00541C86 /* ClassCircleViewController.m in Sources */,
+				1857A05A1B4CF9A600501EA0 /* EDPhotoDetailViewController.m in Sources */,
 				768FFB321B42C333008E577F /* UserIntroCell.m in Sources */,
 				1808B3291B44293C0050E3B4 /* EDDayInfoCell.m in Sources */,
 				1808B3491B44F1CB0050E3B4 /* EDStudentViewController.m in Sources */,
+				1857A05F1B4CFAB500501EA0 /* EDPhotoDetailCell.m in Sources */,
 				1808B3441B44EADB0050E3B4 /* EDTeacherInfoViewController.m in Sources */,
 				7644064D1B458B1700541C86 /* BottomCell.m in Sources */,
 				1857A0231B4BC3FB00501EA0 /* EDMyOrderCell.m in Sources */,
+				1857A0551B4CF74B00501EA0 /* EDSubjectViewController.m in Sources */,
 				764406511B458B1700541C86 /* ReplyCell.m in Sources */,
 				18579FFB1B4BC2B800501EA0 /* EDAlterPwdViewController.m in Sources */,
 				1808B33A1B44DEB00050E3B4 /* EDContactContentCell.m in Sources */,
@@ -1048,7 +1063,6 @@
 				7644067B1B47BEC600541C86 /* LifeServiceCell.m in Sources */,
 				1808B32F1B4439ED0050E3B4 /* EDContactViewController.m in Sources */,
 				1857A02D1B4CAB2B00501EA0 /* EDMyPhotoViewController.m in Sources */,
-				187F7DCC1B43C074005CC8D8 /* EDGradeDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

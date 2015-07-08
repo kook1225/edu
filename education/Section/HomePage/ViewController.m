@@ -16,6 +16,7 @@
 #import "LifeServiceViewController.h"
 #import "EDPhySicalTestViewController.h"
 #import "EDInfomationViewController.h"
+#import "EDGradeRecodeViewController.h"
 
 #define IMAGEHEIGHT (160 * ([UIScreen mainScreen].bounds.size.height/568.0))
 #define USERINTROHEIGHT (64 * ([UIScreen mainScreen].bounds.size.height/568.0))
@@ -220,7 +221,8 @@
 }
 
 - (void)score {
-    NSLog(@"8");
+    EDGradeRecodeViewController *gradeVC = [[EDGradeRecodeViewController alloc]init];
+    [self.navigationController pushViewController:gradeVC animated:YES];
 }
 
 - (void)homework {

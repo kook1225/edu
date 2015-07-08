@@ -9,7 +9,6 @@
 #import "AppDelegate.h"
 #import "ViewController.h"
 #import "SETabBarViewController.h"
-#import "EDMyViewController.h"
 #import "EDContactViewController.h"
 #import "MineViewController.h"
 #import "EDSettingViewController.h"
