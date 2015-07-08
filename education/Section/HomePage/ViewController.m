@@ -17,6 +17,7 @@
 #import "EDPhySicalTestViewController.h"
 #import "EDInfomationViewController.h"
 #import "EDGradeRecodeViewController.h"
+#import "GrowthTrailViewController.h"
 
 #define IMAGEHEIGHT (160 * ([UIScreen mainScreen].bounds.size.height/568.0))
 #define USERINTROHEIGHT (64 * ([UIScreen mainScreen].bounds.size.height/568.0))
@@ -230,7 +231,8 @@
 }
 
 - (void)growUp {
-    NSLog(@"10");
+    GrowthTrailViewController *growthTrailVC = [[GrowthTrailViewController alloc] init];
+    [self.navigationController pushViewController:growthTrailVC animated:YES];
 }
 
 - (void)body {
