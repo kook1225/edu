@@ -113,6 +113,8 @@
 		764406BA1B4D558500541C86 /* JournalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 764406B81B4D558500541C86 /* JournalCell.xib */; };
 		764406BF1B4D642B00541C86 /* ParentRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 764406BD1B4D642B00541C86 /* ParentRegisterViewController.m */; };
 		764406C01B4D642B00541C86 /* ParentRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 764406BE1B4D642B00541C86 /* ParentRegisterViewController.xib */; };
+		764406C41B4D6C0E00541C86 /* FillInforViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 764406C21B4D6C0E00541C86 /* FillInforViewController.m */; };
+		764406C51B4D6C0E00541C86 /* FillInforViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 764406C31B4D6C0E00541C86 /* FillInforViewController.xib */; };
 		768FFAF11B4238D9008E577F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF01B4238D9008E577F /* main.m */; };
 		768FFAF41B4238D9008E577F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF31B4238D9008E577F /* AppDelegate.m */; };
 		768FFAFC1B4238D9008E577F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 768FFAFB1B4238D9008E577F /* Images.xcassets */; };
@@ -304,6 +306,9 @@
 		764406BC1B4D642B00541C86 /* ParentRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParentRegisterViewController.h; sourceTree = "<group>"; };
 		764406BD1B4D642B00541C86 /* ParentRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParentRegisterViewController.m; sourceTree = "<group>"; };
 		764406BE1B4D642B00541C86 /* ParentRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParentRegisterViewController.xib; sourceTree = "<group>"; };
+		764406C11B4D6C0E00541C86 /* FillInforViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FillInforViewController.h; sourceTree = "<group>"; };
+		764406C21B4D6C0E00541C86 /* FillInforViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FillInforViewController.m; sourceTree = "<group>"; };
+		764406C31B4D6C0E00541C86 /* FillInforViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FillInforViewController.xib; sourceTree = "<group>"; };
 		768FFAEB1B4238D9008E577F /* education.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = education.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		768FFAEF1B4238D9008E577F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		768FFAF01B4238D9008E577F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -706,6 +711,9 @@
 				764406BC1B4D642B00541C86 /* ParentRegisterViewController.h */,
 				764406BD1B4D642B00541C86 /* ParentRegisterViewController.m */,
 				764406BE1B4D642B00541C86 /* ParentRegisterViewController.xib */,
+				764406C11B4D6C0E00541C86 /* FillInforViewController.h */,
+				764406C21B4D6C0E00541C86 /* FillInforViewController.m */,
+				764406C31B4D6C0E00541C86 /* FillInforViewController.xib */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -976,6 +984,7 @@
 				761749051B451C87006DD0AA /* MineViewController.xib in Resources */,
 				1808B32A1B44293C0050E3B4 /* EDDayInfoCell.xib in Resources */,
 				1857A0561B4CF74B00501EA0 /* EDSubjectViewController.xib in Resources */,
+				764406C51B4D6C0E00541C86 /* FillInforViewController.xib in Resources */,
 				1857A0651B4D082100501EA0 /* EDPhotoDetailHeadCell.xib in Resources */,
 				764406A41B4BCD4600541C86 /* EditAddViewController.xib in Resources */,
 				1808B3451B44EADB0050E3B4 /* EDTeacherInfoViewController.xib in Resources */,
@@ -1089,6 +1098,7 @@
 				764406641B4671BC00541C86 /* LifeServiceViewController.m in Sources */,
 				768FFB221B423C76008E577F /* SETabBarViewController.m in Sources */,
 				1857A0171B4BC3CB00501EA0 /* EDPhysicalDetailHeadCell.m in Sources */,
+				764406C41B4D6C0E00541C86 /* FillInforViewController.m in Sources */,
 				768FFAF11B4238D9008E577F /* main.m in Sources */,
 				18579F8D1B45401100501EA0 /* EDEditInfoViewController.m in Sources */,
 				1808B31D1B43D6650050E3B4 /* EDSubjectCell.m in Sources */,
