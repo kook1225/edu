@@ -11,6 +11,7 @@
 #import "EDEditInfoViewController.h"
 #import "EDMyOrderViewController.h"
 #import "EDAlterPwdViewController.h"
+#import "EDMyPhotoViewController.h"
 
 @interface MineViewController () {
     SETabBarViewController *tabBarViewController;
@@ -31,7 +32,7 @@
     _topImageView.layer.borderColor = [UIColor grayColor].CGColor;
     _topImageView.clipsToBounds = YES;
     // Do any additional setup after loading the view from its nib.
-}
+    }
 
 - (void)viewWillAppear:(BOOL)animated {
     self.navigationController.navigationBar.hidden = YES;
@@ -61,7 +62,8 @@
 }
 
 - (IBAction)userPhotoTap:(id)sender {
-    NSLog(@"4");
+    EDMyPhotoViewController *photoVC = [[EDMyPhotoViewController alloc]init];
+    [self.navigationController pushViewController:photoVC animated:YES];
 }
 
 - (IBAction)changePwdTap:(id)sender {

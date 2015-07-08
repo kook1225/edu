@@ -55,6 +55,9 @@
 		1857A0261B4BC3FB00501EA0 /* EDOrderBottomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1857A01F1B4BC3FB00501EA0 /* EDOrderBottomCell.xib */; };
 		1857A0271B4BC3FB00501EA0 /* EDOrderHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A0211B4BC3FB00501EA0 /* EDOrderHeadCell.m */; };
 		1857A0281B4BC3FB00501EA0 /* EDOrderHeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1857A0221B4BC3FB00501EA0 /* EDOrderHeadCell.xib */; };
+		1857A02D1B4CAB2B00501EA0 /* EDMyPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A02B1B4CAB2B00501EA0 /* EDMyPhotoViewController.m */; };
+		1857A02E1B4CAB2B00501EA0 /* EDMyPhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1857A02C1B4CAB2B00501EA0 /* EDMyPhotoViewController.xib */; };
+		1857A0331B4CACC300501EA0 /* EDMyPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A0311B4CACC300501EA0 /* EDMyPhotoCell.m */; };
 		187F7DBA1B43BA1C005CC8D8 /* EDMyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187F7DB81B43BA1C005CC8D8 /* EDMyViewController.m */; };
 		187F7DBB1B43BA1C005CC8D8 /* EDMyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187F7DB91B43BA1C005CC8D8 /* EDMyViewController.xib */; };
 		187F7DC01B43BC51005CC8D8 /* EDGradeRecodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187F7DBE1B43BC51005CC8D8 /* EDGradeRecodeViewController.m */; };
@@ -200,6 +203,11 @@
 		1857A0201B4BC3FB00501EA0 /* EDOrderHeadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDOrderHeadCell.h; sourceTree = "<group>"; };
 		1857A0211B4BC3FB00501EA0 /* EDOrderHeadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDOrderHeadCell.m; sourceTree = "<group>"; };
 		1857A0221B4BC3FB00501EA0 /* EDOrderHeadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDOrderHeadCell.xib; sourceTree = "<group>"; };
+		1857A02A1B4CAB2B00501EA0 /* EDMyPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDMyPhotoViewController.h; sourceTree = "<group>"; };
+		1857A02B1B4CAB2B00501EA0 /* EDMyPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDMyPhotoViewController.m; sourceTree = "<group>"; };
+		1857A02C1B4CAB2B00501EA0 /* EDMyPhotoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDMyPhotoViewController.xib; sourceTree = "<group>"; };
+		1857A0301B4CACC300501EA0 /* EDMyPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDMyPhotoCell.h; sourceTree = "<group>"; };
+		1857A0311B4CACC300501EA0 /* EDMyPhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDMyPhotoCell.m; sourceTree = "<group>"; };
 		187F7DB71B43BA1C005CC8D8 /* EDMyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDMyViewController.h; sourceTree = "<group>"; };
 		187F7DB81B43BA1C005CC8D8 /* EDMyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDMyViewController.m; sourceTree = "<group>"; };
 		187F7DB91B43BA1C005CC8D8 /* EDMyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDMyViewController.xib; sourceTree = "<group>"; };
@@ -478,6 +486,25 @@
 			path = "订单Cell";
 			sourceTree = "<group>";
 		};
+		1857A0291B4CAB0E00501EA0 /* 我的相册 */ = {
+			isa = PBXGroup;
+			children = (
+				1857A02A1B4CAB2B00501EA0 /* EDMyPhotoViewController.h */,
+				1857A02B1B4CAB2B00501EA0 /* EDMyPhotoViewController.m */,
+				1857A02C1B4CAB2B00501EA0 /* EDMyPhotoViewController.xib */,
+			);
+			path = "我的相册";
+			sourceTree = "<group>";
+		};
+		1857A02F1B4CAC9D00501EA0 /* 相册Cell */ = {
+			isa = PBXGroup;
+			children = (
+				1857A0301B4CACC300501EA0 /* EDMyPhotoCell.h */,
+				1857A0311B4CACC300501EA0 /* EDMyPhotoCell.m */,
+			);
+			path = "相册Cell";
+			sourceTree = "<group>";
+		};
 		187F7DB61B43B9CB005CC8D8 /* My */ = {
 			isa = PBXGroup;
 			children = (
@@ -506,6 +533,7 @@
 		187F7DC21B43BDAB005CC8D8 /* 我的 */ = {
 			isa = PBXGroup;
 			children = (
+				1857A02F1B4CAC9D00501EA0 /* 相册Cell */,
 				1857A0191B4BC3FB00501EA0 /* 订单Cell */,
 				1808B3251B4429170050E3B4 /* 天天资讯Cell */,
 				1808B3141B43D6100050E3B4 /* 科目Cell */,
@@ -527,6 +555,7 @@
 		761749001B451C6C006DD0AA /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				1857A0291B4CAB0E00501EA0 /* 我的相册 */,
 				18579FEC1B4BC2B800501EA0 /* 我的订单 */,
 				18579FF31B4BC2B800501EA0 /* 修改密码 */,
 				18579F891B453FF400501EA0 /* 我的资料 */,
@@ -910,6 +939,7 @@
 				7644064E1B458B1700541C86 /* BottomCell.xib in Resources */,
 				1808B31E1B43D6650050E3B4 /* EDSubjectCell.xib in Resources */,
 				18579F8E1B45401100501EA0 /* EDEditInfoViewController.xib in Resources */,
+				1857A02E1B4CAB2B00501EA0 /* EDMyPhotoViewController.xib in Resources */,
 				7644068B1B4A783A00541C86 /* SureOrderViewController.xib in Resources */,
 				1808B33B1B44DEB00050E3B4 /* EDContactContentCell.xib in Resources */,
 				1857A00D1B4BC2E800501EA0 /* EDInfomationViewController.xib in Resources */,
@@ -990,6 +1020,7 @@
 				1857A00A1B4BC2E800501EA0 /* EDPhySicalTestViewController.m in Sources */,
 				7644068A1B4A783A00541C86 /* SureOrderViewController.m in Sources */,
 				1857A0271B4BC3FB00501EA0 /* EDOrderHeadCell.m in Sources */,
+				1857A0331B4CACC300501EA0 /* EDMyPhotoCell.m in Sources */,
 				1808B3121B43D4990050E3B4 /* EDSubjectViewController.m in Sources */,
 				764406641B4671BC00541C86 /* LifeServiceViewController.m in Sources */,
 				768FFB221B423C76008E577F /* SETabBarViewController.m in Sources */,
@@ -1016,6 +1047,7 @@
 				7644068F1B4AC4FA00541C86 /* SelectAddViewController.m in Sources */,
 				7644067B1B47BEC600541C86 /* LifeServiceCell.m in Sources */,
 				1808B32F1B4439ED0050E3B4 /* EDContactViewController.m in Sources */,
+				1857A02D1B4CAB2B00501EA0 /* EDMyPhotoViewController.m in Sources */,
 				187F7DCC1B43C074005CC8D8 /* EDGradeDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
