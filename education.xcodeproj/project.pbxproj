@@ -74,10 +74,12 @@
 		1857A0881B4D6E9800501EA0 /* EDPrivateNoteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1857A0831B4D6E9800501EA0 /* EDPrivateNoteCell.xib */; };
 		1857A0891B4D6E9800501EA0 /* EDPrivateNoteSelectedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A0851B4D6E9800501EA0 /* EDPrivateNoteSelectedCell.m */; };
 		1857A08A1B4D6E9800501EA0 /* EDPrivateNoteSelectedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1857A0861B4D6E9800501EA0 /* EDPrivateNoteSelectedCell.xib */; };
-		1857A08E1B4E029E00501EA0 /* EDPrivateDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A08C1B4E029E00501EA0 /* EDPrivateDetailViewController.m */; };
-		1857A08F1B4E029E00501EA0 /* EDPrivateDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1857A08D1B4E029E00501EA0 /* EDPrivateDetailViewController.xib */; };
 		1857A0981B4E4F1000501EA0 /* EDGrowDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A0961B4E4F1000501EA0 /* EDGrowDetailViewController.m */; };
 		1857A0991B4E4F1000501EA0 /* EDGrowDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1857A0971B4E4F1000501EA0 /* EDGrowDetailViewController.xib */; };
+		1857A0A31B4E702C00501EA0 /* EDHomeWorkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A0A11B4E702C00501EA0 /* EDHomeWorkViewController.m */; };
+		1857A0A41B4E702C00501EA0 /* EDHomeWorkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1857A0A21B4E702C00501EA0 /* EDHomeWorkViewController.xib */; };
+		1857A0A81B4E705600501EA0 /* EDPrivateDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A0A61B4E705600501EA0 /* EDPrivateDetailViewController.m */; };
+		1857A0A91B4E705600501EA0 /* EDPrivateDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1857A0A71B4E705600501EA0 /* EDPrivateDetailViewController.xib */; };
 		187F7DC71B43BDDF005CC8D8 /* EDGradeRecodeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 187F7DC51B43BDDF005CC8D8 /* EDGradeRecodeCell.m */; };
 		187F7DC81B43BDDF005CC8D8 /* EDGradeRecodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187F7DC61B43BDDF005CC8D8 /* EDGradeRecodeCell.xib */; };
 		187F7DD01B43C469005CC8D8 /* Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 187F7DCF1B43C469005CC8D8 /* Tools.m */; };
@@ -255,12 +257,15 @@
 		1857A0841B4D6E9800501EA0 /* EDPrivateNoteSelectedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDPrivateNoteSelectedCell.h; sourceTree = "<group>"; };
 		1857A0851B4D6E9800501EA0 /* EDPrivateNoteSelectedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDPrivateNoteSelectedCell.m; sourceTree = "<group>"; };
 		1857A0861B4D6E9800501EA0 /* EDPrivateNoteSelectedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDPrivateNoteSelectedCell.xib; sourceTree = "<group>"; };
-		1857A08B1B4E029E00501EA0 /* EDPrivateDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EDPrivateDetailViewController.h; path = ../../../../../../../Documents/EDPrivateDetailViewController.h; sourceTree = "<group>"; };
-		1857A08C1B4E029E00501EA0 /* EDPrivateDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EDPrivateDetailViewController.m; path = ../../../../../../../Documents/EDPrivateDetailViewController.m; sourceTree = "<group>"; };
-		1857A08D1B4E029E00501EA0 /* EDPrivateDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EDPrivateDetailViewController.xib; path = ../../../../../../../Documents/EDPrivateDetailViewController.xib; sourceTree = "<group>"; };
 		1857A0951B4E4F1000501EA0 /* EDGrowDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDGrowDetailViewController.h; sourceTree = "<group>"; };
 		1857A0961B4E4F1000501EA0 /* EDGrowDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDGrowDetailViewController.m; sourceTree = "<group>"; };
 		1857A0971B4E4F1000501EA0 /* EDGrowDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDGrowDetailViewController.xib; sourceTree = "<group>"; };
+		1857A0A01B4E702C00501EA0 /* EDHomeWorkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDHomeWorkViewController.h; sourceTree = "<group>"; };
+		1857A0A11B4E702C00501EA0 /* EDHomeWorkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDHomeWorkViewController.m; sourceTree = "<group>"; };
+		1857A0A21B4E702C00501EA0 /* EDHomeWorkViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDHomeWorkViewController.xib; sourceTree = "<group>"; };
+		1857A0A51B4E705600501EA0 /* EDPrivateDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDPrivateDetailViewController.h; sourceTree = "<group>"; };
+		1857A0A61B4E705600501EA0 /* EDPrivateDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDPrivateDetailViewController.m; sourceTree = "<group>"; };
+		1857A0A71B4E705600501EA0 /* EDPrivateDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDPrivateDetailViewController.xib; sourceTree = "<group>"; };
 		187F7DC41B43BDDF005CC8D8 /* EDGradeRecodeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDGradeRecodeCell.h; sourceTree = "<group>"; };
 		187F7DC51B43BDDF005CC8D8 /* EDGradeRecodeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDGradeRecodeCell.m; sourceTree = "<group>"; };
 		187F7DC61B43BDDF005CC8D8 /* EDGradeRecodeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDGradeRecodeCell.xib; sourceTree = "<group>"; };
@@ -590,9 +595,9 @@
 				1857A07B1B4D6E8000501EA0 /* EDPrivateNoteViewController.h */,
 				1857A07C1B4D6E8000501EA0 /* EDPrivateNoteViewController.m */,
 				1857A07D1B4D6E8000501EA0 /* EDPrivateNoteViewController.xib */,
-				1857A08B1B4E029E00501EA0 /* EDPrivateDetailViewController.h */,
-				1857A08C1B4E029E00501EA0 /* EDPrivateDetailViewController.m */,
-				1857A08D1B4E029E00501EA0 /* EDPrivateDetailViewController.xib */,
+				1857A0A51B4E705600501EA0 /* EDPrivateDetailViewController.h */,
+				1857A0A61B4E705600501EA0 /* EDPrivateDetailViewController.m */,
+				1857A0A71B4E705600501EA0 /* EDPrivateDetailViewController.xib */,
 			);
 			path = "我的私信";
 			sourceTree = "<group>";
@@ -608,6 +613,16 @@
 				1857A0861B4D6E9800501EA0 /* EDPrivateNoteSelectedCell.xib */,
 			);
 			path = "我的私信Cell";
+			sourceTree = "<group>";
+		};
+		1857A09A1B4E599D00501EA0 /* 家庭作业 */ = {
+			isa = PBXGroup;
+			children = (
+				1857A0A01B4E702C00501EA0 /* EDHomeWorkViewController.h */,
+				1857A0A11B4E702C00501EA0 /* EDHomeWorkViewController.m */,
+				1857A0A21B4E702C00501EA0 /* EDHomeWorkViewController.xib */,
+			);
+			path = "家庭作业";
 			sourceTree = "<group>";
 		};
 		187F7DC21B43BDAB005CC8D8 /* 我的 */ = {
@@ -879,6 +894,7 @@
 		768FFB1A1B423BE8008E577F /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				1857A09A1B4E599D00501EA0 /* 家庭作业 */,
 				1857A07A1B4D6E8000501EA0 /* 我的私信 */,
 				764406AF1B4D4BA800541C86 /* 成长足迹 */,
 				1857A0461B4CF74B00501EA0 /* 成绩 */,
@@ -1051,8 +1067,8 @@
 				764406A91B4BD07F00541C86 /* SelectPayViewController.xib in Resources */,
 				768FFB331B42C333008E577F /* UserIntroCell.xib in Resources */,
 				18579FFA1B4BC2B800501EA0 /* EDOrderDetailViewController.xib in Resources */,
-				1857A08F1B4E029E00501EA0 /* EDPrivateDetailViewController.xib in Resources */,
 				764406BA1B4D558500541C86 /* JournalCell.xib in Resources */,
+				1857A0A41B4E702C00501EA0 /* EDHomeWorkViewController.xib in Resources */,
 				1857A0161B4BC3CB00501EA0 /* EDPhysicalContentCell.xib in Resources */,
 				768FFB1F1B423C0A008E577F /* ViewController.xib in Resources */,
 				764406901B4AC4FA00541C86 /* SelectAddViewController.xib in Resources */,
@@ -1064,6 +1080,7 @@
 				18579FFC1B4BC2B800501EA0 /* EDAlterPwdViewController.xib in Resources */,
 				1857A0521B4CF74B00501EA0 /* EDGradeDetailViewController.xib in Resources */,
 				764406C01B4D642B00541C86 /* ParentRegisterViewController.xib in Resources */,
+				1857A0A91B4E705600501EA0 /* EDPrivateDetailViewController.xib in Resources */,
 				187F7DC81B43BDDF005CC8D8 /* EDGradeRecodeCell.xib in Resources */,
 				7644069F1B4BC1F900541C86 /* AddReceiveAddressViewController.xib in Resources */,
 				7644064E1B458B1700541C86 /* BottomCell.xib in Resources */,
@@ -1153,6 +1170,7 @@
 				1857A0081B4BC2E800501EA0 /* EDPhysicalDetailViewController.m in Sources */,
 				1808B34E1B44FD1C0050E3B4 /* EDSendMsgViewController.m in Sources */,
 				1857A00A1B4BC2E800501EA0 /* EDPhySicalTestViewController.m in Sources */,
+				1857A0A81B4E705600501EA0 /* EDPrivateDetailViewController.m in Sources */,
 				1857A07E1B4D6E8000501EA0 /* EDPrivateNoteViewController.m in Sources */,
 				1857A0641B4D082100501EA0 /* EDPhotoDetailHeadCell.m in Sources */,
 				7644068A1B4A783A00541C86 /* SureOrderViewController.m in Sources */,
@@ -1185,12 +1203,12 @@
 				1808B33A1B44DEB00050E3B4 /* EDContactContentCell.m in Sources */,
 				764406A31B4BCD4600541C86 /* EditAddViewController.m in Sources */,
 				18579FE51B4BC24E00501EA0 /* EDSettingViewController.m in Sources */,
-				1857A08E1B4E029E00501EA0 /* EDPrivateDetailViewController.m in Sources */,
 				764406531B458B1700541C86 /* TopCell.m in Sources */,
 				764406941B4ACD0200541C86 /* SelectAddCell.m in Sources */,
 				7644068F1B4AC4FA00541C86 /* SelectAddViewController.m in Sources */,
 				7644067B1B47BEC600541C86 /* LifeServiceCell.m in Sources */,
 				1808B32F1B4439ED0050E3B4 /* EDContactViewController.m in Sources */,
+				1857A0A31B4E702C00501EA0 /* EDHomeWorkViewController.m in Sources */,
 				1857A02D1B4CAB2B00501EA0 /* EDMyPhotoViewController.m in Sources */,
 				764406B91B4D558500541C86 /* JournalCell.m in Sources */,
 			);

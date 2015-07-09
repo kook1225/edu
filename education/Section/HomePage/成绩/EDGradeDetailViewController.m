@@ -12,7 +12,8 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *name;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIImageView *imgView;
 @end
 
 @implementation EDGradeDetailViewController
@@ -25,6 +26,44 @@
     self.navigationItem.leftBarButtonItem = [Tools getNavBarItem:self clickAction:@selector(back)];
    
     [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"score"];
+    
+    CGFloat slide_x= 0;
+    CGFloat slide_y = 0;
+    CGFloat TAB_WITHDE = 0;
+    CGFloat TAB_HEIGHT = 0;
+    if (SCREENHEIGHT == 480)
+    {
+        slide_x = 68;
+        slide_y = 150;
+        TAB_WITHDE = 184;
+        TAB_HEIGHT = 124;
+    }else if (SCREENHEIGHT == 568)
+    {
+        slide_x = 68;
+        slide_y = 183;
+        TAB_WITHDE = 184;
+        TAB_HEIGHT = 156;
+    }else if (SCREENHEIGHT == 667)
+    {
+        slide_x = 80;
+        slide_y = 222;
+        TAB_WITHDE = 213;
+        TAB_HEIGHT = 186;
+    }else
+    {
+        slide_x = 90;
+        slide_y = 250;
+        TAB_WITHDE = 235;
+        TAB_HEIGHT = 210;
+    }
+
+    _tableView.dataSource = self;
+    _tableView.delegate = self;
+    _tableView.scrollEnabled = NO;
+    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(slide_x, slide_y, TAB_WITHDE, TAB_HEIGHT) style:UITableViewStylePlain];
+    [_imgView addSubview:_tableView];
+    
+    
     
     
 }
