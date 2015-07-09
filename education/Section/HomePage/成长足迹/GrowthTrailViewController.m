@@ -52,12 +52,12 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 146;
+    return 93;
 }
 
 #pragma mark - UITableViewDataSource Method
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return 5;
 }
 
 
@@ -68,7 +68,13 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"JournalCell" owner:self options:nil] lastObject];
     }
     
-    [cell setData];
+    if (indexPath.row <= 2) {
+        [cell setData:1];
+    }
+    else {
+        [cell setData:2];
+    }
+    
     return cell;
 }
 
