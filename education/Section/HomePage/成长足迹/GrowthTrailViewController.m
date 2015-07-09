@@ -10,6 +10,7 @@
 #import "SETabBarViewController.h"
 #import "JournalCell.h"
 #import "EDGrowDetailViewController.h"
+#import "EvaluteAndEncourageViewController.h"
 
 @interface GrowthTrailViewController () {
     SETabBarViewController *tabBarViewController;
@@ -49,9 +50,14 @@
 
 #pragma mark - UITableViewDelegate Method
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    EDGrowDetailViewController *growDetailVC = [[EDGrowDetailViewController alloc]init];
-    [self.navigationController pushViewController:growDetailVC animated:YES];
+    if (indexPath.row > 2) {
+        EvaluteAndEncourageViewController *evaluteAndEncourageVC = [[EvaluteAndEncourageViewController alloc] init];
+        [self.navigationController pushViewController:evaluteAndEncourageVC animated:YES];
+    }
+    else {
+        EDGrowDetailViewController *growDetailVC = [[EDGrowDetailViewController alloc]init];
+        [self.navigationController pushViewController:growDetailVC animated:YES];
+    }
     
 }
 

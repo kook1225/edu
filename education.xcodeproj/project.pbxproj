@@ -127,6 +127,10 @@
 		764406C01B4D642B00541C86 /* ParentRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 764406BE1B4D642B00541C86 /* ParentRegisterViewController.xib */; };
 		764406C41B4D6C0E00541C86 /* FillInforViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 764406C21B4D6C0E00541C86 /* FillInforViewController.m */; };
 		764406C51B4D6C0E00541C86 /* FillInforViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 764406C31B4D6C0E00541C86 /* FillInforViewController.xib */; };
+		764406CE1B4E763F00541C86 /* EvaluteAndEncourageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 764406CC1B4E763F00541C86 /* EvaluteAndEncourageViewController.m */; };
+		764406CF1B4E763F00541C86 /* EvaluteAndEncourageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 764406CD1B4E763F00541C86 /* EvaluteAndEncourageViewController.xib */; };
+		764406D31B4EA4DF00541C86 /* EvaluteAndEncourageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 764406D11B4EA4DF00541C86 /* EvaluteAndEncourageCell.m */; };
+		764406D41B4EA4DF00541C86 /* EvaluteAndEncourageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 764406D21B4EA4DF00541C86 /* EvaluteAndEncourageCell.xib */; };
 		768FFAF11B4238D9008E577F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF01B4238D9008E577F /* main.m */; };
 		768FFAF41B4238D9008E577F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF31B4238D9008E577F /* AppDelegate.m */; };
 		768FFAFC1B4238D9008E577F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 768FFAFB1B4238D9008E577F /* Images.xcassets */; };
@@ -339,6 +343,12 @@
 		764406C11B4D6C0E00541C86 /* FillInforViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FillInforViewController.h; sourceTree = "<group>"; };
 		764406C21B4D6C0E00541C86 /* FillInforViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FillInforViewController.m; sourceTree = "<group>"; };
 		764406C31B4D6C0E00541C86 /* FillInforViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FillInforViewController.xib; sourceTree = "<group>"; };
+		764406CB1B4E763F00541C86 /* EvaluteAndEncourageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvaluteAndEncourageViewController.h; sourceTree = "<group>"; };
+		764406CC1B4E763F00541C86 /* EvaluteAndEncourageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EvaluteAndEncourageViewController.m; sourceTree = "<group>"; };
+		764406CD1B4E763F00541C86 /* EvaluteAndEncourageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EvaluteAndEncourageViewController.xib; sourceTree = "<group>"; };
+		764406D01B4EA4DF00541C86 /* EvaluteAndEncourageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvaluteAndEncourageCell.h; sourceTree = "<group>"; };
+		764406D11B4EA4DF00541C86 /* EvaluteAndEncourageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EvaluteAndEncourageCell.m; sourceTree = "<group>"; };
+		764406D21B4EA4DF00541C86 /* EvaluteAndEncourageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EvaluteAndEncourageCell.xib; sourceTree = "<group>"; };
 		768FFAEB1B4238D9008E577F /* education.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = education.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		768FFAEF1B4238D9008E577F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		768FFAF01B4238D9008E577F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -761,6 +771,9 @@
 				1857A0951B4E4F1000501EA0 /* EDGrowDetailViewController.h */,
 				1857A0961B4E4F1000501EA0 /* EDGrowDetailViewController.m */,
 				1857A0971B4E4F1000501EA0 /* EDGrowDetailViewController.xib */,
+				764406CB1B4E763F00541C86 /* EvaluteAndEncourageViewController.h */,
+				764406CC1B4E763F00541C86 /* EvaluteAndEncourageViewController.m */,
+				764406CD1B4E763F00541C86 /* EvaluteAndEncourageViewController.xib */,
 			);
 			path = "成长足迹";
 			sourceTree = "<group>";
@@ -771,6 +784,9 @@
 				764406B61B4D558500541C86 /* JournalCell.h */,
 				764406B71B4D558500541C86 /* JournalCell.m */,
 				764406B81B4D558500541C86 /* JournalCell.xib */,
+				764406D01B4EA4DF00541C86 /* EvaluteAndEncourageCell.h */,
+				764406D11B4EA4DF00541C86 /* EvaluteAndEncourageCell.m */,
+				764406D21B4EA4DF00541C86 /* EvaluteAndEncourageCell.xib */,
 			);
 			path = "成长足迹Cell";
 			sourceTree = "<group>";
@@ -1048,6 +1064,7 @@
 				1808B34A1B44F1CB0050E3B4 /* EDStudentViewController.xib in Resources */,
 				1857A0991B4E4F1000501EA0 /* EDGrowDetailViewController.xib in Resources */,
 				764406541B458B1700541C86 /* TopCell.xib in Resources */,
+				764406D41B4EA4DF00541C86 /* EvaluteAndEncourageCell.xib in Resources */,
 				764406651B4671BC00541C86 /* LifeServiceViewController.xib in Resources */,
 				764406951B4ACD0200541C86 /* SelectAddCell.xib in Resources */,
 				18579FE41B4BC24E00501EA0 /* EDSetProblemViewController.xib in Resources */,
@@ -1084,6 +1101,7 @@
 				187F7DC81B43BDDF005CC8D8 /* EDGradeRecodeCell.xib in Resources */,
 				7644069F1B4BC1F900541C86 /* AddReceiveAddressViewController.xib in Resources */,
 				7644064E1B458B1700541C86 /* BottomCell.xib in Resources */,
+				764406CF1B4E763F00541C86 /* EvaluteAndEncourageViewController.xib in Resources */,
 				1857A07F1B4D6E8000501EA0 /* EDPrivateNoteViewController.xib in Resources */,
 				1808B31E1B43D6650050E3B4 /* EDSubjectCell.xib in Resources */,
 				18579F8E1B45401100501EA0 /* EDEditInfoViewController.xib in Resources */,
@@ -1161,6 +1179,7 @@
 				18579FF71B4BC2B800501EA0 /* EDMyOrderViewController.m in Sources */,
 				1857A0981B4E4F1000501EA0 /* EDGrowDetailViewController.m in Sources */,
 				768FFAF41B4238D9008E577F /* AppDelegate.m in Sources */,
+				764406CE1B4E763F00541C86 /* EvaluteAndEncourageViewController.m in Sources */,
 				1857A0151B4BC3CB00501EA0 /* EDPhysicalContentCell.m in Sources */,
 				7644064F1B458B1700541C86 /* ClassCircleCell.m in Sources */,
 				768FFB371B42C8C4008E577F /* ButtonViewCell.m in Sources */,
@@ -1191,6 +1210,7 @@
 				764406B31B4D4C0600541C86 /* GrowthTrailViewController.m in Sources */,
 				768FFB321B42C333008E577F /* UserIntroCell.m in Sources */,
 				1808B3291B44293C0050E3B4 /* EDDayInfoCell.m in Sources */,
+				764406D31B4EA4DF00541C86 /* EvaluteAndEncourageCell.m in Sources */,
 				764406BF1B4D642B00541C86 /* ParentRegisterViewController.m in Sources */,
 				1808B3491B44F1CB0050E3B4 /* EDStudentViewController.m in Sources */,
 				1857A05F1B4CFAB500501EA0 /* EDPhotoDetailCell.m in Sources */,
