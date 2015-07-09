@@ -10,7 +10,9 @@
 
 @interface JournalCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIView *mainView;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (nonatomic,strong) UIButton *replyBtn;
 
-- (void)setData;
+- (void)setData:(int)flag;
 
 @end

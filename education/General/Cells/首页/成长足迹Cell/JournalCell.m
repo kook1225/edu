@@ -14,9 +14,30 @@
     // Initialization code
 }
 
-- (void)setData {
+- (void)setData:(int)flag {
     _mainView.layer.borderColor = [UIColor colorWithRed:232.0/255.0f green:232.0/255.0f blue:232.0/255.0f alpha:1.000].CGColor;
     _mainView.layer.borderWidth = 1;
+    
+    
+    if (flag == 2) {
+        _nameLabel.text = @"from 张老师";
+        [_nameLabel sizeToFit];
+        
+        _replyBtn = [[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(_nameLabel.frame) + 10, _nameLabel.frame.origin.y - 2, 40, 20)];
+        [_replyBtn setTitle:@"回复1" forState:UIControlStateNormal];
+        _replyBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+        _replyBtn.backgroundColor = [UIColor colorWithRed:240.0/255.0f green:240.0/255.0f blue:240.0/255.0f alpha:1.000];
+        
+        _replyBtn.layer.borderColor = [UIColor colorWithRed:232.0/255.0f green:232.0/255.0f blue:232.0/255.0f alpha:1.000].CGColor;
+        _replyBtn.layer.borderWidth = 1;
+        _replyBtn.layer.cornerRadius = 5.0f;
+        
+        [_replyBtn setTitleColor:[UIColor colorWithRed:255.0/255.0f green:124.0/255.0f blue:6.0/255.0f alpha:1.000f] forState:UIControlStateNormal];
+        [_mainView addSubview:_replyBtn];
+    }
+    else {
+        _nameLabel.text = @"小白的周末";
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

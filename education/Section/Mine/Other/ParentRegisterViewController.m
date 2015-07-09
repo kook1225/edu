@@ -7,6 +7,7 @@
 //
 
 #import "ParentRegisterViewController.h"
+#import "FillInforViewController.h"
 
 @interface ParentRegisterViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *nextBtn;
@@ -29,6 +30,8 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (IBAction)nextBtn:(id)sender {
+    FillInforViewController *fillIntroVC = [[FillInforViewController alloc] init];
+    [self.navigationController pushViewController:fillIntroVC animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
