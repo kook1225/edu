@@ -19,6 +19,7 @@
 #import "EDGradeRecodeViewController.h"
 #import "GrowthTrailViewController.h"
 #import "EDPrivateNoteViewController.h"
+#import "EDHomeWorkViewController.h"
 
 #define IMAGEHEIGHT (160 * ([UIScreen mainScreen].bounds.size.height/568.0))
 #define USERINTROHEIGHT (64 * ([UIScreen mainScreen].bounds.size.height/568.0))
@@ -229,7 +230,8 @@
 }
 
 - (void)homework {
-    NSLog(@"9");
+    EDHomeWorkViewController *homeWorkVC = [[EDHomeWorkViewController alloc]init];
+    [self.navigationController pushViewController:homeWorkVC animated:YES];
 }
 
 - (void)growUp {
