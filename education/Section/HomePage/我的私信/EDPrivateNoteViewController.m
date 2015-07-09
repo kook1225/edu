@@ -10,6 +10,7 @@
 #import "SETabBarViewController.h"
 #import "EDPrivateNoteCell.h"
 #import "EDPrivateNoteSelectedCell.h"
+#import "EDPrivateDetailViewController.h"
 
 @interface EDPrivateNoteViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
@@ -81,7 +82,10 @@
     if (!([selectedArray containsObject:[NSNumber numberWithInteger:indexPath.row]])) {
         [selectedArray addObject:[NSNumber numberWithInteger:indexPath.row]];
     }
-        
+    
+    
+    EDPrivateDetailViewController *privateDetailVC = [[EDPrivateDetailViewController alloc]init];
+    [self.navigationController pushViewController:privateDetailVC animated:YES];
    
     
     [_tableView reloadData];
