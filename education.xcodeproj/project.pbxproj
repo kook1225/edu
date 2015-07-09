@@ -76,6 +76,8 @@
 		1857A08A1B4D6E9800501EA0 /* EDPrivateNoteSelectedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1857A0861B4D6E9800501EA0 /* EDPrivateNoteSelectedCell.xib */; };
 		1857A08E1B4E029E00501EA0 /* EDPrivateDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A08C1B4E029E00501EA0 /* EDPrivateDetailViewController.m */; };
 		1857A08F1B4E029E00501EA0 /* EDPrivateDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1857A08D1B4E029E00501EA0 /* EDPrivateDetailViewController.xib */; };
+		1857A0981B4E4F1000501EA0 /* EDGrowDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A0961B4E4F1000501EA0 /* EDGrowDetailViewController.m */; };
+		1857A0991B4E4F1000501EA0 /* EDGrowDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1857A0971B4E4F1000501EA0 /* EDGrowDetailViewController.xib */; };
 		187F7DC71B43BDDF005CC8D8 /* EDGradeRecodeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 187F7DC51B43BDDF005CC8D8 /* EDGradeRecodeCell.m */; };
 		187F7DC81B43BDDF005CC8D8 /* EDGradeRecodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187F7DC61B43BDDF005CC8D8 /* EDGradeRecodeCell.xib */; };
 		187F7DD01B43C469005CC8D8 /* Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 187F7DCF1B43C469005CC8D8 /* Tools.m */; };
@@ -256,6 +258,9 @@
 		1857A08B1B4E029E00501EA0 /* EDPrivateDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EDPrivateDetailViewController.h; path = ../../../../../../../Documents/EDPrivateDetailViewController.h; sourceTree = "<group>"; };
 		1857A08C1B4E029E00501EA0 /* EDPrivateDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EDPrivateDetailViewController.m; path = ../../../../../../../Documents/EDPrivateDetailViewController.m; sourceTree = "<group>"; };
 		1857A08D1B4E029E00501EA0 /* EDPrivateDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EDPrivateDetailViewController.xib; path = ../../../../../../../Documents/EDPrivateDetailViewController.xib; sourceTree = "<group>"; };
+		1857A0951B4E4F1000501EA0 /* EDGrowDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDGrowDetailViewController.h; sourceTree = "<group>"; };
+		1857A0961B4E4F1000501EA0 /* EDGrowDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDGrowDetailViewController.m; sourceTree = "<group>"; };
+		1857A0971B4E4F1000501EA0 /* EDGrowDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDGrowDetailViewController.xib; sourceTree = "<group>"; };
 		187F7DC41B43BDDF005CC8D8 /* EDGradeRecodeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDGradeRecodeCell.h; sourceTree = "<group>"; };
 		187F7DC51B43BDDF005CC8D8 /* EDGradeRecodeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDGradeRecodeCell.m; sourceTree = "<group>"; };
 		187F7DC61B43BDDF005CC8D8 /* EDGradeRecodeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDGradeRecodeCell.xib; sourceTree = "<group>"; };
@@ -738,6 +743,9 @@
 				764406B01B4D4C0600541C86 /* GrowthTrailViewController.h */,
 				764406B11B4D4C0600541C86 /* GrowthTrailViewController.m */,
 				764406B21B4D4C0600541C86 /* GrowthTrailViewController.xib */,
+				1857A0951B4E4F1000501EA0 /* EDGrowDetailViewController.h */,
+				1857A0961B4E4F1000501EA0 /* EDGrowDetailViewController.m */,
+				1857A0971B4E4F1000501EA0 /* EDGrowDetailViewController.xib */,
 			);
 			path = "成长足迹";
 			sourceTree = "<group>";
@@ -1022,6 +1030,7 @@
 				1857A0281B4BC3FB00501EA0 /* EDOrderHeadCell.xib in Resources */,
 				1857A05B1B4CF9A600501EA0 /* EDPhotoDetailViewController.xib in Resources */,
 				1808B34A1B44F1CB0050E3B4 /* EDStudentViewController.xib in Resources */,
+				1857A0991B4E4F1000501EA0 /* EDGrowDetailViewController.xib in Resources */,
 				764406541B458B1700541C86 /* TopCell.xib in Resources */,
 				764406651B4671BC00541C86 /* LifeServiceViewController.xib in Resources */,
 				764406951B4ACD0200541C86 /* SelectAddCell.xib in Resources */,
@@ -1133,6 +1142,7 @@
 				7644065E1B46669C00541C86 /* SendViewController.m in Sources */,
 				768FFB1E1B423C0A008E577F /* ViewController.m in Sources */,
 				18579FF71B4BC2B800501EA0 /* EDMyOrderViewController.m in Sources */,
+				1857A0981B4E4F1000501EA0 /* EDGrowDetailViewController.m in Sources */,
 				768FFAF41B4238D9008E577F /* AppDelegate.m in Sources */,
 				1857A0151B4BC3CB00501EA0 /* EDPhysicalContentCell.m in Sources */,
 				7644064F1B458B1700541C86 /* ClassCircleCell.m in Sources */,

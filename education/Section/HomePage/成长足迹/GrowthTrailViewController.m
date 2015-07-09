@@ -9,6 +9,7 @@
 #import "GrowthTrailViewController.h"
 #import "SETabBarViewController.h"
 #import "JournalCell.h"
+#import "EDGrowDetailViewController.h"
 
 @interface GrowthTrailViewController () {
     SETabBarViewController *tabBarViewController;
@@ -48,6 +49,9 @@
 
 #pragma mark - UITableViewDelegate Method
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    EDGrowDetailViewController *growDetailVC = [[EDGrowDetailViewController alloc]init];
+    [self.navigationController pushViewController:growDetailVC animated:YES];
     
 }
 

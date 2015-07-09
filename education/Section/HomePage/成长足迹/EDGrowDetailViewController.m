@@ -1,32 +1,36 @@
 //
-//  EDSendMsgViewController.m
+//  EDGrowDetailViewController.m
 //  education
 //
-//  Created by Apple on 15/7/2.
+//  Created by Apple on 15/7/9.
 //  Copyright (c) 2015年 zhujun. All rights reserved.
 //
 
-#import "EDSendMsgViewController.h"
+#import "EDGrowDetailViewController.h"
 
-#define IMGWIDTH ([UIScreen mainScreen].bounds.size.width >= 667? 80 : 70)
-@interface EDSendMsgViewController ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextViewDelegate>
+@interface EDGrowDetailViewController ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextViewDelegate>
 {
     UIButton *addImgBtn;
-    UIImageView *imgView;
     int imageNum;
+    UIImageView *imgView;
+    NSString *TMP_UPLOAD_IMG_PATH;
 }
-@property (weak, nonatomic) IBOutlet UIView *headView;
+
 @property (weak, nonatomic) IBOutlet UITextView *textView;
+@property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UIButton *commitBtn;
+@property (weak, nonatomic) IBOutlet UIView *containView;
 
 @end
-NSString *TMP_UPLOAD_IMG_PATH=@"";
-@implementation EDSendMsgViewController
+
+
+@implementation EDGrowDetailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = @"发送私信";
+    self.title = @"日志心情";
+    
     self.navigationItem.leftBarButtonItem = [Tools getNavBarItem:self clickAction:@selector(back)];
     
     [self drawlayer];
@@ -51,8 +55,7 @@ NSString *TMP_UPLOAD_IMG_PATH=@"";
     addImgBtn.frame = CGRectMake(10, 10, 78, 78);
     [addImgBtn setImage:[UIImage imageNamed:@"addImg"] forState:UIControlStateNormal];
     [addImgBtn addTarget:self action:@selector(addImageView) forControlEvents:UIControlEventTouchUpInside];
-    [_headView addSubview:addImgBtn];
-    
+    [_containView addSubview:addImgBtn];
     
 }
 
@@ -61,19 +64,19 @@ NSString *TMP_UPLOAD_IMG_PATH=@"";
     UIActionSheet *menu=[[UIActionSheet alloc] initWithTitle:@"上传图片" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照上传",@"从相册上传", nil];
     menu.actionSheetStyle=UIActionSheetStyleBlackTranslucent;
     [menu showInView:self.view];
-   
-
+    
+    
 }
 - (void)setImgFrame:(int )num image:(UIImage *)img
 {
     imgView = [[UIImageView alloc]init];
-  
+    
     imgView.frame = CGRectMake(10+74*(num-1), 10, 70, 70);
-        imgView.tag = 400+num;
-        
+    imgView.tag = 400+num;
+    
     
     imgView.image = img;
-    [_headView addSubview:imgView];
+    [_containView addSubview:imgView];
     addImgBtn.frame = CGRectMake(10+74*num, 10, 70, 70);
     
 }
@@ -90,7 +93,7 @@ NSString *TMP_UPLOAD_IMG_PATH=@"";
     if(buttonIndex==0){
         [self snapImage];
         
-        }
+    }
     else if(buttonIndex==1){
         [self pickImage];
         
@@ -106,7 +109,7 @@ NSString *TMP_UPLOAD_IMG_PATH=@"";
     ipc.delegate=self;
     ipc.allowsEditing=NO;
     [self presentViewController:ipc animated:YES completion:nil];
-  
+    
 }
 //从相册里找
 - (void) pickImage
@@ -125,7 +128,7 @@ NSString *TMP_UPLOAD_IMG_PATH=@"";
     UIImage *img=[info objectForKey:@"UIImagePickerControllerOriginalImage"];
     
     if(picker.sourceType==UIImagePickerControllerSourceTypeCamera){
-    //        UIImageWriteToSavedPhotosAlbum(img,nil,nil,nil);
+        //        UIImageWriteToSavedPhotosAlbum(img,nil,nil,nil);
     }
     UIImage *newImg=[self imageWithImageSimple:img scaledToSize:CGSizeMake(78, 78)];
     [self saveImage:newImg WithName:[NSString stringWithFormat:@"%@%@",[self generateUuidString],@".jpg"]];
@@ -133,7 +136,7 @@ NSString *TMP_UPLOAD_IMG_PATH=@"";
     [self setImgFrame:imageNum image:newImg];
     [self dismissViewControllerAnimated:YES completion:nil];
     
-
+    
 }
 -(UIImage *) imageWithImageSimple:(UIImage*) image scaledToSize:(CGSize) newSize
 {
@@ -150,7 +153,7 @@ NSString *TMP_UPLOAD_IMG_PATH=@"";
     NSLog(@"===TMP_UPLOAD_IMG_PATH===%@",TMP_UPLOAD_IMG_PATH);
     NSData* imageData = UIImagePNGRepresentation(tempImage);
     NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
-
+    
     NSString* documentsDirectory = [paths objectAtIndex:0];
     
     // Now we get the full path to the file
@@ -161,7 +164,7 @@ NSString *TMP_UPLOAD_IMG_PATH=@"";
     NSLog(@"===new fullPathToFile===%@",fullPathToFile);
     NSLog(@"===new FileName===%@",[nameAry objectAtIndex:[nameAry count]-1]);
     [imageData writeToFile:fullPathToFile atomically:NO];
-
+    
 }
 - (NSString *)generateUuidString
 {
@@ -177,5 +180,5 @@ NSString *TMP_UPLOAD_IMG_PATH=@"";
     CFRelease(uuid);
     return uuidString;
 }
-@end
 
+@end
