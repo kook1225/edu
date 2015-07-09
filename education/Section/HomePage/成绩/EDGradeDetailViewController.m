@@ -12,7 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *name;
-@property (strong, nonatomic) UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
 @end
 
@@ -34,34 +34,31 @@
     if (SCREENHEIGHT == 480)
     {
         slide_x = 68;
-        slide_y = 150;
+        slide_y = 160;
         TAB_WITHDE = 184;
         TAB_HEIGHT = 124;
     }else if (SCREENHEIGHT == 568)
     {
         slide_x = 68;
-        slide_y = 183;
+        slide_y = 200;
         TAB_WITHDE = 184;
         TAB_HEIGHT = 156;
     }else if (SCREENHEIGHT == 667)
     {
         slide_x = 80;
-        slide_y = 222;
+        slide_y = 240;
         TAB_WITHDE = 213;
         TAB_HEIGHT = 186;
     }else
     {
-        slide_x = 90;
-        slide_y = 250;
-        TAB_WITHDE = 235;
+        slide_x = 120;
+        slide_y = 270;
+        TAB_WITHDE = 200;
         TAB_HEIGHT = 210;
     }
 
-    _tableView.dataSource = self;
-    _tableView.delegate = self;
-    _tableView.scrollEnabled = NO;
-    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(slide_x, slide_y, TAB_WITHDE, TAB_HEIGHT) style:UITableViewStylePlain];
-    [_imgView addSubview:_tableView];
+
+    _tableView.frame = CGRectMake(slide_x, slide_y, TAB_WITHDE, TAB_HEIGHT);
     
     
     
@@ -82,7 +79,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 20;
+    return 30;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
