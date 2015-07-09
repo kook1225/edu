@@ -24,14 +24,13 @@
     //设置label的最大行数
     _contentLabel.numberOfLines = 0;
     
-    NSString *replyStr = [NSString stringWithFormat:@"%@ : %@",name,text];
+    NSString *replyStr = [NSString stringWithFormat:@"%@回复 : %@",name,text];
     
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc]initWithString:replyStr];;
     
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc]init];
     [paragraphStyle setLineSpacing:5];
     [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, replyStr.length)];
-    [attributedString addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:255.0/255.0 green:124.0/255.0 blue:6.0/255.0 alpha:1.000] range:NSMakeRange(0, [name length] + 3)];
     
     //文本赋值
     _contentLabel.attributedText = attributedString;
