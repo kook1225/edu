@@ -9,8 +9,12 @@
 #import "SelectAddViewController.h"
 #import "SelectAddCell.h"
 #import "ManageAddViewController.h"
+#import "SETabBarViewController.h"
 
-@interface SelectAddViewController ()
+@interface SelectAddViewController () {
+    SETabBarViewController *tabBarView;
+}
+
 @property (weak, nonatomic) IBOutlet UIButton *manageAddBtn;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -23,6 +27,9 @@
     self.title = @"选择收货地址";
     
     _manageAddBtn.layer.cornerRadius = 5.0f;
+    
+    tabBarView = (SETabBarViewController *)self.navigationController.parentViewController;
+    [tabBarView tabBarViewHidden];
     
     self.navigationItem.leftBarButtonItem = [Tools getNavBarItem:self clickAction:@selector(back)];
 }

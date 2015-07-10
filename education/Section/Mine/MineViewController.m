@@ -12,6 +12,7 @@
 #import "EDMyOrderViewController.h"
 #import "EDAlterPwdViewController.h"
 #import "EDMyPhotoViewController.h"
+#import "SelectAddViewController.h"
 
 @interface MineViewController () {
     SETabBarViewController *tabBarViewController;
@@ -58,7 +59,8 @@
 }
 
 - (IBAction)userAddTap:(id)sender {
-    NSLog(@"3");
+    SelectAddViewController *selectAddVC = [[SelectAddViewController alloc] init];
+    [self.navigationController pushViewController:selectAddVC animated:YES];
 }
 
 - (IBAction)userPhotoTap:(id)sender {

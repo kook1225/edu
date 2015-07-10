@@ -133,6 +133,10 @@
 		764406CF1B4E763F00541C86 /* EvaluteAndEncourageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 764406CD1B4E763F00541C86 /* EvaluteAndEncourageViewController.xib */; };
 		764406D31B4EA4DF00541C86 /* EvaluteAndEncourageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 764406D11B4EA4DF00541C86 /* EvaluteAndEncourageCell.m */; };
 		764406D41B4EA4DF00541C86 /* EvaluteAndEncourageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 764406D21B4EA4DF00541C86 /* EvaluteAndEncourageCell.xib */; };
+		764406D81B4F4F5300541C86 /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 764406D61B4F4F5300541C86 /* AboutUsViewController.m */; };
+		764406D91B4F4F5300541C86 /* AboutUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 764406D71B4F4F5300541C86 /* AboutUsViewController.xib */; };
+		764406DD1B4F500A00541C86 /* ContactUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 764406DB1B4F500A00541C86 /* ContactUsViewController.m */; };
+		764406DE1B4F500A00541C86 /* ContactUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 764406DC1B4F500A00541C86 /* ContactUsViewController.xib */; };
 		768FFAF11B4238D9008E577F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF01B4238D9008E577F /* main.m */; };
 		768FFAF41B4238D9008E577F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF31B4238D9008E577F /* AppDelegate.m */; };
 		768FFAFC1B4238D9008E577F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 768FFAFB1B4238D9008E577F /* Images.xcassets */; };
@@ -354,6 +358,12 @@
 		764406D01B4EA4DF00541C86 /* EvaluteAndEncourageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvaluteAndEncourageCell.h; sourceTree = "<group>"; };
 		764406D11B4EA4DF00541C86 /* EvaluteAndEncourageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EvaluteAndEncourageCell.m; sourceTree = "<group>"; };
 		764406D21B4EA4DF00541C86 /* EvaluteAndEncourageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EvaluteAndEncourageCell.xib; sourceTree = "<group>"; };
+		764406D51B4F4F5300541C86 /* AboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUsViewController.h; sourceTree = "<group>"; };
+		764406D61B4F4F5300541C86 /* AboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUsViewController.m; sourceTree = "<group>"; };
+		764406D71B4F4F5300541C86 /* AboutUsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutUsViewController.xib; sourceTree = "<group>"; };
+		764406DA1B4F500A00541C86 /* ContactUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactUsViewController.h; sourceTree = "<group>"; };
+		764406DB1B4F500A00541C86 /* ContactUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactUsViewController.m; sourceTree = "<group>"; };
+		764406DC1B4F500A00541C86 /* ContactUsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactUsViewController.xib; sourceTree = "<group>"; };
 		768FFAEB1B4238D9008E577F /* education.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = education.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		768FFAEF1B4238D9008E577F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		768FFAF01B4238D9008E577F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -473,6 +483,12 @@
 				18579FE01B4BC24E00501EA0 /* EDSettingViewController.h */,
 				18579FE11B4BC24E00501EA0 /* EDSettingViewController.m */,
 				18579FE21B4BC24E00501EA0 /* EDSettingViewController.xib */,
+				764406D51B4F4F5300541C86 /* AboutUsViewController.h */,
+				764406D61B4F4F5300541C86 /* AboutUsViewController.m */,
+				764406D71B4F4F5300541C86 /* AboutUsViewController.xib */,
+				764406DA1B4F500A00541C86 /* ContactUsViewController.h */,
+				764406DB1B4F500A00541C86 /* ContactUsViewController.m */,
+				764406DC1B4F500A00541C86 /* ContactUsViewController.xib */,
 			);
 			path = Set;
 			sourceTree = "<group>";
@@ -1063,6 +1079,7 @@
 			files = (
 				1808B3301B4439ED0050E3B4 /* EDContactViewController.xib in Resources */,
 				7644065A1B458C2C00541C86 /* ClassCircleViewController.xib in Resources */,
+				764406DE1B4F500A00541C86 /* ContactUsViewController.xib in Resources */,
 				1808B34F1B44FD1C0050E3B4 /* EDSendMsgViewController.xib in Resources */,
 				1857A0541B4CF74B00501EA0 /* EDGradeRecodeViewController.xib in Resources */,
 				1857A0241B4BC3FB00501EA0 /* EDMyOrderCell.xib in Resources */,
@@ -1074,6 +1091,7 @@
 				18579FE61B4BC24E00501EA0 /* EDSettingViewController.xib in Resources */,
 				1857A08A1B4D6E9800501EA0 /* EDPrivateNoteSelectedCell.xib in Resources */,
 				764406B41B4D4C0600541C86 /* GrowthTrailViewController.xib in Resources */,
+				764406D91B4F4F5300541C86 /* AboutUsViewController.xib in Resources */,
 				1857A0091B4BC2E800501EA0 /* EDPhysicalDetailViewController.xib in Resources */,
 				764406501B458B1700541C86 /* ClassCircleCell.xib in Resources */,
 				1857A0281B4BC3FB00501EA0 /* EDOrderHeadCell.xib in Resources */,
@@ -1222,6 +1240,8 @@
 				18579F8D1B45401100501EA0 /* EDEditInfoViewController.m in Sources */,
 				1808B31D1B43D6650050E3B4 /* EDSubjectCell.m in Sources */,
 				18579FEA1B4BC28A00501EA0 /* LoginViewController.m in Sources */,
+				764406DD1B4F500A00541C86 /* ContactUsViewController.m in Sources */,
+				764406D81B4F4F5300541C86 /* AboutUsViewController.m in Sources */,
 				764406591B458C2C00541C86 /* ClassCircleViewController.m in Sources */,
 				1857A0871B4D6E9800501EA0 /* EDPrivateNoteCell.m in Sources */,
 				1857A05A1B4CF9A600501EA0 /* EDPhotoDetailViewController.m in Sources */,

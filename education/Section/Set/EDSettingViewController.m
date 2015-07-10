@@ -9,6 +9,8 @@
 #import "EDSettingViewController.h"
 #import "SETabBarViewController.h"
 #import "EDSetProblemViewController.h"
+#import "AboutUsViewController.h"
+#import "ContactUsViewController.h"
 
 @interface EDSettingViewController ()
 {
@@ -35,6 +37,8 @@
 #pragma mark TAP
 - (IBAction)contactUsTap:(id)sender {
     //联系我们
+    ContactUsViewController *contactUsVC = [[ContactUsViewController alloc] init];
+    [self.navigationController pushViewController:contactUsVC animated:YES];
 }
 - (IBAction)problemTap:(id)sender {
     //问题反馈
@@ -44,7 +48,8 @@
 
 - (IBAction)aboutUsTap:(id)sender {
     //关于我们
-    
+    AboutUsViewController *aboutUsViewController = [[AboutUsViewController alloc] init];
+    [self.navigationController pushViewController:aboutUsViewController animated:YES];
 }
 
 @end
