@@ -9,6 +9,7 @@
 #import "EDNoticeViewController.h"
 #import "SETabBarViewController.h"
 #import "EDDayInfoCell.h"
+#import "NoticeIntroViewController.h"
 
 @interface EDNoticeViewController ()
 {
@@ -60,6 +61,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    NoticeIntroViewController *noticeIntroVC = [[NoticeIntroViewController alloc] init];
+    [self.navigationController pushViewController:noticeIntroVC animated:YES];
 }
 @end

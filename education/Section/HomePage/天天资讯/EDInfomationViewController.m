@@ -9,6 +9,7 @@
 #import "EDInfomationViewController.h"
 #import "SETabBarViewController.h"
 #import "EDDayInfoCell.h"
+#import "IntroDetailViewController.h"
 
 @interface EDInfomationViewController ()
 {
@@ -60,7 +61,8 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-   
+    IntroDetailViewController *introDetailVC = [[IntroDetailViewController alloc] init];
+    [self.navigationController pushViewController:introDetailVC animated:YES];
 }
 
 
