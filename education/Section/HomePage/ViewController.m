@@ -22,6 +22,7 @@
 #import "EDHomeWorkViewController.h"
 #import "EDSubjectViewController.h"
 #import "EDNoticeViewController.h"
+#import "EDClassOnlineViewController.h"
 
 #define IMAGEHEIGHT (160 * ([UIScreen mainScreen].bounds.size.height/568.0))
 #define USERINTROHEIGHT (64 * ([UIScreen mainScreen].bounds.size.height/568.0))
@@ -249,7 +250,8 @@
 }
 
 - (void)courseOnLine {
-    NSLog(@"12");
+    EDClassOnlineViewController *classOnlineVC = [[EDClassOnlineViewController alloc]init];
+    [self.navigationController pushViewController:classOnlineVC animated:YES];
 }
 
 #pragma mark - UITableViewDelegate Method

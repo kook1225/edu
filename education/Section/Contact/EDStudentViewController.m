@@ -26,14 +26,15 @@
     self.title = @"学生信息";
     
     self.navigationItem.leftBarButtonItem = [Tools getNavBarItem:self clickAction:@selector(back)];
-    
     tabBarView = (SETabBarViewController *)self.navigationController.parentViewController;
     [tabBarView tabBarViewHidden];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     _scrollView.contentSize = CGSizeMake(SCREENWIDTH, 950);
+    
 }
 #pragma mark 常用方法
 - (void)back
