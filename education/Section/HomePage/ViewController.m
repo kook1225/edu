@@ -23,6 +23,7 @@
 #import "EDSubjectViewController.h"
 #import "EDNoticeViewController.h"
 #import "EDClassOnlineViewController.h"
+#import "SchoolTimeTableViewController.h"
 
 #define IMAGEHEIGHT (160 * ([UIScreen mainScreen].bounds.size.height/568.0))
 #define USERINTROHEIGHT (64 * ([UIScreen mainScreen].bounds.size.height/568.0))
@@ -196,7 +197,8 @@
 }
 
 - (void)schoolTimeTable {
-    NSLog(@"1");
+    SchoolTimeTableViewController *schoolTimeTableVC = [[SchoolTimeTableViewController alloc] init];
+    [self.navigationController pushViewController:schoolTimeTableVC animated:YES];
 }
 
 - (void)myLetter {

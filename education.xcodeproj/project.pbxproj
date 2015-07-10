@@ -145,6 +145,8 @@
 		764406E31B4F594C00541C86 /* NoticeIntroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 764406E11B4F594C00541C86 /* NoticeIntroViewController.xib */; };
 		764406E71B4F5A8600541C86 /* IntroDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 764406E51B4F5A8600541C86 /* IntroDetailViewController.m */; };
 		764406E81B4F5A8600541C86 /* IntroDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 764406E61B4F5A8600541C86 /* IntroDetailViewController.xib */; };
+		764406ED1B4FA31300541C86 /* SchoolTimeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 764406EB1B4FA31300541C86 /* SchoolTimeTableViewController.m */; };
+		764406EE1B4FA31300541C86 /* SchoolTimeTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 764406EC1B4FA31300541C86 /* SchoolTimeTableViewController.xib */; };
 		768FFAF11B4238D9008E577F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF01B4238D9008E577F /* main.m */; };
 		768FFAF41B4238D9008E577F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF31B4238D9008E577F /* AppDelegate.m */; };
 		768FFAFC1B4238D9008E577F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 768FFAFB1B4238D9008E577F /* Images.xcassets */; };
@@ -384,6 +386,9 @@
 		764406E41B4F5A8600541C86 /* IntroDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroDetailViewController.h; sourceTree = "<group>"; };
 		764406E51B4F5A8600541C86 /* IntroDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroDetailViewController.m; sourceTree = "<group>"; };
 		764406E61B4F5A8600541C86 /* IntroDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroDetailViewController.xib; sourceTree = "<group>"; };
+		764406EA1B4FA31300541C86 /* SchoolTimeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolTimeTableViewController.h; sourceTree = "<group>"; };
+		764406EB1B4FA31300541C86 /* SchoolTimeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolTimeTableViewController.m; sourceTree = "<group>"; };
+		764406EC1B4FA31300541C86 /* SchoolTimeTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SchoolTimeTableViewController.xib; sourceTree = "<group>"; };
 		768FFAEB1B4238D9008E577F /* education.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = education.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		768FFAEF1B4238D9008E577F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		768FFAF01B4238D9008E577F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -882,6 +887,16 @@
 			path = Other;
 			sourceTree = "<group>";
 		};
+		764406E91B4F9F0C00541C86 /* 我的课表 */ = {
+			isa = PBXGroup;
+			children = (
+				764406EA1B4FA31300541C86 /* SchoolTimeTableViewController.h */,
+				764406EB1B4FA31300541C86 /* SchoolTimeTableViewController.m */,
+				764406EC1B4FA31300541C86 /* SchoolTimeTableViewController.xib */,
+			);
+			path = "我的课表";
+			sourceTree = "<group>";
+		};
 		768FFAE21B4238D9008E577F = {
 			isa = PBXGroup;
 			children = (
@@ -988,6 +1003,7 @@
 		768FFB1A1B423BE8008E577F /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				764406E91B4F9F0C00541C86 /* 我的课表 */,
 				1857A0B01B4F583300501EA0 /* 在线课堂 */,
 				1857A0AA1B4F508400501EA0 /* 通知公告 */,
 				1857A09A1B4E599D00501EA0 /* 家庭作业 */,
@@ -1195,6 +1211,7 @@
 				1857A02E1B4CAB2B00501EA0 /* EDMyPhotoViewController.xib in Resources */,
 				7644068B1B4A783A00541C86 /* SureOrderViewController.xib in Resources */,
 				1808B33B1B44DEB00050E3B4 /* EDContactContentCell.xib in Resources */,
+				764406EE1B4FA31300541C86 /* SchoolTimeTableViewController.xib in Resources */,
 				1857A0881B4D6E9800501EA0 /* EDPrivateNoteCell.xib in Resources */,
 				1857A00D1B4BC2E800501EA0 /* EDInfomationViewController.xib in Resources */,
 			);
@@ -1288,6 +1305,7 @@
 				1857A0331B4CACC300501EA0 /* EDMyPhotoCell.m in Sources */,
 				764406641B4671BC00541C86 /* LifeServiceViewController.m in Sources */,
 				768FFB221B423C76008E577F /* SETabBarViewController.m in Sources */,
+				764406ED1B4FA31300541C86 /* SchoolTimeTableViewController.m in Sources */,
 				1857A0171B4BC3CB00501EA0 /* EDPhysicalDetailHeadCell.m in Sources */,
 				764406C41B4D6C0E00541C86 /* FillInforViewController.m in Sources */,
 				768FFAF11B4238D9008E577F /* main.m in Sources */,
