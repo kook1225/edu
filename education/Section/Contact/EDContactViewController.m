@@ -36,7 +36,7 @@
     
 }
 
-- (void)viewWillDisappear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
     tabBarView = (SETabBarViewController *)self.navigationController.parentViewController;
     [tabBarView tabBarViewShow];

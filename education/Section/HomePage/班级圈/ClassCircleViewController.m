@@ -10,6 +10,7 @@
 #import "SETabBarViewController.h"
 #import "ClassCircleCell.h"
 #import "SendViewController.h"
+#import "EDPhotoDetailViewController.h"
 
 @interface ClassCircleViewController () {
     SETabBarViewController *tabBarViewController;
@@ -61,7 +62,8 @@
 
 #pragma mark - UITableViewDelegate Method
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    EDPhotoDetailViewController *photoDetail = [[EDPhotoDetailViewController alloc]init];
+    [self.navigationController pushViewController:photoDetail animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

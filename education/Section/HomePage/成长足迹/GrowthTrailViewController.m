@@ -45,19 +45,17 @@
 }
 
 - (void)sendBtn {
-    NSLog(@"123");
+    EDGrowDetailViewController *growDetailVC = [[EDGrowDetailViewController alloc]init];
+    [self.navigationController pushViewController:growDetailVC animated:YES];
+
 }
 
 #pragma mark - UITableViewDelegate Method
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row > 2) {
-        EvaluteAndEncourageViewController *evaluteAndEncourageVC = [[EvaluteAndEncourageViewController alloc] init];
-        [self.navigationController pushViewController:evaluteAndEncourageVC animated:YES];
-    }
-    else {
-        EDGrowDetailViewController *growDetailVC = [[EDGrowDetailViewController alloc]init];
-        [self.navigationController pushViewController:growDetailVC animated:YES];
-    }
+    
+    EvaluteAndEncourageViewController *evaluteAndEncourageVC = [[EvaluteAndEncourageViewController alloc] init];
+    [self.navigationController pushViewController:evaluteAndEncourageVC animated:YES];
+  
     
 }
 
