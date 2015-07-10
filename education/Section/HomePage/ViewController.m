@@ -20,6 +20,8 @@
 #import "GrowthTrailViewController.h"
 #import "EDPrivateNoteViewController.h"
 #import "EDHomeWorkViewController.h"
+#import "EDSubjectViewController.h"
+#import "EDNoticeViewController.h"
 
 #define IMAGEHEIGHT (160 * ([UIScreen mainScreen].bounds.size.height/568.0))
 #define USERINTROHEIGHT (64 * ([UIScreen mainScreen].bounds.size.height/568.0))
@@ -202,7 +204,8 @@
 }
 
 - (void)notice {
-    NSLog(@"3");
+    EDNoticeViewController  *notice = [[EDNoticeViewController alloc]init];
+    [self.navigationController pushViewController:notice animated:YES];
 }
 
 - (void)classSection {
@@ -221,7 +224,8 @@
 }
 
 - (void)problem {
-    NSLog(@"7");
+    EDSubjectViewController *subjectVC = [[EDSubjectViewController alloc]init];
+    [self.navigationController pushViewController:subjectVC animated:YES];
 }
 
 - (void)score {

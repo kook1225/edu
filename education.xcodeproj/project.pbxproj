@@ -80,6 +80,8 @@
 		1857A0A41B4E702C00501EA0 /* EDHomeWorkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1857A0A21B4E702C00501EA0 /* EDHomeWorkViewController.xib */; };
 		1857A0A81B4E705600501EA0 /* EDPrivateDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A0A61B4E705600501EA0 /* EDPrivateDetailViewController.m */; };
 		1857A0A91B4E705600501EA0 /* EDPrivateDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1857A0A71B4E705600501EA0 /* EDPrivateDetailViewController.xib */; };
+		1857A0AE1B4F510100501EA0 /* EDNoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A0AC1B4F510100501EA0 /* EDNoticeViewController.m */; };
+		1857A0AF1B4F510100501EA0 /* EDNoticeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1857A0AD1B4F510100501EA0 /* EDNoticeViewController.xib */; };
 		187F7DC71B43BDDF005CC8D8 /* EDGradeRecodeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 187F7DC51B43BDDF005CC8D8 /* EDGradeRecodeCell.m */; };
 		187F7DC81B43BDDF005CC8D8 /* EDGradeRecodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187F7DC61B43BDDF005CC8D8 /* EDGradeRecodeCell.xib */; };
 		187F7DD01B43C469005CC8D8 /* Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 187F7DCF1B43C469005CC8D8 /* Tools.m */; };
@@ -270,6 +272,9 @@
 		1857A0A51B4E705600501EA0 /* EDPrivateDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDPrivateDetailViewController.h; sourceTree = "<group>"; };
 		1857A0A61B4E705600501EA0 /* EDPrivateDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDPrivateDetailViewController.m; sourceTree = "<group>"; };
 		1857A0A71B4E705600501EA0 /* EDPrivateDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDPrivateDetailViewController.xib; sourceTree = "<group>"; };
+		1857A0AB1B4F510100501EA0 /* EDNoticeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDNoticeViewController.h; sourceTree = "<group>"; };
+		1857A0AC1B4F510100501EA0 /* EDNoticeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDNoticeViewController.m; sourceTree = "<group>"; };
+		1857A0AD1B4F510100501EA0 /* EDNoticeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDNoticeViewController.xib; sourceTree = "<group>"; };
 		187F7DC41B43BDDF005CC8D8 /* EDGradeRecodeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDGradeRecodeCell.h; sourceTree = "<group>"; };
 		187F7DC51B43BDDF005CC8D8 /* EDGradeRecodeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDGradeRecodeCell.m; sourceTree = "<group>"; };
 		187F7DC61B43BDDF005CC8D8 /* EDGradeRecodeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDGradeRecodeCell.xib; sourceTree = "<group>"; };
@@ -635,6 +640,16 @@
 			path = "家庭作业";
 			sourceTree = "<group>";
 		};
+		1857A0AA1B4F508400501EA0 /* 通知公告 */ = {
+			isa = PBXGroup;
+			children = (
+				1857A0AB1B4F510100501EA0 /* EDNoticeViewController.h */,
+				1857A0AC1B4F510100501EA0 /* EDNoticeViewController.m */,
+				1857A0AD1B4F510100501EA0 /* EDNoticeViewController.xib */,
+			);
+			path = "通知公告";
+			sourceTree = "<group>";
+		};
 		187F7DC21B43BDAB005CC8D8 /* 我的 */ = {
 			isa = PBXGroup;
 			children = (
@@ -910,6 +925,7 @@
 		768FFB1A1B423BE8008E577F /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				1857A0AA1B4F508400501EA0 /* 通知公告 */,
 				1857A09A1B4E599D00501EA0 /* 家庭作业 */,
 				1857A07A1B4D6E8000501EA0 /* 我的私信 */,
 				764406AF1B4D4BA800541C86 /* 成长足迹 */,
@@ -1050,6 +1066,7 @@
 				1808B34F1B44FD1C0050E3B4 /* EDSendMsgViewController.xib in Resources */,
 				1857A0541B4CF74B00501EA0 /* EDGradeRecodeViewController.xib in Resources */,
 				1857A0241B4BC3FB00501EA0 /* EDMyOrderCell.xib in Resources */,
+				1857A0AF1B4F510100501EA0 /* EDNoticeViewController.xib in Resources */,
 				764406521B458B1700541C86 /* ReplyCell.xib in Resources */,
 				764406AE1B4BD5CF00541C86 /* PayEndViewController.xib in Resources */,
 				7644065F1B46669C00541C86 /* SendViewController.xib in Resources */,
@@ -1173,6 +1190,7 @@
 				764406991B4BBE2000541C86 /* ManageAddViewController.m in Sources */,
 				764406851B4A5CAA00541C86 /* LifeServiceIntroViewController.m in Sources */,
 				1857A0251B4BC3FB00501EA0 /* EDOrderBottomCell.m in Sources */,
+				1857A0AE1B4F510100501EA0 /* EDNoticeViewController.m in Sources */,
 				18579FF91B4BC2B800501EA0 /* EDOrderDetailViewController.m in Sources */,
 				7644065E1B46669C00541C86 /* SendViewController.m in Sources */,
 				768FFB1E1B423C0A008E577F /* ViewController.m in Sources */,
