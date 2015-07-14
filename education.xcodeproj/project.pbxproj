@@ -161,6 +161,10 @@
 		768FFB381B42C8C4008E577F /* ButtonViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 768FFB361B42C8C4008E577F /* ButtonViewCell.xib */; };
 		768FFB3C1B42DE44008E577F /* HomePageListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFB3A1B42DE44008E577F /* HomePageListCell.m */; };
 		768FFB3D1B42DE44008E577F /* HomePageListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 768FFB3B1B42DE44008E577F /* HomePageListCell.xib */; };
+		76F121301B54B82E00635209 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F1212A1B54B82E00635209 /* GTMBase64.m */; };
+		76F121311B54B82E00635209 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F1212D1B54B82E00635209 /* NSString+MD5.m */; };
+		76F121321B54B82E00635209 /* SecurityUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F1212F1B54B82E00635209 /* SecurityUtil.m */; };
+		76F121351B54B99600635209 /* SEUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F121341B54B99600635209 /* SEUtils.m */; };
 		9D81F842D79E02A44AC30DFF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9198941CC0961AE3F3185DE /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -413,6 +417,15 @@
 		768FFB391B42DE44008E577F /* HomePageListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageListCell.h; sourceTree = "<group>"; };
 		768FFB3A1B42DE44008E577F /* HomePageListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageListCell.m; sourceTree = "<group>"; };
 		768FFB3B1B42DE44008E577F /* HomePageListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomePageListCell.xib; sourceTree = "<group>"; };
+		76F121291B54B82E00635209 /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
+		76F1212A1B54B82E00635209 /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
+		76F1212B1B54B82E00635209 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		76F1212C1B54B82E00635209 /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
+		76F1212D1B54B82E00635209 /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
+		76F1212E1B54B82E00635209 /* SecurityUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityUtil.h; sourceTree = "<group>"; };
+		76F1212F1B54B82E00635209 /* SecurityUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityUtil.m; sourceTree = "<group>"; };
+		76F121331B54B99600635209 /* SEUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEUtils.h; sourceTree = "<group>"; };
+		76F121341B54B99600635209 /* SEUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEUtils.m; sourceTree = "<group>"; };
 		86CBB787C78559948FB65193 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		C9198941CC0961AE3F3185DE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -992,6 +1005,9 @@
 		768FFB191B423BCB008E577F /* component */ = {
 			isa = PBXGroup;
 			children = (
+				76F121281B54B82E00635209 /* GTMBase64 */,
+				76F121331B54B99600635209 /* SEUtils.h */,
+				76F121341B54B99600635209 /* SEUtils.m */,
 				187F7DCE1B43C469005CC8D8 /* Tools.h */,
 				187F7DCF1B43C469005CC8D8 /* Tools.m */,
 				768FFB201B423C76008E577F /* SETabBarViewController.h */,
@@ -1039,6 +1055,20 @@
 				768FFB3B1B42DE44008E577F /* HomePageListCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		76F121281B54B82E00635209 /* GTMBase64 */ = {
+			isa = PBXGroup;
+			children = (
+				76F121291B54B82E00635209 /* GTMBase64.h */,
+				76F1212A1B54B82E00635209 /* GTMBase64.m */,
+				76F1212B1B54B82E00635209 /* GTMDefines.h */,
+				76F1212C1B54B82E00635209 /* NSString+MD5.h */,
+				76F1212D1B54B82E00635209 /* NSString+MD5.m */,
+				76F1212E1B54B82E00635209 /* SecurityUtil.h */,
+				76F1212F1B54B82E00635209 /* SecurityUtil.m */,
+			);
+			path = GTMBase64;
 			sourceTree = "<group>";
 		};
 		9F8084A358276581B7B71476 /* Pods */ = {
@@ -1265,6 +1295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				768FFB3C1B42DE44008E577F /* HomePageListCell.m in Sources */,
+				76F121321B54B82E00635209 /* SecurityUtil.m in Sources */,
 				764406A81B4BD07F00541C86 /* SelectPayViewController.m in Sources */,
 				1857A0891B4D6E9800501EA0 /* EDPrivateNoteSelectedCell.m in Sources */,
 				187F7DC71B43BDDF005CC8D8 /* EDGradeRecodeCell.m in Sources */,
@@ -1305,6 +1336,7 @@
 				1857A0331B4CACC300501EA0 /* EDMyPhotoCell.m in Sources */,
 				764406641B4671BC00541C86 /* LifeServiceViewController.m in Sources */,
 				768FFB221B423C76008E577F /* SETabBarViewController.m in Sources */,
+				76F121351B54B99600635209 /* SEUtils.m in Sources */,
 				764406ED1B4FA31300541C86 /* SchoolTimeTableViewController.m in Sources */,
 				1857A0171B4BC3CB00501EA0 /* EDPhysicalDetailHeadCell.m in Sources */,
 				764406C41B4D6C0E00541C86 /* FillInforViewController.m in Sources */,
@@ -1312,6 +1344,7 @@
 				18579F8D1B45401100501EA0 /* EDEditInfoViewController.m in Sources */,
 				1808B31D1B43D6650050E3B4 /* EDSubjectCell.m in Sources */,
 				18579FEA1B4BC28A00501EA0 /* LoginViewController.m in Sources */,
+				76F121311B54B82E00635209 /* NSString+MD5.m in Sources */,
 				764406DD1B4F500A00541C86 /* ContactUsViewController.m in Sources */,
 				764406D81B4F4F5300541C86 /* AboutUsViewController.m in Sources */,
 				764406591B458C2C00541C86 /* ClassCircleViewController.m in Sources */,
@@ -1331,6 +1364,7 @@
 				1857A0551B4CF74B00501EA0 /* EDSubjectViewController.m in Sources */,
 				764406511B458B1700541C86 /* ReplyCell.m in Sources */,
 				18579FFB1B4BC2B800501EA0 /* EDAlterPwdViewController.m in Sources */,
+				76F121301B54B82E00635209 /* GTMBase64.m in Sources */,
 				1808B33A1B44DEB00050E3B4 /* EDContactContentCell.m in Sources */,
 				764406A31B4BCD4600541C86 /* EditAddViewController.m in Sources */,
 				18579FE51B4BC24E00501EA0 /* EDSettingViewController.m in Sources */,
