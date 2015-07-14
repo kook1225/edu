@@ -40,7 +40,7 @@
     dataArray = [NSArray array];
     
     _registerBtn.layer.cornerRadius = 5.0f;
-    
+    _registerBtn.layer.masksToBounds = YES;
     
     for (int i = 0; i < 4; i++) {
         UIView *sessionView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.navigationController.view.bounds), SCREENWIDTH, 216)];

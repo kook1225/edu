@@ -36,11 +36,11 @@
 #pragma mark 常用方法
 - (void)back
 {
-        [self.navigationController popViewControllerAnimated:YES];
+        [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (void)drawlayer
 {
-    _commitBtn.layer.cornerRadius = 4.0f;
+    _commitBtn.layer.cornerRadius = 5.0f;
     _commitBtn.layer.masksToBounds = YES;
 }
 

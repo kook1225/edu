@@ -14,6 +14,7 @@
 #import "SETabBarViewController.h"
 #import "ViewController.h"
 #import "ParentRegisterViewController.h"
+#import "EDAlterPwdViewController.h"
 
 @interface LoginViewController () {
     NSString *deviceId;
@@ -123,7 +124,11 @@
     }
 }
 - (IBAction)findPwdFunction:(id)sender {
-    
+    EDAlterPwdViewController *edAlertPwdVC = [[EDAlterPwdViewController alloc] init];
+    edAlertPwdVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:edAlertPwdVC];
+    [self presentViewController:nav animated:YES completion:nil];
+
 }
 
 - (IBAction)registerFunction:(id)sender {
