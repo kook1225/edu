@@ -12,6 +12,29 @@
 
 @implementation SEUtils
 
++(UserModel *)getUserInfo
+{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSData *userData = [userDefaults objectForKey:USERINFO];
+    if(userData == nil){
+        return nil;
+    }else{
+        NSDictionary *userInfo = [[NSKeyedUnarchiver unarchiveObjectWithData:userData] mutableCopy];
+        NSError *error = nil;
+        UserModel *user = [[UserModel alloc] initWithDictionary:userInfo error:&error];
+        //        NSLog(@"token:%@",userInfo[@"token"]);
+        return user;
+    }
+}
+
+
++(void)setUserInfo:(UserModel *)userInfo
+{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults  setObject:[NSKeyedArchiver archivedDataWithRootObject:[userInfo toDictionary]] forKey:USERINFO];
+    [userDefaults synchronize];
+}
+
 
 +(NSString *)formatMatchWithStartDate:(NSString *)startStr
                                 andEndDate:(NSString *)endStr{

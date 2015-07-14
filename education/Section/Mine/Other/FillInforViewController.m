@@ -7,10 +7,20 @@
 //
 
 #import "FillInforViewController.h"
+#import "AreaModel.h"
+#import "SchoolModel.h"
+#import "GradeModel.h"
+#import "ClassModel.h"
 
-@interface FillInforViewController ()<UIPickerViewDelegate,UIPickerViewDataSource,UITextFieldDelegate> {
+@interface FillInforViewController ()<UIPickerViewDelegate,UIPickerViewDataSource,UITextFieldDelegate,UIAlertViewDelegate> {
     NSString *seletedMajorNames;
     NSArray *dataArray;
+    NSString *areaId;
+    NSString *schoolId;
+    NSString *gradeId;
+    NSString *classId;
+    
+    int flag;
 }
 @property (weak, nonatomic) IBOutlet UIButton *registerBtn;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
@@ -29,8 +39,6 @@
     
     dataArray = [NSArray array];
     
-    dataArray = @[@"傻瓜",@"笨蛋",@"八嘎"];
-    
     _registerBtn.layer.cornerRadius = 5.0f;
     
     
@@ -44,6 +52,7 @@
         UIPickerView *pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, 216)];
         pickerView.delegate = self;
         pickerView.dataSource = self;
+        pickerView.tag = 701 + i;
         [sessionView addSubview:pickerView];
         
         
@@ -80,18 +89,25 @@
 - (void)submitAction:(id)sender {
     UIButton *btn = (UIButton *)sender;
     if (!seletedMajorNames) {
-        if (btn.tag == 501) {
-            _areaLabel.text = [dataArray objectAtIndex:0];
+        if ([dataArray count] != 0) {
+            if (btn.tag == 501) {
+                areaId = [[dataArray objectAtIndex:0] QYID];
+                _areaLabel.text = [[dataArray objectAtIndex:0] QYMC];
+            }
+            else if (btn.tag == 502) {
+                schoolId = [[dataArray objectAtIndex:0] _dwid];
+                _schoolLabel.text = [[dataArray objectAtIndex:0] _dwmc];
+            }
+            else if (btn.tag == 503) {
+                gradeId = [[dataArray objectAtIndex:0] NJID];
+                _gradeLabel.text = [[dataArray objectAtIndex:0] NJMC];
+            }
+            else {
+                classId = [[dataArray objectAtIndex:0] BJID];
+                _classLabel.text = [[dataArray objectAtIndex:0] BJMC];
+            }
         }
-        else if (btn.tag == 502) {
-            _schoolLabel.text = [dataArray objectAtIndex:0];
-        }
-        else if (btn.tag == 502) {
-            _gradeLabel.text = [dataArray objectAtIndex:0];
-        }
-        else {
-            _classLabel.text = [dataArray objectAtIndex:0];
-        }
+        seletedMajorNames = nil;
     }
     else {
         if (btn.tag == 501) {
@@ -100,12 +116,13 @@
         else if (btn.tag == 502) {
             _schoolLabel.text = seletedMajorNames;
         }
-        else if (btn.tag == 502) {
+        else if (btn.tag == 503) {
             _gradeLabel.text = seletedMajorNames;
         }
         else {
             _classLabel.text = seletedMajorNames;
         }
+        seletedMajorNames = nil;
     }
     [self hiddenPicker:btn.tag - 200];
 }
@@ -124,6 +141,10 @@
 
 - (void)showPicker:(NSInteger)tag {
     UIView *pickView = [self.view viewWithTag:tag - 100];
+    
+    UIPickerView *picker = (UIPickerView *)[pickView viewWithTag:tag + 300];
+    [picker reloadAllComponents];
+    
     [UIView animateWithDuration:.25f animations:^{
         pickView.frame = CGRectMake(0, CGRectGetMaxY(self.navigationController.view.bounds) - 280, SCREENWIDTH, 216);
     }];
@@ -138,28 +159,11 @@
 }
 
 - (IBAction)areaBtn:(id)sender {
+    // 设置标识
+    flag = 1;
+    
     UIButton *btn = (UIButton *)sender;
-    [self showPicker:btn.tag];
-}
-
-- (IBAction)schoolBtn:(id)sender {
-    UIButton *btn = (UIButton *)sender;
-    [self showPicker:btn.tag];
-}
-
-- (IBAction)gradeBtn:(id)sender {
-    UIButton *btn = (UIButton *)sender;
-    [self showPicker:btn.tag];
-}
-
-- (IBAction)classBtn:(id)sender {
-    UIButton *btn = (UIButton *)sender;
-    [self showPicker:btn.tag];
-}
-
-
-- (IBAction)registerBtn:(id)sender {
-    _registerBtn.enabled = NO;
+    btn.enabled = NO;
     
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     HUD.mode = MBProgressHUDModeIndeterminate;
@@ -168,19 +172,19 @@
     
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    NSString *urlStr = [NSString stringWithFormat:@"%@Register",SERVER_HOST];
     
-    NSDictionary *parameter = @{@"username":_userName,@"pwd":_pwd,@"qyid":@"430111",@"dwid":@"430111030058",@"njid":@"43011103005812014",@"bjid":@"4301110300581201401",@"xsxm":_nameTextField.text};
+    NSString *urlStr = [NSString stringWithFormat:@"%@BaseInfo",SERVER_HOST];
     
-    [manager POST:urlStr parameters:parameter
+    [manager GET:urlStr parameters:nil
           success:^(AFHTTPRequestOperation *operation, id responseObject) {
-              _registerBtn.enabled = YES;
+              btn.enabled = YES;
               [HUD hide:YES];
               
-
-              if ([responseObject[@"data"]  isEqual: @"true"]) {
-                  
-
+              NSError *err;
+              
+              if ([responseObject[@"responseCode"] intValue] == 0) {
+                  dataArray = [AreaModel arrayOfModelsFromDictionaries:responseObject[@"data"] error:&err];
+                  [self showPicker:btn.tag];
               }
               else {
                   SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
@@ -189,7 +193,7 @@
               
           }
           failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-              _registerBtn.enabled = YES;
+              btn.enabled = YES;
               [HUD hide:YES];
               if (operation.response.statusCode == 401) {
                   NSLog(@"请求超时");
@@ -203,6 +207,228 @@
           }];
 }
 
+- (IBAction)schoolBtn:(id)sender {
+    // 设置标识
+    flag = 2;
+    
+    if ([_areaLabel.text  isEqual: @""]) {
+        SHOW_ALERT(@"提示", @"地区不能为空");
+    }
+    else {
+        UIButton *btn = (UIButton *)sender;
+        btn.enabled = NO;
+        
+        MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+        HUD.mode = MBProgressHUDModeIndeterminate;
+        HUD.labelText = @"Loading";
+        HUD.removeFromSuperViewOnHide = YES;
+        
+        
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        
+        NSDictionary *parameter = @{@"qyid":areaId};
+        
+        NSString *urlStr = [NSString stringWithFormat:@"%@BaseInfo",SERVER_HOST];
+        
+        [manager GET:urlStr parameters:parameter
+             success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                 btn.enabled = YES;
+                 [HUD hide:YES];
+                 
+                 NSError *err;
+                 
+                 if ([responseObject[@"responseCode"] intValue] == 0) {
+                     dataArray = [SchoolModel arrayOfModelsFromDictionaries:responseObject[@"data"] error:&err];
+                     [self showPicker:btn.tag];
+                 }
+                 else {
+                     SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
+                 }
+                 
+                 
+             }
+             failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                 btn.enabled = YES;
+                 [HUD hide:YES];
+                 if (operation.response.statusCode == 401) {
+                     NSLog(@"请求超时");
+                     //   [SEUtils repetitionLogin];
+                 }
+                 else {
+                     NSLog(@"Error:%@",error);
+                     NSLog(@"err:%@",operation.responseObject[@"message"]);
+                     //   SHOW_ALERT(@"提示",operation.responseObject[@"message"])
+                 }
+             }];
+    }
+}
+
+- (IBAction)gradeBtn:(id)sender {
+    // 设置标识
+    flag = 3;
+    
+    if ([_schoolLabel.text  isEqual: @""]) {
+        SHOW_ALERT(@"提示", @"学校不能为空");
+    }
+    else {
+        UIButton *btn = (UIButton *)sender;
+        btn.enabled = NO;
+        
+        MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+        HUD.mode = MBProgressHUDModeIndeterminate;
+        HUD.labelText = @"Loading";
+        HUD.removeFromSuperViewOnHide = YES;
+        
+        
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        
+        NSDictionary *parameter = @{@"dwid":schoolId};
+        
+        NSString *urlStr = [NSString stringWithFormat:@"%@BaseInfo",SERVER_HOST];
+        
+        [manager GET:urlStr parameters:parameter
+             success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                 btn.enabled = YES;
+                 [HUD hide:YES];
+                 
+                 NSError *err;
+                 
+                 if ([responseObject[@"responseCode"] intValue] == 0) {
+                     dataArray = [GradeModel arrayOfModelsFromDictionaries:responseObject[@"data"] error:&err];
+                     [self showPicker:btn.tag];
+                 }
+                 else {
+                     SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
+                 }
+                 
+                 
+             }
+             failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                 btn.enabled = YES;
+                 [HUD hide:YES];
+                 if (operation.response.statusCode == 401) {
+                     NSLog(@"请求超时");
+                     //   [SEUtils repetitionLogin];
+                 }
+                 else {
+                     NSLog(@"Error:%@",error);
+                     NSLog(@"err:%@",operation.responseObject[@"message"]);
+                     //   SHOW_ALERT(@"提示",operation.responseObject[@"message"])
+                 }
+             }];
+    }
+
+}
+
+- (IBAction)classBtn:(id)sender {
+    // 设置标识
+    flag = 4;
+    
+    if ([_gradeLabel.text  isEqual: @""]) {
+        SHOW_ALERT(@"提示", @"年级不能为空");
+    }
+    else {
+        UIButton *btn = (UIButton *)sender;
+        btn.enabled = NO;
+        
+        MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+        HUD.mode = MBProgressHUDModeIndeterminate;
+        HUD.labelText = @"Loading";
+        HUD.removeFromSuperViewOnHide = YES;
+        
+        
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        
+        NSDictionary *parameter = @{@"njid":gradeId};
+        
+        NSString *urlStr = [NSString stringWithFormat:@"%@BaseInfo",SERVER_HOST];
+        
+        [manager GET:urlStr parameters:parameter
+             success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                 btn.enabled = YES;
+                 [HUD hide:YES];
+                 
+                 NSError *err;
+                 
+                 if ([responseObject[@"responseCode"] intValue] == 0) {
+                     dataArray = [ClassModel arrayOfModelsFromDictionaries:responseObject[@"data"] error:&err];
+                     [self showPicker:btn.tag];
+                 }
+                 else {
+                     SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
+                 }
+                 
+                 
+             }
+             failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                 btn.enabled = YES;
+                 [HUD hide:YES];
+                 if (operation.response.statusCode == 401) {
+                     NSLog(@"请求超时");
+                     //   [SEUtils repetitionLogin];
+                 }
+                 else {
+                     NSLog(@"Error:%@",error);
+                     NSLog(@"err:%@",operation.responseObject[@"message"]);
+                     //   SHOW_ALERT(@"提示",operation.responseObject[@"message"])
+                 }
+             }];
+    }
+
+}
+
+
+- (IBAction)registerBtn:(id)sender {
+    if ([_areaLabel.text length] != 0 && [_schoolLabel.text length] != 0 &&[_gradeLabel.text length] != 0 &&[_classLabel.text length] != 0 && [_nameTextField.text length] != 0) {
+        _registerBtn.enabled = NO;
+        
+        MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+        HUD.mode = MBProgressHUDModeIndeterminate;
+        HUD.labelText = @"Loading";
+        HUD.removeFromSuperViewOnHide = YES;
+        
+        
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        
+        NSString *urlStr = [NSString stringWithFormat:@"%@Register",SERVER_HOST];
+        
+        NSDictionary *parameter = @{@"username":_userName,@"pwd":_pwd,@"qyid":areaId,@"dwid":schoolId,@"njid":gradeId,@"bjid":classId,@"xsxm":_nameTextField.text};
+        
+        [manager POST:urlStr parameters:parameter
+              success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                  _registerBtn.enabled = YES;
+                  [HUD hide:YES];
+                  
+                  if ([responseObject[@"responseCode"] intValue] == 0) {
+                      UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"注册成功，等待审核." delegate:self cancelButtonTitle:@"确认" otherButtonTitles:nil];
+                      alertView.tag = 201;
+                      [alertView show];
+                  }
+                  else {
+                      SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
+                  }
+                  
+                  
+              }
+              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                  _registerBtn.enabled = YES;
+                  [HUD hide:YES];
+                  if (operation.response.statusCode == 401) {
+                      NSLog(@"请求超时");
+                      //   [SEUtils repetitionLogin];
+                  }
+                  else {
+                      NSLog(@"Error:%@",error);
+                      NSLog(@"err:%@",operation.responseObject[@"message"]);
+                      //   SHOW_ALERT(@"提示",operation.responseObject[@"message"])
+                  }
+              }];
+    }
+    else {
+        SHOW_ALERT(@"提示", @"资料不完整，请补充完整");
+    }
+}
+
 #pragma mark - UIPickerViewDataSource Method
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
     return 1;
@@ -214,33 +440,47 @@
 
 #pragma mark - UIPickerViewDelegate Method
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    
-    return [dataArray objectAtIndex:row];
-    
-    /*
-     if (component == majorComponent) {
-     return [majorNames objectAtIndex:row];
-     } else {
-     return [grades objectAtIndex:row];
-     }
-     */
-   
+    if ([dataArray count] != 0) {
+        if (flag == 1) {
+            return [[dataArray objectAtIndex:row] QYMC];
+        }
+        else if (flag == 2) {
+            return [[dataArray objectAtIndex:row] _dwmc];
+        }
+        else if (flag == 3) {
+            return [[dataArray objectAtIndex:row] NJMC];
+        }
+        else if (flag == 4) {
+            return [[dataArray objectAtIndex:row] BJMC];
+        }
+        else {
+            return nil;
+        }
+    }
+    else {
+        return nil;
+    }
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    
-    seletedMajorNames = [dataArray objectAtIndex:row];
-    
-    /*
-     if (component == majorComponent) {
-     seletedMajorNames = [majorNames objectAtIndex:row];
-     NSLog(@"MajorNames:%@",seletedMajorNames);
-     }
-     else {
-     seletedGrades = [grades objectAtIndex:row];
-     NSLog(@"Grades:%@",seletedGrades);
-     }
-     */
+    if ([dataArray count] != 0) {
+        if (flag == 1) {
+            areaId = [[dataArray objectAtIndex:row] QYID];
+            seletedMajorNames = [[dataArray objectAtIndex:row] QYMC];
+        }
+        else if (flag == 2) {
+            schoolId = [[dataArray objectAtIndex:row] _dwid];
+            seletedMajorNames = [[dataArray objectAtIndex:row] _dwmc];
+        }
+        else if (flag == 3) {
+            gradeId = [[dataArray objectAtIndex:row] NJID];
+            seletedMajorNames = [[dataArray objectAtIndex:row] NJMC];
+        }
+        else if (flag == 4) {
+            classId = [[dataArray objectAtIndex:row] BJID];
+            seletedMajorNames = [[dataArray objectAtIndex:row] BJMC];
+        }
+    }
 }
 
 #pragma mark - UITextFieldDelegate Method
@@ -249,6 +489,16 @@
         [self hiddenPicker:i];
     }
     return YES;
+}
+
+#pragma mark - UIAlertViewDelegate Method 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (alertView.tag == 201) {
+        if (buttonIndex == 0) {
+            [_delegate Login];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning {

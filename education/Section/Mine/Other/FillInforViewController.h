@@ -8,9 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol FillInforViewControllerDelegate <NSObject>
+
+- (void)Login;
+
+@end
+
 @interface FillInforViewController : UIViewController
 
 @property (nonatomic,strong) NSString *userName;
 @property (nonatomic,strong) NSString *pwd;
+@property (nonatomic,weak) id<FillInforViewControllerDelegate> delegate;
 
 @end

@@ -165,6 +165,11 @@
 		76F121311B54B82E00635209 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F1212D1B54B82E00635209 /* NSString+MD5.m */; };
 		76F121321B54B82E00635209 /* SecurityUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F1212F1B54B82E00635209 /* SecurityUtil.m */; };
 		76F121351B54B99600635209 /* SEUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F121341B54B99600635209 /* SEUtils.m */; };
+		76F121381B54DF9E00635209 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F121371B54DF9E00635209 /* UserModel.m */; };
+		76F1213B1B54E80B00635209 /* AreaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F1213A1B54E80B00635209 /* AreaModel.m */; };
+		76F1213E1B54EE6200635209 /* SchoolModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F1213D1B54EE6200635209 /* SchoolModel.m */; };
+		76F121411B54F0A300635209 /* GradeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F121401B54F0A300635209 /* GradeModel.m */; };
+		76F121441B54FD7B00635209 /* ClassModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F121431B54FD7B00635209 /* ClassModel.m */; };
 		9D81F842D79E02A44AC30DFF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9198941CC0961AE3F3185DE /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -426,6 +431,16 @@
 		76F1212F1B54B82E00635209 /* SecurityUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityUtil.m; sourceTree = "<group>"; };
 		76F121331B54B99600635209 /* SEUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEUtils.h; sourceTree = "<group>"; };
 		76F121341B54B99600635209 /* SEUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEUtils.m; sourceTree = "<group>"; };
+		76F121361B54DF9E00635209 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserModel.h; path = "education/Section/HomePage/我的课表/UserModel.h"; sourceTree = SOURCE_ROOT; };
+		76F121371B54DF9E00635209 /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserModel.m; path = "education/Section/HomePage/我的课表/UserModel.m"; sourceTree = SOURCE_ROOT; };
+		76F121391B54E80B00635209 /* AreaModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AreaModel.h; path = "education/Section/HomePage/我的课表/AreaModel.h"; sourceTree = SOURCE_ROOT; };
+		76F1213A1B54E80B00635209 /* AreaModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AreaModel.m; path = "education/Section/HomePage/我的课表/AreaModel.m"; sourceTree = SOURCE_ROOT; };
+		76F1213C1B54EE6200635209 /* SchoolModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SchoolModel.h; path = "education/Section/HomePage/我的课表/SchoolModel.h"; sourceTree = SOURCE_ROOT; };
+		76F1213D1B54EE6200635209 /* SchoolModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SchoolModel.m; path = "education/Section/HomePage/我的课表/SchoolModel.m"; sourceTree = SOURCE_ROOT; };
+		76F1213F1B54F0A300635209 /* GradeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GradeModel.h; path = "education/Section/HomePage/我的课表/GradeModel.h"; sourceTree = SOURCE_ROOT; };
+		76F121401B54F0A300635209 /* GradeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GradeModel.m; path = "education/Section/HomePage/我的课表/GradeModel.m"; sourceTree = SOURCE_ROOT; };
+		76F121421B54FD7B00635209 /* ClassModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassModel.h; path = "education/Section/HomePage/我的课表/ClassModel.h"; sourceTree = SOURCE_ROOT; };
+		76F121431B54FD7B00635209 /* ClassModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassModel.m; path = "education/Section/HomePage/我的课表/ClassModel.m"; sourceTree = SOURCE_ROOT; };
 		86CBB787C78559948FB65193 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		C9198941CC0961AE3F3185DE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -998,6 +1013,16 @@
 		768FFB181B423BC5008E577F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				76F121361B54DF9E00635209 /* UserModel.h */,
+				76F121371B54DF9E00635209 /* UserModel.m */,
+				76F121391B54E80B00635209 /* AreaModel.h */,
+				76F1213A1B54E80B00635209 /* AreaModel.m */,
+				76F1213C1B54EE6200635209 /* SchoolModel.h */,
+				76F1213D1B54EE6200635209 /* SchoolModel.m */,
+				76F1213F1B54F0A300635209 /* GradeModel.h */,
+				76F121401B54F0A300635209 /* GradeModel.m */,
+				76F121421B54FD7B00635209 /* ClassModel.h */,
+				76F121431B54FD7B00635209 /* ClassModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1296,6 +1321,7 @@
 			files = (
 				768FFB3C1B42DE44008E577F /* HomePageListCell.m in Sources */,
 				76F121321B54B82E00635209 /* SecurityUtil.m in Sources */,
+				76F121381B54DF9E00635209 /* UserModel.m in Sources */,
 				764406A81B4BD07F00541C86 /* SelectPayViewController.m in Sources */,
 				1857A0891B4D6E9800501EA0 /* EDPrivateNoteSelectedCell.m in Sources */,
 				187F7DC71B43BDDF005CC8D8 /* EDGradeRecodeCell.m in Sources */,
@@ -1323,6 +1349,7 @@
 				761749041B451C87006DD0AA /* MineViewController.m in Sources */,
 				1857A00C1B4BC2E800501EA0 /* EDInfomationViewController.m in Sources */,
 				1857A0081B4BC2E800501EA0 /* EDPhysicalDetailViewController.m in Sources */,
+				76F121411B54F0A300635209 /* GradeModel.m in Sources */,
 				1808B34E1B44FD1C0050E3B4 /* EDSendMsgViewController.m in Sources */,
 				1857A00A1B4BC2E800501EA0 /* EDPhySicalTestViewController.m in Sources */,
 				1857A0A81B4E705600501EA0 /* EDPrivateDetailViewController.m in Sources */,
@@ -1343,6 +1370,7 @@
 				768FFAF11B4238D9008E577F /* main.m in Sources */,
 				18579F8D1B45401100501EA0 /* EDEditInfoViewController.m in Sources */,
 				1808B31D1B43D6650050E3B4 /* EDSubjectCell.m in Sources */,
+				76F1213B1B54E80B00635209 /* AreaModel.m in Sources */,
 				18579FEA1B4BC28A00501EA0 /* LoginViewController.m in Sources */,
 				76F121311B54B82E00635209 /* NSString+MD5.m in Sources */,
 				764406DD1B4F500A00541C86 /* ContactUsViewController.m in Sources */,
@@ -1355,6 +1383,7 @@
 				1808B3291B44293C0050E3B4 /* EDDayInfoCell.m in Sources */,
 				764406D31B4EA4DF00541C86 /* EvaluteAndEncourageCell.m in Sources */,
 				764406BF1B4D642B00541C86 /* ParentRegisterViewController.m in Sources */,
+				76F1213E1B54EE6200635209 /* SchoolModel.m in Sources */,
 				1808B3491B44F1CB0050E3B4 /* EDStudentViewController.m in Sources */,
 				1857A05F1B4CFAB500501EA0 /* EDPhotoDetailCell.m in Sources */,
 				1808B3441B44EADB0050E3B4 /* EDTeacherInfoViewController.m in Sources */,
@@ -1376,6 +1405,7 @@
 				1808B32F1B4439ED0050E3B4 /* EDContactViewController.m in Sources */,
 				1857A0A31B4E702C00501EA0 /* EDHomeWorkViewController.m in Sources */,
 				1857A02D1B4CAB2B00501EA0 /* EDMyPhotoViewController.m in Sources */,
+				76F121441B54FD7B00635209 /* ClassModel.m in Sources */,
 				764406B91B4D558500541C86 /* JournalCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

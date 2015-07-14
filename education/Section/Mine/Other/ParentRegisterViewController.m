@@ -9,7 +9,7 @@
 #import "ParentRegisterViewController.h"
 #import "FillInforViewController.h"
 
-@interface ParentRegisterViewController () {
+@interface ParentRegisterViewController ()<FillInforViewControllerDelegate> {
     NSString *password;
 }
 @property (weak, nonatomic) IBOutlet UIButton *nextBtn;
@@ -60,12 +60,18 @@
                         FillInforViewController *fillIntroVC = [[FillInforViewController alloc] init];
                         fillIntroVC.userName = _userName.text;
                         fillIntroVC.pwd = password;
+                        fillIntroVC.delegate = self;
                         [self.navigationController pushViewController:fillIntroVC animated:YES];
                     }
                 }
             }
         }
     }
+}
+
+#pragma mark - FillInforViewControllerDelegate Method 
+- (void)Login {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 

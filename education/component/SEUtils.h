@@ -8,13 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import <QuartzCore/QuartzCore.h>
+#import "UserModel.h"
 
 @interface SEUtils : NSObject
 
-/*
+
 +(UserModel *)getUserInfo;
 +(void)setUserInfo:(UserModel *)userInfo;
- */
+
 +(NSString *)formatMatchWithStartDate:(NSString *)startStr
                                 andEndDate:(NSString *)endStr;
 
