@@ -13,6 +13,7 @@
 #import "MineViewController.h"
 #import "EDSettingViewController.h"
 #import "LoginViewController.h"
+#import "IQKeyboardManager.h"
 
 @interface AppDelegate ()
 
@@ -38,6 +39,11 @@
         // 设置导航栏字体颜色
         [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName]];
     }
+    
+    // 防止键盘遮挡textField
+    
+    [[IQKeyboardManager sharedManager] setEnable:YES];
+    [[IQKeyboardManager sharedManager] setKeyboardDistanceFromTextField:5];
     
     LoginViewController *loginVC = [[LoginViewController alloc] init];
     /*

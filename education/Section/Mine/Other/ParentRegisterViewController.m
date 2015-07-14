@@ -27,7 +27,7 @@
     
     _nextBtn.layer.cornerRadius = 5.0f;
     
-    password = [SecurityUtil encryptMD5String:_pwd.text];
+    //password = [SecurityUtil encryptMD5String:_pwd.text];
     
     self.navigationItem.leftBarButtonItem = [Tools getNavBarItem:self clickAction:@selector(back)];
 }
@@ -59,7 +59,7 @@
                     else {
                         FillInforViewController *fillIntroVC = [[FillInforViewController alloc] init];
                         fillIntroVC.userName = _userName.text;
-                        fillIntroVC.pwd = password;
+                        fillIntroVC.pwd = _pwd.text;
                         fillIntroVC.delegate = self;
                         [self.navigationController pushViewController:fillIntroVC animated:YES];
                     }
