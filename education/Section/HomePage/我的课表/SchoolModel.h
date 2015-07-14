@@ -8,6 +8,10 @@
 
 #import "JSONModel.h"
 
+@protocol SchoolModel <NSObject>
+
+@end
+
 @interface SchoolModel : JSONModel
 
 @property (strong,nonatomic) NSString<Optional> *_id;

@@ -33,10 +33,9 @@
     
     NSUUID *deviceUID = [device identifierForVendor];
     
-    deviceId = [NSString stringWithFormat:@"%@",deviceUID];
+    deviceId = [NSString stringWithFormat:@"%@",deviceUID.UUIDString];
     
     NSLog(@"设备id:%@",deviceId); // 输出设备id
-  
     
     _loginBtn.layer.cornerRadius = 4.0f;
 }
@@ -55,10 +54,10 @@
                 SHOW_ALERT(@"提示", @"密码长度不正确");
             }
             else {
-                /*
+                
                 _loginBtn.enabled = NO;
                 
-                MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+                MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
                 HUD.mode = MBProgressHUDModeIndeterminate;
                 HUD.labelText = @"Loading";
                 HUD.removeFromSuperViewOnHide = YES;
@@ -75,8 +74,30 @@
                           _loginBtn.enabled = YES;
                           [HUD hide:YES];
                           
+                          NSError *err;
+                          
+                          UserModel *model = [[UserModel alloc] initWithDictionary:responseObject[@"data"] error:&err];
+                          
                           if ([responseObject[@"responseCode"] intValue] == 0) {
+                              [SEUtils setUserInfo:model];
                               
+                              ViewController *viewController = [[ViewController alloc] init];
+                              UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:viewController];
+                              
+                              EDContactViewController *contactVC = [[EDContactViewController alloc] init];
+                              UINavigationController *nav2 = [[UINavigationController alloc] initWithRootViewController:contactVC];
+                              
+                              MineViewController *mineVC = [[MineViewController alloc] init];
+                              UINavigationController *nav3 = [[UINavigationController alloc] initWithRootViewController:mineVC];
+                              
+                              EDSettingViewController *settingVC = [[EDSettingViewController alloc] init];
+                              UINavigationController *nav4 = [[UINavigationController alloc] initWithRootViewController:settingVC];
+                              
+                              SETabBarViewController *tabBarVC = [[SETabBarViewController alloc] initWithViewController:@[nav,nav2,nav3,nav4]];
+                              
+                              tabBarVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+                              
+                              [self presentViewController:tabBarVC animated:YES completion:nil];
                           }
                           else {
                               SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
@@ -97,25 +118,6 @@
                               //   SHOW_ALERT(@"提示",operation.responseObject[@"message"])
                           }
                       }];
-                */
-                
-                ViewController *viewController = [[ViewController alloc] init];
-                UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:viewController];
-                
-                EDContactViewController *contactVC = [[EDContactViewController alloc] init];
-                UINavigationController *nav2 = [[UINavigationController alloc] initWithRootViewController:contactVC];
-                
-                MineViewController *mineVC = [[MineViewController alloc] init];
-                UINavigationController *nav3 = [[UINavigationController alloc] initWithRootViewController:mineVC];
-                
-                EDSettingViewController *settingVC = [[EDSettingViewController alloc] init];
-                UINavigationController *nav4 = [[UINavigationController alloc] initWithRootViewController:settingVC];
-                
-                SETabBarViewController *tabBarVC = [[SETabBarViewController alloc] initWithViewController:@[nav,nav2,nav3,nav4]];
-                
-                tabBarVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-                
-                [self presentViewController:tabBarVC animated:YES completion:nil];
             }
         }
     }
