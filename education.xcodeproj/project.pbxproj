@@ -86,6 +86,19 @@
 		1857A0B51B4F584900501EA0 /* EDClassOnlineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1857A0B31B4F584900501EA0 /* EDClassOnlineViewController.xib */; };
 		1857A0BA1B4F596700501EA0 /* EDClassOnlineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A0B81B4F596700501EA0 /* EDClassOnlineCell.m */; };
 		1857A0BB1B4F596700501EA0 /* EDClassOnlineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1857A0B91B4F596700501EA0 /* EDClassOnlineCell.xib */; };
+		1857A0D31B5663A900501EA0 /* AreaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A0BE1B5663A900501EA0 /* AreaModel.m */; };
+		1857A0D41B5663A900501EA0 /* ClassModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A0C01B5663A900501EA0 /* ClassModel.m */; };
+		1857A0D51B5663A900501EA0 /* GradeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A0C21B5663A900501EA0 /* GradeModel.m */; };
+		1857A0D61B5663A900501EA0 /* growUpModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A0C41B5663A900501EA0 /* growUpModel.m */; };
+		1857A0D71B5663A900501EA0 /* SchoolModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A0C61B5663A900501EA0 /* SchoolModel.m */; };
+		1857A0D81B5663A900501EA0 /* StudentInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A0C81B5663A900501EA0 /* StudentInfoModel.m */; };
+		1857A0D91B5663A900501EA0 /* TeacherInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A0CA1B5663A900501EA0 /* TeacherInfoModel.m */; };
+		1857A0DA1B5663A900501EA0 /* TokenInforModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A0CC1B5663A900501EA0 /* TokenInforModel.m */; };
+		1857A0DB1B5663A900501EA0 /* UserDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A0CE1B5663A900501EA0 /* UserDetailModel.m */; };
+		1857A0DC1B5663A900501EA0 /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A0D01B5663A900501EA0 /* UserInfoModel.m */; };
+		1857A0DD1B5663A900501EA0 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A0D21B5663A900501EA0 /* UserModel.m */; };
+		1857A0E21B56641700501EA0 /* EDInfomationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A0E11B56641700501EA0 /* EDInfomationModel.m */; };
+		1857A0E51B56648100501EA0 /* EDInfoArrayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A0E41B56648100501EA0 /* EDInfoArrayModel.m */; };
 		187F7DC71B43BDDF005CC8D8 /* EDGradeRecodeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 187F7DC51B43BDDF005CC8D8 /* EDGradeRecodeCell.m */; };
 		187F7DC81B43BDDF005CC8D8 /* EDGradeRecodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187F7DC61B43BDDF005CC8D8 /* EDGradeRecodeCell.xib */; };
 		187F7DD01B43C469005CC8D8 /* Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 187F7DCF1B43C469005CC8D8 /* Tools.m */; };
@@ -147,8 +160,6 @@
 		764406E81B4F5A8600541C86 /* IntroDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 764406E61B4F5A8600541C86 /* IntroDetailViewController.xib */; };
 		764406ED1B4FA31300541C86 /* SchoolTimeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 764406EB1B4FA31300541C86 /* SchoolTimeTableViewController.m */; };
 		764406EE1B4FA31300541C86 /* SchoolTimeTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 764406EC1B4FA31300541C86 /* SchoolTimeTableViewController.xib */; };
-		768F88B71B55EAD50054F73C /* TeacherInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 768F88B61B55EAD50054F73C /* TeacherInfoModel.m */; };
-		768F88BA1B562ED20054F73C /* growUpModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 768F88B91B562ED20054F73C /* growUpModel.m */; };
 		768FFAF11B4238D9008E577F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF01B4238D9008E577F /* main.m */; };
 		768FFAF41B4238D9008E577F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF31B4238D9008E577F /* AppDelegate.m */; };
 		768FFAFC1B4238D9008E577F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 768FFAFB1B4238D9008E577F /* Images.xcassets */; };
@@ -167,15 +178,6 @@
 		76F121311B54B82E00635209 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F1212D1B54B82E00635209 /* NSString+MD5.m */; };
 		76F121321B54B82E00635209 /* SecurityUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F1212F1B54B82E00635209 /* SecurityUtil.m */; };
 		76F121351B54B99600635209 /* SEUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F121341B54B99600635209 /* SEUtils.m */; };
-		76F121381B54DF9E00635209 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F121371B54DF9E00635209 /* UserModel.m */; };
-		76F1213B1B54E80B00635209 /* AreaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F1213A1B54E80B00635209 /* AreaModel.m */; };
-		76F1213E1B54EE6200635209 /* SchoolModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F1213D1B54EE6200635209 /* SchoolModel.m */; };
-		76F121411B54F0A300635209 /* GradeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F121401B54F0A300635209 /* GradeModel.m */; };
-		76F121441B54FD7B00635209 /* ClassModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F121431B54FD7B00635209 /* ClassModel.m */; };
-		76F121471B5541EB00635209 /* TokenInforModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F121461B5541EB00635209 /* TokenInforModel.m */; };
-		76F1214A1B5541FC00635209 /* UserDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F121491B5541FC00635209 /* UserDetailModel.m */; };
-		76F1214D1B554D9000635209 /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F1214C1B554D9000635209 /* UserInfoModel.m */; };
-		76F121501B554E1D00635209 /* StudentInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F1214F1B554E1D00635209 /* StudentInfoModel.m */; };
 		9D81F842D79E02A44AC30DFF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9198941CC0961AE3F3185DE /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -310,6 +312,32 @@
 		1857A0B71B4F596700501EA0 /* EDClassOnlineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDClassOnlineCell.h; sourceTree = "<group>"; };
 		1857A0B81B4F596700501EA0 /* EDClassOnlineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDClassOnlineCell.m; sourceTree = "<group>"; };
 		1857A0B91B4F596700501EA0 /* EDClassOnlineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDClassOnlineCell.xib; sourceTree = "<group>"; };
+		1857A0BD1B5663A900501EA0 /* AreaModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaModel.h; sourceTree = "<group>"; };
+		1857A0BE1B5663A900501EA0 /* AreaModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaModel.m; sourceTree = "<group>"; };
+		1857A0BF1B5663A900501EA0 /* ClassModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassModel.h; sourceTree = "<group>"; };
+		1857A0C01B5663A900501EA0 /* ClassModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassModel.m; sourceTree = "<group>"; };
+		1857A0C11B5663A900501EA0 /* GradeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradeModel.h; sourceTree = "<group>"; };
+		1857A0C21B5663A900501EA0 /* GradeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradeModel.m; sourceTree = "<group>"; };
+		1857A0C31B5663A900501EA0 /* growUpModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = growUpModel.h; sourceTree = "<group>"; };
+		1857A0C41B5663A900501EA0 /* growUpModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = growUpModel.m; sourceTree = "<group>"; };
+		1857A0C51B5663A900501EA0 /* SchoolModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolModel.h; sourceTree = "<group>"; };
+		1857A0C61B5663A900501EA0 /* SchoolModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolModel.m; sourceTree = "<group>"; };
+		1857A0C71B5663A900501EA0 /* StudentInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentInfoModel.h; sourceTree = "<group>"; };
+		1857A0C81B5663A900501EA0 /* StudentInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentInfoModel.m; sourceTree = "<group>"; };
+		1857A0C91B5663A900501EA0 /* TeacherInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherInfoModel.h; sourceTree = "<group>"; };
+		1857A0CA1B5663A900501EA0 /* TeacherInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherInfoModel.m; sourceTree = "<group>"; };
+		1857A0CB1B5663A900501EA0 /* TokenInforModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TokenInforModel.h; sourceTree = "<group>"; };
+		1857A0CC1B5663A900501EA0 /* TokenInforModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TokenInforModel.m; sourceTree = "<group>"; };
+		1857A0CD1B5663A900501EA0 /* UserDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDetailModel.h; sourceTree = "<group>"; };
+		1857A0CE1B5663A900501EA0 /* UserDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDetailModel.m; sourceTree = "<group>"; };
+		1857A0CF1B5663A900501EA0 /* UserInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoModel.h; sourceTree = "<group>"; };
+		1857A0D01B5663A900501EA0 /* UserInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoModel.m; sourceTree = "<group>"; };
+		1857A0D11B5663A900501EA0 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
+		1857A0D21B5663A900501EA0 /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
+		1857A0E01B56641700501EA0 /* EDInfomationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDInfomationModel.h; sourceTree = "<group>"; };
+		1857A0E11B56641700501EA0 /* EDInfomationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDInfomationModel.m; sourceTree = "<group>"; };
+		1857A0E31B56648100501EA0 /* EDInfoArrayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDInfoArrayModel.h; sourceTree = "<group>"; };
+		1857A0E41B56648100501EA0 /* EDInfoArrayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDInfoArrayModel.m; sourceTree = "<group>"; };
 		187F7DC41B43BDDF005CC8D8 /* EDGradeRecodeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDGradeRecodeCell.h; sourceTree = "<group>"; };
 		187F7DC51B43BDDF005CC8D8 /* EDGradeRecodeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDGradeRecodeCell.m; sourceTree = "<group>"; };
 		187F7DC61B43BDDF005CC8D8 /* EDGradeRecodeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDGradeRecodeCell.xib; sourceTree = "<group>"; };
@@ -404,10 +432,6 @@
 		764406EA1B4FA31300541C86 /* SchoolTimeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolTimeTableViewController.h; sourceTree = "<group>"; };
 		764406EB1B4FA31300541C86 /* SchoolTimeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolTimeTableViewController.m; sourceTree = "<group>"; };
 		764406EC1B4FA31300541C86 /* SchoolTimeTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SchoolTimeTableViewController.xib; sourceTree = "<group>"; };
-		768F88B51B55EAD50054F73C /* TeacherInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TeacherInfoModel.h; path = "education/Section/HomePage/我的课表/TeacherInfoModel.h"; sourceTree = SOURCE_ROOT; };
-		768F88B61B55EAD50054F73C /* TeacherInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TeacherInfoModel.m; path = "education/Section/HomePage/我的课表/TeacherInfoModel.m"; sourceTree = SOURCE_ROOT; };
-		768F88B81B562ED20054F73C /* growUpModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = growUpModel.h; path = "education/Section/HomePage/我的课表/growUpModel.h"; sourceTree = SOURCE_ROOT; };
-		768F88B91B562ED20054F73C /* growUpModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = growUpModel.m; path = "education/Section/HomePage/我的课表/growUpModel.m"; sourceTree = SOURCE_ROOT; };
 		768FFAEB1B4238D9008E577F /* education.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = education.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		768FFAEF1B4238D9008E577F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		768FFAF01B4238D9008E577F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -441,24 +465,6 @@
 		76F1212F1B54B82E00635209 /* SecurityUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityUtil.m; sourceTree = "<group>"; };
 		76F121331B54B99600635209 /* SEUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEUtils.h; sourceTree = "<group>"; };
 		76F121341B54B99600635209 /* SEUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEUtils.m; sourceTree = "<group>"; };
-		76F121361B54DF9E00635209 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserModel.h; path = "education/Section/HomePage/我的课表/UserModel.h"; sourceTree = SOURCE_ROOT; };
-		76F121371B54DF9E00635209 /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserModel.m; path = "education/Section/HomePage/我的课表/UserModel.m"; sourceTree = SOURCE_ROOT; };
-		76F121391B54E80B00635209 /* AreaModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AreaModel.h; path = "education/Section/HomePage/我的课表/AreaModel.h"; sourceTree = SOURCE_ROOT; };
-		76F1213A1B54E80B00635209 /* AreaModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AreaModel.m; path = "education/Section/HomePage/我的课表/AreaModel.m"; sourceTree = SOURCE_ROOT; };
-		76F1213C1B54EE6200635209 /* SchoolModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SchoolModel.h; path = "education/Section/HomePage/我的课表/SchoolModel.h"; sourceTree = SOURCE_ROOT; };
-		76F1213D1B54EE6200635209 /* SchoolModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SchoolModel.m; path = "education/Section/HomePage/我的课表/SchoolModel.m"; sourceTree = SOURCE_ROOT; };
-		76F1213F1B54F0A300635209 /* GradeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GradeModel.h; path = "education/Section/HomePage/我的课表/GradeModel.h"; sourceTree = SOURCE_ROOT; };
-		76F121401B54F0A300635209 /* GradeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GradeModel.m; path = "education/Section/HomePage/我的课表/GradeModel.m"; sourceTree = SOURCE_ROOT; };
-		76F121421B54FD7B00635209 /* ClassModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassModel.h; path = "education/Section/HomePage/我的课表/ClassModel.h"; sourceTree = SOURCE_ROOT; };
-		76F121431B54FD7B00635209 /* ClassModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassModel.m; path = "education/Section/HomePage/我的课表/ClassModel.m"; sourceTree = SOURCE_ROOT; };
-		76F121451B5541EB00635209 /* TokenInforModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TokenInforModel.h; path = "education/Section/HomePage/我的课表/TokenInforModel.h"; sourceTree = SOURCE_ROOT; };
-		76F121461B5541EB00635209 /* TokenInforModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TokenInforModel.m; path = "education/Section/HomePage/我的课表/TokenInforModel.m"; sourceTree = SOURCE_ROOT; };
-		76F121481B5541FC00635209 /* UserDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserDetailModel.h; path = "education/Section/HomePage/我的课表/UserDetailModel.h"; sourceTree = SOURCE_ROOT; };
-		76F121491B5541FC00635209 /* UserDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserDetailModel.m; path = "education/Section/HomePage/我的课表/UserDetailModel.m"; sourceTree = SOURCE_ROOT; };
-		76F1214B1B554D9000635209 /* UserInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoModel.h; path = "education/Section/HomePage/我的课表/UserInfoModel.h"; sourceTree = SOURCE_ROOT; };
-		76F1214C1B554D9000635209 /* UserInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoModel.m; path = "education/Section/HomePage/我的课表/UserInfoModel.m"; sourceTree = SOURCE_ROOT; };
-		76F1214E1B554E1D00635209 /* StudentInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StudentInfoModel.h; path = "education/Section/HomePage/我的课表/StudentInfoModel.h"; sourceTree = SOURCE_ROOT; };
-		76F1214F1B554E1D00635209 /* StudentInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StudentInfoModel.m; path = "education/Section/HomePage/我的课表/StudentInfoModel.m"; sourceTree = SOURCE_ROOT; };
 		86CBB787C78559948FB65193 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		C9198941CC0961AE3F3185DE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -763,6 +769,55 @@
 			path = "在线课堂Cell";
 			sourceTree = "<group>";
 		};
+		1857A0BC1B56637800501EA0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1857A0DE1B5663EF00501EA0 /* 首页 */,
+				1857A0BD1B5663A900501EA0 /* AreaModel.h */,
+				1857A0BE1B5663A900501EA0 /* AreaModel.m */,
+				1857A0BF1B5663A900501EA0 /* ClassModel.h */,
+				1857A0C01B5663A900501EA0 /* ClassModel.m */,
+				1857A0C11B5663A900501EA0 /* GradeModel.h */,
+				1857A0C21B5663A900501EA0 /* GradeModel.m */,
+				1857A0C31B5663A900501EA0 /* growUpModel.h */,
+				1857A0C41B5663A900501EA0 /* growUpModel.m */,
+				1857A0C51B5663A900501EA0 /* SchoolModel.h */,
+				1857A0C61B5663A900501EA0 /* SchoolModel.m */,
+				1857A0C71B5663A900501EA0 /* StudentInfoModel.h */,
+				1857A0C81B5663A900501EA0 /* StudentInfoModel.m */,
+				1857A0C91B5663A900501EA0 /* TeacherInfoModel.h */,
+				1857A0CA1B5663A900501EA0 /* TeacherInfoModel.m */,
+				1857A0CB1B5663A900501EA0 /* TokenInforModel.h */,
+				1857A0CC1B5663A900501EA0 /* TokenInforModel.m */,
+				1857A0CD1B5663A900501EA0 /* UserDetailModel.h */,
+				1857A0CE1B5663A900501EA0 /* UserDetailModel.m */,
+				1857A0CF1B5663A900501EA0 /* UserInfoModel.h */,
+				1857A0D01B5663A900501EA0 /* UserInfoModel.m */,
+				1857A0D11B5663A900501EA0 /* UserModel.h */,
+				1857A0D21B5663A900501EA0 /* UserModel.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1857A0DE1B5663EF00501EA0 /* 首页 */ = {
+			isa = PBXGroup;
+			children = (
+				1857A0DF1B5663EF00501EA0 /* 天天资讯 */,
+			);
+			path = "首页";
+			sourceTree = "<group>";
+		};
+		1857A0DF1B5663EF00501EA0 /* 天天资讯 */ = {
+			isa = PBXGroup;
+			children = (
+				1857A0E01B56641700501EA0 /* EDInfomationModel.h */,
+				1857A0E11B56641700501EA0 /* EDInfomationModel.m */,
+				1857A0E31B56648100501EA0 /* EDInfoArrayModel.h */,
+				1857A0E41B56648100501EA0 /* EDInfoArrayModel.m */,
+			);
+			path = "天天资讯";
+			sourceTree = "<group>";
+		};
 		187F7DC21B43BDAB005CC8D8 /* 我的 */ = {
 			isa = PBXGroup;
 			children = (
@@ -968,7 +1023,7 @@
 			children = (
 				768FFB161B423BAC008E577F /* Section */,
 				768FFB171B423BBE008E577F /* General */,
-				768FFB181B423BC5008E577F /* Models */,
+				1857A0BC1B56637800501EA0 /* Models */,
 				768FFB191B423BCB008E577F /* component */,
 				768FFAF21B4238D9008E577F /* AppDelegate.h */,
 				768FFAF31B4238D9008E577F /* AppDelegate.m */,
@@ -1026,35 +1081,6 @@
 				768FFB2E1B42C325008E577F /* Cells */,
 			);
 			path = General;
-			sourceTree = "<group>";
-		};
-		768FFB181B423BC5008E577F /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				76F121361B54DF9E00635209 /* UserModel.h */,
-				76F121371B54DF9E00635209 /* UserModel.m */,
-				76F121391B54E80B00635209 /* AreaModel.h */,
-				76F1213A1B54E80B00635209 /* AreaModel.m */,
-				76F1213C1B54EE6200635209 /* SchoolModel.h */,
-				76F1213D1B54EE6200635209 /* SchoolModel.m */,
-				76F1213F1B54F0A300635209 /* GradeModel.h */,
-				76F121401B54F0A300635209 /* GradeModel.m */,
-				76F121421B54FD7B00635209 /* ClassModel.h */,
-				76F121431B54FD7B00635209 /* ClassModel.m */,
-				76F121451B5541EB00635209 /* TokenInforModel.h */,
-				76F121461B5541EB00635209 /* TokenInforModel.m */,
-				76F121481B5541FC00635209 /* UserDetailModel.h */,
-				76F121491B5541FC00635209 /* UserDetailModel.m */,
-				76F1214B1B554D9000635209 /* UserInfoModel.h */,
-				76F1214C1B554D9000635209 /* UserInfoModel.m */,
-				76F1214E1B554E1D00635209 /* StudentInfoModel.h */,
-				76F1214F1B554E1D00635209 /* StudentInfoModel.m */,
-				768F88B51B55EAD50054F73C /* TeacherInfoModel.h */,
-				768F88B61B55EAD50054F73C /* TeacherInfoModel.m */,
-				768F88B81B562ED20054F73C /* growUpModel.h */,
-				768F88B91B562ED20054F73C /* growUpModel.m */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		768FFB191B423BCB008E577F /* component */ = {
@@ -1351,23 +1377,24 @@
 			files = (
 				768FFB3C1B42DE44008E577F /* HomePageListCell.m in Sources */,
 				76F121321B54B82E00635209 /* SecurityUtil.m in Sources */,
-				76F121381B54DF9E00635209 /* UserModel.m in Sources */,
 				764406A81B4BD07F00541C86 /* SelectPayViewController.m in Sources */,
 				1857A0891B4D6E9800501EA0 /* EDPrivateNoteSelectedCell.m in Sources */,
+				1857A0DD1B5663A900501EA0 /* UserModel.m in Sources */,
 				187F7DC71B43BDDF005CC8D8 /* EDGradeRecodeCell.m in Sources */,
 				18579FE31B4BC24E00501EA0 /* EDSetProblemViewController.m in Sources */,
 				1857A0511B4CF74B00501EA0 /* EDGradeDetailViewController.m in Sources */,
 				1857A0531B4CF74B00501EA0 /* EDGradeRecodeViewController.m in Sources */,
 				187F7DD01B43C469005CC8D8 /* Tools.m in Sources */,
+				1857A0D51B5663A900501EA0 /* GradeModel.m in Sources */,
 				7644069E1B4BC1F900541C86 /* AddReceiveAddressViewController.m in Sources */,
 				1808B3181B43D6480050E3B4 /* EDGradeCell.m in Sources */,
+				1857A0D91B5663A900501EA0 /* TeacherInfoModel.m in Sources */,
 				764406991B4BBE2000541C86 /* ManageAddViewController.m in Sources */,
-				76F121501B554E1D00635209 /* StudentInfoModel.m in Sources */,
 				764406851B4A5CAA00541C86 /* LifeServiceIntroViewController.m in Sources */,
 				1857A0251B4BC3FB00501EA0 /* EDOrderBottomCell.m in Sources */,
-				76F1214D1B554D9000635209 /* UserInfoModel.m in Sources */,
 				1857A0AE1B4F510100501EA0 /* EDNoticeViewController.m in Sources */,
 				18579FF91B4BC2B800501EA0 /* EDOrderDetailViewController.m in Sources */,
+				1857A0D31B5663A900501EA0 /* AreaModel.m in Sources */,
 				7644065E1B46669C00541C86 /* SendViewController.m in Sources */,
 				768FFB1E1B423C0A008E577F /* ViewController.m in Sources */,
 				18579FF71B4BC2B800501EA0 /* EDMyOrderViewController.m in Sources */,
@@ -1381,13 +1408,14 @@
 				761749041B451C87006DD0AA /* MineViewController.m in Sources */,
 				1857A00C1B4BC2E800501EA0 /* EDInfomationViewController.m in Sources */,
 				1857A0081B4BC2E800501EA0 /* EDPhysicalDetailViewController.m in Sources */,
-				76F121411B54F0A300635209 /* GradeModel.m in Sources */,
 				1808B34E1B44FD1C0050E3B4 /* EDSendMsgViewController.m in Sources */,
 				1857A00A1B4BC2E800501EA0 /* EDPhySicalTestViewController.m in Sources */,
+				1857A0DA1B5663A900501EA0 /* TokenInforModel.m in Sources */,
 				1857A0A81B4E705600501EA0 /* EDPrivateDetailViewController.m in Sources */,
 				1857A07E1B4D6E8000501EA0 /* EDPrivateNoteViewController.m in Sources */,
 				1857A0641B4D082100501EA0 /* EDPhotoDetailHeadCell.m in Sources */,
 				7644068A1B4A783A00541C86 /* SureOrderViewController.m in Sources */,
+				1857A0D41B5663A900501EA0 /* ClassModel.m in Sources */,
 				764406E21B4F594C00541C86 /* NoticeIntroViewController.m in Sources */,
 				1857A0681B4D0BF700501EA0 /* EDPhotoDetailContentCell.m in Sources */,
 				1857A0B41B4F584900501EA0 /* EDClassOnlineViewController.m in Sources */,
@@ -1402,46 +1430,46 @@
 				768FFAF11B4238D9008E577F /* main.m in Sources */,
 				18579F8D1B45401100501EA0 /* EDEditInfoViewController.m in Sources */,
 				1808B31D1B43D6650050E3B4 /* EDSubjectCell.m in Sources */,
-				76F1213B1B54E80B00635209 /* AreaModel.m in Sources */,
 				18579FEA1B4BC28A00501EA0 /* LoginViewController.m in Sources */,
-				768F88BA1B562ED20054F73C /* growUpModel.m in Sources */,
 				76F121311B54B82E00635209 /* NSString+MD5.m in Sources */,
 				764406DD1B4F500A00541C86 /* ContactUsViewController.m in Sources */,
 				764406D81B4F4F5300541C86 /* AboutUsViewController.m in Sources */,
 				764406591B458C2C00541C86 /* ClassCircleViewController.m in Sources */,
 				1857A0871B4D6E9800501EA0 /* EDPrivateNoteCell.m in Sources */,
+				1857A0D61B5663A900501EA0 /* growUpModel.m in Sources */,
 				1857A05A1B4CF9A600501EA0 /* EDPhotoDetailViewController.m in Sources */,
 				764406B31B4D4C0600541C86 /* GrowthTrailViewController.m in Sources */,
 				768FFB321B42C333008E577F /* UserIntroCell.m in Sources */,
-				768F88B71B55EAD50054F73C /* TeacherInfoModel.m in Sources */,
 				1808B3291B44293C0050E3B4 /* EDDayInfoCell.m in Sources */,
 				764406D31B4EA4DF00541C86 /* EvaluteAndEncourageCell.m in Sources */,
 				764406BF1B4D642B00541C86 /* ParentRegisterViewController.m in Sources */,
-				76F1213E1B54EE6200635209 /* SchoolModel.m in Sources */,
 				1808B3491B44F1CB0050E3B4 /* EDStudentViewController.m in Sources */,
 				1857A05F1B4CFAB500501EA0 /* EDPhotoDetailCell.m in Sources */,
 				1808B3441B44EADB0050E3B4 /* EDTeacherInfoViewController.m in Sources */,
-				76F121471B5541EB00635209 /* TokenInforModel.m in Sources */,
 				7644064D1B458B1700541C86 /* BottomCell.m in Sources */,
+				1857A0DB1B5663A900501EA0 /* UserDetailModel.m in Sources */,
 				764406E71B4F5A8600541C86 /* IntroDetailViewController.m in Sources */,
+				1857A0E21B56641700501EA0 /* EDInfomationModel.m in Sources */,
+				1857A0D81B5663A900501EA0 /* StudentInfoModel.m in Sources */,
 				1857A0231B4BC3FB00501EA0 /* EDMyOrderCell.m in Sources */,
 				1857A0551B4CF74B00501EA0 /* EDSubjectViewController.m in Sources */,
 				764406511B458B1700541C86 /* ReplyCell.m in Sources */,
+				1857A0DC1B5663A900501EA0 /* UserInfoModel.m in Sources */,
 				18579FFB1B4BC2B800501EA0 /* EDAlterPwdViewController.m in Sources */,
 				76F121301B54B82E00635209 /* GTMBase64.m in Sources */,
+				1857A0E51B56648100501EA0 /* EDInfoArrayModel.m in Sources */,
 				1808B33A1B44DEB00050E3B4 /* EDContactContentCell.m in Sources */,
 				764406A31B4BCD4600541C86 /* EditAddViewController.m in Sources */,
 				18579FE51B4BC24E00501EA0 /* EDSettingViewController.m in Sources */,
 				764406531B458B1700541C86 /* TopCell.m in Sources */,
 				764406941B4ACD0200541C86 /* SelectAddCell.m in Sources */,
 				7644068F1B4AC4FA00541C86 /* SelectAddViewController.m in Sources */,
+				1857A0D71B5663A900501EA0 /* SchoolModel.m in Sources */,
 				1857A0BA1B4F596700501EA0 /* EDClassOnlineCell.m in Sources */,
 				7644067B1B47BEC600541C86 /* LifeServiceCell.m in Sources */,
 				1808B32F1B4439ED0050E3B4 /* EDContactViewController.m in Sources */,
 				1857A0A31B4E702C00501EA0 /* EDHomeWorkViewController.m in Sources */,
 				1857A02D1B4CAB2B00501EA0 /* EDMyPhotoViewController.m in Sources */,
-				76F1214A1B5541FC00635209 /* UserDetailModel.m in Sources */,
-				76F121441B54FD7B00635209 /* ClassModel.m in Sources */,
 				764406B91B4D558500541C86 /* JournalCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
