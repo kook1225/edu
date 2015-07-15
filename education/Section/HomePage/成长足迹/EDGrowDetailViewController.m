@@ -14,6 +14,7 @@
     int imageNum;
     UIImageView *imgView;
     NSString *TMP_UPLOAD_IMG_PATH;
+    NSData *fileData;
 }
 
 @property (weak, nonatomic) IBOutlet UITextView *textView;
@@ -47,7 +48,7 @@
     imageNum = 0;
     _textView.layer.borderColor = LINECOLOR.CGColor;
     _textView.layer.borderWidth = 1.0f;
-    _commitBtn.layer.cornerRadius = 4.0f;
+    _commitBtn.layer.cornerRadius = 5.0f;
     _commitBtn.layer.masksToBounds = YES;
     
     
@@ -80,6 +81,57 @@
     addImgBtn.frame = CGRectMake(10+74*num, 10, 70, 70);
     
 }
+
+- (IBAction)commitBtn:(id)sender {
+    MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    HUD.mode = MBProgressHUDModeIndeterminate;
+    HUD.labelText = @"Loading";
+    HUD.removeFromSuperViewOnHide = YES;
+    
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    NSDictionary *parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],
+                                @"xsid":@"",
+                                @"xxid":@"",
+                                @"titile":_titleTextField.text,
+                                @"content":_textView.text,
+                                @"picadd":@"1",
+                                @"type":@"1"};
+    
+    NSString *urlStr = [NSString stringWithFormat:@"%@ChengZhang",SERVER_HOST];
+    
+    [manager POST:urlStr parameters:parameter constructingBodyWithBlock:^(id <AFMultipartFormData> formData) {
+        /*
+        [formData appendPartWithFileData:fileData name:@"avatar" fileName:@"image.png" mimeType:@"image/png"];
+         */
+    }
+          success:^(AFHTTPRequestOperation *operation, id responseObject) {             [HUD hide:YES];
+             
+             if ([responseObject[@"responseCode"] intValue] == 0) {
+                 
+             }
+             else {
+                 SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
+             }
+             
+             
+         }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             [HUD hide:YES];
+             if (operation.response.statusCode == 401) {
+                 NSLog(@"请求超时");
+                 //   [SEUtils repetitionLogin];
+             }
+             else {
+                 NSLog(@"Error:%@",error);
+                 NSLog(@"err:%@",operation.responseObject[@"message"]);
+                 //   SHOW_ALERT(@"提示",operation.responseObject[@"message"])
+             }
+         }];
+}
+
+
 #pragma mark textView 代理
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView
 {
@@ -131,7 +183,7 @@
         //        UIImageWriteToSavedPhotosAlbum(img,nil,nil,nil);
     }
     UIImage *newImg=[self imageWithImageSimple:img scaledToSize:CGSizeMake(78, 78)];
-    [self saveImage:newImg WithName:[NSString stringWithFormat:@"%@%@",[self generateUuidString],@".jpg"]];
+    [self saveImage:newImg WithName:[NSString stringWithFormat:@"%@%@",[self generateUuidString],@".png"]];
     
     [self setImgFrame:imageNum image:newImg];
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -163,6 +215,10 @@
     NSArray *nameAry=[TMP_UPLOAD_IMG_PATH componentsSeparatedByString:@"/"];
     NSLog(@"===new fullPathToFile===%@",fullPathToFile);
     NSLog(@"===new FileName===%@",[nameAry objectAtIndex:[nameAry count]-1]);
+
+    fileData = [NSData dataWithContentsOfMappedFile:TMP_UPLOAD_IMG_PATH];
+    
+    
     [imageData writeToFile:fullPathToFile atomically:NO];
     
 }

@@ -148,6 +148,7 @@
 		764406ED1B4FA31300541C86 /* SchoolTimeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 764406EB1B4FA31300541C86 /* SchoolTimeTableViewController.m */; };
 		764406EE1B4FA31300541C86 /* SchoolTimeTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 764406EC1B4FA31300541C86 /* SchoolTimeTableViewController.xib */; };
 		768F88B71B55EAD50054F73C /* TeacherInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 768F88B61B55EAD50054F73C /* TeacherInfoModel.m */; };
+		768F88BA1B562ED20054F73C /* growUpModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 768F88B91B562ED20054F73C /* growUpModel.m */; };
 		768FFAF11B4238D9008E577F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF01B4238D9008E577F /* main.m */; };
 		768FFAF41B4238D9008E577F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF31B4238D9008E577F /* AppDelegate.m */; };
 		768FFAFC1B4238D9008E577F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 768FFAFB1B4238D9008E577F /* Images.xcassets */; };
@@ -405,6 +406,8 @@
 		764406EC1B4FA31300541C86 /* SchoolTimeTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SchoolTimeTableViewController.xib; sourceTree = "<group>"; };
 		768F88B51B55EAD50054F73C /* TeacherInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TeacherInfoModel.h; path = "education/Section/HomePage/我的课表/TeacherInfoModel.h"; sourceTree = SOURCE_ROOT; };
 		768F88B61B55EAD50054F73C /* TeacherInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TeacherInfoModel.m; path = "education/Section/HomePage/我的课表/TeacherInfoModel.m"; sourceTree = SOURCE_ROOT; };
+		768F88B81B562ED20054F73C /* growUpModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = growUpModel.h; path = "education/Section/HomePage/我的课表/growUpModel.h"; sourceTree = SOURCE_ROOT; };
+		768F88B91B562ED20054F73C /* growUpModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = growUpModel.m; path = "education/Section/HomePage/我的课表/growUpModel.m"; sourceTree = SOURCE_ROOT; };
 		768FFAEB1B4238D9008E577F /* education.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = education.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		768FFAEF1B4238D9008E577F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		768FFAF01B4238D9008E577F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -1048,6 +1051,8 @@
 				76F1214F1B554E1D00635209 /* StudentInfoModel.m */,
 				768F88B51B55EAD50054F73C /* TeacherInfoModel.h */,
 				768F88B61B55EAD50054F73C /* TeacherInfoModel.m */,
+				768F88B81B562ED20054F73C /* growUpModel.h */,
+				768F88B91B562ED20054F73C /* growUpModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1399,6 +1404,7 @@
 				1808B31D1B43D6650050E3B4 /* EDSubjectCell.m in Sources */,
 				76F1213B1B54E80B00635209 /* AreaModel.m in Sources */,
 				18579FEA1B4BC28A00501EA0 /* LoginViewController.m in Sources */,
+				768F88BA1B562ED20054F73C /* growUpModel.m in Sources */,
 				76F121311B54B82E00635209 /* NSString+MD5.m in Sources */,
 				764406DD1B4F500A00541C86 /* ContactUsViewController.m in Sources */,
 				764406D81B4F4F5300541C86 /* AboutUsViewController.m in Sources */,
