@@ -11,6 +11,7 @@
 #import "JournalCell.h"
 #import "EDGrowDetailViewController.h"
 #import "EvaluteAndEncourageViewController.h"
+#import "EDPrivateDetailViewController.h"
 
 @interface GrowthTrailViewController () {
     SETabBarViewController *tabBarViewController;
@@ -52,9 +53,14 @@
 
 #pragma mark - UITableViewDelegate Method
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    EvaluteAndEncourageViewController *evaluteAndEncourageVC = [[EvaluteAndEncourageViewController alloc] init];
-    [self.navigationController pushViewController:evaluteAndEncourageVC animated:YES];
+    if (indexPath.row <= 2) {
+        EDPrivateDetailViewController *privateDetailVC = [[EDPrivateDetailViewController alloc] init];
+        [self.navigationController pushViewController:privateDetailVC animated:YES];
+    }
+    else {
+        EvaluteAndEncourageViewController *evaluteAndEncourageVC = [[EvaluteAndEncourageViewController alloc] init];
+        [self.navigationController pushViewController:evaluteAndEncourageVC animated:YES];
+    }
   
     
 }

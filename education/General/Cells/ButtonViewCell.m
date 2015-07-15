@@ -24,12 +24,12 @@
         [_btn11 setBackgroundImage:[UIImage imageNamed:@"btn11v"] forState:UIControlStateNormal];
         [_btn12 setBackgroundImage:[UIImage imageNamed:@"btn12v"] forState:UIControlStateNormal];
         
-        for (int i; i < 4; i++) {
+        for (int i = 0; i < 4; i++) {
             UIImageView *vipImage = [[UIImageView alloc] initWithFrame:CGRectMake((2 + 80*i) * scale, 50 * scale, 15 * scale, 15 * scale)];
+            vipImage.tag = 401 + i;
             [vipImage setImage:[UIImage imageNamed:@"vip"]];
             [_bottomView addSubview:vipImage];
         }
-        
     }
 }
 

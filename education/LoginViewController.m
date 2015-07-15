@@ -18,6 +18,7 @@
 
 @interface LoginViewController () {
     NSString *deviceId;
+    BOOL vipUser;
 }
 @property (weak, nonatomic) IBOutlet UITextField *userName;
 @property (weak, nonatomic) IBOutlet UITextField *userPwd;
@@ -44,7 +45,7 @@
     [_userPwd setValue:[UIFont boldSystemFontOfSize:14] forKeyPath:@"_placeholderLabel.font"];
     
     //测试
-    _userName.text = @"13911111111";
+    _userName.text = @"13811111111";
     _userPwd.text = @"111111";
     
     _loginBtn.layer.cornerRadius = 4.0f;
@@ -91,23 +92,43 @@
                           if ([responseObject[@"responseCode"] intValue] == 0) {
                               [SEUtils setUserInfo:model];
                               
-                              ViewController *viewController = [[ViewController alloc] init];
-                              UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:viewController];
                               
-                              EDContactViewController *contactVC = [[EDContactViewController alloc] init];
-                              UINavigationController *nav2 = [[UINavigationController alloc] initWithRootViewController:contactVC];
+                              // 判断是否是vip用户
+                                  
+                              AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
                               
-                              MineViewController *mineVC = [[MineViewController alloc] init];
-                              UINavigationController *nav3 = [[UINavigationController alloc] initWithRootViewController:mineVC];
+                              NSDictionary *parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token]};
                               
-                              EDSettingViewController *settingVC = [[EDSettingViewController alloc] init];
-                              UINavigationController *nav4 = [[UINavigationController alloc] initWithRootViewController:settingVC];
+                              NSString *urlStr = [NSString stringWithFormat:@"%@VIPer",SERVER_HOST];
                               
-                              SETabBarViewController *tabBarVC = [[SETabBarViewController alloc] initWithViewController:@[nav,nav2,nav3,nav4]];
+                              [manager GET:urlStr parameters:parameter
+                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                       
+                                       if ([responseObject[@"responseCode"] intValue] == 0) {
+                                           vipUser = YES;
+                                           [self goHomeWork];
+                                       }
+                                       else {
+                                           vipUser = NO;
+                                           [self goHomeWork];
+                                       }
+                                       
+                                       
+                                   }
+                                   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                       if (operation.response.statusCode == 401) {
+                                           NSLog(@"请求超时");
+                                           //   [SEUtils repetitionLogin];
+                                       }
+                                       else {
+                                           NSLog(@"Error:%@",error);
+                                           NSLog(@"err:%@",operation.responseObject[@"message"]);
+                                           //   SHOW_ALERT(@"提示",operation.responseObject[@"message"])
+                                       }
+                                   }];
                               
-                              tabBarVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-                              
-                              [self presentViewController:tabBarVC animated:YES completion:nil];
+                
+                             
                           }
                           else {
                               SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
@@ -142,6 +163,27 @@
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:parentRegisterVC];
     
     [self presentViewController:nav animated:YES completion:nil];
+}
+
+- (void)goHomeWork {
+    ViewController *viewController = [[ViewController alloc] init];
+    viewController.vipUser = vipUser;
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:viewController];
+    
+    EDContactViewController *contactVC = [[EDContactViewController alloc] init];
+    UINavigationController *nav2 = [[UINavigationController alloc] initWithRootViewController:contactVC];
+    
+    MineViewController *mineVC = [[MineViewController alloc] init];
+    UINavigationController *nav3 = [[UINavigationController alloc] initWithRootViewController:mineVC];
+    
+    EDSettingViewController *settingVC = [[EDSettingViewController alloc] init];
+    UINavigationController *nav4 = [[UINavigationController alloc] initWithRootViewController:settingVC];
+    
+    SETabBarViewController *tabBarVC = [[SETabBarViewController alloc] initWithViewController:@[nav,nav2,nav3,nav4]];
+    
+    tabBarVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    
+    [self presentViewController:tabBarVC animated:YES completion:nil];
 }
 
 @end
