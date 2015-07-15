@@ -7,11 +7,12 @@
 //
 
 #import "JSONModel.h"
+#import "TokenInforModel.h"
+#import "UserDetailModel.h"
 
 @interface UserModel : JSONModel
 
-@property (strong,nonatomic) NSString<Optional> *ID;
-@property (strong,nonatomic) NSString<Optional> *QYID;
-@property (strong,nonatomic) NSString<Optional> *QYMC;
+@property (strong,nonatomic) TokenInforModel<Optional> *TokenInfo;
+@property (strong,nonatomic) UserDetailModel<Optional> *UserDetail;
 
 @end

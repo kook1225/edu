@@ -100,6 +100,9 @@
                         <color key="titleColor" red="1" green="0.48627450979999998" blue="0.023529411760000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="loginBtn:" destination="-1" eventType="touchUpInside" id="GZE-3A-PnY"/>
+                    </connections>
                 </button>
                 <view contentMode="scaleToFill" id="miF-yy-nv4">
                     <rect key="frame" x="109" y="360" width="102" height="1"/>
@@ -109,8 +112,7 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="j1U-s4-UcR">
                     <rect key="frame" x="53" y="265" width="215" height="41"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="1" green="0.48627450979999998" blue="0.023529411760000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <state key="normal" title="下一步">
+                    <state key="normal" title="下一步" backgroundImage="navColor">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -125,6 +127,7 @@
         </view>
     </objects>
     <resources>
+        <image name="navColor" width="375" height="64"/>
         <image name="newPwd" width="25" height="25"/>
         <image name="oldpwd" width="25" height="25"/>
         <image name="userName" width="27" height="27"/>

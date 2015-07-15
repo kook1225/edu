@@ -13,11 +13,13 @@
 #import "EDAlterPwdViewController.h"
 #import "EDMyPhotoViewController.h"
 #import "SelectAddViewController.h"
+#import "LoginViewController.h"
 
-@interface MineViewController () {
+@interface MineViewController ()<UIAlertViewDelegate> {
     SETabBarViewController *tabBarViewController;
 }
 @property (weak, nonatomic) IBOutlet UIView *topImageView;
+@property (weak, nonatomic) IBOutlet UIButton *exitBtn;
 
 @end
 
@@ -25,6 +27,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    _exitBtn.layer.cornerRadius = 5.0f;
+    _exitBtn.layer.masksToBounds = YES;
     
     tabBarViewController = (SETabBarViewController *)self.navigationController.parentViewController;
     
@@ -73,6 +78,22 @@
     [self.navigationController pushViewController:alterPwdVC animated:YES];
 }
 
+- (IBAction)exitBtn:(id)sender {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"是否退出账号" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    alert.tag = 201;
+    [alert show];
+}
+
+#pragma mark - UIAlertViewDelegate Method
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (alertView.tag == 201) {
+        if (buttonIndex == 1) {
+            LoginViewController *loginVC = [[LoginViewController alloc] init];
+            loginVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+            [self presentViewController:loginVC animated:YES completion:nil];
+        }
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

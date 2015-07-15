@@ -14,9 +14,11 @@
 #import "SETabBarViewController.h"
 #import "ViewController.h"
 #import "ParentRegisterViewController.h"
+#import "EDAlterPwdViewController.h"
 
 @interface LoginViewController () {
     NSString *deviceId;
+    BOOL vipUser;
 }
 @property (weak, nonatomic) IBOutlet UITextField *userName;
 @property (weak, nonatomic) IBOutlet UITextField *userPwd;
@@ -28,15 +30,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    // 获取设备id
     UIDevice *device = [UIDevice currentDevice];//创建设备对象
-    
     NSUUID *deviceUID = [device identifierForVendor];
+    deviceId = [NSString stringWithFormat:@"%@",deviceUID.UUIDString];
     
-    deviceId = [NSString stringWithFormat:@"%@",deviceUID];
+    _userName.placeholder = @"请输入您的账号";
+    [_userName setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
+    [_userName setValue:[UIFont boldSystemFontOfSize:14] forKeyPath:@"_placeholderLabel.font"];
     
-    NSLog(@"设备id:%@",deviceId); // 输出设备id
-  
+    _userPwd.placeholder = @"请输入您的密码";
+    [_userPwd setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
+    [_userPwd setValue:[UIFont boldSystemFontOfSize:14] forKeyPath:@"_placeholderLabel.font"];
+    
+    //测试
+    _userName.text = @"13811111111";
+    _userPwd.text = @"111111";
     
     _loginBtn.layer.cornerRadius = 4.0f;
 }
@@ -55,10 +65,10 @@
                 SHOW_ALERT(@"提示", @"密码长度不正确");
             }
             else {
-                /*
+                
                 _loginBtn.enabled = NO;
                 
-                MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+                MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
                 HUD.mode = MBProgressHUDModeIndeterminate;
                 HUD.labelText = @"Loading";
                 HUD.removeFromSuperViewOnHide = YES;
@@ -75,8 +85,50 @@
                           _loginBtn.enabled = YES;
                           [HUD hide:YES];
                           
+                          NSError *err;
+                          
+                          UserModel *model = [[UserModel alloc] initWithDictionary:responseObject[@"data"] error:&err];
+                          
                           if ([responseObject[@"responseCode"] intValue] == 0) {
+                              [SEUtils setUserInfo:model];
                               
+                              
+                              // 判断是否是vip用户
+                                  
+                              AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+                              
+                              NSDictionary *parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token]};
+                              
+                              NSString *urlStr = [NSString stringWithFormat:@"%@VIPer",SERVER_HOST];
+                              
+                              [manager GET:urlStr parameters:parameter
+                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                       
+                                       if ([responseObject[@"responseCode"] intValue] == 0) {
+                                           vipUser = YES;
+                                           [self goHomeWork];
+                                       }
+                                       else {
+                                           vipUser = NO;
+                                           [self goHomeWork];
+                                       }
+                                       
+                                       
+                                   }
+                                   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                       if (operation.response.statusCode == 401) {
+                                           NSLog(@"请求超时");
+                                           //   [SEUtils repetitionLogin];
+                                       }
+                                       else {
+                                           NSLog(@"Error:%@",error);
+                                           NSLog(@"err:%@",operation.responseObject[@"message"]);
+                                           //   SHOW_ALERT(@"提示",operation.responseObject[@"message"])
+                                       }
+                                   }];
+                              
+                
+                             
                           }
                           else {
                               SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
@@ -97,31 +149,12 @@
                               //   SHOW_ALERT(@"提示",operation.responseObject[@"message"])
                           }
                       }];
-                */
-                
-                ViewController *viewController = [[ViewController alloc] init];
-                UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:viewController];
-                
-                EDContactViewController *contactVC = [[EDContactViewController alloc] init];
-                UINavigationController *nav2 = [[UINavigationController alloc] initWithRootViewController:contactVC];
-                
-                MineViewController *mineVC = [[MineViewController alloc] init];
-                UINavigationController *nav3 = [[UINavigationController alloc] initWithRootViewController:mineVC];
-                
-                EDSettingViewController *settingVC = [[EDSettingViewController alloc] init];
-                UINavigationController *nav4 = [[UINavigationController alloc] initWithRootViewController:settingVC];
-                
-                SETabBarViewController *tabBarVC = [[SETabBarViewController alloc] initWithViewController:@[nav,nav2,nav3,nav4]];
-                
-                tabBarVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-                
-                [self presentViewController:tabBarVC animated:YES completion:nil];
             }
         }
     }
 }
 - (IBAction)findPwdFunction:(id)sender {
-    
+
 }
 
 - (IBAction)registerFunction:(id)sender {
@@ -130,6 +163,27 @@
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:parentRegisterVC];
     
     [self presentViewController:nav animated:YES completion:nil];
+}
+
+- (void)goHomeWork {
+    ViewController *viewController = [[ViewController alloc] init];
+    viewController.vipUser = vipUser;
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:viewController];
+    
+    EDContactViewController *contactVC = [[EDContactViewController alloc] init];
+    UINavigationController *nav2 = [[UINavigationController alloc] initWithRootViewController:contactVC];
+    
+    MineViewController *mineVC = [[MineViewController alloc] init];
+    UINavigationController *nav3 = [[UINavigationController alloc] initWithRootViewController:mineVC];
+    
+    EDSettingViewController *settingVC = [[EDSettingViewController alloc] init];
+    UINavigationController *nav4 = [[UINavigationController alloc] initWithRootViewController:settingVC];
+    
+    SETabBarViewController *tabBarVC = [[SETabBarViewController alloc] initWithViewController:@[nav,nav2,nav3,nav4]];
+    
+    tabBarVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    
+    [self presentViewController:tabBarVC animated:YES completion:nil];
 }
 
 @end

@@ -324,17 +324,17 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="在线课堂" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tns-K7-IG0">
+                                <rect key="frame" x="240" y="47" width="80" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="家庭作业" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eTD-XW-yNn">
                                 <rect key="frame" x="0.0" y="47" width="80" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="eTD-XW-yNn" secondAttribute="height" multiplier="80:21" id="HbX-ni-Ab4"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="在线课堂" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tns-K7-IG0">
-                                <rect key="frame" x="240" y="47" width="80" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -414,6 +414,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="bottomView" destination="SYQ-Kt-7XJ" id="6Zl-3R-cPv"/>
                 <outlet property="btn1" destination="YhD-Xr-IRd" id="cEw-kX-euQ"/>
                 <outlet property="btn10" destination="SN7-pm-Y5G" id="0it-ev-cbf"/>
                 <outlet property="btn11" destination="h1c-YA-Mx9" id="JoT-P1-ZR9"/>

@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ButtonViewCell : UITableViewCell
+@interface ButtonViewCell : UITableViewCell 
 
+@property (weak, nonatomic) IBOutlet UIView *bottomView;
 @property (weak, nonatomic) IBOutlet UIButton *btn1;
 @property (weak, nonatomic) IBOutlet UIButton *btn2;
 @property (weak, nonatomic) IBOutlet UIButton *btn3;
@@ -22,5 +23,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *btn10;
 @property (weak, nonatomic) IBOutlet UIButton *btn11;
 @property (weak, nonatomic) IBOutlet UIButton *btn12;
+
+- (void)vipUser:(BOOL)vip;
 
 @end

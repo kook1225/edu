@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
@@ -37,7 +37,7 @@
                                     <rect key="frame" x="20" y="74" width="280" height="1"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </view>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="18627589138" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0I2-HR-1RB">
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0I2-HR-1RB">
                                     <rect key="frame" x="62" y="38" width="238" height="35"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
@@ -72,7 +72,7 @@
                                     <rect key="frame" x="20" y="74" width="280" height="1"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </view>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="18627589138" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IRD-Z7-p5x">
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IRD-Z7-p5x">
                                     <rect key="frame" x="62" y="38" width="238" height="35"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
@@ -99,7 +99,7 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="vQs-Yt-ahJ"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <state key="normal" title="登  录">
                                 <color key="titleColor" red="1" green="0.48627450979999998" blue="0.023529411760000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -187,7 +187,7 @@
                 <constraint firstAttribute="bottom" secondItem="k3D-w8-cLm" secondAttribute="bottom" id="Kgo-hH-rBV"/>
                 <constraint firstAttribute="trailing" secondItem="k3D-w8-cLm" secondAttribute="trailing" id="btr-Uj-t5S"/>
             </constraints>
-            <point key="canvasLocation" x="352" y="93"/>
+            <point key="canvasLocation" x="223" y="83"/>
         </view>
     </objects>
     <resources>

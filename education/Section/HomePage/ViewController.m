@@ -29,7 +29,7 @@
 #define USERINTROHEIGHT (64 * ([UIScreen mainScreen].bounds.size.height/568.0))
 #define BUTTONVIEWHEIGHT (204 * ([UIScreen mainScreen].bounds.size.height/568.0))
 
-@interface ViewController () {
+@interface ViewController ()<UIAlertViewDelegate> {
     CGFloat scale;
     NSArray *stringArray;
     NSArray *imagesArray;
@@ -59,6 +59,13 @@
     slideImages = [NSMutableArray arrayWithArray:@[@"example1",@"example2",@"example3"]];
     
     tabBarViewController = (SETabBarViewController *)self.navigationController.parentViewController;
+    
+    
+    // 判断vip用户
+    [self vipUser];
+    
+    
+    
     
     // 是否设置回弹效果
     _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, IMAGEHEIGHT)];
@@ -155,6 +162,9 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    
+    [self vipUserAction];
+    
     self.navigationController.navigationBar.hidden = YES;
     [_scrollView setContentOffset:CGPointMake(SCREENWIDTH, 0)];
     [tabBarViewController tabBarViewShow];
@@ -165,7 +175,43 @@
 }
 
 #pragma mark - Custom Method
-- (void) updateScrollView
+
+- (void)vipUserAction {
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    NSDictionary *parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token]};
+    
+    NSString *urlStr = [NSString stringWithFormat:@"%@VIPer",SERVER_HOST];
+    
+    [manager GET:urlStr parameters:parameter
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             
+             if ([responseObject[@"responseCode"] intValue] == 0) {
+                 _vipUser = YES;
+                 [_tableView reloadData];
+             }
+             else {
+                 _vipUser = NO;
+                 [_tableView reloadData];
+             }
+             
+             
+         }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             if (operation.response.statusCode == 401) {
+                 NSLog(@"请求超时");
+                 //   [SEUtils repetitionLogin];
+             }
+             else {
+                 NSLog(@"Error:%@",error);
+                 NSLog(@"err:%@",operation.responseObject[@"message"]);
+                 //   SHOW_ALERT(@"提示",operation.responseObject[@"message"])
+             }
+         }];
+}
+
+- (void)updateScrollView
 {
     [myTimer invalidate];
     myTimer = nil;
@@ -192,8 +238,6 @@
     }else{
         [self.scrollView scrollRectToVisible:CGRectMake(pt.x+SCREENWIDTH,0,SCREENWIDTH,IMAGEHEIGHT) animated:YES];
     }
-    
-    
 }
 
 - (void)schoolTimeTable {
@@ -237,23 +281,61 @@
 }
 
 - (void)homework {
-    EDHomeWorkViewController *homeWorkVC = [[EDHomeWorkViewController alloc]init];
-    [self.navigationController pushViewController:homeWorkVC animated:YES];
+    if (_vipUser) {
+        EDHomeWorkViewController *homeWorkVC = [[EDHomeWorkViewController alloc]init];
+        [self.navigationController pushViewController:homeWorkVC animated:YES];
+    }
+    else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"成为VIP才能使用该功能哟!" delegate:self cancelButtonTitle:@"先逛逛" otherButtonTitles:@"成为VIP", nil];
+        alert.tag = 201;
+        [alert show];
+    }
 }
 
 - (void)growUp {
-    GrowthTrailViewController *growthTrailVC = [[GrowthTrailViewController alloc] init];
-    [self.navigationController pushViewController:growthTrailVC animated:YES];
+    if (_vipUser) {
+        GrowthTrailViewController *growthTrailVC = [[GrowthTrailViewController alloc] init];
+        [self.navigationController pushViewController:growthTrailVC animated:YES];
+    }
+    else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"成为VIP才能使用该功能哟!" delegate:self cancelButtonTitle:@"先逛逛" otherButtonTitles:@"成为VIP", nil];
+        alert.tag = 201;
+        [alert show];
+    }
 }
 
 - (void)body {
-    EDPhySicalTestViewController *physicalVC = [[EDPhySicalTestViewController alloc]init];
-    [self.navigationController pushViewController:physicalVC animated:YES];
+    if (_vipUser) {
+        EDPhySicalTestViewController *physicalVC = [[EDPhySicalTestViewController alloc]init];
+        [self.navigationController pushViewController:physicalVC animated:YES];
+    }
+    else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"成为VIP才能使用该功能哟!" delegate:self cancelButtonTitle:@"先逛逛" otherButtonTitles:@"成为VIP", nil];
+        alert.tag = 201;
+        [alert show];
+    }
 }
 
 - (void)courseOnLine {
-    EDClassOnlineViewController *classOnlineVC = [[EDClassOnlineViewController alloc]init];
-    [self.navigationController pushViewController:classOnlineVC animated:YES];
+    if (_vipUser) {
+        EDClassOnlineViewController *classOnlineVC = [[EDClassOnlineViewController alloc]init];
+        [self.navigationController pushViewController:classOnlineVC animated:YES];
+    }
+    else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"成为VIP才能使用该功能哟!" delegate:self cancelButtonTitle:@"先逛逛" otherButtonTitles:@"成为VIP", nil];
+        alert.tag = 201;
+        [alert show];
+    }
+    
+}
+
+#pragma mark - UIAlertViewDelegate Method
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (alertView.tag == 201) {
+        if (buttonIndex == 1) {
+            NSLog(@"123123");
+        }
+    }
 }
 
 #pragma mark - UITableViewDelegate Method
@@ -312,6 +394,8 @@
             cell = [[[NSBundle mainBundle] loadNibNamed:@"ButtonViewCell" owner:self options:nil] lastObject];
         }
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        
+        [cell vipUser:_vipUser];
         
         [cell.btn1 addTarget:self action:@selector(schoolTimeTable) forControlEvents:UIControlEventTouchUpInside];
         [cell.btn2 addTarget:self action:@selector(myLetter) forControlEvents:UIControlEventTouchUpInside];

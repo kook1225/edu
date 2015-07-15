@@ -26,7 +26,7 @@
     self.title = @"家长注册";
     
     _nextBtn.layer.cornerRadius = 5.0f;
-    
+    _nextBtn.layer.masksToBounds = YES;
     //password = [SecurityUtil encryptMD5String:_pwd.text];
     
     self.navigationItem.leftBarButtonItem = [Tools getNavBarItem:self clickAction:@selector(back)];
@@ -36,6 +36,12 @@
 - (void)back {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (IBAction)loginBtn:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
 - (IBAction)nextBtn:(id)sender {
     if ([_userName.text  isEqual: @""]) {
         SHOW_ALERT(@"提示", @"手机号码不能为空");
