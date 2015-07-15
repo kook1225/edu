@@ -29,14 +29,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    // 获取设备id
     UIDevice *device = [UIDevice currentDevice];//创建设备对象
-    
     NSUUID *deviceUID = [device identifierForVendor];
-    
     deviceId = [NSString stringWithFormat:@"%@",deviceUID.UUIDString];
     
-    NSLog(@"设备id:%@",deviceId); // 输出设备id
+    _userName.placeholder = @"请输入您的账号";
+    [_userName setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
+    [_userName setValue:[UIFont boldSystemFontOfSize:14] forKeyPath:@"_placeholderLabel.font"];
+    
+    _userPwd.placeholder = @"请输入您的密码";
+    [_userPwd setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
+    [_userPwd setValue:[UIFont boldSystemFontOfSize:14] forKeyPath:@"_placeholderLabel.font"];
+    
+    //测试
+    _userName.text = @"13911111111";
+    _userPwd.text = @"111111";
     
     _loginBtn.layer.cornerRadius = 4.0f;
 }
@@ -124,10 +133,6 @@
     }
 }
 - (IBAction)findPwdFunction:(id)sender {
-    EDAlterPwdViewController *edAlertPwdVC = [[EDAlterPwdViewController alloc] init];
-    edAlertPwdVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:edAlertPwdVC];
-    [self presentViewController:nav animated:YES completion:nil];
 
 }
 

@@ -95,8 +95,8 @@
                 _areaLabel.text = [[dataArray objectAtIndex:0] QYMC];
             }
             else if (btn.tag == 502) {
-                schoolId = [[dataArray objectAtIndex:0] _dwid];
-                _schoolLabel.text = [[dataArray objectAtIndex:0] _dwmc];
+                schoolId = [[dataArray objectAtIndex:0] DWID];
+                _schoolLabel.text = [[dataArray objectAtIndex:0] DWMC];
             }
             else if (btn.tag == 503) {
                 gradeId = [[dataArray objectAtIndex:0] NJID];
@@ -445,7 +445,7 @@
             return [[dataArray objectAtIndex:row] QYMC];
         }
         else if (flag == 2) {
-            return [[dataArray objectAtIndex:row] _dwmc];
+            return [[dataArray objectAtIndex:row] DWMC];
         }
         else if (flag == 3) {
             return [[dataArray objectAtIndex:row] NJMC];
@@ -469,8 +469,8 @@
             seletedMajorNames = [[dataArray objectAtIndex:row] QYMC];
         }
         else if (flag == 2) {
-            schoolId = [[dataArray objectAtIndex:row] _dwid];
-            seletedMajorNames = [[dataArray objectAtIndex:row] _dwmc];
+            schoolId = [[dataArray objectAtIndex:row] DWID];
+            seletedMajorNames = [[dataArray objectAtIndex:row] DWMC];
         }
         else if (flag == 3) {
             gradeId = [[dataArray objectAtIndex:row] NJID];

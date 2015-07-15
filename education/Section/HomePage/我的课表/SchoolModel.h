@@ -14,12 +14,12 @@
 
 @interface SchoolModel : JSONModel
 
-@property (strong,nonatomic) NSString<Optional> *_id;
-@property (strong,nonatomic) NSString<Optional> *_qyid;
-@property (strong,nonatomic) NSString<Optional> *_dwid;
-@property (strong,nonatomic) NSString<Optional> *_dwmc;
-@property (strong,nonatomic) NSString<Optional> *_dwdz;
-@property (strong,nonatomic) NSString<Optional> *_sffb;
-@property (strong,nonatomic) NSString<Optional> *_dwwz;
+@property (strong,nonatomic) NSString<Optional> *ID;
+@property (strong,nonatomic) NSString<Optional> *QYID;
+@property (strong,nonatomic) NSString<Optional> *DWID;
+@property (strong,nonatomic) NSString<Optional> *DWMC;
+@property (strong,nonatomic) NSString<Optional> *DWDZ;
+@property (strong,nonatomic) NSString<Optional> *SFFB;
+@property (strong,nonatomic) NSString<Optional> *DWWZ;
 
 @end

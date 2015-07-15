@@ -187,7 +187,7 @@
                 <constraint firstAttribute="bottom" secondItem="k3D-w8-cLm" secondAttribute="bottom" id="Kgo-hH-rBV"/>
                 <constraint firstAttribute="trailing" secondItem="k3D-w8-cLm" secondAttribute="trailing" id="btr-Uj-t5S"/>
             </constraints>
-            <point key="canvasLocation" x="352" y="93"/>
+            <point key="canvasLocation" x="223" y="83"/>
         </view>
     </objects>
     <resources>

@@ -147,6 +147,7 @@
 		764406E81B4F5A8600541C86 /* IntroDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 764406E61B4F5A8600541C86 /* IntroDetailViewController.xib */; };
 		764406ED1B4FA31300541C86 /* SchoolTimeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 764406EB1B4FA31300541C86 /* SchoolTimeTableViewController.m */; };
 		764406EE1B4FA31300541C86 /* SchoolTimeTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 764406EC1B4FA31300541C86 /* SchoolTimeTableViewController.xib */; };
+		768F88B71B55EAD50054F73C /* TeacherInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 768F88B61B55EAD50054F73C /* TeacherInfoModel.m */; };
 		768FFAF11B4238D9008E577F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF01B4238D9008E577F /* main.m */; };
 		768FFAF41B4238D9008E577F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF31B4238D9008E577F /* AppDelegate.m */; };
 		768FFAFC1B4238D9008E577F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 768FFAFB1B4238D9008E577F /* Images.xcassets */; };
@@ -402,6 +403,8 @@
 		764406EA1B4FA31300541C86 /* SchoolTimeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolTimeTableViewController.h; sourceTree = "<group>"; };
 		764406EB1B4FA31300541C86 /* SchoolTimeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolTimeTableViewController.m; sourceTree = "<group>"; };
 		764406EC1B4FA31300541C86 /* SchoolTimeTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SchoolTimeTableViewController.xib; sourceTree = "<group>"; };
+		768F88B51B55EAD50054F73C /* TeacherInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TeacherInfoModel.h; path = "education/Section/HomePage/我的课表/TeacherInfoModel.h"; sourceTree = SOURCE_ROOT; };
+		768F88B61B55EAD50054F73C /* TeacherInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TeacherInfoModel.m; path = "education/Section/HomePage/我的课表/TeacherInfoModel.m"; sourceTree = SOURCE_ROOT; };
 		768FFAEB1B4238D9008E577F /* education.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = education.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		768FFAEF1B4238D9008E577F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		768FFAF01B4238D9008E577F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -1043,6 +1046,8 @@
 				76F1214C1B554D9000635209 /* UserInfoModel.m */,
 				76F1214E1B554E1D00635209 /* StudentInfoModel.h */,
 				76F1214F1B554E1D00635209 /* StudentInfoModel.m */,
+				768F88B51B55EAD50054F73C /* TeacherInfoModel.h */,
+				768F88B61B55EAD50054F73C /* TeacherInfoModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1402,6 +1407,7 @@
 				1857A05A1B4CF9A600501EA0 /* EDPhotoDetailViewController.m in Sources */,
 				764406B31B4D4C0600541C86 /* GrowthTrailViewController.m in Sources */,
 				768FFB321B42C333008E577F /* UserIntroCell.m in Sources */,
+				768F88B71B55EAD50054F73C /* TeacherInfoModel.m in Sources */,
 				1808B3291B44293C0050E3B4 /* EDDayInfoCell.m in Sources */,
 				764406D31B4EA4DF00541C86 /* EvaluteAndEncourageCell.m in Sources */,
 				764406BF1B4D642B00541C86 /* ParentRegisterViewController.m in Sources */,

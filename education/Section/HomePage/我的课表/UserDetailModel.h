@@ -11,6 +11,7 @@
 #import "ClassModel.h"
 #import "UserInfoModel.h"
 #import "StudentInfoModel.h"
+#import "TeacherInfoModel.h"
 
 @interface UserDetailModel : JSONModel
 
@@ -18,6 +19,6 @@
 @property (strong,nonatomic) SchoolModel<Optional> *schoolInfo;
 @property (strong,nonatomic) NSArray<ClassModel,Optional> *classInfo;
 @property (strong,nonatomic) StudentInfoModel<Optional> *studentInfo;
-@property (strong,nonatomic) NSString<Optional> *teacherInfo;
+@property (strong,nonatomic) TeacherInfoModel<Optional> *teacherInfo;
 
 @end
