@@ -175,6 +175,11 @@
     
     NSString *urlStr = [NSString stringWithFormat:@"%@BaseInfo",SERVER_HOST];
     
+    // 设置超时时间
+    [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+    manager.requestSerializer.timeoutInterval = 10.f;
+    [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+    
     [manager GET:urlStr parameters:nil
           success:^(AFHTTPRequestOperation *operation, id responseObject) {
               btn.enabled = YES;
@@ -195,14 +200,12 @@
           failure:^(AFHTTPRequestOperation *operation, NSError *error) {
               btn.enabled = YES;
               [HUD hide:YES];
-              if (operation.response.statusCode == 401) {
-                  NSLog(@"请求超时");
-                  //   [SEUtils repetitionLogin];
-              }
-              else {
-                  NSLog(@"Error:%@",error);
-                  NSLog(@"err:%@",operation.responseObject[@"message"]);
-                  //   SHOW_ALERT(@"提示",operation.responseObject[@"message"])
+              if(error.code == -1001)
+              {
+                  SHOW_ALERT(@"提示", @"网络请求超时");
+              }else if (error.code == -1009)
+              {
+                  SHOW_ALERT(@"提示", @"网络连接已断开");
               }
           }];
 }
@@ -230,6 +233,11 @@
         
         NSString *urlStr = [NSString stringWithFormat:@"%@BaseInfo",SERVER_HOST];
         
+        // 设置超时时间
+        [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+        manager.requestSerializer.timeoutInterval = 10.f;
+        [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+        
         [manager GET:urlStr parameters:parameter
              success:^(AFHTTPRequestOperation *operation, id responseObject) {
                  btn.enabled = YES;
@@ -250,14 +258,12 @@
              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                  btn.enabled = YES;
                  [HUD hide:YES];
-                 if (operation.response.statusCode == 401) {
-                     NSLog(@"请求超时");
-                     //   [SEUtils repetitionLogin];
-                 }
-                 else {
-                     NSLog(@"Error:%@",error);
-                     NSLog(@"err:%@",operation.responseObject[@"message"]);
-                     //   SHOW_ALERT(@"提示",operation.responseObject[@"message"])
+                 if(error.code == -1001)
+                 {
+                     SHOW_ALERT(@"提示", @"网络请求超时");
+                 }else if (error.code == -1009)
+                 {
+                     SHOW_ALERT(@"提示", @"网络连接已断开");
                  }
              }];
     }
@@ -286,6 +292,11 @@
         
         NSString *urlStr = [NSString stringWithFormat:@"%@BaseInfo",SERVER_HOST];
         
+        // 设置超时时间
+        [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+        manager.requestSerializer.timeoutInterval = 10.f;
+        [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+        
         [manager GET:urlStr parameters:parameter
              success:^(AFHTTPRequestOperation *operation, id responseObject) {
                  btn.enabled = YES;
@@ -300,20 +311,16 @@
                  else {
                      SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
                  }
-                 
-                 
              }
              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                  btn.enabled = YES;
                  [HUD hide:YES];
-                 if (operation.response.statusCode == 401) {
-                     NSLog(@"请求超时");
-                     //   [SEUtils repetitionLogin];
-                 }
-                 else {
-                     NSLog(@"Error:%@",error);
-                     NSLog(@"err:%@",operation.responseObject[@"message"]);
-                     //   SHOW_ALERT(@"提示",operation.responseObject[@"message"])
+                 if(error.code == -1001)
+                 {
+                     SHOW_ALERT(@"提示", @"网络请求超时");
+                 }else if (error.code == -1009)
+                 {
+                     SHOW_ALERT(@"提示", @"网络连接已断开");
                  }
              }];
     }
@@ -343,6 +350,11 @@
         
         NSString *urlStr = [NSString stringWithFormat:@"%@BaseInfo",SERVER_HOST];
         
+        // 设置超时时间
+        [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+        manager.requestSerializer.timeoutInterval = 10.f;
+        [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+        
         [manager GET:urlStr parameters:parameter
              success:^(AFHTTPRequestOperation *operation, id responseObject) {
                  btn.enabled = YES;
@@ -363,14 +375,12 @@
              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                  btn.enabled = YES;
                  [HUD hide:YES];
-                 if (operation.response.statusCode == 401) {
-                     NSLog(@"请求超时");
-                     //   [SEUtils repetitionLogin];
-                 }
-                 else {
-                     NSLog(@"Error:%@",error);
-                     NSLog(@"err:%@",operation.responseObject[@"message"]);
-                     //   SHOW_ALERT(@"提示",operation.responseObject[@"message"])
+                 if(error.code == -1001)
+                 {
+                     SHOW_ALERT(@"提示", @"网络请求超时");
+                 }else if (error.code == -1009)
+                 {
+                     SHOW_ALERT(@"提示", @"网络连接已断开");
                  }
              }];
     }
@@ -394,6 +404,11 @@
         
         NSDictionary *parameter = @{@"username":_userName,@"pwd":_pwd,@"qyid":areaId,@"dwid":schoolId,@"njid":gradeId,@"bjid":classId,@"xsxm":_nameTextField.text};
         
+        // 设置超时时间
+        [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+        manager.requestSerializer.timeoutInterval = 10.f;
+        [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+        
         [manager POST:urlStr parameters:parameter
               success:^(AFHTTPRequestOperation *operation, id responseObject) {
                   _registerBtn.enabled = YES;
@@ -413,14 +428,12 @@
               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                   _registerBtn.enabled = YES;
                   [HUD hide:YES];
-                  if (operation.response.statusCode == 401) {
-                      NSLog(@"请求超时");
-                      //   [SEUtils repetitionLogin];
-                  }
-                  else {
-                      NSLog(@"Error:%@",error);
-                      NSLog(@"err:%@",operation.responseObject[@"message"]);
-                      //   SHOW_ALERT(@"提示",operation.responseObject[@"message"])
+                  if(error.code == -1001)
+                  {
+                      SHOW_ALERT(@"提示", @"网络请求超时");
+                  }else if (error.code == -1009)
+                  {
+                      SHOW_ALERT(@"提示", @"网络连接已断开");
                   }
               }];
     }

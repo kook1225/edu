@@ -96,15 +96,18 @@
                                 @"xxid":@"",
                                 @"titile":_titleTextField.text,
                                 @"content":_textView.text,
-                                @"picadd":@"1",
                                 @"type":@"1"};
     
     NSString *urlStr = [NSString stringWithFormat:@"%@ChengZhang",SERVER_HOST];
     
+    // 设置超时时间
+    [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+    manager.requestSerializer.timeoutInterval = 10.f;
+    [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+    
     [manager POST:urlStr parameters:parameter constructingBodyWithBlock:^(id <AFMultipartFormData> formData) {
-        /*
-        [formData appendPartWithFileData:fileData name:@"avatar" fileName:@"image.png" mimeType:@"image/png"];
-         */
+        [formData appendPartWithFileData:fileData name:@"picadd" fileName:@"image.png" mimeType:@"image/png"];
+        
     }
           success:^(AFHTTPRequestOperation *operation, id responseObject) {             [HUD hide:YES];
              
@@ -119,14 +122,12 @@
          }
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
              [HUD hide:YES];
-             if (operation.response.statusCode == 401) {
-                 NSLog(@"请求超时");
-                 //   [SEUtils repetitionLogin];
-             }
-             else {
-                 NSLog(@"Error:%@",error);
-                 NSLog(@"err:%@",operation.responseObject[@"message"]);
-                 //   SHOW_ALERT(@"提示",operation.responseObject[@"message"])
+             if(error.code == -1001)
+             {
+                 SHOW_ALERT(@"提示", @"网络请求超时");
+             }else if (error.code == -1009)
+             {
+                 SHOW_ALERT(@"提示", @"网络连接已断开");
              }
          }];
 }
