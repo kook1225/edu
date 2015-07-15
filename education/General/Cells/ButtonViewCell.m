@@ -18,7 +18,7 @@
     
     CGFloat scale = SCALE;
     
-    if (vip) {
+    if (!vip) {
         [_btn9 setBackgroundImage:[UIImage imageNamed:@"btn9v"] forState:UIControlStateNormal];
         [_btn10 setBackgroundImage:[UIImage imageNamed:@"btn10v"] forState:UIControlStateNormal];
         [_btn11 setBackgroundImage:[UIImage imageNamed:@"btn11v"] forState:UIControlStateNormal];

@@ -83,7 +83,9 @@
             if (i==0) {
                 [tabBarButton setSelected:YES];
             }
+            // 防止按钮同时触发
             [tabBarButton setExclusiveTouch:YES];
+            
             [_tabBarView addSubview:tabBarButton];
             
         }
