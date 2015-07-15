@@ -8,8 +8,9 @@
 
 #import "EDClassOnlineViewController.h"
 #import "SETabBarViewController.h"
+#import "EDClassOnlineCell.h"
 
-@interface EDClassOnlineViewController ()
+@interface EDClassOnlineViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
     SETabBarViewController *tabBarView;
 }
@@ -35,5 +36,23 @@
 - (void)back
 {
     [self.navigationController popViewControllerAnimated:YES];
+}
+#pragma mark tableView 代理
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 5;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 235;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
+{
+    EDClassOnlineCell *cell = [tableView dequeueReusableCellWithIdentifier:@"vodie"];
+    if (cell== nil) {
+        cell = [[[NSBundle mainBundle]loadNibNamed:@"EDClassOnlineCell" owner:self options:nil]lastObject];
+    }
+    return cell;
 }
 @end

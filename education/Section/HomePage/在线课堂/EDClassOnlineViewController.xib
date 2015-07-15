@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EDClassOnlineViewController">
             <connections>
+                <outlet property="tableView" destination="juq-c1-e5L" id="tld-Mx-4vA"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -13,9 +14,25 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="juq-c1-e5L">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="454"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="xcQ-q3-vLZ"/>
+                        <outlet property="delegate" destination="-1" id="VlZ-J1-emV"/>
+                    </connections>
+                </tableView>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="juq-c1-e5L" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Ad6-6w-VPP"/>
+                <constraint firstItem="juq-c1-e5L" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="QrN-sk-hDq"/>
+                <constraint firstAttribute="bottom" secondItem="juq-c1-e5L" secondAttribute="bottom" constant="50" id="fh7-fb-gap"/>
+                <constraint firstAttribute="trailing" secondItem="juq-c1-e5L" secondAttribute="trailing" id="gna-S6-gqr"/>
+            </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-            <point key="canvasLocation" x="245" y="258"/>
+            <point key="canvasLocation" x="367" y="86"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
