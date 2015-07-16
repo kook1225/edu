@@ -20,6 +20,8 @@
 }
 @property (weak, nonatomic) IBOutlet UIView *topImageView;
 @property (weak, nonatomic) IBOutlet UIButton *exitBtn;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *addLabel;
 
 @end
 
@@ -30,6 +32,12 @@
     
     _exitBtn.layer.cornerRadius = 5.0f;
     _exitBtn.layer.masksToBounds = YES;
+    
+    
+    if (![[[SEUtils getUserInfo] UserDetail] teacherInfo]) {
+        _nameLabel.text = [[[SEUtils getUserInfo] UserDetail] studentInfo].XSXM;
+        _addLabel.text = [NSString stringWithFormat:@"%@%@",@"五年级",[[[[SEUtils getUserInfo] UserDetail] classInfo][0] BJMC]];
+    }
     
     tabBarViewController = (SETabBarViewController *)self.navigationController.parentViewController;
     
