@@ -36,8 +36,12 @@
 {
     // 1.自己的属性
     self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    /*
     CGFloat color = 230/255.0;
     self.backgroundColor = [UIColor colorWithRed:color green:color blue:color alpha:1];
+     */
+    self.backgroundColor = [UIColor clearColor];
+     
     
     // 2.时间标签
     [self addSubview:_lastUpdateTimeLabel = [self labelWithFontSize:12]];

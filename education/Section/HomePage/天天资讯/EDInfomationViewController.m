@@ -138,7 +138,7 @@
 }
 
 #pragma mark 刷新
-//下拉刷新相关
+//下拉刷新和上拉加载相关
 - (void)dealloc{
     [_footerview free];
     [_headerview free];
@@ -154,7 +154,7 @@
     _headerview.delegate = self;
 }
 
-//下拉刷新代理
+//下拉刷新和上拉加载代理
 - (void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
 {
     _baseview = refreshView;

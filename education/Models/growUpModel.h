@@ -10,7 +10,6 @@
 
 @interface growUpModel : JSONModel
 
-@property (strong,nonatomic) NSString<Optional> *row;
 @property (strong,nonatomic) NSString<Optional> *ID;
 @property (strong,nonatomic) NSString<Optional> *XSID;
 @property (strong,nonatomic) NSString<Optional> *FBRID;
@@ -18,6 +17,7 @@
 @property (strong,nonatomic) NSString<Optional> *FBRLX;
 @property (strong,nonatomic) NSString<Optional> *FBNR;
 @property (strong,nonatomic) NSString<Optional> *XXLB;
+@property (strong,nonatomic) NSString<Optional> *XXID;
 @property (strong,nonatomic) NSString<Optional> *TPDZ;
 @property (strong,nonatomic) NSString<Optional> *FBSJ;
 @property (strong,nonatomic) NSString<Optional> *YHM;
