@@ -14,6 +14,9 @@
     UIButton *addImgBtn;
     UIImageView *imgView;
     int imageNum;
+    NSString *filePath;
+    NSData *fileData;
+    UIImagePickerController *picker;
 }
 @property (weak, nonatomic) IBOutlet UIView *headView;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
@@ -55,6 +58,49 @@ NSString *TMP_UPLOAD_IMG_PATH=@"";
     
     
 }
+- (IBAction)sendFuction:(id)sender {
+    
+    /*
+    MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    HUD.mode = MBProgressHUDModeIndeterminate;
+    HUD.labelText = @"Loading";
+    HUD.removeFromSuperViewOnHide = YES;
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+    manager.requestSerializer.timeoutInterval = 10.f;
+    [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+    
+    NSDictionary *pramaters = @{@"access_token":[SEUtils getUserInfo].TokenInfo.access_token,
+                                @"extension":@"jpg",
+                                @"media":TMP_UPLOAD_IMG_PATH};
+    NSString *urlString = [NSString stringWithFormat:@"%@UploadAPI",IMG_HOST];
+    
+    [manager POST:urlString parameters:pramaters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        [formData appendPartWithFileData:fileData name:@"avatar" fileName:@"head_image.png" mimeType:@"image/png"];
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [HUD setHidden:YES];
+        NSLog(@"res--%@",responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [HUD setHidden:YES];
+        if (operation.response.statusCode == 401) {
+            NSLog(@"请求超时");
+            //   [SEUtils repetitionLogin];
+        }else if(error.code == -1001)
+        {
+            SHOW_ALERT(@"提示", @"网络请求超时");
+        }else if (error.code == -1009)
+        {
+            SHOW_ALERT(@"提示", @"网络连接已断开");
+        }
+        else {
+            NSLog(@"Error:%@",error);
+            NSLog(@"err:%@",operation.responseObject[@"message"]);
+            //   SHOW_ALERT(@"提示",operation.responseObject[@"message"])
+        }
+    }];
+   */
+}
 
 - (void)addImageView
 {
@@ -88,94 +134,100 @@ NSString *TMP_UPLOAD_IMG_PATH=@"";
 {
     
     if(buttonIndex==0){
-        [self snapImage];
+        [self takePhoto];
         
         }
     else if(buttonIndex==1){
-        [self pickImage];
+        [self localPhoto];
         
     }
 }
-#pragma mark 两种照片选择方式
 
-//拍照
-- (void) snapImage
+//开始拍照
+-(void)takePhoto
 {
-    UIImagePickerController *ipc=[[UIImagePickerController alloc] init];
-    ipc.sourceType=UIImagePickerControllerSourceTypeCamera;
-    ipc.delegate=self;
-    ipc.allowsEditing=NO;
-    [self presentViewController:ipc animated:YES completion:nil];
-  
-}
-//从相册里找
-- (void) pickImage
-{
-    UIImagePickerController *ipc=[[UIImagePickerController alloc] init];
-    ipc.sourceType=UIImagePickerControllerSourceTypePhotoLibrary;
-    ipc.delegate=self;
-    ipc.allowsEditing=NO;
-    [self presentViewController:ipc animated:YES completion:nil];
-}
-
-#pragma mark UIImagePicker 代理
--(void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *) info
-{
-    imageNum++;
-    UIImage *img=[info objectForKey:@"UIImagePickerControllerOriginalImage"];
-    
-    if(picker.sourceType==UIImagePickerControllerSourceTypeCamera){
-    //        UIImageWriteToSavedPhotosAlbum(img,nil,nil,nil);
+    UIImagePickerControllerSourceType sourceType = UIImagePickerControllerSourceTypeCamera;
+    if ([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera])
+    {
+        picker = [[UIImagePickerController alloc] init];
+        picker.delegate = self;
+        picker.allowsEditing = YES;
+        picker.sourceType = sourceType;
+        [self.navigationController presentViewController:picker animated:YES completion:^(){}];
+    }else
+    {
+        NSLog(@"模拟器中无法打开照相机,请在真机中使用");
     }
-    UIImage *newImg=[self imageWithImageSimple:img scaledToSize:CGSizeMake(78, 78)];
-    [self saveImage:newImg WithName:[NSString stringWithFormat:@"%@%@",[self generateUuidString],@".jpg"]];
-    
-    [self setImgFrame:imageNum image:newImg];
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
-
-}
--(UIImage *) imageWithImageSimple:(UIImage*) image scaledToSize:(CGSize) newSize
-{
-    newSize.height=image.size.height*(newSize.width/image.size.width);
-    UIGraphicsBeginImageContext(newSize);
-    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
-    UIImage *newImage=UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return  newImage;
 }
 
-- (void)saveImage:(UIImage *)tempImage WithName:(NSString *)imageName
+//打开本地相册
+-(void)localPhoto
 {
-    NSLog(@"===TMP_UPLOAD_IMG_PATH===%@",TMP_UPLOAD_IMG_PATH);
-    NSData* imageData = UIImagePNGRepresentation(tempImage);
-    NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
-
-    NSString* documentsDirectory = [paths objectAtIndex:0];
-    
-    // Now we get the full path to the file
-    NSString* fullPathToFile = [documentsDirectory stringByAppendingPathComponent:imageName];
-    // and then we write it out
-    TMP_UPLOAD_IMG_PATH=fullPathToFile;
-    NSArray *nameAry=[TMP_UPLOAD_IMG_PATH componentsSeparatedByString:@"/"];
-    NSLog(@"===new fullPathToFile===%@",fullPathToFile);
-    NSLog(@"===new FileName===%@",[nameAry objectAtIndex:[nameAry count]-1]);
-    [imageData writeToFile:fullPathToFile atomically:NO];
-
+    picker = [[UIImagePickerController alloc] init];
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    [self.navigationController presentViewController:picker animated:YES completion:^(){}];
 }
-- (NSString *)generateUuidString
-{
-    // create a new UUID which you own
-    CFUUIDRef uuid = CFUUIDCreate(kCFAllocatorDefault);
-    // create a new CFStringRef (toll-free bridged to NSString)
-    // that you own
-    NSString *uuidString = (NSString *)CFBridgingRelease(CFUUIDCreateString(kCFAllocatorDefault, uuid));
-    // transfer ownership of the string
-    // to the autorelease pool
+
+#pragma mark - UIImagePickerControllerDelegate method
+-(void)imagePickerController:(UIImagePickerController*)pk
+didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    NSString *type = [info objectForKey:UIImagePickerControllerMediaType];
+    //先把图片转成NSData
+    if ([type isEqualToString:@"public.image"])
+    {
+        UIImage* images = [info objectForKey:@"UIImagePickerControllerEditedImage"];
+        
+        //压缩图片
+        CGSize imageSize = images.size;
+        CGSize thumbImageSize = CGSizeMake(imageSize.width/2,  imageSize.height/2);
+        UIGraphicsBeginImageContext(thumbImageSize);
+        [images drawInRect:CGRectMake(0, 0, thumbImageSize.width,thumbImageSize.height)];
+        images = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        NSData *data;
+        if (UIImagePNGRepresentation(images) == nil)
+        {
+            data = UIImageJPEGRepresentation(images, 1.0);
+        }
+        else
+        {
+            data = UIImagePNGRepresentation(images);
+        }
+        
+        //图片保存的路径
+        //这里将图片放在沙盒的documents文件夹中
+        NSString * DocumentsPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
+        
+        //文件管理器
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        
+        //把刚刚图片转换的data对象拷贝至沙盒中 并保存为image.png
+        NSString *imagePath= @"/head_image.png";
+        [fileManager createDirectoryAtPath:DocumentsPath withIntermediateDirectories:YES attributes:nil error:nil];
+        [fileManager createFileAtPath:[DocumentsPath stringByAppendingString:imagePath] contents:data attributes:nil];
+        
+        //得到选择后沙盒中图片的完整路径
+        filePath = [DocumentsPath stringByAppendingPathComponent:imagePath];
+        fileData = [NSData dataWithContentsOfMappedFile:filePath];
+        
+        //上传图片
+        [pk dismissViewControllerAnimated:YES completion:^{
+            imageNum++;
+           
+            [self setImgFrame:imageNum image:[UIImage imageWithContentsOfFile:filePath]];
+        }];
+        
+    }
     
-    // release the UUID
-    CFRelease(uuid);
-    return uuidString;
+    
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)pk{
+    [pk dismissViewControllerAnimated:YES completion:^{
+    }];
 }
 @end
 
