@@ -184,6 +184,11 @@
     
     NSString *urlStr = [NSString stringWithFormat:@"%@VIPer",SERVER_HOST];
     
+    // 设置超时时间
+    [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+    manager.requestSerializer.timeoutInterval = 10.f;
+    [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+    
     [manager GET:urlStr parameters:parameter
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
              
@@ -199,14 +204,12 @@
              
          }
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-             if (operation.response.statusCode == 401) {
-                 NSLog(@"请求超时");
-                 //   [SEUtils repetitionLogin];
-             }
-             else {
-                 NSLog(@"Error:%@",error);
-                 NSLog(@"err:%@",operation.responseObject[@"message"]);
-                 //   SHOW_ALERT(@"提示",operation.responseObject[@"message"])
+             if(error.code == -1001)
+             {
+                 SHOW_ALERT(@"提示", @"网络请求超时");
+             }else if (error.code == -1009)
+             {
+                 SHOW_ALERT(@"提示", @"网络连接已断开");
              }
          }];
 }

@@ -9,7 +9,7 @@
 #import "EDAlterPwdViewController.h"
 #import "SETabBarViewController.h"
 
-@interface EDAlterPwdViewController ()
+@interface EDAlterPwdViewController ()<UIAlertViewDelegate>
 {
     SETabBarViewController *tabBarView;
 }
@@ -36,7 +36,7 @@
 #pragma mark 常用方法
 - (void)back
 {
-        [self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 - (void)drawlayer
 {
@@ -53,49 +53,69 @@
             SHOW_ALERT(@"提示", @"两次密码不一致");
         }
         else {
-            /*
-            _commitBtn.enabled = NO;
             
-            MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-            HUD.mode = MBProgressHUDModeIndeterminate;
-            HUD.labelText = @"Loading";
-            HUD.removeFromSuperViewOnHide = YES;
-            
-            
-            AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-            
-            NSString *urlStr = [NSString stringWithFormat:@"%@Password",SERVER_HOST];
-            
-            NSDictionary *parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],@"password1":_oldPwdTextField.text,@"password2":_nowPwdTextField.text};
-            
-            [manager POST:urlStr parameters:parameter
-                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                      _commitBtn.enabled = YES;
-                      [HUD hide:YES];
-                      
-                      if ([responseObject[@"responseCode"] intValue] == 0) {
+            if (!([_nowPwdTextField.text length] >= 6 && [_nowPwdTextField.text length] <= 20)) {
+                SHOW_ALERT(@"提示", @"密码长度不符合要求");
+            }
+            else {
+             
+                _commitBtn.enabled = NO;
+                
+                MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                HUD.mode = MBProgressHUDModeIndeterminate;
+                HUD.labelText = @"Loading";
+                HUD.removeFromSuperViewOnHide = YES;
+                
+                
+                AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+                
+                NSString *urlStr = [NSString stringWithFormat:@"%@Password",SERVER_HOST];
+                
+                NSDictionary *parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],@"password1":_oldPwdTextField.text,@"password2":_nowPwdTextField.text};
+                
+                // 设置超时时间
+                [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+                manager.requestSerializer.timeoutInterval = 10.f;
+                [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+                
+                [manager POST:urlStr parameters:parameter
+                      success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                          _commitBtn.enabled = YES;
+                          [HUD hide:YES];
+                          
+                          if ([responseObject[@"responseCode"] intValue] == 0) {
+                              UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"修改成功" delegate:self cancelButtonTitle:@"确定" otherButtonTitles: nil];
+                              alert.tag = 201;
+                              [alert show];
+                          }
+                          else {
+                              SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
+                          }
+                          
                           
                       }
-                      else {
-                          SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
-                      }
-                      
-                      
-                  }
-                  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                      _commitBtn.enabled = YES;
-                      [HUD hide:YES];
-                      if (operation.response.statusCode == 401) {
-                          NSLog(@"请求超时");
-                          //   [SEUtils repetitionLogin];
-                      }
-                      else {
-                          NSLog(@"Error:%@",error);
-                          NSLog(@"err:%@",operation.responseObject[@"message"]);
-                          //   SHOW_ALERT(@"提示",operation.responseObject[@"message"])
-                      }
-                  }];
-             */
+                      failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                          _commitBtn.enabled = YES;
+                          [HUD hide:YES];
+                          if(error.code == -1001)
+                          {
+                              SHOW_ALERT(@"提示", @"网络请求超时");
+                          }else if (error.code == -1009)
+                          {
+                              SHOW_ALERT(@"提示", @"网络连接已断开");
+                          }
+                      }];
+            }
+            
+        }
+    }
+}
+
+#pragma mark - UIAlertViewDelegate Method
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (alertView.tag == 201) {
+        if (buttonIndex == 0) {
+            [self.navigationController popViewControllerAnimated:YES];
         }
     }
 }
