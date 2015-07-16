@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface IntroDetailViewController : UIViewController
-
+@property (nonatomic,strong) NSString *detailId;
 @end

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface NoticeIntroViewController : UIViewController
-
+@property (nonatomic,strong) NSString *detailId;
 @end

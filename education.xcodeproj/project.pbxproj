@@ -99,6 +99,12 @@
 		1857A0DD1B5663A900501EA0 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A0D21B5663A900501EA0 /* UserModel.m */; };
 		1857A0E21B56641700501EA0 /* EDInfomationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A0E11B56641700501EA0 /* EDInfomationModel.m */; };
 		1857A0E51B56648100501EA0 /* EDInfoArrayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A0E41B56648100501EA0 /* EDInfoArrayModel.m */; };
+		1857A0E81B573A4E00501EA0 /* EDInfoDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A0E71B573A4E00501EA0 /* EDInfoDetailModel.m */; };
+		1857A0F31B574E7300501EA0 /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1857A0EB1B574E7300501EA0 /* MJRefresh.bundle */; };
+		1857A0F41B574E7300501EA0 /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A0EE1B574E7300501EA0 /* MJRefreshBaseView.m */; };
+		1857A0F51B574E7300501EA0 /* MJRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A0F01B574E7300501EA0 /* MJRefreshFooterView.m */; };
+		1857A0F61B574E7300501EA0 /* MJRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A0F21B574E7300501EA0 /* MJRefreshHeaderView.m */; };
+		1857A0F81B5754FB00501EA0 /* details.html in Resources */ = {isa = PBXBuildFile; fileRef = 1857A0F71B5754FB00501EA0 /* details.html */; };
 		187F7DC71B43BDDF005CC8D8 /* EDGradeRecodeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 187F7DC51B43BDDF005CC8D8 /* EDGradeRecodeCell.m */; };
 		187F7DC81B43BDDF005CC8D8 /* EDGradeRecodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187F7DC61B43BDDF005CC8D8 /* EDGradeRecodeCell.xib */; };
 		187F7DD01B43C469005CC8D8 /* Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 187F7DCF1B43C469005CC8D8 /* Tools.m */; };
@@ -338,6 +344,17 @@
 		1857A0E11B56641700501EA0 /* EDInfomationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDInfomationModel.m; sourceTree = "<group>"; };
 		1857A0E31B56648100501EA0 /* EDInfoArrayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDInfoArrayModel.h; sourceTree = "<group>"; };
 		1857A0E41B56648100501EA0 /* EDInfoArrayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDInfoArrayModel.m; sourceTree = "<group>"; };
+		1857A0E61B573A4E00501EA0 /* EDInfoDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDInfoDetailModel.h; sourceTree = "<group>"; };
+		1857A0E71B573A4E00501EA0 /* EDInfoDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDInfoDetailModel.m; sourceTree = "<group>"; };
+		1857A0EB1B574E7300501EA0 /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
+		1857A0EC1B574E7300501EA0 /* MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefresh.h; sourceTree = "<group>"; };
+		1857A0ED1B574E7300501EA0 /* MJRefreshBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBaseView.h; sourceTree = "<group>"; };
+		1857A0EE1B574E7300501EA0 /* MJRefreshBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshBaseView.m; sourceTree = "<group>"; };
+		1857A0EF1B574E7300501EA0 /* MJRefreshFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshFooterView.h; sourceTree = "<group>"; };
+		1857A0F01B574E7300501EA0 /* MJRefreshFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshFooterView.m; sourceTree = "<group>"; };
+		1857A0F11B574E7300501EA0 /* MJRefreshHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshHeaderView.h; sourceTree = "<group>"; };
+		1857A0F21B574E7300501EA0 /* MJRefreshHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshHeaderView.m; sourceTree = "<group>"; };
+		1857A0F71B5754FB00501EA0 /* details.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = details.html; sourceTree = "<group>"; };
 		187F7DC41B43BDDF005CC8D8 /* EDGradeRecodeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDGradeRecodeCell.h; sourceTree = "<group>"; };
 		187F7DC51B43BDDF005CC8D8 /* EDGradeRecodeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDGradeRecodeCell.m; sourceTree = "<group>"; };
 		187F7DC61B43BDDF005CC8D8 /* EDGradeRecodeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDGradeRecodeCell.xib; sourceTree = "<group>"; };
@@ -814,8 +831,33 @@
 				1857A0E11B56641700501EA0 /* EDInfomationModel.m */,
 				1857A0E31B56648100501EA0 /* EDInfoArrayModel.h */,
 				1857A0E41B56648100501EA0 /* EDInfoArrayModel.m */,
+				1857A0E61B573A4E00501EA0 /* EDInfoDetailModel.h */,
+				1857A0E71B573A4E00501EA0 /* EDInfoDetailModel.m */,
 			);
 			path = "天天资讯";
+			sourceTree = "<group>";
+		};
+		1857A0E91B574E4200501EA0 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				1857A0EA1B574E7300501EA0 /* MJRefresh */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		1857A0EA1B574E7300501EA0 /* MJRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				1857A0EB1B574E7300501EA0 /* MJRefresh.bundle */,
+				1857A0EC1B574E7300501EA0 /* MJRefresh.h */,
+				1857A0ED1B574E7300501EA0 /* MJRefreshBaseView.h */,
+				1857A0EE1B574E7300501EA0 /* MJRefreshBaseView.m */,
+				1857A0EF1B574E7300501EA0 /* MJRefreshFooterView.h */,
+				1857A0F01B574E7300501EA0 /* MJRefreshFooterView.m */,
+				1857A0F11B574E7300501EA0 /* MJRefreshHeaderView.h */,
+				1857A0F21B574E7300501EA0 /* MJRefreshHeaderView.m */,
+			);
+			path = MJRefresh;
 			sourceTree = "<group>";
 		};
 		187F7DC21B43BDAB005CC8D8 /* 我的 */ = {
@@ -1040,6 +1082,7 @@
 		768FFAEE1B4238D9008E577F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1857A0F71B5754FB00501EA0 /* details.html */,
 				768FFAEF1B4238D9008E577F /* Info.plist */,
 				187F7DD11B43C789005CC8D8 /* education-PrefixHeader.pch */,
 				768FFAF01B4238D9008E577F /* main.m */,
@@ -1078,6 +1121,7 @@
 		768FFB171B423BBE008E577F /* General */ = {
 			isa = PBXGroup;
 			children = (
+				1857A0E91B574E4200501EA0 /* lib */,
 				768FFB2E1B42C325008E577F /* Cells */,
 			);
 			path = General;
@@ -1274,6 +1318,7 @@
 				764406E31B4F594C00541C86 /* NoticeIntroViewController.xib in Resources */,
 				1808B34A1B44F1CB0050E3B4 /* EDStudentViewController.xib in Resources */,
 				1857A0991B4E4F1000501EA0 /* EDGrowDetailViewController.xib in Resources */,
+				1857A0F31B574E7300501EA0 /* MJRefresh.bundle in Resources */,
 				764406541B458B1700541C86 /* TopCell.xib in Resources */,
 				1857A0BB1B4F596700501EA0 /* EDClassOnlineCell.xib in Resources */,
 				764406D41B4EA4DF00541C86 /* EvaluteAndEncourageCell.xib in Resources */,
@@ -1303,6 +1348,7 @@
 				768FFB1F1B423C0A008E577F /* ViewController.xib in Resources */,
 				764406901B4AC4FA00541C86 /* SelectAddViewController.xib in Resources */,
 				18579FEB1B4BC28A00501EA0 /* LoginViewController.xib in Resources */,
+				1857A0F81B5754FB00501EA0 /* details.html in Resources */,
 				1857A00B1B4BC2E800501EA0 /* EDPhySicalTestViewController.xib in Resources */,
 				764406861B4A5CAA00541C86 /* LifeServiceIntroViewController.xib in Resources */,
 				768FFAFC1B4238D9008E577F /* Images.xcassets in Resources */,
@@ -1381,6 +1427,7 @@
 				1857A0891B4D6E9800501EA0 /* EDPrivateNoteSelectedCell.m in Sources */,
 				1857A0DD1B5663A900501EA0 /* UserModel.m in Sources */,
 				187F7DC71B43BDDF005CC8D8 /* EDGradeRecodeCell.m in Sources */,
+				1857A0F61B574E7300501EA0 /* MJRefreshHeaderView.m in Sources */,
 				18579FE31B4BC24E00501EA0 /* EDSetProblemViewController.m in Sources */,
 				1857A0511B4CF74B00501EA0 /* EDGradeDetailViewController.m in Sources */,
 				1857A0531B4CF74B00501EA0 /* EDGradeRecodeViewController.m in Sources */,
@@ -1411,6 +1458,7 @@
 				1808B34E1B44FD1C0050E3B4 /* EDSendMsgViewController.m in Sources */,
 				1857A00A1B4BC2E800501EA0 /* EDPhySicalTestViewController.m in Sources */,
 				1857A0DA1B5663A900501EA0 /* TokenInforModel.m in Sources */,
+				1857A0E81B573A4E00501EA0 /* EDInfoDetailModel.m in Sources */,
 				1857A0A81B4E705600501EA0 /* EDPrivateDetailViewController.m in Sources */,
 				1857A07E1B4D6E8000501EA0 /* EDPrivateNoteViewController.m in Sources */,
 				1857A0641B4D082100501EA0 /* EDPhotoDetailHeadCell.m in Sources */,
@@ -1440,6 +1488,7 @@
 				1857A05A1B4CF9A600501EA0 /* EDPhotoDetailViewController.m in Sources */,
 				764406B31B4D4C0600541C86 /* GrowthTrailViewController.m in Sources */,
 				768FFB321B42C333008E577F /* UserIntroCell.m in Sources */,
+				1857A0F51B574E7300501EA0 /* MJRefreshFooterView.m in Sources */,
 				1808B3291B44293C0050E3B4 /* EDDayInfoCell.m in Sources */,
 				764406D31B4EA4DF00541C86 /* EvaluteAndEncourageCell.m in Sources */,
 				764406BF1B4D642B00541C86 /* ParentRegisterViewController.m in Sources */,
@@ -1454,6 +1503,7 @@
 				1857A0231B4BC3FB00501EA0 /* EDMyOrderCell.m in Sources */,
 				1857A0551B4CF74B00501EA0 /* EDSubjectViewController.m in Sources */,
 				764406511B458B1700541C86 /* ReplyCell.m in Sources */,
+				1857A0F41B574E7300501EA0 /* MJRefreshBaseView.m in Sources */,
 				1857A0DC1B5663A900501EA0 /* UserInfoModel.m in Sources */,
 				18579FFB1B4BC2B800501EA0 /* EDAlterPwdViewController.m in Sources */,
 				76F121301B54B82E00635209 /* GTMBase64.m in Sources */,

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -14,58 +13,37 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="example1" translatesAutoresizingMaskIntoConstraints="NO" id="qpX-84-baJ">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="example1" id="qpX-84-baJ">
                         <rect key="frame" x="10" y="10" width="100" height="70"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="100" id="pE9-p6-clV"/>
-                        </constraints>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小学四年级语文复习" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wAO-1c-mJ8">
-                        <rect key="frame" x="116" y="11" width="126" height="15"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="15" id="Kke-m4-tzW"/>
-                        </constraints>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小学四年级语文复习sadasdasd" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wAO-1c-mJ8">
+                        <rect key="frame" x="116" y="11" width="194" height="15"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2010-09-10" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UgP-f3-EoF">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2010-09-10" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UgP-f3-EoF">
                         <rect key="frame" x="118" y="30" width="63" height="15"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DTs-EV-dmb">
+                    <view contentMode="scaleToFill" id="DTs-EV-dmb">
                         <rect key="frame" x="10" y="88" width="300" height="1"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.9137254901960784" green="0.9137254901960784" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="1" id="oHb-GL-TnK"/>
-                        </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="测试测试测试测试测试测试测试测试测试测试测试" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="skG-XB-NRh">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="测试测试测试测试测试测试测试测试测试测试测试" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="skG-XB-NRh">
                         <rect key="frame" x="116" y="42" width="192" height="39"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-                <constraints>
-                    <constraint firstItem="qpX-84-baJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="235-CE-3dt"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="skG-XB-NRh" secondAttribute="trailing" constant="4" id="5hT-9u-5FT"/>
-                    <constraint firstItem="UgP-f3-EoF" firstAttribute="top" secondItem="wAO-1c-mJ8" secondAttribute="bottom" constant="4" id="60p-jq-2eO"/>
-                    <constraint firstItem="DTs-EV-dmb" firstAttribute="leading" secondItem="qpX-84-baJ" secondAttribute="leading" id="9cL-Em-epM"/>
-                    <constraint firstAttribute="bottom" secondItem="DTs-EV-dmb" secondAttribute="bottom" id="AN5-yi-Kdd"/>
-                    <constraint firstItem="DTs-EV-dmb" firstAttribute="top" secondItem="UgP-f3-EoF" secondAttribute="bottom" constant="43" id="LJ5-ge-o7B"/>
-                    <constraint firstItem="DTs-EV-dmb" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="M1h-2g-QxB"/>
-                    <constraint firstItem="DTs-EV-dmb" firstAttribute="top" secondItem="skG-XB-NRh" secondAttribute="bottom" constant="7" id="UyW-MH-3y4"/>
-                    <constraint firstItem="wAO-1c-mJ8" firstAttribute="leading" secondItem="qpX-84-baJ" secondAttribute="trailing" constant="6" id="Zyc-g4-ZJK"/>
-                    <constraint firstItem="DTs-EV-dmb" firstAttribute="top" secondItem="qpX-84-baJ" secondAttribute="bottom" constant="8" symbolic="YES" id="dfv-A1-aHG"/>
-                    <constraint firstItem="skG-XB-NRh" firstAttribute="top" secondItem="wAO-1c-mJ8" secondAttribute="bottom" constant="16" id="fuf-wZ-ZUf"/>
-                    <constraint firstItem="wAO-1c-mJ8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="3" id="nUI-ag-IoB"/>
-                    <constraint firstItem="UgP-f3-EoF" firstAttribute="leading" secondItem="qpX-84-baJ" secondAttribute="trailing" constant="8" id="p6y-v0-3as"/>
-                    <constraint firstItem="qpX-84-baJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="pUR-SO-CYV"/>
-                    <constraint firstItem="wAO-1c-mJ8" firstAttribute="leading" secondItem="skG-XB-NRh" secondAttribute="leading" id="z8i-ls-KbP"/>
-                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="contentLabel" destination="skG-XB-NRh" id="oez-XP-JYM"/>
@@ -73,9 +51,15 @@
                 <outlet property="headImg" destination="qpX-84-baJ" id="KYi-6z-6Ql"/>
                 <outlet property="titleLabel" destination="wAO-1c-mJ8" id="cuw-4J-FeM"/>
             </connections>
+            <point key="canvasLocation" x="245" y="180"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="example1" width="255" height="170"/>
     </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>

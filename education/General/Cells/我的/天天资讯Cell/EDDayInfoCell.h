@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EDInfoArrayModel.h"
 
 @interface EDDayInfoCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *headImg;
@@ -14,5 +15,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
-- (void)setdata;
+- (void)setdata:(EDInfoArrayModel *)model;
 @end

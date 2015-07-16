@@ -7,8 +7,9 @@
 //
 
 #import "JSONModel.h"
+#import "EDInfoArrayModel.h"
 
 @interface EDInfomationModel : JSONModel
-@property (strong,nonatomic) NSString<Optional> *ID;
+@property (strong,nonatomic) NSArray<Optional> *list;
 
 @end
