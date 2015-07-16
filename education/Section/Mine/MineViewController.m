@@ -36,7 +36,7 @@
     
     if (![[[SEUtils getUserInfo] UserDetail] teacherInfo]) {
         _nameLabel.text = [[[SEUtils getUserInfo] UserDetail] studentInfo].XSXM;
-        _addLabel.text = [NSString stringWithFormat:@"%@%@",@"五年级",[[[[SEUtils getUserInfo] UserDetail] classInfo][0] BJMC]];
+        _addLabel.text = [NSString stringWithFormat:@"%@%@",[[[[SEUtils getUserInfo] UserDetail] studentInfo] NJMC],[[[[SEUtils getUserInfo] UserDetail] studentInfo] BJMC]];
     }
     
     tabBarViewController = (SETabBarViewController *)self.navigationController.parentViewController;
