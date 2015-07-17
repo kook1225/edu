@@ -96,7 +96,7 @@
         
         [imageView setImage:[UIImage imageNamed:[imagesArray objectAtIndex:i]]];
         
-        imageView.contentMode = UIViewContentModeScaleAspectFill;
+        //imageView.contentMode = UIViewContentModeScaleAspectFill;
         
         imageView.clipsToBounds = YES;
         

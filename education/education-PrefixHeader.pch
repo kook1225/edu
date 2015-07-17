@@ -23,6 +23,7 @@
 #import "GTMBase64.h"
 #import "SecurityUtil.h"
 #import "SEUtils.h"
+#import "UIImageView+AFNetworking.h"
 
 #define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
 #define SCREENWIDTH [UIScreen mainScreen].bounds.size.width

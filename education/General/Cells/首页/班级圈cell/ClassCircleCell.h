@@ -7,14 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ListModel.h"
 
 @interface ClassCircleCell : UITableViewCell<UITableViewDataSource,UITableViewDelegate> {
     CGSize labelSize;
     UIImage *singleImage;
     UIImageView *imageView;
-    NSArray *dataArray;
+    NSMutableArray *dataArray;
+    NSMutableString *titleStr;
 }
-
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *leftImageView;
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
 @property (nonatomic,strong) UIView *backView;
 @property (nonatomic,strong) UIButton *shareBtn;
@@ -28,6 +32,8 @@
 @property (nonatomic,strong) UILabel *evaluteLabel;
 @property (nonatomic,strong) UITableView *tableView;
 
-- (void)setIntroductionText:(NSString*)text image:(NSArray *)imagesArray reply:(NSArray *)replyArray index:(NSInteger)indexRow;
+- (void)setIntroductionText:(NSString*)text image:(NSArray *)imagesArray reply:(ListModel *)model index:(NSInteger)indexRow;
+
+- (void)setData:(ListModel *)model;
 
 @end
