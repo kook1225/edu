@@ -171,6 +171,8 @@
 		768F89021B5896160054F73C /* DynamicInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 768F89011B5896160054F73C /* DynamicInfoModel.m */; };
 		768F89051B58962C0054F73C /* AuthorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 768F89041B58962C0054F73C /* AuthorModel.m */; };
 		768F890B1B58965A0054F73C /* ReplysModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 768F890A1B58965A0054F73C /* ReplysModel.m */; };
+		768F890F1B5B88860054F73C /* CheckImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 768F890D1B5B88860054F73C /* CheckImageViewController.m */; };
+		768F89101B5B88860054F73C /* CheckImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 768F890E1B5B88860054F73C /* CheckImageViewController.xib */; };
 		768FFAF11B4238D9008E577F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF01B4238D9008E577F /* main.m */; };
 		768FFAF41B4238D9008E577F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF31B4238D9008E577F /* AppDelegate.m */; };
 		768FFAFC1B4238D9008E577F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 768FFAFB1B4238D9008E577F /* Images.xcassets */; };
@@ -464,6 +466,9 @@
 		768F89041B58962C0054F73C /* AuthorModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorModel.m; sourceTree = "<group>"; };
 		768F89091B58965A0054F73C /* ReplysModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReplysModel.h; sourceTree = "<group>"; };
 		768F890A1B58965A0054F73C /* ReplysModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReplysModel.m; sourceTree = "<group>"; };
+		768F890C1B5B88860054F73C /* CheckImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckImageViewController.h; sourceTree = "<group>"; };
+		768F890D1B5B88860054F73C /* CheckImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckImageViewController.m; sourceTree = "<group>"; };
+		768F890E1B5B88860054F73C /* CheckImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckImageViewController.xib; sourceTree = "<group>"; };
 		768FFAEB1B4238D9008E577F /* education.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = education.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		768FFAEF1B4238D9008E577F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		768FFAF01B4238D9008E577F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -1170,6 +1175,9 @@
 				187F7DCF1B43C469005CC8D8 /* Tools.m */,
 				768FFB201B423C76008E577F /* SETabBarViewController.h */,
 				768FFB211B423C76008E577F /* SETabBarViewController.m */,
+				768F890C1B5B88860054F73C /* CheckImageViewController.h */,
+				768F890D1B5B88860054F73C /* CheckImageViewController.m */,
+				768F890E1B5B88860054F73C /* CheckImageViewController.xib */,
 			);
 			path = component;
 			sourceTree = "<group>";
@@ -1395,6 +1403,7 @@
 				7644069F1B4BC1F900541C86 /* AddReceiveAddressViewController.xib in Resources */,
 				7644064E1B458B1700541C86 /* BottomCell.xib in Resources */,
 				764406CF1B4E763F00541C86 /* EvaluteAndEncourageViewController.xib in Resources */,
+				768F89101B5B88860054F73C /* CheckImageViewController.xib in Resources */,
 				1857A07F1B4D6E8000501EA0 /* EDPrivateNoteViewController.xib in Resources */,
 				1808B31E1B43D6650050E3B4 /* EDSubjectCell.xib in Resources */,
 				18579F8E1B45401100501EA0 /* EDEditInfoViewController.xib in Resources */,
@@ -1484,6 +1493,7 @@
 				18579FF71B4BC2B800501EA0 /* EDMyOrderViewController.m in Sources */,
 				1857A0981B4E4F1000501EA0 /* EDGrowDetailViewController.m in Sources */,
 				768FFAF41B4238D9008E577F /* AppDelegate.m in Sources */,
+				768F890F1B5B88860054F73C /* CheckImageViewController.m in Sources */,
 				764406CE1B4E763F00541C86 /* EvaluteAndEncourageViewController.m in Sources */,
 				1857A0151B4BC3CB00501EA0 /* EDPhysicalContentCell.m in Sources */,
 				7644064F1B458B1700541C86 /* ClassCircleCell.m in Sources */,

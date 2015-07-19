@@ -268,7 +268,7 @@
                                         @"extension":@"jpg"
                                         };
             
-            NSString *urlStr = [NSString stringWithFormat:@"%@UploadAPI/",IMAGE_HOST];
+            NSString *urlStr = [NSString stringWithFormat:@"%@/UploadAPI/",IMAGE_HOST];
             
             
             // 设置超时时间
@@ -292,6 +292,7 @@
                           }
                           
                           NSLog(@"pic:%@",picAdd);
+                          
                       }
                       else {
                           SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);

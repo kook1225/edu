@@ -7,6 +7,7 @@
 //
 
 #import "EDPrivateDetailViewController.h"
+#import "CheckImageViewController.h"
 
 @interface EDPrivateDetailViewController ()
 {
@@ -85,9 +86,28 @@
             NSURL *url = [NSURL URLWithString:urlStr];
             [imageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"1"]];
             
+            imageView.userInteractionEnabled = YES;
+            
             [self.view addSubview:imageView];
+            
+            
+            UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 75, 75)];
+            btn.backgroundColor = [UIColor clearColor];
+            btn.tag = 400 + i;
+            [btn addTarget:self action:@selector(checkImage:) forControlEvents:UIControlEventTouchUpInside];
+            [imageView addSubview:btn];
         }
     }
     
 }
+
+- (void)checkImage:(id)sender {
+    UIButton *btn = (UIButton *)sender;
+    
+    CheckImageViewController *checkImageVC = [[CheckImageViewController alloc] init];
+    checkImageVC.dataArray = imgArray;
+    checkImageVC.page = (int)btn.tag - 400;
+    [self.navigationController pushViewController:checkImageVC animated:YES];
+}
+
 @end
