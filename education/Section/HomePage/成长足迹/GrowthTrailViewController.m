@@ -36,8 +36,7 @@
     
     tabBarViewController = (SETabBarViewController *)self.navigationController.parentViewController;
     [tabBarViewController tabBarViewHidden];
-    
-    [self growUpApi];
+
     
     [self initfooterview];
     [self initheaderview];
@@ -50,6 +49,10 @@
     [rightBarBtn setTitle:@"发表" forState:UIControlStateNormal];
     UIBarButtonItem *btnItem2 = [[UIBarButtonItem alloc] initWithCustomView:rightBarBtn];
     self.navigationItem.rightBarButtonItem = btnItem2;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self growUpApi];
 }
 
 #pragma mark - Custom Method
@@ -66,7 +69,23 @@
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
-    NSDictionary *parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],@"XSID":[[[[SEUtils getUserInfo] UserDetail] studentInfo] ID],@"pageSize":@"10",@"page":@"1"};
+    //1405581
+    NSDictionary *parameter;
+    
+    if ([[[[[SEUtils getUserInfo] UserDetail] userinfo] YHLB] intValue] == 3) {
+        parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],
+                      @"XSID":@"1405581",
+                      @"pageSize":@"10",
+                      @"page":@"1"};
+    }
+    else {
+        parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],
+                      @"XSID":[[[[SEUtils getUserInfo] UserDetail] studentInfo] ID],
+                      @"pageSize":@"10",
+                      @"page":@"1"};
+    }
+    
+    
     
     NSString *urlStr = [NSString stringWithFormat:@"%@ChengZhang",SERVER_HOST];
     
@@ -118,6 +137,7 @@
     }
     else {
         EDPrivateDetailViewController *privateDetailVC = [[EDPrivateDetailViewController alloc] init];
+        privateDetailVC.model = [dataArray objectAtIndex:indexPath.row]; 
         [self.navigationController pushViewController:privateDetailVC animated:YES];
     }
 }
@@ -178,11 +198,21 @@
         manager.requestSerializer.timeoutInterval = 10.f;
         [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
         
+        NSDictionary *parameter;
         
-        NSDictionary *parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],
-                                    @"XSID":[[[[SEUtils getUserInfo] UserDetail] studentInfo] ID],
-                                    @"pageSize":@"10",
-                                    @"page":[NSNumber numberWithInt:pageNum]};
+        if ([[[[[SEUtils getUserInfo] UserDetail] userinfo] YHLB] intValue] == 3) {
+            parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],
+                          @"XSID":@"1405581",
+                          @"pageSize":@"10",
+                          @"page":[NSNumber numberWithInt:pageNum]};
+        }
+        else {
+            parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],
+                          @"XSID":[[[[SEUtils getUserInfo] UserDetail] studentInfo] ID],
+                          @"pageSize":@"10",
+                          @"page":[NSNumber numberWithInt:pageNum]};
+        }
+    
         
         NSString *urlStr = [NSString stringWithFormat:@"%@ChengZhang",SERVER_HOST];
         

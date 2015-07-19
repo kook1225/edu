@@ -89,19 +89,17 @@
             }
             else {
                 
+                imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, IMAGE_HEIGHT, IMAGE_HEIGHT)];
                 
+                /*
                 NSString *urlStr = [NSString stringWithFormat:@"%@%@",IMG_HOST,[imagesArray objectAtIndex:i]];
                 NSURL *url = [NSURL URLWithString:urlStr];
                 
-                UIImageView *contentImageView;
+                UIImageView *contentImageView = [[UIImageView alloc] init];
                 [contentImageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"1"]];
                 
                 singleImage = contentImageView.image;
                 
-                /*
-                 NSLog(@"width-------------%f",singleImage.size.width);
-                 NSLog(@"height-------------%f",singleImage.size.height);
-                 */
                 
                 if (singleImage.size.width >= 220 || singleImage.size.height >= 200) {
                     if (singleImage.size.width < singleImage.size.height) {
@@ -123,6 +121,7 @@
                 else {
                     imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, singleImage.size.width, singleImage.size.height)];
                 }
+                 */
             }
             
             //[imageView setImage:[UIImage imageNamed:[imagesArray objectAtIndex:i]]];
@@ -156,6 +155,10 @@
         
         //_backView.backgroundColor = [UIColor grayColor];
         
+        _backView.frame = CGRectMake(_contentLabel.frame.origin.x, CGRectGetMaxY(_contentLabel.frame) + 10, 295, IMAGE_HEIGHT*((([imagesArray count] - 1)/3) + 1));
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
+        
+        /*
         if ([imagesArray count] != 1) {
             
             _backView.frame = CGRectMake(_contentLabel.frame.origin.x, CGRectGetMaxY(_contentLabel.frame) + 10, 295, IMAGE_HEIGHT*((([imagesArray count] - 1)/3) + 1));
@@ -183,6 +186,7 @@
             
             imageView.contentMode = UIViewContentModeScaleAspectFit;
         }
+         */
     }
     
     
