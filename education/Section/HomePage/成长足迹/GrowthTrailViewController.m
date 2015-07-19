@@ -84,7 +84,7 @@
              if ([responseObject[@"responseCode"] intValue] == 0) {
                  dataArray = [growUpModel arrayOfModelsFromDictionaries:responseObject[@"data"] error:&err];
                  
-                 //[_tableView reloadData];
+                 [_tableView reloadData];
              }
              else {
                  SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
@@ -112,16 +112,14 @@
 
 #pragma mark - UITableViewDelegate Method
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row <= 2) {
-        EDPrivateDetailViewController *privateDetailVC = [[EDPrivateDetailViewController alloc] init];
-        [self.navigationController pushViewController:privateDetailVC animated:YES];
-    }
-    else {
+    if ([[[dataArray objectAtIndex:indexPath.row] FBRLX] intValue] == 3) {
         EvaluteAndEncourageViewController *evaluteAndEncourageVC = [[EvaluteAndEncourageViewController alloc] init];
         [self.navigationController pushViewController:evaluteAndEncourageVC animated:YES];
     }
-  
-    
+    else {
+        EDPrivateDetailViewController *privateDetailVC = [[EDPrivateDetailViewController alloc] init];
+        [self.navigationController pushViewController:privateDetailVC animated:YES];
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -130,7 +128,7 @@
 
 #pragma mark - UITableViewDataSource Method
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return [dataArray count];
 }
 
 
@@ -141,12 +139,7 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"JournalCell" owner:self options:nil] lastObject];
     }
     
-    if (indexPath.row <= 2) {
-        [cell setData:1];
-    }
-    else {
-        [cell setData:2];
-    }
+    [cell setData:[dataArray objectAtIndex:indexPath.row]];
     
     return cell;
 }
@@ -195,9 +188,14 @@
         
         [manager GET:urlStr parameters:parameter success:^(AFHTTPRequestOperation *operation, id responseObject) {
             [HUD setHidden:YES];
-            NSLog(@"res--%@",responseObject);
+            
+            NSError *err;
+            
             if ([responseObject[@"responseCode"] intValue] ==0) {
-               
+                
+                dataArray = [growUpModel arrayOfModelsFromDictionaries:responseObject[@"data"] error:&err];
+                
+                [_tableView reloadData];
                 
             }else
             {

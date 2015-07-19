@@ -263,32 +263,34 @@
     
     float height = 0.0;
     
+    titleStr = [NSMutableString string];
+    
+    
     for (int i = 0; i < [dataArray count]; i++) {
         
         if (i != [dataArray count] - 1) {
-            [titleStr appendString:[NSString stringWithFormat:@"%@,",[[dataArray objectAtIndex:i] author]]];
+            [titleStr appendString:[NSString stringWithFormat:@"%@,",[[[dataArray objectAtIndex:i] author] XM]]];
         }
         else {
-            [titleStr appendString:[[dataArray objectAtIndex:i] author]];
+            [titleStr appendString:[[[dataArray objectAtIndex:i] author] XM]];
         }
         
         
         NSString *str = [[dataArray objectAtIndex:i] NR];
         
-        NSString *merStr = [NSString stringWithFormat:@"%@ : %@",[[dataArray objectAtIndex:i] author],str];
+        NSString *merStr = [NSString stringWithFormat:@"%@ : %@",[[[dataArray objectAtIndex:i] author] XM],str];
         
         UIFont *tfont = [UIFont systemFontOfSize:13.0];
         NSDictionary * dic = [NSDictionary dictionaryWithObjectsAndKeys:tfont,NSFontAttributeName,nil];
         ////////   ios 7
         CGSize sizeText = [merStr boundingRectWithSize:CGSizeMake(CGRectGetMaxX(_replyBtn.frame) - _contentLabel.frame.origin.x - 10, 50000) options:NSStringDrawingUsesLineFragmentOrigin attributes:dic context:nil].size;
         
-        height = height + sizeText.height + 20;
+        height = height + sizeText.height + 14;
         
     }
     //NSLog(@"height:%g",height);
     
     _tableView.frame = CGRectMake(_contentLabel.frame.origin.x, CGRectGetMaxY(_shareBtn.frame) + 10, CGRectGetMaxX(_replyBtn.frame) - _contentLabel.frame.origin.x + 5, height - [dataArray count]*2 + 25 + 31);
-    
     
     [self.contentView addSubview:_tableView];
     
@@ -352,7 +354,7 @@
             cell = [[[NSBundle mainBundle] loadNibNamed:@"ReplyCell" owner:self options:nil] lastObject];
         }
         
-        [cell setIntroductionText:[dataArray objectAtIndex:indexPath.row - 1] name:@"上好佳"labelWidth:_tableView.frame.size.width];
+        [cell setIntroductionText:[[dataArray objectAtIndex:indexPath.row - 1] NR] name:[[[dataArray objectAtIndex:indexPath.row - 1] author] XM] labelWidth:_tableView.frame.size.width];
         return cell;
     }
 }

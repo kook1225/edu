@@ -7,12 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "growUpModel.h"
 
 @interface JournalCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIView *mainView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *contentLabel;
+
 @property (nonatomic,strong) UIButton *replyBtn;
 
-- (void)setData:(int)flag;
+- (void)setData:(growUpModel *)model;
 
 @end

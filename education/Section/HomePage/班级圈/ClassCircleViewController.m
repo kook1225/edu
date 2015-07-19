@@ -111,7 +111,7 @@
                      [stringArray addObject:[[dataArray objectAtIndex:i] dynamicInfo].TPSM];
                      [imagesArray addObject:[[dataArray objectAtIndex:i] dynamicInfo].TPLY];
                  }
-                 
+                 NSLog(@"string---------:%@",stringArray);
                  NSLog(@"array:%@",imagesArray);
                  [_tableView reloadData];
              }
