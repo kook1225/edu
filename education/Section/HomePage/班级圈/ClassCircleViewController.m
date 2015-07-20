@@ -42,9 +42,6 @@
     [tabBarViewController tabBarViewHidden];
     
     
-    [self classCircleApi];
-    
-    
     
     UIButton *leftBarBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
     [leftBarBtn addTarget:self action:@selector(backBtn) forControlEvents:UIControlEventTouchUpInside];
@@ -58,6 +55,10 @@
     [rightBarBtn setTitle:@"发布" forState:UIControlStateNormal];
     UIBarButtonItem *btnItem2 = [[UIBarButtonItem alloc] initWithCustomView:rightBarBtn];
     self.navigationItem.rightBarButtonItem = btnItem2;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self classCircleApi];
 }
 
 #pragma mark - Custom Method

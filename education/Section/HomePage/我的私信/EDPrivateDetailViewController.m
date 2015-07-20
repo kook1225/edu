@@ -33,7 +33,7 @@
     
     self.navigationItem.leftBarButtonItem = [Tools getNavBarItem:self clickAction:@selector(back)];
     
-    _nameLabel.text = [NSString stringWithFormat:@"%@留言",_model.YHM];
+    _nameLabel.text = [NSString stringWithFormat:@"%@留言",_model.FBRXM];
     _dateLabel.text = _model.FBSJ;
     
     if (![_model.TPDZ isEqualToString:@""]) {

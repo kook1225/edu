@@ -20,7 +20,7 @@
     
     
     if ([model.FBRLX intValue] == 3) {
-        _nameLabel.text = [NSString stringWithFormat:@"from %@",model.YHM];;
+        _nameLabel.text = [NSString stringWithFormat:@"from %@",model.FBRXM];;
         [_nameLabel sizeToFit];
         
         _replyBtn = [[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(_nameLabel.frame) + 10, _nameLabel.frame.origin.y - 2, 40, 20)];

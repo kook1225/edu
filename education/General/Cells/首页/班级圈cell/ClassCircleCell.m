@@ -22,6 +22,8 @@
 
 - (void)prepareForReuse {
     [_backView removeFromSuperview];
+    [_btnView removeFromSuperview];
+    [_btnView2 removeFromSuperview];
     [_shareBtn removeFromSuperview];
     [_evaluteBtn removeFromSuperview];
     [_replyBtn removeFromSuperview];
@@ -88,8 +90,12 @@
                 
             }
             else {
-                
-                imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, IMAGE_HEIGHT, IMAGE_HEIGHT)];
+                if ([imagesArray[0]  isEqual: @""]) {
+                    imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+                }
+                else {
+                    imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, IMAGE_HEIGHT, IMAGE_HEIGHT)];
+                }
                 
                 /*
                 NSString *urlStr = [NSString stringWithFormat:@"%@%@",IMG_HOST,[imagesArray objectAtIndex:i]];
@@ -126,6 +132,7 @@
             
             //[imageView setImage:[UIImage imageNamed:[imagesArray objectAtIndex:i]]];
             
+            
             NSString *urlStr = [NSString stringWithFormat:@"%@%@",IMG_HOST,[imagesArray objectAtIndex:i]];
             NSURL *url = [NSURL URLWithString:urlStr];
             [imageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"1"]];
@@ -155,8 +162,13 @@
         
         //_backView.backgroundColor = [UIColor grayColor];
         
-        _backView.frame = CGRectMake(_contentLabel.frame.origin.x, CGRectGetMaxY(_contentLabel.frame) + 10, 295, IMAGE_HEIGHT*((([imagesArray count] - 1)/3) + 1));
-        imageView.contentMode = UIViewContentModeScaleAspectFit;
+        if ([imagesArray[0]  isEqual: @""]) {
+            _backView.frame = CGRectMake(_contentLabel.frame.origin.x, CGRectGetMaxY(_contentLabel.frame) + 10, 295, 1);
+        }
+        else {
+            _backView.frame = CGRectMake(_contentLabel.frame.origin.x, CGRectGetMaxY(_contentLabel.frame) + 10, 295, IMAGE_HEIGHT*((([imagesArray count] - 1)/3) + 1));
+        }
+        //imageView.contentMode = UIViewContentModeScaleAspectFit;
         
         /*
         if ([imagesArray count] != 1) {

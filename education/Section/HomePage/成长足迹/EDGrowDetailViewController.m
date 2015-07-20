@@ -8,7 +8,7 @@
 
 #import "EDGrowDetailViewController.h"
 
-@interface EDGrowDetailViewController ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextViewDelegate>
+@interface EDGrowDetailViewController ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextViewDelegate,UIAlertViewDelegate>
 {
     UIButton *addImgBtn;
     int imageNum;
@@ -128,7 +128,9 @@
                   success:^(AFHTTPRequestOperation *operation, id responseObject) {           [HUD hide:YES];
                       
                       if ([responseObject[@"responseCode"] intValue] == 0) {
-                          
+                          UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"发布成功" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+                          alert.tag = 201;
+                          [alert show];
                       }
                       else {
                           SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
@@ -150,6 +152,14 @@
     }
 }
 
+#pragma mark - UIAlertViewDelegate Method
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (alertView.tag == 201) {
+        if (buttonIndex == 0) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    }
+}
 
 #pragma mark textView 代理
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView
