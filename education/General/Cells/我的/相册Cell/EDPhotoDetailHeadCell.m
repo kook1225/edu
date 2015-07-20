@@ -14,6 +14,16 @@
     // Initialization code
 }
 
+- (void)setTitle:(NSString *)title {
+    if ([title length] == 0) {
+        _titleLabel.text = @"暂无回复";
+    }
+    else {
+        _titleLabel.text = title;
+    }
+}
+
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

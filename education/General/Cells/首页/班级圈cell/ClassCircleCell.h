@@ -16,6 +16,8 @@
     NSMutableArray *dataArray;
     NSSet *set;
     NSString *setTitle;
+    NSArray *imageArray;
+    NSInteger row;
 }
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;

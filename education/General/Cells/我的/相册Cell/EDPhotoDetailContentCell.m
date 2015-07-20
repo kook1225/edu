@@ -30,15 +30,15 @@
         _tabName = [[UILabel alloc]initWithFrame:CGRectMake(5, 8, 80, 15)];
         _tabName.font = [UIFont systemFontOfSize:12];
         _tabName.textColor = [UIColor colorWithRed:255/255.0f green:124/255.0f blue:6/255.0f alpha:1.0];
-        _tabName.text = @"小丽";
+        //_tabName.text = @"小丽";
         [self.contentView addSubview:_tabName];
         
-        _tabDate = [[UILabel alloc]initWithFrame:CGRectMake(SCREENWIDTH-128, 8, 100, 20)];
+        _tabDate = [[UILabel alloc]initWithFrame:CGRectMake(SCREENWIDTH-148, 8, 120, 20)];
       
         _tabDate.font = [UIFont systemFontOfSize:12];
         _tabDate.textAlignment = NSTextAlignmentRight;
         _tabDate.textColor = [UIColor colorWithRed:102/255.0f green:102/255.0f blue:102/255.0f alpha:1.0];
-        _tabDate.text = @"2015-07-08";
+        //_tabDate.text = @"2015-07-08";
         [self.contentView addSubview:_tabDate];
         
         _tabContent = [[UILabel alloc]initWithFrame:CGRectMake(5,30, SCREENWIDTH-40, 20)];
@@ -52,6 +52,12 @@
         
     }
     return self;
+}
+
+- (void)setData:(ReplysModel *)model {
+    _tabName.text = model.author.XM;
+    
+    _tabDate.text = model.SJ;
 }
 
 

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ReplysModel.h"
 
 @interface EDPhotoDetailContentCell : UITableViewCell
 {
@@ -17,6 +18,8 @@
 @property (nonatomic,strong) UILabel *tabDate;
 @property (nonatomic,strong) UILabel *tabContent;
 @property (nonatomic,strong) UIView *lineView;
+
+- (void)setData:(ReplysModel *)model;
 
 - (void)setIntroductionText:(NSString*)text;
 @end

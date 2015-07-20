@@ -9,11 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "EDPhotoDetailHeadCell.h"
 #import "EDPhotoDetailContentCell.h"
+#import "ListModel.h"
 
 @interface EDPhotoDetailCell : UITableViewCell<UITableViewDataSource,UITableViewDelegate>
 {
     CGSize labelSize;
-    NSArray *dataArray;
+    NSMutableArray *dataArray;
+    ListModel *lisModel;
+    NSSet *set;
+    NSString *setTitle;
 }
 @property (nonatomic,strong) UIImageView *headImg;
 @property (nonatomic,strong) UILabel *nameLabel;
@@ -24,7 +28,7 @@
 
 @property (nonatomic,strong) UITableView *tableView;
 
+- (void)setData:(ListModel *)model;
 
-
-- (void)setIntroductionText:(NSString*)text image:(NSArray *)imagesArray comment:(NSArray *)commentArray;
+- (void)setIntroductionText:(NSString*)text image:(NSArray *)imagesArray comment:(ListModel *)listModel indexPath:(NSInteger)row;
 @end
