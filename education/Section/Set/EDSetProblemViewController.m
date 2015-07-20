@@ -9,7 +9,7 @@
 #import "EDSetProblemViewController.h"
 #import "SETabBarViewController.h"
 
-@interface EDSetProblemViewController ()
+@interface EDSetProblemViewController ()<UITextViewDelegate>
 {
     SETabBarViewController *tabBarView;
 }
@@ -49,7 +49,64 @@
     _commitBtn.layer.masksToBounds = YES;
     
 }
-- (IBAction)commitFunction:(id)sender {
+- (IBAction)commitFunction:(id)sender
+{
+    MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    HUD.mode = MBProgressHUDModeIndeterminate;
+    HUD.labelText = @"Loading";
+    HUD.removeFromSuperViewOnHide = YES;
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+    manager.requestSerializer.timeoutInterval = 10.f;
+    [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+    
+    NSDictionary *pramaters = @{@"access_token":[SEUtils getUserInfo].TokenInfo.access_token,
+                                @"feedback":_textView.text,
+                                @"type":@"4"};
+    NSString *urlString = [NSString stringWithFormat:@"%@FeedBack",SERVER_HOST];
+    
+    
+    [manager POST:urlString parameters:pramaters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [HUD setHidden:YES];
+        NSLog(@"res--%@",responseObject);
+        if ([responseObject[@"responseCode"] intValue] ==0) {
+            
+            
+          SHOW_ALERT(@"提示",responseObject[@"responseMessage"] )
+            
+            
+            
+        }else
+        {
+            SHOW_ALERT(@"提示",responseObject[@"responseMessage"] );
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [HUD setHidden:YES];
+        if (operation.response.statusCode == 401) {
+            NSLog(@"请求超时");
+            //   [SEUtils repetitionLogin];
+        }else if(error.code == -1001)
+        {
+            SHOW_ALERT(@"提示", @"网络请求超时");
+        }else if (error.code == -1009)
+        {
+            SHOW_ALERT(@"提示", @"网络连接已断开");
+        }
+        else {
+            NSLog(@"Error:%@",error);
+            NSLog(@"err:%@",operation.responseObject[@"message"]);
+            //   SHOW_ALERT(@"提示",operation.responseObject[@"message"])
+        }
+    }];
+
 }
 
+#pragma mark textView代理
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView
+{
+    _textView.text = @"";
+    return YES;
+}
 @end

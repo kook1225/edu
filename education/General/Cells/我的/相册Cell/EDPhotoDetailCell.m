@@ -8,6 +8,9 @@
 
 #import "EDPhotoDetailCell.h"
 
+
+#define SLIDE ([UIScreen mainScreen].bounds.size.width > 320 ? 20 : 10)
+
 @implementation EDPhotoDetailCell
 
 - (void)awakeFromNib {
@@ -110,7 +113,7 @@
     }else
     {
         for (int i=0; i<imagesArray.count; i++) {
-            UIImageView *imgView = [[UIImageView alloc]initWithFrame:CGRectMake(70+95*i, CGRectGetMaxY(_contentLabel.frame)+10, 75, 75)];
+            UIImageView *imgView = [[UIImageView alloc]initWithFrame:CGRectMake(70+(75+SLIDE)*i, CGRectGetMaxY(_contentLabel.frame)+10, 75, 75)];
             imgView.contentMode = UIViewContentModeScaleToFill;
             
             imgView.image = [UIImage imageNamed:imagesArray[i]];

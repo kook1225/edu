@@ -53,7 +53,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     EDPhotoDetailCell *photoCell = [tableView dequeueReusableCellWithIdentifier:@"photo"];
-    [photoCell setIntroductionText:@"阿斯达时刻记得哈开始的卡号SD卡承诺卡开始就" image:@[@"example1",@"example2"] comment:dataArray];
+    [photoCell setIntroductionText:@"阿斯达时刻记得哈开始的卡号SD卡承诺卡开始就" image:@[@"example1",@"example2",@"example1"] comment:dataArray];
     return photoCell;
 }
 

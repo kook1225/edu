@@ -6,6 +6,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EDHomeWorkViewController">
             <connections>
+                <outlet property="blurView" destination="Aq9-sU-T1l" id="ZLZ-b6-XoP"/>
+                <outlet property="containView" destination="Cry-iN-ckX" id="Ks7-Ir-G9m"/>
                 <outlet property="dateLabel" destination="kgQ-Ha-8OT" id="Zlc-1h-Nha"/>
                 <outlet property="dateView" destination="ArI-sq-MCY" id="fHV-WQ-OJu"/>
                 <outlet property="tableView" destination="sbK-Ha-MHr" id="qMS-h8-jLn"/>
@@ -66,7 +68,7 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <gestureRecognizers/>
                             <connections>
-                                <outletCollection property="gestureRecognizers" destination="82d-2w-QZp" appends="YES" id="nrH-Gh-qRF"/>
+                                <outletCollection property="gestureRecognizers" destination="S20-nz-IQs" appends="YES" id="DTp-AN-cPf"/>
                             </connections>
                         </view>
                     </subviews>
@@ -78,7 +80,52 @@
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
             <point key="canvasLocation" x="245" y="169"/>
         </view>
-        <tapGestureRecognizer id="82d-2w-QZp" userLabel="date-Tap Gesture Recognizer"/>
+        <tapGestureRecognizer id="S20-nz-IQs">
+            <connections>
+                <action selector="dateTap:" destination="-1" id="Atf-2M-kAX"/>
+            </connections>
+        </tapGestureRecognizer>
+        <view contentMode="scaleToFill" id="Aq9-sU-T1l">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" id="Cry-iN-ckX">
+                    <rect key="frame" x="0.0" y="368" width="320" height="200"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="IfS-ld-CTX">
+                            <rect key="frame" x="10" y="8" width="60" height="30"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="0.75686274509999996" green="0.75686274509999996" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <state key="normal" title="取消">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="cancelFunction:" destination="-1" eventType="touchUpInside" id="hlq-tx-9d4"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gic-yp-0H0">
+                            <rect key="frame" x="249.99999970197678" y="8" width="60" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="0.12941176470588237" green="0.70196078431372544" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <state key="normal" title="确定">
+                                <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="sureFunction:" destination="-1" eventType="touchUpInside" id="LAc-gM-gVt"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="445" y="210"/>
+        </view>
     </objects>
     <resources>
         <image name="canlander" width="27" height="27"/>
