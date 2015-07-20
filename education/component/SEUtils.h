@@ -21,8 +21,8 @@
 
 +(BOOL) isValidateMobile:(NSString *)mobile;
 
-+ (NSDate *)dateFromStr:(NSString *)dateStr andFormatter:(NSString *)formatter;
-
++(NSString *)formatMatchWithDate:(NSString *)dateStr;
++ (NSString *)formatDateWithString:(NSString *)str;
 
 //+(BOOL)isRequestSuccessWithStatusCode:(int)statusCode;
 //+(BOOL)checkNetworkWithRequest:(ASIHTTPRequest *)request;

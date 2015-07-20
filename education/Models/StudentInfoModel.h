@@ -29,5 +29,9 @@
 @property (strong,nonatomic) NSString<Optional> *XJID;
 @property (strong,nonatomic) NSString<Optional> *YHTX;
 @property (strong,nonatomic) NSString<Optional> *XSXB;
+@property (strong,nonatomic) NSString<Optional> *NJMC;
+@property (strong,nonatomic) NSString<Optional> *BJMC;
+@property (strong,nonatomic) NSString<Optional> *QYMC;
+@property (strong,nonatomic) NSString<Optional> *DWMC;
 
 @end

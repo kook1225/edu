@@ -16,7 +16,7 @@
     //获得当前cell高度
     CGRect frame = [self frame];
     
-    NSLog(@"frame:%f",frame.origin.x);
+    //NSLog(@"frame:%f",frame.origin.x);
     
     //设置label的最大行数
     _replyLabel.numberOfLines = 0;

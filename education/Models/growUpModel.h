@@ -13,6 +13,7 @@
 @property (strong,nonatomic) NSString<Optional> *ID;
 @property (strong,nonatomic) NSString<Optional> *XSID;
 @property (strong,nonatomic) NSString<Optional> *FBRID;
+@property (strong,nonatomic) NSString<Optional> *FBRXM;
 @property (strong,nonatomic) NSString<Optional> *XXBT;
 @property (strong,nonatomic) NSString<Optional> *FBRLX;
 @property (strong,nonatomic) NSString<Optional> *FBNR;

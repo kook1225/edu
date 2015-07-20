@@ -36,22 +36,20 @@
 }
 
 
-+(NSString *)formatMatchWithStartDate:(NSString *)startStr
-                                andEndDate:(NSString *)endStr{
++ (NSString *)formatMatchWithDate:(NSString *)dateStr {
     NSDateFormatter *startDateFromatter = [[NSDateFormatter alloc] init];
     //yyyy-MM-dd
-    [startDateFromatter setDateFormat:@"yyyy-MM-dd"];
-    NSDate *startDate = [startDateFromatter dateFromString:startStr];
-    [startDateFromatter setDateFormat:@"yyyy/MM/dd"];
+    [startDateFromatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
+    NSDate *startDate = [startDateFromatter dateFromString:dateStr];
+    [startDateFromatter setDateFormat:@"yyyy-MM-dd hh:mm"];
     NSString *startFormatStr = [startDateFromatter stringFromDate:startDate];
-    
-    NSDateFormatter *endDateFromatter = [[NSDateFormatter alloc] init];
-    [endDateFromatter setDateFormat:@"yyyy-MM-dd"];
-    NSDate *endDate = [endDateFromatter dateFromString:endStr];
-    [endDateFromatter setDateFormat:@"yyyy/MM/dd"];
-    NSString *endFormatStr = [endDateFromatter stringFromDate:endDate];
-    
-    return  [NSString stringWithFormat:@"%@-%@",startFormatStr,endFormatStr];
+    return  [NSString stringWithFormat:@"%@",startFormatStr];
+}
+
++ (NSString *)formatDateWithString:(NSString *)str {
+    NSString *dateStrWithoutT = [str stringByReplacingOccurrencesOfString:@"T" withString:@" "];
+    NSString *dateStr = [dateStrWithoutT componentsSeparatedByString:@"."][0];
+    return dateStr;
 }
 
 +(BOOL) isValidateMobile:(NSString *)str{

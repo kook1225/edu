@@ -36,8 +36,7 @@
     
     tabBarViewController = (SETabBarViewController *)self.navigationController.parentViewController;
     [tabBarViewController tabBarViewHidden];
-    
-    [self growUpApi];
+
     
     [self initfooterview];
     [self initheaderview];
@@ -50,6 +49,10 @@
     [rightBarBtn setTitle:@"发表" forState:UIControlStateNormal];
     UIBarButtonItem *btnItem2 = [[UIBarButtonItem alloc] initWithCustomView:rightBarBtn];
     self.navigationItem.rightBarButtonItem = btnItem2;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self growUpApi];
 }
 
 #pragma mark - Custom Method
@@ -66,7 +69,23 @@
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
-    NSDictionary *parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],@"XSID":[[[[SEUtils getUserInfo] UserDetail] studentInfo] ID],@"pageSize":@"10",@"page":@"1"};
+    //1405581
+    NSDictionary *parameter;
+    
+    if ([[[[[SEUtils getUserInfo] UserDetail] userinfo] YHLB] intValue] == 3) {
+        parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],
+                      @"XSID":@"1405581",
+                      @"pageSize":@"10",
+                      @"page":@"1"};
+    }
+    else {
+        parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],
+                      @"XSID":[[[[SEUtils getUserInfo] UserDetail] studentInfo] ID],
+                      @"pageSize":@"10",
+                      @"page":@"1"};
+    }
+    
+    
     
     NSString *urlStr = [NSString stringWithFormat:@"%@ChengZhang",SERVER_HOST];
     
@@ -84,7 +103,7 @@
              if ([responseObject[@"responseCode"] intValue] == 0) {
                  dataArray = [growUpModel arrayOfModelsFromDictionaries:responseObject[@"data"] error:&err];
                  
-                 //[_tableView reloadData];
+                 [_tableView reloadData];
              }
              else {
                  SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
@@ -112,16 +131,15 @@
 
 #pragma mark - UITableViewDelegate Method
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row <= 2) {
-        EDPrivateDetailViewController *privateDetailVC = [[EDPrivateDetailViewController alloc] init];
-        [self.navigationController pushViewController:privateDetailVC animated:YES];
-    }
-    else {
+    if ([[[dataArray objectAtIndex:indexPath.row] FBRLX] intValue] == 3) {
         EvaluteAndEncourageViewController *evaluteAndEncourageVC = [[EvaluteAndEncourageViewController alloc] init];
         [self.navigationController pushViewController:evaluteAndEncourageVC animated:YES];
     }
-  
-    
+    else {
+        EDPrivateDetailViewController *privateDetailVC = [[EDPrivateDetailViewController alloc] init];
+        privateDetailVC.model = [dataArray objectAtIndex:indexPath.row]; 
+        [self.navigationController pushViewController:privateDetailVC animated:YES];
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -130,7 +148,7 @@
 
 #pragma mark - UITableViewDataSource Method
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return [dataArray count];
 }
 
 
@@ -141,12 +159,7 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"JournalCell" owner:self options:nil] lastObject];
     }
     
-    if (indexPath.row <= 2) {
-        [cell setData:1];
-    }
-    else {
-        [cell setData:2];
-    }
+    [cell setData:[dataArray objectAtIndex:indexPath.row]];
     
     return cell;
 }
@@ -185,19 +198,34 @@
         manager.requestSerializer.timeoutInterval = 10.f;
         [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
         
+        NSDictionary *parameter;
         
-        NSDictionary *parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],
-                                    @"XSID":[[[[SEUtils getUserInfo] UserDetail] studentInfo] ID],
-                                    @"pageSize":@"10",
-                                    @"page":[NSNumber numberWithInt:pageNum]};
+        if ([[[[[SEUtils getUserInfo] UserDetail] userinfo] YHLB] intValue] == 3) {
+            parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],
+                          @"XSID":@"1405581",
+                          @"pageSize":@"10",
+                          @"page":[NSNumber numberWithInt:pageNum]};
+        }
+        else {
+            parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],
+                          @"XSID":[[[[SEUtils getUserInfo] UserDetail] studentInfo] ID],
+                          @"pageSize":@"10",
+                          @"page":[NSNumber numberWithInt:pageNum]};
+        }
+    
         
         NSString *urlStr = [NSString stringWithFormat:@"%@ChengZhang",SERVER_HOST];
         
         [manager GET:urlStr parameters:parameter success:^(AFHTTPRequestOperation *operation, id responseObject) {
             [HUD setHidden:YES];
-            NSLog(@"res--%@",responseObject);
+            
+            NSError *err;
+            
             if ([responseObject[@"responseCode"] intValue] ==0) {
-               
+                
+                dataArray = [growUpModel arrayOfModelsFromDictionaries:responseObject[@"data"] error:&err];
+                
+                [_tableView reloadData];
                 
             }else
             {

@@ -14,6 +14,10 @@
     // Initialization code
 }
 
+-(void)setTitle:(NSString *)name {
+    _titleLabel.text = name;
+}
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

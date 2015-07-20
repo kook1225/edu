@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "growUpModel.h"
 
 @interface EDPrivateDetailViewController : UIViewController
 {
     CGSize labelSize;
 }
+
+@property (nonatomic,strong) growUpModel *model;
 
 @end

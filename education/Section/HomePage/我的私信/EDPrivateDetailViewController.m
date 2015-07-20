@@ -7,10 +7,11 @@
 //
 
 #import "EDPrivateDetailViewController.h"
+#import "CheckImageViewController.h"
 
 @interface EDPrivateDetailViewController ()
 {
-    NSArray *imgArray;
+    NSMutableArray *imgArray;
 }
 
 @property (weak, nonatomic) IBOutlet UIView *containView;
@@ -18,6 +19,8 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *checkImg;
 @property (weak, nonatomic) IBOutlet UIView *lineView;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
 @end
 
@@ -30,9 +33,14 @@
     
     self.navigationItem.leftBarButtonItem = [Tools getNavBarItem:self clickAction:@selector(back)];
     
-    imgArray = @[@"example1",@"example2"];
+    _nameLabel.text = [NSString stringWithFormat:@"%@留言",_model.FBRXM];
+    _dateLabel.text = _model.FBSJ;
     
-    [self drawlayer:@"阿什顿空间哈开始计划的卡号SD卡还是的空间啊HD声卡户口登记哈肯定哈开始的卡号SD卡好的卡号11" array:imgArray];
+    if (![_model.TPDZ isEqualToString:@""]) {
+        imgArray = [NSMutableArray arrayWithArray:[_model.TPDZ componentsSeparatedByString:@","]];
+    }
+    
+    [self drawlayer:_model.FBNR array:imgArray];
 }
 
 #pragma mark 常用方法
@@ -41,7 +49,7 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)drawlayer:(NSString *)text array:(NSArray *)array
+- (void)drawlayer:(NSString *)text array:(NSMutableArray *)array
 {
     _containView.layer.borderColor = LINECOLOR.CGColor;
     _containView.layer.borderWidth = 1.0;
@@ -69,14 +77,37 @@
     
     _lineView.frame = CGRectMake(10, CGRectGetMaxY(_checkImg.frame)+10, SCREENWIDTH-20, 1);
     
-    for (int i=0; i<array.count; i++)
-    {
-        UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(10+95*i, CGRectGetMaxY(_lineView.frame)+10, 75, 75)];
-        imageView.image = [UIImage imageNamed:array[i]];
-        [self.view addSubview:imageView];
+    if ([array count] != 0) {
+        for (int i=0; i<array.count; i++)
+        {
+            UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(10+95*i, CGRectGetMaxY(_lineView.frame)+10, 75, 75)];
+            
+            NSString *urlStr = [NSString stringWithFormat:@"%@%@",IMG_HOST,[array objectAtIndex:i]];
+            NSURL *url = [NSURL URLWithString:urlStr];
+            [imageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"1"]];
+            
+            imageView.userInteractionEnabled = YES;
+            
+            [self.view addSubview:imageView];
+            
+            
+            UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 75, 75)];
+            btn.backgroundColor = [UIColor clearColor];
+            btn.tag = 400 + i;
+            [btn addTarget:self action:@selector(checkImage:) forControlEvents:UIControlEventTouchUpInside];
+            [imageView addSubview:btn];
+        }
     }
     
-  
-    
 }
+
+- (void)checkImage:(id)sender {
+    UIButton *btn = (UIButton *)sender;
+    
+    CheckImageViewController *checkImageVC = [[CheckImageViewController alloc] init];
+    checkImageVC.dataArray = imgArray;
+    checkImageVC.page = (int)btn.tag - 400;
+    [self.navigationController pushViewController:checkImageVC animated:YES];
+}
+
 @end

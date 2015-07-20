@@ -166,6 +166,13 @@
 		764406E81B4F5A8600541C86 /* IntroDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 764406E61B4F5A8600541C86 /* IntroDetailViewController.xib */; };
 		764406ED1B4FA31300541C86 /* SchoolTimeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 764406EB1B4FA31300541C86 /* SchoolTimeTableViewController.m */; };
 		764406EE1B4FA31300541C86 /* SchoolTimeTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 764406EC1B4FA31300541C86 /* SchoolTimeTableViewController.xib */; };
+		768F88FC1B5892DF0054F73C /* ClassCircleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 768F88FB1B5892DF0054F73C /* ClassCircleModel.m */; };
+		768F88FF1B5893A00054F73C /* ListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 768F88FE1B5893A00054F73C /* ListModel.m */; };
+		768F89021B5896160054F73C /* DynamicInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 768F89011B5896160054F73C /* DynamicInfoModel.m */; };
+		768F89051B58962C0054F73C /* AuthorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 768F89041B58962C0054F73C /* AuthorModel.m */; };
+		768F890B1B58965A0054F73C /* ReplysModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 768F890A1B58965A0054F73C /* ReplysModel.m */; };
+		768F890F1B5B88860054F73C /* CheckImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 768F890D1B5B88860054F73C /* CheckImageViewController.m */; };
+		768F89101B5B88860054F73C /* CheckImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 768F890E1B5B88860054F73C /* CheckImageViewController.xib */; };
 		768FFAF11B4238D9008E577F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF01B4238D9008E577F /* main.m */; };
 		768FFAF41B4238D9008E577F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF31B4238D9008E577F /* AppDelegate.m */; };
 		768FFAFC1B4238D9008E577F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 768FFAFB1B4238D9008E577F /* Images.xcassets */; };
@@ -449,6 +456,19 @@
 		764406EA1B4FA31300541C86 /* SchoolTimeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolTimeTableViewController.h; sourceTree = "<group>"; };
 		764406EB1B4FA31300541C86 /* SchoolTimeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolTimeTableViewController.m; sourceTree = "<group>"; };
 		764406EC1B4FA31300541C86 /* SchoolTimeTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SchoolTimeTableViewController.xib; sourceTree = "<group>"; };
+		768F88FA1B5892DF0054F73C /* ClassCircleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassCircleModel.h; sourceTree = "<group>"; };
+		768F88FB1B5892DF0054F73C /* ClassCircleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassCircleModel.m; sourceTree = "<group>"; };
+		768F88FD1B5893A00054F73C /* ListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListModel.h; sourceTree = "<group>"; };
+		768F88FE1B5893A00054F73C /* ListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListModel.m; sourceTree = "<group>"; };
+		768F89001B5896160054F73C /* DynamicInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicInfoModel.h; sourceTree = "<group>"; };
+		768F89011B5896160054F73C /* DynamicInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicInfoModel.m; sourceTree = "<group>"; };
+		768F89031B58962C0054F73C /* AuthorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorModel.h; sourceTree = "<group>"; };
+		768F89041B58962C0054F73C /* AuthorModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorModel.m; sourceTree = "<group>"; };
+		768F89091B58965A0054F73C /* ReplysModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReplysModel.h; sourceTree = "<group>"; };
+		768F890A1B58965A0054F73C /* ReplysModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReplysModel.m; sourceTree = "<group>"; };
+		768F890C1B5B88860054F73C /* CheckImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckImageViewController.h; sourceTree = "<group>"; };
+		768F890D1B5B88860054F73C /* CheckImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckImageViewController.m; sourceTree = "<group>"; };
+		768F890E1B5B88860054F73C /* CheckImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckImageViewController.xib; sourceTree = "<group>"; };
 		768FFAEB1B4238D9008E577F /* education.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = education.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		768FFAEF1B4238D9008E577F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		768FFAF01B4238D9008E577F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -819,6 +839,7 @@
 		1857A0DE1B5663EF00501EA0 /* 首页 */ = {
 			isa = PBXGroup;
 			children = (
+				768F88F91B5892CB0054F73C /* 班级圈 */,
 				1857A0DF1B5663EF00501EA0 /* 天天资讯 */,
 			);
 			path = "首页";
@@ -1040,6 +1061,23 @@
 			path = "我的课表";
 			sourceTree = "<group>";
 		};
+		768F88F91B5892CB0054F73C /* 班级圈 */ = {
+			isa = PBXGroup;
+			children = (
+				768F88FA1B5892DF0054F73C /* ClassCircleModel.h */,
+				768F88FB1B5892DF0054F73C /* ClassCircleModel.m */,
+				768F88FD1B5893A00054F73C /* ListModel.h */,
+				768F88FE1B5893A00054F73C /* ListModel.m */,
+				768F89001B5896160054F73C /* DynamicInfoModel.h */,
+				768F89011B5896160054F73C /* DynamicInfoModel.m */,
+				768F89031B58962C0054F73C /* AuthorModel.h */,
+				768F89041B58962C0054F73C /* AuthorModel.m */,
+				768F89091B58965A0054F73C /* ReplysModel.h */,
+				768F890A1B58965A0054F73C /* ReplysModel.m */,
+			);
+			path = "班级圈";
+			sourceTree = "<group>";
+		};
 		768FFAE21B4238D9008E577F = {
 			isa = PBXGroup;
 			children = (
@@ -1137,6 +1175,9 @@
 				187F7DCF1B43C469005CC8D8 /* Tools.m */,
 				768FFB201B423C76008E577F /* SETabBarViewController.h */,
 				768FFB211B423C76008E577F /* SETabBarViewController.m */,
+				768F890C1B5B88860054F73C /* CheckImageViewController.h */,
+				768F890D1B5B88860054F73C /* CheckImageViewController.m */,
+				768F890E1B5B88860054F73C /* CheckImageViewController.xib */,
 			);
 			path = component;
 			sourceTree = "<group>";
@@ -1362,6 +1403,7 @@
 				7644069F1B4BC1F900541C86 /* AddReceiveAddressViewController.xib in Resources */,
 				7644064E1B458B1700541C86 /* BottomCell.xib in Resources */,
 				764406CF1B4E763F00541C86 /* EvaluteAndEncourageViewController.xib in Resources */,
+				768F89101B5B88860054F73C /* CheckImageViewController.xib in Resources */,
 				1857A07F1B4D6E8000501EA0 /* EDPrivateNoteViewController.xib in Resources */,
 				1808B31E1B43D6650050E3B4 /* EDSubjectCell.xib in Resources */,
 				18579F8E1B45401100501EA0 /* EDEditInfoViewController.xib in Resources */,
@@ -1425,6 +1467,7 @@
 				76F121321B54B82E00635209 /* SecurityUtil.m in Sources */,
 				764406A81B4BD07F00541C86 /* SelectPayViewController.m in Sources */,
 				1857A0891B4D6E9800501EA0 /* EDPrivateNoteSelectedCell.m in Sources */,
+				768F89051B58962C0054F73C /* AuthorModel.m in Sources */,
 				1857A0DD1B5663A900501EA0 /* UserModel.m in Sources */,
 				187F7DC71B43BDDF005CC8D8 /* EDGradeRecodeCell.m in Sources */,
 				1857A0F61B574E7300501EA0 /* MJRefreshHeaderView.m in Sources */,
@@ -1433,9 +1476,11 @@
 				1857A0531B4CF74B00501EA0 /* EDGradeRecodeViewController.m in Sources */,
 				187F7DD01B43C469005CC8D8 /* Tools.m in Sources */,
 				1857A0D51B5663A900501EA0 /* GradeModel.m in Sources */,
+				768F89021B5896160054F73C /* DynamicInfoModel.m in Sources */,
 				7644069E1B4BC1F900541C86 /* AddReceiveAddressViewController.m in Sources */,
 				1808B3181B43D6480050E3B4 /* EDGradeCell.m in Sources */,
 				1857A0D91B5663A900501EA0 /* TeacherInfoModel.m in Sources */,
+				768F88FF1B5893A00054F73C /* ListModel.m in Sources */,
 				764406991B4BBE2000541C86 /* ManageAddViewController.m in Sources */,
 				764406851B4A5CAA00541C86 /* LifeServiceIntroViewController.m in Sources */,
 				1857A0251B4BC3FB00501EA0 /* EDOrderBottomCell.m in Sources */,
@@ -1444,9 +1489,11 @@
 				1857A0D31B5663A900501EA0 /* AreaModel.m in Sources */,
 				7644065E1B46669C00541C86 /* SendViewController.m in Sources */,
 				768FFB1E1B423C0A008E577F /* ViewController.m in Sources */,
+				768F890B1B58965A0054F73C /* ReplysModel.m in Sources */,
 				18579FF71B4BC2B800501EA0 /* EDMyOrderViewController.m in Sources */,
 				1857A0981B4E4F1000501EA0 /* EDGrowDetailViewController.m in Sources */,
 				768FFAF41B4238D9008E577F /* AppDelegate.m in Sources */,
+				768F890F1B5B88860054F73C /* CheckImageViewController.m in Sources */,
 				764406CE1B4E763F00541C86 /* EvaluteAndEncourageViewController.m in Sources */,
 				1857A0151B4BC3CB00501EA0 /* EDPhysicalContentCell.m in Sources */,
 				7644064F1B458B1700541C86 /* ClassCircleCell.m in Sources */,
@@ -1464,6 +1511,7 @@
 				1857A0641B4D082100501EA0 /* EDPhotoDetailHeadCell.m in Sources */,
 				7644068A1B4A783A00541C86 /* SureOrderViewController.m in Sources */,
 				1857A0D41B5663A900501EA0 /* ClassModel.m in Sources */,
+				768F88FC1B5892DF0054F73C /* ClassCircleModel.m in Sources */,
 				764406E21B4F594C00541C86 /* NoticeIntroViewController.m in Sources */,
 				1857A0681B4D0BF700501EA0 /* EDPhotoDetailContentCell.m in Sources */,
 				1857A0B41B4F584900501EA0 /* EDClassOnlineViewController.m in Sources */,

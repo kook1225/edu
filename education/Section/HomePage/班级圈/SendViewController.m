@@ -9,25 +9,32 @@
 #import "SendViewController.h"
 
 #define IMGWIDTH ([UIScreen mainScreen].bounds.size.width >= 667? 80 : 70)
-@interface SendViewController ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextViewDelegate>
+@interface SendViewController ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextViewDelegate,UIAlertViewDelegate>
 {
     UIButton *addImgBtn;
     UIImageView *imgView;
     int imageNum;
+    
+    NSData *fileData;
+    NSString *filePath;
+    
+    NSMutableString *picAdd;
+    
+    UIImagePickerController *pic;
 }
 @property (weak, nonatomic) IBOutlet UIView *headView;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
-@property (weak, nonatomic) IBOutlet UIButton *commitBtn;
 
 @end
 
-NSString *TMP_UPLOAD_IMG_PATH2=@"";
 
 @implementation SendViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    picAdd = [NSMutableString string];
+    
     self.title = @"班级圈";
     self.navigationItem.leftBarButtonItem = [Tools getNavBarItem:self clickAction:@selector(back)];
     
@@ -48,7 +55,58 @@ NSString *TMP_UPLOAD_IMG_PATH2=@"";
 }
 
 - (void)sendBtn {
-    NSLog(@"发布");
+    
+    if ([_textView.text length] == 0 || [_textView.text isEqualToString:@"想和老师/小伙伴说些什么呢？"]) {
+        SHOW_ALERT(@"提示", @"内容不能为空");
+    }
+    else {
+        MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+        HUD.mode = MBProgressHUDModeIndeterminate;
+        HUD.labelText = @"Loading";
+        HUD.removeFromSuperViewOnHide = YES;
+        
+        
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        
+        NSDictionary *parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],
+                                    @"bjid":@"",
+                                    @"images":picAdd,
+                                    @"content":_textView.text,
+                                   };
+        
+        NSString *urlStr = [NSString stringWithFormat:@"%@ClassZoneDynamic",SERVER_HOST];
+        
+        
+        // 设置超时时间
+        [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+        manager.requestSerializer.timeoutInterval = 10.f;
+        [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+        
+        [manager POST:urlStr parameters:parameter
+              success:^(AFHTTPRequestOperation *operation, id responseObject) {            [HUD hide:YES];
+                  
+                  if ([responseObject[@"responseCode"] intValue] == 0) {
+                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"发布成功" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+                      alert.tag = 201;
+                      [alert show];
+                  }
+                  else {
+                      SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
+                  }
+                  
+                  
+              }
+              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                  [HUD hide:YES];
+                  if(error.code == -1001)
+                  {
+                      SHOW_ALERT(@"提示", @"网络请求超时");
+                  }else if (error.code == -1009)
+                  {
+                      SHOW_ALERT(@"提示", @"网络连接已断开");
+                  }
+              }];
+    }
 }
 
 - (void)drawlayer
@@ -56,8 +114,6 @@ NSString *TMP_UPLOAD_IMG_PATH2=@"";
     imageNum = 0;
     _textView.layer.borderColor = LINECOLOR.CGColor;
     _textView.layer.borderWidth = 1.0f;
-    _commitBtn.layer.cornerRadius = 4.0f;
-    
     
     addImgBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     addImgBtn.frame = CGRectMake(10, 10, 78, 78);
@@ -90,6 +146,15 @@ NSString *TMP_UPLOAD_IMG_PATH2=@"";
     
 }
 
+#pragma mark - UIAlertViewDelegate Method
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (alertView.tag == 201) {
+        if (buttonIndex == 0) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    }
+}
+
 #pragma mark - UITextViewDelegate Method
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
     if ([_textView.text  isEqual: @"想和老师/小伙伴说些什么呢？"]) {
@@ -112,94 +177,162 @@ NSString *TMP_UPLOAD_IMG_PATH2=@"";
 {
     
     if(buttonIndex==0){
-        [self snapImage];
+        [self takePhoto];
         
     }
     else if(buttonIndex==1){
-        [self pickImage];
+        [self LocalPhoto];
         
     }
 }
+
 #pragma mark 两种照片选择方式
 
-//拍照
-- (void) snapImage
+-(void)takePhoto
 {
-    UIImagePickerController *ipc=[[UIImagePickerController alloc] init];
-    ipc.sourceType=UIImagePickerControllerSourceTypeCamera;
-    ipc.delegate=self;
-    ipc.allowsEditing=NO;
-    [self presentViewController:ipc animated:YES completion:nil];
-    
-}
-//从相册里找
-- (void) pickImage
-{
-    UIImagePickerController *ipc=[[UIImagePickerController alloc] init];
-    ipc.sourceType=UIImagePickerControllerSourceTypePhotoLibrary;
-    ipc.delegate=self;
-    ipc.allowsEditing=NO;
-    [self presentViewController:ipc animated:YES completion:nil];
-}
-
-#pragma mark UIImagePicker 代理
--(void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *) info
-{
-    imageNum++;
-    UIImage *img=[info objectForKey:@"UIImagePickerControllerOriginalImage"];
-    
-    if(picker.sourceType==UIImagePickerControllerSourceTypeCamera){
-        //        UIImageWriteToSavedPhotosAlbum(img,nil,nil,nil);
+    NSLog(@"11111");
+    UIImagePickerControllerSourceType sourceType = UIImagePickerControllerSourceTypeCamera;
+    if ([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera])
+    {
+        pic = [[UIImagePickerController alloc] init];
+        pic.delegate = self;
+        //设置拍照后的图片可被编辑
+        pic.allowsEditing = YES;
+        pic.sourceType = sourceType;
+        [self presentViewController:pic animated:YES completion:^(){}];
+    }else
+    {
+        NSLog(@"模拟其中无法打开照相机,请在真机中使用");
     }
-    UIImage *newImg=[self imageWithImageSimple:img scaledToSize:CGSizeMake(78, 78)];
-    [self saveImage:newImg WithName:[NSString stringWithFormat:@"%@%@",[self generateUuidString],@".jpg"]];
-    
-    [self setImgFrame:imageNum image:newImg];
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
-    
-}
--(UIImage *) imageWithImageSimple:(UIImage*) image scaledToSize:(CGSize) newSize
-{
-    newSize.height=image.size.height*(newSize.width/image.size.width);
-    UIGraphicsBeginImageContext(newSize);
-    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
-    UIImage *newImage=UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return  newImage;
 }
 
-- (void)saveImage:(UIImage *)tempImage WithName:(NSString *)imageName
+//打开本地相册
+-(void)LocalPhoto
 {
-    NSLog(@"===TMP_UPLOAD_IMG_PATH===%@",TMP_UPLOAD_IMG_PATH2);
-    NSData* imageData = UIImagePNGRepresentation(tempImage);
-    NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
+    pic = [[UIImagePickerController alloc] init];
     
-    NSString* documentsDirectory = [paths objectAtIndex:0];
-    
-    // Now we get the full path to the file
-    NSString* fullPathToFile = [documentsDirectory stringByAppendingPathComponent:imageName];
-    // and then we write it out
-    TMP_UPLOAD_IMG_PATH2=fullPathToFile;
-    NSArray *nameAry=[TMP_UPLOAD_IMG_PATH2 componentsSeparatedByString:@"/"];
-    NSLog(@"===new fullPathToFile===%@",fullPathToFile);
-    NSLog(@"===new FileName===%@",[nameAry objectAtIndex:[nameAry count]-1]);
-    [imageData writeToFile:fullPathToFile atomically:NO];
-    
+    pic.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    pic.delegate = self;
+    //设置选择后的图片可被编辑
+    pic.allowsEditing = YES;
+    [self presentViewController:pic animated:YES completion:^(){}];
 }
-- (NSString *)generateUuidString
+
+//当选择一张图片后进入这里
+-(void)imagePickerController:(UIImagePickerController*)pk didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    // create a new UUID which you own
-    CFUUIDRef uuid = CFUUIDCreate(kCFAllocatorDefault);
-    // create a new CFStringRef (toll-free bridged to NSString)
-    // that you own
-    NSString *uuidString = (NSString *)CFBridgingRelease(CFUUIDCreateString(kCFAllocatorDefault, uuid));
-    // transfer ownership of the string
-    // to the autorelease pool
     
-    // release the UUID
-    CFRelease(uuid);
-    return uuidString;
+    NSString *type = [info objectForKey:UIImagePickerControllerMediaType];
+    
+    //当选择的类型是图片
+    if ([type isEqualToString:@"public.image"])
+    {
+        //先把图片转成NSData
+        UIImage* image = [info objectForKey:@"UIImagePickerControllerEditedImage"];
+        NSData *data;
+        if (UIImagePNGRepresentation(image) == nil)
+        {
+            data = UIImageJPEGRepresentation(image, 1.0);
+        }
+        else
+        {
+            data = UIImagePNGRepresentation(image);
+        }
+        
+        
+        //图片保存的路径
+        //这里将图片放在沙盒的documents文件夹中
+        NSString * DocumentsPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
+        
+        
+        //文件管理器
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        
+        //把刚刚图片转换的data对象拷贝至沙盒中 并保存为image.png
+        [fileManager createDirectoryAtPath:DocumentsPath withIntermediateDirectories:YES attributes:nil error:nil];
+        [fileManager createFileAtPath:[DocumentsPath stringByAppendingString:@"/image.png"] contents:data attributes:nil];
+        
+        //得到选择后沙盒中图片的完整路径
+        filePath = [[NSString alloc]initWithFormat:@"%@%@",DocumentsPath,  @"/image.png"];
+        
+        NSError *err;
+        
+        //fileData = [NSData dataWithContentsOfMappedFile:filePath];
+        fileData = [NSData dataWithContentsOfFile:filePath options:NSDataReadingMappedIfSafe error:&err];
+        
+        //[SEUtils saveUserImage2:filePath];
+        
+        imageNum++;
+        
+        [pk dismissViewControllerAnimated:YES completion:^{
+            
+            
+            [self setImgFrame:imageNum image:[UIImage imageWithContentsOfFile:filePath]];
+            
+            if (imageNum == 3) {
+                addImgBtn.hidden = YES;
+            }
+            
+            MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+            HUD.mode = MBProgressHUDModeIndeterminate;
+            HUD.labelText = @"Loading";
+            HUD.removeFromSuperViewOnHide = YES;
+            
+            
+            AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+            
+            NSDictionary *parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],
+                                        @"extension":@"jpg"
+                                        };
+            
+            NSString *urlStr = [NSString stringWithFormat:@"%@/UploadAPI/",IMAGE_HOST];
+            
+            
+            // 设置超时时间
+            [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+            manager.requestSerializer.timeoutInterval = 10.f;
+            [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+            
+            
+            [manager POST:urlStr parameters:parameter constructingBodyWithBlock:^(id <AFMultipartFormData> formData) {
+                //[formData appendPartWithFormData:fileData name:@"media"];
+                [formData appendPartWithFileData:fileData name:@"media" fileName:@"1.jpg" mimeType:@"image/jpeg"];
+            }
+                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                      [HUD hide:YES];
+                      if ([responseObject[@"responseCode"] intValue] == 0) {
+                          if (imageNum == 1) {
+                              [picAdd appendString:[NSString stringWithFormat:@"%@",responseObject[@"data"]]];
+                          }
+                          else {
+                              [picAdd appendString:[NSString stringWithFormat:@",%@",responseObject[@"data"]]];
+                          }
+                          
+                          NSLog(@"pic:%@",picAdd);
+                          
+                      }
+                      else {
+                          SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
+                      }
+                      
+                      
+                  }
+                  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                      [HUD hide:YES];
+                      if(error.code == -1001)
+                      {
+                          SHOW_ALERT(@"提示", @"网络请求超时");
+                      }else if (error.code == -1009)
+                      {
+                          SHOW_ALERT(@"提示", @"网络连接已断开");
+                      }
+                  }];
+            
+        }];
+        
+        
+    }
+    
 }
 
 
