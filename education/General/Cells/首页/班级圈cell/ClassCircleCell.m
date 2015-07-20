@@ -217,6 +217,11 @@
     }
     [_btnView addSubview:_praiseLabel];
     
+    
+    _priBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 45, 24)];
+    [_btnView addSubview:_priBtn];
+    
+    
     if ([imagesArray count] != 0) {
         _btnView2 = [[UIView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(_btnView.frame) + 10, CGRectGetMaxY(_backView.frame) + 5*((([imagesArray count] - 1)/3) + 1), 45, 24)];
     }
@@ -243,6 +248,7 @@
     [_btnView2 addSubview:_evaluteLabel];
     
     
+    
     if ([imagesArray count] != 0) {
         _shareBtn = [[UIButton alloc] initWithFrame:CGRectMake(_contentLabel.frame.origin.x, CGRectGetMaxY(_backView.frame) + 5*((([imagesArray count] - 1)/3) + 1), 40, 24)];
         
@@ -267,7 +273,7 @@
     
     float height = 0.0;
     
-    titleStr = [NSMutableString string];
+    NSMutableString *titleStr = [NSMutableString string];
     
     
     for (int i = 0; i < [dataArray count]; i++) {
@@ -278,7 +284,6 @@
         else {
             [titleStr appendString:[[[dataArray objectAtIndex:i] author] XM]];
         }
-        
         
         NSString *str = [[dataArray objectAtIndex:i] NR];
         
@@ -295,7 +300,6 @@
     //NSLog(@"height:%g",height);
     
     _tableView.frame = CGRectMake(_contentLabel.frame.origin.x, CGRectGetMaxY(_shareBtn.frame) + 10, CGRectGetMaxX(_replyBtn.frame) - _contentLabel.frame.origin.x + 5, height - [dataArray count]*2 + 25 + 31);
-    
     [self.contentView addSubview:_tableView];
     
     
@@ -311,6 +315,19 @@
     
     self.frame = frame;
     
+    
+    
+    NSArray *titleArray = [NSArray array];
+    
+    titleArray = [titleStr componentsSeparatedByString:@","];
+    // 去重处理
+    set = [NSSet setWithArray:titleArray];
+    
+    setTitle = [NSString string];
+    
+    setTitle = [[set allObjects] componentsJoinedByString:@","];
+    
+    [_tableView reloadData];
 }
 
 #pragma mark - UITableViewDelegate Method
@@ -341,7 +358,7 @@
             cell = [[[NSBundle mainBundle] loadNibNamed:@"TopCell" owner:self options:nil] lastObject];
         }
         
-        cell.titleLabel.text = @"";
+        [cell setTitle:setTitle];
         
         return cell;
     }

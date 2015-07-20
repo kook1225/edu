@@ -70,7 +70,61 @@
     [self.navigationController pushViewController:sendVC animated:YES];
 }
 
+// 点赞
+- (void)evalutePri:(id)sender {
+    UIButton *btn = (UIButton *)sender;
+    NSLog(@"tag----%d",(int)btn.tag - 400);
+    
+    MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    HUD.mode = MBProgressHUDModeIndeterminate;
+    HUD.labelText = @"Loading";
+    HUD.removeFromSuperViewOnHide = YES;
+    
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    NSDictionary *parameter;
+    
+    parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],
+                  @"dynamicId":[[[dataArray objectAtIndex:btn.tag - 400] dynamicInfo] ID]};
+    
+    
+    NSString *urlStr = [NSString stringWithFormat:@"%@ClassZoneDynamicLike",SERVER_HOST];
+    
+    // 设置超时时间
+    [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+    manager.requestSerializer.timeoutInterval = 10.f;
+    [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+    
+    [manager POST:urlStr parameters:parameter
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             [HUD hide:YES];
+             
+             if ([responseObject[@"responseCode"] intValue] == 0) {
+                 SHOW_ALERT(@"提示", @"点赞成功");
+                 [self classCircleApi];
+             }
+             else {
+                 SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
+             }
+             
+         }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             [HUD hide:YES];
+             if(error.code == -1001)
+             {
+                 SHOW_ALERT(@"提示", @"网络请求超时");
+             }else if (error.code == -1009)
+             {
+                 SHOW_ALERT(@"提示", @"网络连接已断开");
+             }
+         }];
+}
+
 - (void)classCircleApi {
+    stringArray = [NSMutableArray array];
+    imagesArray = [NSMutableArray array];
+    
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     HUD.mode = MBProgressHUDModeIndeterminate;
     HUD.labelText = @"Loading";
@@ -111,8 +165,9 @@
                      [stringArray addObject:[[dataArray objectAtIndex:i] dynamicInfo].TPSM];
                      [imagesArray addObject:[[dataArray objectAtIndex:i] dynamicInfo].TPLY];
                  }
-                 NSLog(@"string---------:%@",stringArray);
-                 NSLog(@"array:%@",imagesArray);
+                 //NSLog(@"string---------:%@",stringArray);
+                 //NSLog(@"array:%@",imagesArray);
+                 
                  [_tableView reloadData];
              }
              else {
@@ -169,6 +224,8 @@
     [cell setIntroductionText:[stringArray objectAtIndex:[indexPath row]] image:imageArrays reply:[dataArray objectAtIndex:indexPath.row] index:indexPath.row];
     
     [cell setData:[dataArray objectAtIndex:indexPath.row]];
+    cell.priBtn.tag = 400 + indexPath.row;
+    [cell.priBtn addTarget:self action:@selector(evalutePri:) forControlEvents:UIControlEventTouchUpInside];
     
     return cell;
 }

@@ -14,7 +14,8 @@
     UIImage *singleImage;
     UIImageView *imageView;
     NSMutableArray *dataArray;
-    NSMutableString *titleStr;
+    NSSet *set;
+    NSString *setTitle;
 }
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -31,6 +32,7 @@
 @property (nonatomic,strong) UILabel *praiseLabel;
 @property (nonatomic,strong) UILabel *evaluteLabel;
 @property (nonatomic,strong) UITableView *tableView;
+@property (nonatomic,strong) UIButton *priBtn;
 
 - (void)setIntroductionText:(NSString*)text image:(NSArray *)imagesArray reply:(ListModel *)model index:(NSInteger)indexRow;
 
