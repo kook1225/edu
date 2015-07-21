@@ -17,13 +17,13 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="physicalHead" translatesAutoresizingMaskIntoConstraints="NO" id="8sh-je-GMO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="127"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="一年级上学期体质体能" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z8h-fQ-aey">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="一年级上学期体质体能" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z8h-fQ-aey">
                         <rect key="frame" x="89" y="42" width="142" height="21"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="学生姓名 : 李小白  " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C8b-Wl-pTS">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="学生姓名 : 李小白  " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C8b-Wl-pTS">
                         <rect key="frame" x="112" y="79" width="97" height="15"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="bWy-da-wu0"/>
@@ -47,6 +47,10 @@
                     <constraint firstItem="C8b-Wl-pTS" firstAttribute="top" secondItem="z8h-fQ-aey" secondAttribute="bottom" constant="16" id="yrG-51-jKO"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="nameLabel" destination="C8b-Wl-pTS" id="VTh-FC-B42"/>
+                <outlet property="titleLabel" destination="z8h-fQ-aey" id="l4g-dA-yz1"/>
+            </connections>
         </tableViewCell>
     </objects>
     <resources>

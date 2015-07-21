@@ -52,7 +52,6 @@
     manager.requestSerializer.timeoutInterval = 10.f;
     [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
     
-    NSLog(@"学生ID--%@",[SEUtils getUserInfo].UserDetail.studentInfo.ID);
     NSDictionary *pramaters;
     if ([[SEUtils getUserInfo].UserDetail.userinfo.YHLB intValue] ==3) {
         //老师
@@ -74,6 +73,7 @@
         if ([responseObject[@"responseCode"] intValue] ==0) {
           
             dataArray = responseObject[@"data"];
+            [_tableView reloadData];
         }else
         {
             SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
@@ -117,12 +117,16 @@
     if (physicalCell == nil) {
         physicalCell = [[[NSBundle mainBundle]loadNibNamed:@"EDGradeRecodeCell" owner:self options:nil]lastObject];
     }
+    physicalCell.nameLabel.text = dataArray[indexPath.row][@"JCSJ"];
+    physicalCell.dateLabel.text = [dataArray[indexPath.row][@"DJSJ"] substringToIndex:10];
     return physicalCell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     EDPhysicalDetailViewController *physicalDetailVC = [[EDPhysicalDetailViewController alloc]init];
+    physicalDetailVC.detailId = dataArray[indexPath.row][@"ID"];
+    physicalDetailVC.titleString = dataArray[indexPath.row][@"JCSJ"];
     [self.navigationController pushViewController:physicalDetailVC animated:YES];
 }
 

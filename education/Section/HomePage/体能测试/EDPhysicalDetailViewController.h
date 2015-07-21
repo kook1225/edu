@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface EDPhysicalDetailViewController : UIViewController
-
+@property (nonatomic,strong) NSString *detailId;
+@property (nonatomic,strong) NSString *titleString;
 @end

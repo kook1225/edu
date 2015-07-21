@@ -17,20 +17,20 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="游泳" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOe-Qx-TNa">
-                        <rect key="frame" x="21" y="24" width="42" height="21"/>
+                        <rect key="frame" x="20" y="24" width="200" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="42" id="tHi-gz-pfH"/>
+                            <constraint firstAttribute="width" constant="200" id="tHi-gz-pfH"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="89" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J2u-UG-EV8">
-                        <rect key="frame" x="267" y="17" width="30" height="33"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J2u-UG-EV8">
+                        <rect key="frame" x="166" y="17" width="131" height="33"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="30" id="YcQ-VY-9Fh"/>
+                            <constraint firstAttribute="width" constant="131" id="YcQ-VY-9Fh"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -45,11 +45,11 @@
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="B6c-XC-Wf8" secondAttribute="bottom" id="73o-FW-8hJ"/>
                     <constraint firstItem="B6c-XC-Wf8" firstAttribute="top" secondItem="J2u-UG-EV8" secondAttribute="bottom" constant="18" id="LDS-Ef-300"/>
-                    <constraint firstItem="SOe-Qx-TNa" firstAttribute="baseline" secondItem="J2u-UG-EV8" secondAttribute="firstBaseline" id="MHx-zu-kQe"/>
+                    <constraint firstItem="SOe-Qx-TNa" firstAttribute="baseline" secondItem="J2u-UG-EV8" secondAttribute="firstBaseline" constant="9" id="MHx-zu-kQe"/>
                     <constraint firstAttribute="trailingMargin" secondItem="J2u-UG-EV8" secondAttribute="trailing" constant="15" id="Pt9-pB-3rF"/>
                     <constraint firstItem="J2u-UG-EV8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="9" id="XaC-NJ-scf"/>
                     <constraint firstItem="SOe-Qx-TNa" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="dUE-M6-fGY"/>
-                    <constraint firstItem="SOe-Qx-TNa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="13" id="enm-GE-KFG"/>
+                    <constraint firstItem="SOe-Qx-TNa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="12" id="enm-GE-KFG"/>
                     <constraint firstItem="B6c-XC-Wf8" firstAttribute="top" secondItem="SOe-Qx-TNa" secondAttribute="bottom" constant="23" id="h9I-CH-hYd"/>
                     <constraint firstItem="B6c-XC-Wf8" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="juk-bz-TCt"/>
                     <constraint firstItem="B6c-XC-Wf8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="lZU-Ab-v0V"/>
@@ -60,6 +60,10 @@
                     </mask>
                 </variation>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="scoreLabel" destination="J2u-UG-EV8" id="RDd-DT-Fdi"/>
+                <outlet property="titleLabel" destination="SOe-Qx-TNa" id="KiE-nB-tXM"/>
+            </connections>
         </tableViewCell>
     </objects>
 </document>
