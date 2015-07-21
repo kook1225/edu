@@ -83,7 +83,7 @@
     _blurView.backgroundColor = [UIColor colorWithRed:51/255.0f green:57/255.0f blue:71/255.0f alpha:0.5];
     _blurView.frame = CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT);
     
-    [self AFNRequest];
+    [self AFNRequest:@""];
 }
 
 
@@ -98,6 +98,7 @@
 - (IBAction)sureFunction:(id)sender {
     _blurView.hidden = YES;
     _dateLabel.text = dateString;
+    [self AFNRequest:dateString];
 }
 
 - (IBAction)dateTap:(id)sender {
@@ -117,7 +118,7 @@
     
 }
 
-- (void)AFNRequest
+- (void)AFNRequest:(NSString *)date
 {
     dataArray = [NSMutableArray array];
     
@@ -141,7 +142,7 @@
                      @"pagesize":@"10",
                      @"ceci":@"",
                      @"xueke":@"",
-                     @"pushtime":@"",
+                     @"pushtime":date,
                      @"V_type":@""
                      };
   

@@ -19,5 +19,9 @@
 
     // Configure the view for the selected state
 }
-
+- (void)setData:(MUScoreModel *)model
+{
+    _nameLabel.text = model.KSMC;
+    _dateLabel.text = [model.KSSJ substringToIndex:10];
+}
 @end

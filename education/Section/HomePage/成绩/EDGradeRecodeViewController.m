@@ -10,10 +10,13 @@
 #import "EDGradeRecodeCell.h"
 #import "EDGradeDetailViewController.h"
 #import "SETabBarViewController.h"
+#import "MUScoreModel.h"
+#import "MUScoreListModel.h"
 
 @interface EDGradeRecodeViewController ()
 {
     SETabBarViewController *tabBarView;
+    NSMutableArray *dataArray;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -29,7 +32,7 @@
     self.navigationItem.leftBarButtonItem = [Tools getNavBarItem:self clickAction:@selector(back)];
     tabBarView = (SETabBarViewController *)self.navigationController.parentViewController;
     [tabBarView tabBarViewHidden];
-    
+    [self AFNRequest];
 }
 
 
@@ -38,10 +41,71 @@
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+- (void)AFNRequest
+{
+    dataArray = [NSMutableArray array];
+    
+    MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    HUD.mode = MBProgressHUDModeIndeterminate;
+    HUD.labelText = @"Loading";
+    HUD.removeFromSuperViewOnHide = YES;
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+    manager.requestSerializer.timeoutInterval = 10.f;
+    [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+    
+    NSDictionary *pramaters;
+    if ([[SEUtils getUserInfo].UserDetail.userinfo.YHLB intValue] ==3) {
+        //老师
+        pramaters= @{@"access_token":[SEUtils getUserInfo].TokenInfo.access_token,
+                     @"XSID":[SEUtils getUserInfo].UserDetail.studentInfo.ID
+                     };
+    }else
+    {
+        pramaters= @{@"access_token":[SEUtils getUserInfo].TokenInfo.access_token,
+                     @"XSID":@""};
+    }
+    NSString *urlString = [NSString stringWithFormat:@"%@StudentScore",SERVER_HOST];
+    
+    [manager GET:urlString parameters:pramaters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [HUD setHidden:YES];
+        NSLog(@"res--%@",responseObject);
+        if ([responseObject[@"responseCode"] intValue] ==0) {
+            dataArray = [MUScoreModel arrayOfModelsFromDictionaries:responseObject[@"data"] error:nil];
+            [_tableView reloadData];
+            
+        }else
+        {
+            SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [HUD setHidden:YES];
+        if (operation.response.statusCode == 401) {
+            NSLog(@"请求超时");
+            //   [SEUtils repetitionLogin];
+        }else if(error.code == -1001)
+        {
+            SHOW_ALERT(@"提示", @"网络请求超时");
+        }else if (error.code == -1009)
+        {
+            SHOW_ALERT(@"提示", @"网络连接已断开");
+        }
+        else {
+            NSLog(@"Error:%@",error);
+            NSLog(@"err:%@",operation.responseObject[@"message"]);
+            //   SHOW_ALERT(@"提示",operation.responseObject[@"message"])
+        }
+    }];
+    
+}
+
 #pragma mark tableView 代理
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return dataArray.count;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -55,12 +119,15 @@
     if (recodeCell == nil) {
         recodeCell = [[[NSBundle mainBundle]loadNibNamed:@"EDGradeRecodeCell" owner:self options:nil]lastObject];
     }
+    [recodeCell setData:dataArray[indexPath.row]];
     return recodeCell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     EDGradeDetailViewController *gradeDetailVC = [[EDGradeDetailViewController alloc]init];
+    gradeDetailVC.titleString = [dataArray[indexPath.row] KSMC];
+    gradeDetailVC.dataArray = [dataArray[indexPath.row] list];
     [self.navigationController pushViewController:gradeDetailVC animated:YES];
 }
 

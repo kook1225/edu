@@ -58,6 +58,10 @@
                     </mask>
                 </variation>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="dateLabel" destination="12K-0b-siy" id="6oX-fb-8Ya"/>
+                <outlet property="nameLabel" destination="ip9-ST-Z8s" id="hTE-hw-J5P"/>
+            </connections>
         </tableViewCell>
     </objects>
 </document>

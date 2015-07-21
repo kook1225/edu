@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface EDGradeDetailViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
-
+@property (nonatomic,strong) NSString *titleString;
+@property (nonatomic,strong) NSArray *dataArray;
 @end

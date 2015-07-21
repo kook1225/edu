@@ -105,6 +105,10 @@
 		1857A0F51B574E7300501EA0 /* MJRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A0F01B574E7300501EA0 /* MJRefreshFooterView.m */; };
 		1857A0F61B574E7300501EA0 /* MJRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A0F21B574E7300501EA0 /* MJRefreshHeaderView.m */; };
 		1857A0F81B5754FB00501EA0 /* details.html in Resources */ = {isa = PBXBuildFile; fileRef = 1857A0F71B5754FB00501EA0 /* details.html */; };
+		187119271B5CCD33000F8DD4 /* MUScoreModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 187119261B5CCD33000F8DD4 /* MUScoreModel.m */; };
+		1871192A1B5CCD51000F8DD4 /* MUScoreListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 187119291B5CCD51000F8DD4 /* MUScoreListModel.m */; };
+		187119301B5CFB29000F8DD4 /* ChineseString.m in Sources */ = {isa = PBXBuildFile; fileRef = 1871192D1B5CFB29000F8DD4 /* ChineseString.m */; };
+		187119311B5CFB29000F8DD4 /* pinyin.c in Sources */ = {isa = PBXBuildFile; fileRef = 1871192E1B5CFB29000F8DD4 /* pinyin.c */; };
 		187F7DC71B43BDDF005CC8D8 /* EDGradeRecodeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 187F7DC51B43BDDF005CC8D8 /* EDGradeRecodeCell.m */; };
 		187F7DC81B43BDDF005CC8D8 /* EDGradeRecodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187F7DC61B43BDDF005CC8D8 /* EDGradeRecodeCell.xib */; };
 		187F7DD01B43C469005CC8D8 /* Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 187F7DCF1B43C469005CC8D8 /* Tools.m */; };
@@ -362,6 +366,14 @@
 		1857A0F11B574E7300501EA0 /* MJRefreshHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshHeaderView.h; sourceTree = "<group>"; };
 		1857A0F21B574E7300501EA0 /* MJRefreshHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshHeaderView.m; sourceTree = "<group>"; };
 		1857A0F71B5754FB00501EA0 /* details.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = details.html; sourceTree = "<group>"; };
+		187119251B5CCD33000F8DD4 /* MUScoreModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUScoreModel.h; sourceTree = "<group>"; };
+		187119261B5CCD33000F8DD4 /* MUScoreModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUScoreModel.m; sourceTree = "<group>"; };
+		187119281B5CCD51000F8DD4 /* MUScoreListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUScoreListModel.h; sourceTree = "<group>"; };
+		187119291B5CCD51000F8DD4 /* MUScoreListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUScoreListModel.m; sourceTree = "<group>"; };
+		1871192C1B5CFB29000F8DD4 /* ChineseString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChineseString.h; sourceTree = "<group>"; };
+		1871192D1B5CFB29000F8DD4 /* ChineseString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChineseString.m; sourceTree = "<group>"; };
+		1871192E1B5CFB29000F8DD4 /* pinyin.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pinyin.c; sourceTree = "<group>"; };
+		1871192F1B5CFB29000F8DD4 /* pinyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pinyin.h; sourceTree = "<group>"; };
 		187F7DC41B43BDDF005CC8D8 /* EDGradeRecodeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDGradeRecodeCell.h; sourceTree = "<group>"; };
 		187F7DC51B43BDDF005CC8D8 /* EDGradeRecodeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDGradeRecodeCell.m; sourceTree = "<group>"; };
 		187F7DC61B43BDDF005CC8D8 /* EDGradeRecodeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDGradeRecodeCell.xib; sourceTree = "<group>"; };
@@ -839,6 +851,7 @@
 		1857A0DE1B5663EF00501EA0 /* 首页 */ = {
 			isa = PBXGroup;
 			children = (
+				187119241B5CCD1B000F8DD4 /* 成绩 */,
 				768F88F91B5892CB0054F73C /* 班级圈 */,
 				1857A0DF1B5663EF00501EA0 /* 天天资讯 */,
 			);
@@ -861,6 +874,7 @@
 		1857A0E91B574E4200501EA0 /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				1871192B1B5CFB29000F8DD4 /* ChineseSorting */,
 				1857A0EA1B574E7300501EA0 /* MJRefresh */,
 			);
 			path = lib;
@@ -879,6 +893,28 @@
 				1857A0F21B574E7300501EA0 /* MJRefreshHeaderView.m */,
 			);
 			path = MJRefresh;
+			sourceTree = "<group>";
+		};
+		187119241B5CCD1B000F8DD4 /* 成绩 */ = {
+			isa = PBXGroup;
+			children = (
+				187119251B5CCD33000F8DD4 /* MUScoreModel.h */,
+				187119261B5CCD33000F8DD4 /* MUScoreModel.m */,
+				187119281B5CCD51000F8DD4 /* MUScoreListModel.h */,
+				187119291B5CCD51000F8DD4 /* MUScoreListModel.m */,
+			);
+			path = "成绩";
+			sourceTree = "<group>";
+		};
+		1871192B1B5CFB29000F8DD4 /* ChineseSorting */ = {
+			isa = PBXGroup;
+			children = (
+				1871192C1B5CFB29000F8DD4 /* ChineseString.h */,
+				1871192D1B5CFB29000F8DD4 /* ChineseString.m */,
+				1871192E1B5CFB29000F8DD4 /* pinyin.c */,
+				1871192F1B5CFB29000F8DD4 /* pinyin.h */,
+			);
+			path = ChineseSorting;
 			sourceTree = "<group>";
 		};
 		187F7DC21B43BDAB005CC8D8 /* 我的 */ = {
@@ -1493,12 +1529,14 @@
 				18579FF71B4BC2B800501EA0 /* EDMyOrderViewController.m in Sources */,
 				1857A0981B4E4F1000501EA0 /* EDGrowDetailViewController.m in Sources */,
 				768FFAF41B4238D9008E577F /* AppDelegate.m in Sources */,
+				187119301B5CFB29000F8DD4 /* ChineseString.m in Sources */,
 				768F890F1B5B88860054F73C /* CheckImageViewController.m in Sources */,
 				764406CE1B4E763F00541C86 /* EvaluteAndEncourageViewController.m in Sources */,
 				1857A0151B4BC3CB00501EA0 /* EDPhysicalContentCell.m in Sources */,
 				7644064F1B458B1700541C86 /* ClassCircleCell.m in Sources */,
 				768FFB371B42C8C4008E577F /* ButtonViewCell.m in Sources */,
 				764406AD1B4BD5CF00541C86 /* PayEndViewController.m in Sources */,
+				187119271B5CCD33000F8DD4 /* MUScoreModel.m in Sources */,
 				761749041B451C87006DD0AA /* MineViewController.m in Sources */,
 				1857A00C1B4BC2E800501EA0 /* EDInfomationViewController.m in Sources */,
 				1857A0081B4BC2E800501EA0 /* EDPhysicalDetailViewController.m in Sources */,
@@ -1514,6 +1552,7 @@
 				768F88FC1B5892DF0054F73C /* ClassCircleModel.m in Sources */,
 				764406E21B4F594C00541C86 /* NoticeIntroViewController.m in Sources */,
 				1857A0681B4D0BF700501EA0 /* EDPhotoDetailContentCell.m in Sources */,
+				1871192A1B5CCD51000F8DD4 /* MUScoreListModel.m in Sources */,
 				1857A0B41B4F584900501EA0 /* EDClassOnlineViewController.m in Sources */,
 				1857A0271B4BC3FB00501EA0 /* EDOrderHeadCell.m in Sources */,
 				1857A0331B4CACC300501EA0 /* EDMyPhotoCell.m in Sources */,
@@ -1560,6 +1599,7 @@
 				764406A31B4BCD4600541C86 /* EditAddViewController.m in Sources */,
 				18579FE51B4BC24E00501EA0 /* EDSettingViewController.m in Sources */,
 				764406531B458B1700541C86 /* TopCell.m in Sources */,
+				187119311B5CFB29000F8DD4 /* pinyin.c in Sources */,
 				764406941B4ACD0200541C86 /* SelectAddCell.m in Sources */,
 				7644068F1B4AC4FA00541C86 /* SelectAddViewController.m in Sources */,
 				1857A0D71B5663A900501EA0 /* SchoolModel.m in Sources */,

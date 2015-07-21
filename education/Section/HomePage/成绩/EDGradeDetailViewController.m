@@ -7,6 +7,7 @@
 //
 
 #import "EDGradeDetailViewController.h"
+#import "MUScoreListModel.h"
 
 @interface EDGradeDetailViewController ()
 
@@ -61,8 +62,10 @@
     _tableView.frame = CGRectMake(slide_x, slide_y, TAB_WITHDE, TAB_HEIGHT);
     
     
+    _titleLabel.text = _titleString;
+    _name.text = [NSString stringWithFormat:@"学生姓名: %@",[SEUtils getUserInfo].UserDetail.studentInfo.XSXM];
     
-    
+    NSLog(@"array--%@",_dataArray);
 }
 
 #pragma mark 常用方法
@@ -74,7 +77,7 @@
 #pragma mark tableView 代理
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return _dataArray.count;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -88,13 +91,13 @@
     UILabel *subject = [[UILabel alloc]initWithFrame:CGRectMake(20, 5, 50, 20)];
     subject.textColor = [UIColor colorWithRed:255/255.0f green:124/255.0f blue:6/255.0f alpha:1.0];
     subject.font = [UIFont systemFontOfSize:14.0];
-    subject.text = @"语文";
+    subject.text = _dataArray[indexPath.row][@"KUMC"];
     [scoreCell addSubview:subject];
     
     UILabel *score = [[UILabel alloc]initWithFrame:CGRectMake(120, 5, 50, 20)];
     score.textColor = [UIColor colorWithRed:255/255.0f green:124/255.0f blue:6/255.0f alpha:1.0];
     score.font = [UIFont systemFontOfSize:14.0];
-    score.text = @"98";
+    score.text = _dataArray[indexPath.row][@"scoreObject"][@"FSDD"];
     [scoreCell addSubview:score];
     
     return scoreCell;
