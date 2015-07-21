@@ -13,12 +13,14 @@
 #import "EDPhotoDetailViewController.h"
 #import "ClassCircleModel.h"
 #import "ListModel.h"
+#import "CheckImageViewController.h"
 
 @interface ClassCircleViewController () {
     SETabBarViewController *tabBarViewController;
     NSMutableArray *stringArray;
     NSMutableArray *imagesArray;
     NSArray *dataArray;
+    NSMutableArray *imageArrays;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -55,6 +57,16 @@
     [rightBarBtn setTitle:@"发布" forState:UIControlStateNormal];
     UIBarButtonItem *btnItem2 = [[UIBarButtonItem alloc] initWithCustomView:rightBarBtn];
     self.navigationItem.rightBarButtonItem = btnItem2;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(seePic:)
+                                                 name:@"SETabBarViewController"
+                                               object:@"seePic"];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(replyAction:)
+                                                 name:@"ClassCircleCell"
+                                               object:@"ReplyAction"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -69,6 +81,27 @@
 - (void)sendBtn {
     SendViewController *sendVC = [[SendViewController alloc] init];
     [self.navigationController pushViewController:sendVC animated:YES];
+}
+
+-(void)seePic:(NSNotification *)notification{
+    NSDictionary *dic = notification.userInfo;
+    
+    CheckImageViewController *checkImageVC = [[CheckImageViewController alloc] init];
+    
+    NSString *imageStr = [imagesArray objectAtIndex:[dic[@"tag"] intValue]/100];
+    imageArrays = [NSMutableArray arrayWithArray:[imageStr componentsSeparatedByString:@","]];
+    
+    checkImageVC.dataArray = imageArrays;
+    checkImageVC.page = [dic[@"tag"] intValue]%100;
+    
+    [self.navigationController pushViewController:checkImageVC animated:YES];
+}
+
+-(void)replyAction:(NSNotification *)notification{
+    NSDictionary *dic = notification.userInfo;
+    EDPhotoDetailViewController *photoDetail = [[EDPhotoDetailViewController alloc]init];
+    photoDetail.model = [dataArray objectAtIndex:[dic[@"index"] intValue]];
+    [self.navigationController pushViewController:photoDetail animated:YES];
 }
 
 // 点赞
@@ -191,8 +224,7 @@
 
 #pragma mark - UITableViewDelegate Method
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    EDPhotoDetailViewController *photoDetail = [[EDPhotoDetailViewController alloc]init];
-    [self.navigationController pushViewController:photoDetail animated:YES];
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -213,7 +245,7 @@
     }
     
     
-    NSMutableArray *imageArrays = [NSMutableArray array];
+    imageArrays = [NSMutableArray array];
     
     NSString *imageStr = [imagesArray objectAtIndex:indexPath.row];
     

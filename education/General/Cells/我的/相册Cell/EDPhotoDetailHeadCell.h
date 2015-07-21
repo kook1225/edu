@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface EDPhotoDetailHeadCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+
+- (void)setTitle:(NSString *)title;
 
 @end

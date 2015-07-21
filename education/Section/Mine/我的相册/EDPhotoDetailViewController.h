@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ListModel.h"
 
 @interface EDPhotoDetailViewController : UIViewController
+
+@property (nonatomic,strong) ListModel *model;
 
 @end

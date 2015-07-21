@@ -8,11 +8,9 @@
 
 #import "EDPhotoDetailViewController.h"
 #import "EDPhotoDetailCell.h"
+#import "CheckImageViewController.h"
 
 @interface EDPhotoDetailViewController ()
-{
-    NSArray *dataArray;
-}
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -28,13 +26,33 @@
     
     [_tableView registerClass:[EDPhotoDetailCell class] forCellReuseIdentifier:@"photo"];
     
-    dataArray = @[@"测试测试测试",@"特色看见俺还是看到哈开始的卡号上课好的卡号SD卡还是看到按客户贷款",@"安顺供电局阿訇是肯定就会卡上的卡号就是电话卡还是肯定回家啊"];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(seePic:)
+                                                 name:@"EDPhotoDetailCell"
+                                               object:@"seePict"];
 }
 
 #pragma mark 常用方法
 - (void)back
 {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(void)seePic:(NSNotification *)notification{
+    NSDictionary *dic = notification.userInfo;
+    
+    CheckImageViewController *checkImageVC = [[CheckImageViewController alloc] init];
+    
+    NSMutableArray *imageArrays = [NSMutableArray array];
+    
+    NSString *imageStr = _model.dynamicInfo.TPLY;
+    imageArrays = [NSMutableArray arrayWithArray:[imageStr componentsSeparatedByString:@","]];
+    
+    checkImageVC.dataArray = imageArrays;
+    checkImageVC.page = [dic[@"tag"] intValue];
+    
+    [self.navigationController pushViewController:checkImageVC animated:YES];
 }
 
 
@@ -53,7 +71,17 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     EDPhotoDetailCell *photoCell = [tableView dequeueReusableCellWithIdentifier:@"photo"];
-    [photoCell setIntroductionText:@"阿斯达时刻记得哈开始的卡号SD卡承诺卡开始就" image:@[@"example1",@"example2",@"example1"] comment:dataArray];
+    
+    NSMutableArray *imageArrays = [NSMutableArray array];
+    
+    NSString *imageStr = _model.dynamicInfo.TPLY;
+    
+    imageArrays = [NSMutableArray arrayWithArray:[imageStr componentsSeparatedByString:@","]];
+    
+    [photoCell setIntroductionText:_model.dynamicInfo.TPSM image:imageArrays comment:_model indexPath:indexPath.row];
+    
+    [photoCell setData:_model];
+    
     return photoCell;
 }
 

@@ -44,7 +44,14 @@
 
 //赋值 and 自动换行,计算出cell的高度
 - (void)setIntroductionText:(NSString*)text image:(NSArray *)imagesArray reply:(ListModel *)model index:(NSInteger)indexRow{
+    row = indexRow;
+    
     dataArray = [NSMutableArray array];
+    
+    imageArray = [NSArray array];
+    
+    imageArray = imagesArray;
+    
     if ([model.replys count] <= 3) {
         dataArray = [NSMutableArray arrayWithArray:model.replys];
     }
@@ -147,14 +154,18 @@
             
             imageButton = [UIButton buttonWithType:UIButtonTypeCustom];
             
-            imageButton.backgroundColor = [UIColor grayColor];
+            //imageButton.backgroundColor = [UIColor grayColor];
             
-            [imageButton setFrame:CGRectMake((IMAGE_HEIGHT + 5)*(i - 3*(i/3)), (IMAGE_HEIGHT + 5) * (i/3), IMAGE_HEIGHT , IMAGE_HEIGHT)];
+            if ([imagesArray[0]  isEqual: @""]) {
+                [imageButton setFrame:CGRectMake((IMAGE_HEIGHT + 5)*(i - 3*(i/3)), (IMAGE_HEIGHT + 5) * (i/3), 1 , 1)];
+            }
+            else {
+                [imageButton setFrame:CGRectMake((IMAGE_HEIGHT + 5)*(i - 3*(i/3)), (IMAGE_HEIGHT + 5) * (i/3), IMAGE_HEIGHT , IMAGE_HEIGHT)];
+            }
             imageButton.tag = indexRow*100 +i;
             [imageButton addTarget:self action:@selector(imageIntro:) forControlEvents:UIControlEventTouchUpInside];
             
-            // 取消图片点击
-            //[_backView addSubview:imageButton];
+            [_backView addSubview:imageButton];
             
             
             [_backView addSubview:imageView];
@@ -345,9 +356,9 @@
 #pragma mark - UITableViewDelegate Method
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSDictionary *dic = @{@"index":[NSNumber numberWithInteger:indexPath.row]};
+    NSDictionary *dic = @{@"index":[NSNumber numberWithInteger:row]};
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"HomePageCell"
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ClassCircleCell"
                                                         object:@"ReplyAction"
                                                       userInfo:dic];
 }
@@ -394,8 +405,21 @@
 
 
 - (void)imageIntro:(id)sender {
+    
     UIButton *btn = (UIButton *)sender;
     NSLog(@"tag:%ld",(long)btn.tag);
+    
+    NSDictionary *dic = @{@"tag":[NSNumber numberWithInteger:btn.tag]};
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SETabBarViewController" object:@"seePic" userInfo:dic];
+    
+    /*
+    CheckImageViewController *checkImageVC = [[CheckImageViewController alloc] init];
+    checkImageVC.dataArray = imageArray;
+    checkImageVC.page = (int)btn.tag/100;
+    checkImageVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:checkImageVC];
+     */
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

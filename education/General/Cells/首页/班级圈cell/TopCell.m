@@ -15,7 +15,12 @@
 }
 
 -(void)setTitle:(NSString *)name {
-    _titleLabel.text = name;
+    if ([name length] == 0) {
+        _titleLabel.text = @"暂无回复";
+    }
+    else {
+        _titleLabel.text = name;
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
