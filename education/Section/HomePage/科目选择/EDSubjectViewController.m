@@ -26,14 +26,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = @"选择科目";
+    self.title = @"选择年级";
     self.navigationItem.leftBarButtonItem = [Tools getNavBarItem:self clickAction:@selector(back)];
     
-    grdArray = @[@"一年级",@"二年级",@"三年级",@"四年级",@"五年级",@"六年级"];
-    subArray = @[@"语文",@"数学",@"英语",@"思想政治"];
+    
     
     tabBarView = (SETabBarViewController *)self.navigationController.parentViewController;
     [tabBarView tabBarViewHidden];
+    [self AFNRequest:3 class:nil];
+    
+    
 }
 
 #pragma mark 常用方
@@ -41,7 +43,7 @@
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
-- (void)AFNRequest
+- (void)AFNRequest:(int)num class:(NSString *)classId
 {
 //    dataArray = [NSMutableArray array];
     
@@ -55,29 +57,40 @@
     manager.requestSerializer.timeoutInterval = 10.f;
     [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
     
-    NSLog(@"类型--%@",[SEUtils getUserInfo].UserDetail.userinfo.YHLB);
+    
     NSDictionary *pramaters;
-    //    if ([[SEUtils getUserInfo].UserDetail.userinfo.YHLB intValue] ==3) {
-    //老师
-    pramaters= @{@"access_token":[SEUtils getUserInfo].TokenInfo.access_token,
-                 @"type":@"1",
-                 @"page":@"1",
-                 @"pagesize":@"10",
-                 @"ceci":@"",
-                 @"xueke":@"",
-                 @"pushtime":@"",
-                 @"V_type":@""
-                 };
+    if(num==1||num==3)
+    {
+        pramaters= @{@"access_token":[SEUtils getUserInfo].TokenInfo.access_token};
+
+    }else
+    {
+        pramaters= @{@"access_token":[SEUtils getUserInfo].TokenInfo.access_token,
+                     @"NJID":classId};
+
+    }
     
-    
-    
-    NSString *urlString = [NSString stringWithFormat:@"%@EduOnlineList",SERVER_HOST];
+    NSString *urlString = [NSString stringWithFormat:@"%@GradeClassStu",SERVER_HOST];
     
     [manager GET:urlString parameters:pramaters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [HUD setHidden:YES];
         NSLog(@"res--%@",responseObject);
         if ([responseObject[@"responseCode"] intValue] ==0) {
             
+            if (num==1) {
+                grdArray = responseObject[@"data"];
+                [_gradeTableView reloadData];
+                
+            }else if(num == 2)
+            {
+                subArray = responseObject[@"data"];
+                [_subjectTableView reloadData];
+            }else
+            {
+                grdArray = responseObject[@"data"];
+                [_gradeTableView reloadData];
+                [self AFNRequest:2 class:grdArray[0][@"NJID"]];
+            }
             
             
         }else
@@ -110,10 +123,10 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (tableView == _gradeTableView) {
-        return 6;
+        return grdArray.count;
     }else
     {
-        return 4;
+        return subArray.count;
     }
     
 }
@@ -135,6 +148,7 @@
         if (gradeCell == nil) {
             gradeCell = [[[NSBundle mainBundle]loadNibNamed:@"EDGradeCell" owner:self options:nil]lastObject];
         }
+        gradeCell.grade.text = grdArray[indexPath.row][@"NJMC"];
         return gradeCell;
     }else
     {
@@ -148,7 +162,13 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-   
+    if (tableView == _gradeTableView) {
+        [self  AFNRequest:2 class:grdArray[indexPath.row][@"NJID"]];
+    }else
+    {
+       
+    }
+
 }
 
 @end

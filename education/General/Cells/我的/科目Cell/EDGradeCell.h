@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface EDGradeCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *grade;
 
 @end

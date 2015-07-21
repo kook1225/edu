@@ -8,6 +8,8 @@
 
 #import "EDEditInfoViewController.h"
 #import "SETabBarViewController.h"
+#import "UIImageView+WebCache.h"
+
 
 @interface EDEditInfoViewController ()
 {
@@ -26,7 +28,7 @@
     self.navigationItem.leftBarButtonItem = [Tools getNavBarItem:self clickAction:@selector(back)];
     
     tabBarView = (SETabBarViewController *)self.navigationController.parentViewController;
-    [tabBarView tabBarViewHidden    ];
+    [tabBarView tabBarViewHidden];
     [self drawlayer];
     
 }
@@ -45,6 +47,25 @@
 - (void)drawlayer
 {
     _headImg.layer.cornerRadius = 4.0f;
+    _headImg.layer.masksToBounds = YES;
+    
+    
+    
+    _userId.text = [SEUtils getUserInfo].UserDetail.userinfo.ID;
+    _location.text = [SEUtils getUserInfo].UserDetail.studentInfo.QYMC;
+    _school.text = [SEUtils getUserInfo].UserDetail.studentInfo.DWMC;
+    _grade.text = [SEUtils getUserInfo].UserDetail.studentInfo.NJMC;
+    _college.text = [SEUtils getUserInfo].UserDetail.studentInfo.BJMC;
+    _userName.text = [SEUtils getUserInfo].UserDetail.studentInfo.XSXM;
+    _sex.text = [SEUtils getUserInfo].UserDetail.studentInfo.XSXB;
+//    _birthDay.text = [SEUtils getUserInfo].UserDetail.studentInfo.DWMC;
+    _momName.text = [SEUtils getUserInfo].UserDetail.studentInfo.MQXM;
+    _momPhone.text = [SEUtils getUserInfo].UserDetail.studentInfo.MQDH;
+    _dadName.text = [SEUtils getUserInfo].UserDetail.studentInfo.FQXM;
+    _dadPhone.text = [SEUtils getUserInfo].UserDetail.studentInfo.FQDH;
+    
+    NSURL *url = [NSURL URLWithString:[SEUtils getUserInfo].UserDetail.userinfo.YHTX];
+    [_headImg sd_setImageWithURL:url placeholderImage:nil];
 }
 
 @end

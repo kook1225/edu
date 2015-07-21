@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
@@ -145,17 +145,21 @@
                                 <action selector="findPwdFunction:" destination="-1" eventType="touchUpInside" id="XgK-or-dcF"/>
                             </connections>
                         </button>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="example2" translatesAutoresizingMaskIntoConstraints="NO" id="wvg-P9-DVr">
-                            <rect key="frame" x="40" y="59" width="240" height="128"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginLogo" translatesAutoresizingMaskIntoConstraints="NO" id="wvg-P9-DVr">
+                            <rect key="frame" x="11" y="14" width="300" height="220"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="300" id="ZOf-h7-vxI"/>
+                                <constraint firstAttribute="height" constant="220" id="kXl-1R-hc5"/>
+                            </constraints>
                         </imageView>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="wvg-P9-DVr" firstAttribute="leading" secondItem="PHc-5T-wcT" secondAttribute="leading" id="5Ex-6h-dR7"/>
+                        <constraint firstItem="wvg-P9-DVr" firstAttribute="leading" secondItem="PHc-5T-wcT" secondAttribute="leading" constant="-29" id="5Ex-6h-dR7"/>
                         <constraint firstItem="ZWJ-TY-PIm" firstAttribute="trailing" secondItem="mo3-Xj-4W9" secondAttribute="trailing" id="7DG-qi-dMA"/>
                         <constraint firstItem="ZtQ-Gh-BKe" firstAttribute="centerX" secondItem="ZWJ-TY-PIm" secondAttribute="centerX" id="7hC-SQ-n53"/>
                         <constraint firstItem="U8I-Mi-Dg1" firstAttribute="leading" secondItem="k3D-w8-cLm" secondAttribute="leading" id="A36-rG-zud"/>
                         <constraint firstItem="ZtQ-Gh-BKe" firstAttribute="centerX" secondItem="PHc-5T-wcT" secondAttribute="centerX" id="CU7-TG-Kak"/>
-                        <constraint firstItem="wvg-P9-DVr" firstAttribute="trailing" secondItem="PHc-5T-wcT" secondAttribute="trailing" id="DaY-9h-Nmo"/>
+                        <constraint firstItem="wvg-P9-DVr" firstAttribute="trailing" secondItem="PHc-5T-wcT" secondAttribute="trailing" constant="31" id="DaY-9h-Nmo"/>
                         <constraint firstItem="ZEe-Dj-9ZA" firstAttribute="top" secondItem="PHc-5T-wcT" secondAttribute="bottom" constant="4" id="Gz6-KU-veK"/>
                         <constraint firstItem="ZWJ-TY-PIm" firstAttribute="leading" secondItem="U8I-Mi-Dg1" secondAttribute="leading" id="H6u-NV-Yf3"/>
                         <constraint firstAttribute="bottom" secondItem="ZEe-Dj-9ZA" secondAttribute="bottom" constant="33" id="INU-13-AG0"/>
@@ -163,8 +167,8 @@
                         <constraint firstItem="U8I-Mi-Dg1" firstAttribute="centerY" secondItem="k3D-w8-cLm" secondAttribute="centerY" id="Mia-QK-6Rg"/>
                         <constraint firstItem="U8I-Mi-Dg1" firstAttribute="top" secondItem="k3D-w8-cLm" secondAttribute="top" id="V0J-Oh-bL6"/>
                         <constraint firstAttribute="trailing" secondItem="NLM-1c-wZo" secondAttribute="trailing" constant="22" id="W3Z-I5-Nem"/>
-                        <constraint firstItem="wvg-P9-DVr" firstAttribute="leading" secondItem="k3D-w8-cLm" secondAttribute="leading" constant="40" id="XWb-8v-a4o"/>
-                        <constraint firstItem="wvg-P9-DVr" firstAttribute="top" secondItem="k3D-w8-cLm" secondAttribute="top" constant="59" id="b19-ZZ-Adk"/>
+                        <constraint firstItem="wvg-P9-DVr" firstAttribute="leading" secondItem="k3D-w8-cLm" secondAttribute="leading" constant="11" id="XWb-8v-a4o"/>
+                        <constraint firstItem="wvg-P9-DVr" firstAttribute="top" secondItem="k3D-w8-cLm" secondAttribute="top" constant="14" id="b19-ZZ-Adk"/>
                         <constraint firstAttribute="trailing" secondItem="U8I-Mi-Dg1" secondAttribute="trailing" id="bgr-eM-Ctd"/>
                         <constraint firstItem="ZEe-Dj-9ZA" firstAttribute="centerX" secondItem="PHc-5T-wcT" secondAttribute="centerX" id="cbU-vr-h6N"/>
                         <constraint firstItem="ZtQ-Gh-BKe" firstAttribute="top" secondItem="ZWJ-TY-PIm" secondAttribute="bottom" constant="30" id="huc-rK-tYv"/>
@@ -172,9 +176,9 @@
                         <constraint firstItem="PHc-5T-wcT" firstAttribute="top" secondItem="NLM-1c-wZo" secondAttribute="bottom" constant="30" id="jhG-zk-6XM"/>
                         <constraint firstItem="NLM-1c-wZo" firstAttribute="top" secondItem="ZtQ-Gh-BKe" secondAttribute="bottom" constant="5" id="kex-Rn-rsG"/>
                         <constraint firstItem="ZWJ-TY-PIm" firstAttribute="leading" secondItem="mo3-Xj-4W9" secondAttribute="leading" id="m3O-o0-FdW"/>
-                        <constraint firstItem="wvg-P9-DVr" firstAttribute="centerX" secondItem="k3D-w8-cLm" secondAttribute="centerX" id="mIH-op-LBW"/>
+                        <constraint firstItem="wvg-P9-DVr" firstAttribute="centerX" secondItem="k3D-w8-cLm" secondAttribute="centerX" constant="1" id="mIH-op-LBW"/>
                         <constraint firstItem="ZtQ-Gh-BKe" firstAttribute="leading" secondItem="k3D-w8-cLm" secondAttribute="leading" constant="20" id="nnB-iM-qf5"/>
-                        <constraint firstItem="mo3-Xj-4W9" firstAttribute="top" secondItem="wvg-P9-DVr" secondAttribute="bottom" constant="38" id="p0L-Kw-p0x"/>
+                        <constraint firstItem="mo3-Xj-4W9" firstAttribute="top" secondItem="wvg-P9-DVr" secondAttribute="bottom" constant="-9" id="p0L-Kw-p0x"/>
                         <constraint firstItem="ZEe-Dj-9ZA" firstAttribute="leading" secondItem="k3D-w8-cLm" secondAttribute="leading" constant="89" id="rzl-79-AAD"/>
                         <constraint firstItem="ZWJ-TY-PIm" firstAttribute="trailing" secondItem="U8I-Mi-Dg1" secondAttribute="trailing" id="uxc-cs-7eq"/>
                     </constraints>
@@ -187,12 +191,12 @@
                 <constraint firstAttribute="bottom" secondItem="k3D-w8-cLm" secondAttribute="bottom" id="Kgo-hH-rBV"/>
                 <constraint firstAttribute="trailing" secondItem="k3D-w8-cLm" secondAttribute="trailing" id="btr-Uj-t5S"/>
             </constraints>
-            <point key="canvasLocation" x="223" y="83"/>
+            <point key="canvasLocation" x="286" y="34"/>
         </view>
     </objects>
     <resources>
-        <image name="example2" width="255" height="143"/>
         <image name="loginBkg" width="375" height="667"/>
+        <image name="loginLogo" width="375" height="256"/>
         <image name="loginName" width="27" height="27"/>
         <image name="loginPwd" width="27" height="27"/>
     </resources>

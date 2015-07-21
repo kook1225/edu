@@ -31,6 +31,9 @@
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
+            <connections>
+                <outlet property="subject" destination="KSy-1P-MqS" id="atl-bZ-XFg"/>
+            </connections>
         </tableViewCell>
     </objects>
 </document>

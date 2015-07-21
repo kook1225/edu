@@ -17,9 +17,11 @@
 {
     SETabBarViewController *tabBarView;
     NSMutableArray *teaTitleArrray;
-//    NSMutableArray *stuTitleArray;
+    NSMutableArray *stuTitleArray;
     NSMutableArray *teacherArray;
-//    NSMutableArray *studentArray;
+    NSMutableArray *studentArray;
+    
+    NSArray *stuArray1;
     NSString *typeString;
     
    
@@ -89,7 +91,7 @@
         NSLog(@"res--%@",responseObject[@"data"]);
         if ([responseObject[@"responseCode"] intValue] ==0) {
             
-            NSArray *teaNameArray = responseObject[@"data"][@"classContacts"][0][@"teachers"];
+           /* NSArray *teaNameArray = responseObject[@"data"][@"classContacts"][0][@"teachers"];
             NSMutableArray *teaArray = [NSMutableArray array];
             for (int i=0; i<teaNameArray.count; i++) {
                 [teaArray addObject:teaNameArray[i][@"JSXM"]];
@@ -99,12 +101,16 @@
             teacherArray = [ChineseString LetterSortArray:teaArray];
 
             NSArray *stuNameArray = responseObject[@"data"][@"classContacts"][0][@"students"];
+            stuArray1 = responseObject[@"data"][@"classContacts"][0][@"students"];
             NSMutableArray *stuArray = [NSMutableArray array];
             for (int i=0; i<stuNameArray.count; i++) {
                 [stuArray addObject:stuNameArray[i][@"XSXM"]];
             }
             stuTitleArray = [ChineseString IndexArray:stuArray];
             studentArray = [ChineseString LetterSortArray:stuArray];
+           NSArray *detailArray = [self getPaixuArray:studentArray key:@"XSXM"];
+//            detailArray = [[detailArray reverseObjectEnumerator]allObjects];
+            NSLog(@"detail--%@",detailArray);*/
             [_tableView reloadData];
             
         }else
@@ -246,5 +252,27 @@
     
     EDStudentViewController *studentVC = [[EDStudentViewController alloc]init];
     [self.navigationController pushViewController:studentVC animated:YES];
+}
+
+- (NSMutableArray *)getPaixuArray:(NSMutableArray *)mutableArray key:(NSString *)key
+{
+    NSMutableArray *detailArray = [NSMutableArray array];
+    
+        for (int i=0; i<mutableArray.count; i++) {
+            NSArray *array = mutableArray[i];
+            for (int j=0; j<array.count; j++) {
+                for (int h =0; h<stuArray1.count; h++) {
+                    if ([stuArray1[h][key] isEqualToString:array[j]]) {
+                        [detailArray addObject:stuArray1[h]];
+                        
+                    }
+                }
+                
+            }
+        }
+    
+  
+
+    return detailArray;
 }
 @end

@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface EDSubjectCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *subject;
 
 @end

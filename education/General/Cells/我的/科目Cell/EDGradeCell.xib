@@ -41,6 +41,9 @@
                     <constraint firstItem="NSf-A1-jco" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="UiW-pV-KqP"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="grade" destination="NSf-A1-jco" id="X4P-Ea-VmU"/>
+            </connections>
             <point key="canvasLocation" x="59" y="254.5"/>
         </tableViewCell>
     </objects>
