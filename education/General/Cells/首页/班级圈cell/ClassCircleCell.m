@@ -270,6 +270,8 @@
     }
     [_btnView2 addSubview:_evaluteLabel];
     
+    _rlyBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 45, 24)];
+    [_btnView2 addSubview:_rlyBtn];
     
     
     if ([imagesArray count] != 0) {
