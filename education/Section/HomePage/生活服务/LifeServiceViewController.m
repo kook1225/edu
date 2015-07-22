@@ -12,18 +12,32 @@
 #import "LifeServiceCell.h"
 #import "FXBlurView.h"
 #import "LifeServiceIntroViewController.h"
+#import "LifeServiceListTypeModel.h"
+#import "ProductListModel.h"
+#import "MJRefresh.h"
 
 #define OFFSET ([UIScreen mainScreen].bounds.size.width > 320 ? 45 : 100)
 
-@interface LifeServiceViewController () {
+#define VERSION ([UIScreen mainScreen].bounds.size.width > 320 ? ([UIScreen mainScreen].bounds.size.width <= 375 ? 2 : 3) : 1)
+
+@interface LifeServiceViewController ()<MJRefreshBaseViewDelegate> {
     SETabBarViewController *tabBarViewController;
-    NSArray *titleArray;
+    NSMutableArray *titleArray;
     CGImageRef *context;
     CGFloat scale;
     UIView *menuView;
     FXBlurView *blurView;
+    NSArray *dataArray;
+    NSArray *listArray;
     
     BOOL menu;
+    
+    MJRefreshBaseView *_baseview;
+    MJRefreshFooterView *_footerview;
+    MJRefreshHeaderView *_headerview;
+    
+    int btnTag;
+    int pageNum;
 }
 @property (weak, nonatomic) IBOutlet UIButton *menuBtn;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -41,76 +55,25 @@
     
     menu = NO;
     
-    titleArray = [NSArray array];
+    titleArray = [NSMutableArray array];
+    dataArray = [NSArray array];
+    listArray = [NSArray array];
+    
+    [titleArray addObject:@"全部"];
+    
+    btnTag = 0;
+    pageNum = 1;
+    
+    [self initfooterview];
+    [self initheaderview];
     
     tabBarViewController = (SETabBarViewController *)self.navigationController.parentViewController;
     [tabBarViewController tabBarViewHidden];
     
-    // 是否设置回弹效果
-    _scrollView.tag = 501;
-    _scrollView.contentOffset = CGPointMake(0, 0);
     
-    titleArray = @[@"全部",@"公告",@"活动",@"求助",@"社交",@"提问",@"体育",@"生活",@"教育",@"政治",@"游戏"];
+    [self productType];
     
-    // 按钮菜单
-    /*
-    menuView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_scrollView.frame), SCREENWIDTH, SCREENHEIGHT - 64 - _scrollView.frame.size.height)];
-    menuView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.6];
-    //[self.view addSubview:menuView];
-    */
-    blurView = [FXBlurView new];
-    [blurView setFrame:CGRectMake(0, CGRectGetMaxY(_scrollView.frame), SCREENWIDTH, SCREENHEIGHT - 64 - _scrollView.frame.size.height)];
-    [blurView setTintColor:[UIColor whiteColor]];
-    [blurView setAlpha:0.95];
-    [self.view addSubview:blurView];
-    
-    for (int i = 0; i < [titleArray count]; i++) {
-        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(10 * scale + (SCREENHEIGHT / 4.0 - 62 * scale) * (i - 4 * (i / 4)) , 20 + (i / 4) * ((30 * scale) + 20), 60 * scale, 30 * scale)];
-        [btn setTitle:[titleArray objectAtIndex:i] forState:UIControlStateNormal];
-        btn.titleLabel.font = [UIFont systemFontOfSize:15];
-        btn.backgroundColor = [UIColor colorWithRed:232.0/255.0f green:232.0/255.0f blue:232.0/255.0f alpha:1.000];
-        [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        btn.layer.cornerRadius = 5.0f;
-        btn.layer.borderColor = [UIColor colorWithRed:212.0/255.0f green:212.0/255.0f blue:212.0/255.0f alpha:1.000].CGColor;
-        btn.layer.borderWidth = 1;
-        btn.tag = 300 + i;
-        [btn addTarget:self action:@selector(titleBtn:) forControlEvents:UIControlEventTouchUpInside];
-        
-        [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
-        
-        [blurView addSubview:btn];
-    }
-    
-    
-    blurView.hidden = YES;
-    
-    
-    for (int i = 0; i < [titleArray count]; i++) {
-        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(60*i, 0, 60, 39)];
-        btn.backgroundColor = [UIColor whiteColor];
-        btn.tag = i + 400;
-        
-        [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [btn setTitleColor:[UIColor colorWithRed:255.0 / 255.0 green:126.0 / 255.0 blue:4.0 / 255.0 alpha:1] forState:UIControlStateSelected];
-        
-        btn.titleLabel.font = [UIFont systemFontOfSize:15];
-        
-        if (btn.tag == 400) {
-            [btn setSelected:YES];
-            btn.titleLabel.font = [UIFont boldSystemFontOfSize:18];
-        }
-        
-        [btn addTarget:self action:@selector(selectBtn:) forControlEvents:UIControlEventTouchUpInside];
-        [btn setTitle:[titleArray objectAtIndex:i] forState:UIControlStateNormal];
-        [_scrollView addSubview:btn];
-    }
-    
-    UIView *borderView = [[UIView alloc] initWithFrame:CGRectMake(0, -25, 60*[titleArray count], 1)];
-    borderView.backgroundColor = [UIColor colorWithRed:232.0/255.0f green:232.0/255.0f blue:232.0/255.0f alpha:1.000];
-    
-    [_scrollView addSubview:borderView];
-
-    
+    [self productList:btnTag];
     
     self.navigationItem.leftBarButtonItem = [Tools getNavBarItem:self clickAction:@selector(back)];
     
@@ -128,12 +91,188 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (void)productType {
+    MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    HUD.mode = MBProgressHUDModeIndeterminate;
+    HUD.labelText = @"Loading";
+    HUD.removeFromSuperViewOnHide = YES;
+    
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    NSDictionary *parameter;
+    
+    parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token]};
+    
+    
+    NSString *urlStr = [NSString stringWithFormat:@"%@Product",SERVER_HOST];
+    
+    // 设置超时时间
+    [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+    manager.requestSerializer.timeoutInterval = 10.f;
+    [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+    
+    [manager GET:urlStr parameters:parameter
+          success:^(AFHTTPRequestOperation *operation, id responseObject) {
+              [HUD hide:YES];
+              
+              NSError *err;
+              
+              if ([responseObject[@"responseCode"] intValue] == 0) {
+                  dataArray = [LifeServiceListTypeModel arrayOfModelsFromDictionaries:responseObject[@"data"] error:&err];
+                  
+                  for (int i = 0; i < [dataArray count]; i++) {
+                      [titleArray addObject:[[dataArray objectAtIndex:i] name]];
+                  }
+                  
+                  // 是否设置回弹效果
+                  _scrollView.tag = 501;
+                  _scrollView.contentOffset = CGPointMake(0, 0);
+                  
+                  //titleArray = [NSMutableArray arrayWithArray:@[@"全部",@"公告",@"活动",@"求助",@"社交",@"提问"]];
+                  
+                  blurView = [FXBlurView new];
+                  [blurView setFrame:CGRectMake(0, CGRectGetMaxY(_scrollView.frame), SCREENWIDTH, SCREENHEIGHT - 64 - _scrollView.frame.size.height)];
+                  [blurView setTintColor:[UIColor whiteColor]];
+                  [blurView setAlpha:0.95];
+                  [self.view addSubview:blurView];
+                  
+                  for (int i = 0; i < [titleArray count]; i++) {
+                      UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(10 * scale + (SCREENHEIGHT / 4.0 - 62 * scale) * (i - 4 * (i / 4)) , 20 + (i / 4) * ((30 * scale) + 20), 60 * scale, 30 * scale)];
+                      [btn setTitle:[titleArray objectAtIndex:i] forState:UIControlStateNormal];
+                      btn.titleLabel.font = [UIFont systemFontOfSize:15];
+                      btn.backgroundColor = [UIColor colorWithRed:232.0/255.0f green:232.0/255.0f blue:232.0/255.0f alpha:1.000];
+                      [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+                      btn.layer.cornerRadius = 5.0f;
+                      btn.layer.borderColor = [UIColor colorWithRed:212.0/255.0f green:212.0/255.0f blue:212.0/255.0f alpha:1.000].CGColor;
+                      btn.layer.borderWidth = 1;
+                      btn.tag = 300 + i;
+                      [btn addTarget:self action:@selector(titleBtn:) forControlEvents:UIControlEventTouchUpInside];
+                      
+                      [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
+                      
+                      [blurView addSubview:btn];
+                  }
+                  
+                  
+                  blurView.hidden = YES;
+                  
+                  
+                  for (int i = 0; i < [titleArray count]; i++) {
+                      UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(60*i, 0, 60, 39)];
+                      btn.backgroundColor = [UIColor whiteColor];
+                      btn.tag = i + 400;
+                      
+                      [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+                      [btn setTitleColor:[UIColor colorWithRed:255.0 / 255.0 green:126.0 / 255.0 blue:4.0 / 255.0 alpha:1] forState:UIControlStateSelected];
+                      
+                      btn.titleLabel.font = [UIFont systemFontOfSize:15];
+                      
+                      if (btn.tag == 400) {
+                          [btn setSelected:YES];
+                          btn.titleLabel.font = [UIFont boldSystemFontOfSize:18];
+                      }
+                      
+                      [btn addTarget:self action:@selector(selectBtn:) forControlEvents:UIControlEventTouchUpInside];
+                      [btn setTitle:[titleArray objectAtIndex:i] forState:UIControlStateNormal];
+                      [_scrollView addSubview:btn];
+                  }
+                  
+                  UIView *borderView = [[UIView alloc] initWithFrame:CGRectMake(0, -25, 60*[titleArray count], 1)];
+                  borderView.backgroundColor = [UIColor colorWithRed:232.0/255.0f green:232.0/255.0f blue:232.0/255.0f alpha:1.000];
+                  
+                  [_scrollView addSubview:borderView];
+                  
+                  [_collectionView reloadData];
+              }
+              else {
+                  SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
+              }
+              
+          }
+          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+              [HUD hide:YES];
+              if(error.code == -1001)
+              {
+                  SHOW_ALERT(@"提示", @"网络请求超时");
+              }else if (error.code == -1009)
+              {
+                  SHOW_ALERT(@"提示", @"网络连接已断开");
+              }
+          }];
+}
 
+- (void)productList:(int)tag {
+    MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    HUD.mode = MBProgressHUDModeIndeterminate;
+    HUD.labelText = @"Loading";
+    HUD.removeFromSuperViewOnHide = YES;
+    
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    NSDictionary *parameter;
+    
+    if (tag == 0) {
+        parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],
+                      @"status":@"0",
+                      @"type":@"",
+                      @"page":@"1",
+                      @"pageSize":@"6"};
+    }
+    else {
+        parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],
+                      @"status":@"0",
+                      @"type":[[dataArray objectAtIndex:tag - 1] id],
+                      @"page":@"1",
+                      @"pageSize":@"6"};
+    }
+    
+    
+    NSString *urlStr = [NSString stringWithFormat:@"%@Product",SERVER_HOST];
+    
+    // 设置超时时间
+    [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+    manager.requestSerializer.timeoutInterval = 10.f;
+    [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+    
+    [manager GET:urlStr parameters:parameter
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             [HUD hide:YES];
+             
+             NSError *err;
+             
+             if ([responseObject[@"responseCode"] intValue] == 0) {
+                 listArray = [ProductListModel arrayOfModelsFromDictionaries:responseObject[@"data"] error:&err];
+                 
+                 [_collectionView reloadData];
+             }
+             else {
+                 SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
+             }
+             
+         }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             [HUD hide:YES];
+             if(error.code == -1001)
+             {
+                 SHOW_ALERT(@"提示", @"网络请求超时");
+             }else if (error.code == -1009)
+             {
+                 SHOW_ALERT(@"提示", @"网络连接已断开");
+             }
+         }];
+
+}
 
 - (void)selectBtn:(id)sender {
     for (int i = 400; i < [titleArray count] + 400; i++) {
         UIButton *btn = (UIButton *)[_scrollView viewWithTag:i];
         if ([sender tag] == btn.tag) {
+            btnTag = (int)[sender tag] - 400;
+            
+            [self productList:btnTag];
+            
             [btn setSelected:YES];
             [UIView animateWithDuration:1 animations:^{
                 btn.titleLabel.font = [UIFont boldSystemFontOfSize:18];
@@ -141,25 +280,75 @@
             
             UIButton *button = (UIButton *)sender;
             NSLog(@"tag:%ld",(long)button.tag);
-            NSLog(@"xxxxx:%g",_scrollView.contentOffset.x);
+            //NSLog(@"xxxxx:%g",_scrollView.contentOffset.x);
             
-            if (button.frame.origin.x > (_scrollView.frame.size.width / 2.0)) {
-                if ((button.tag - 400) >= [titleArray count] - 3) {
-                    [UIView animateWithDuration:0.3 animations:^{
-                        _scrollView.contentOffset = CGPointMake((60 * [titleArray count]) -_scrollView.frame.size.width, 0);
-                    }];
-                }
-                else {
-                    [UIView animateWithDuration:0.3 animations:^{
-                        _scrollView.contentOffset = CGPointMake(60 * (i - 402), 0);
-                    }];
-                }
+            switch (VERSION) {
+                case 1:
+                    if ([titleArray count] > 4) {
+                        if (button.frame.origin.x > (_scrollView.frame.size.width / 2.0)) {
+                            if ((button.tag - 400) >= [titleArray count] - 3) {
+                                [UIView animateWithDuration:0.3 animations:^{
+                                    _scrollView.contentOffset = CGPointMake((60 * [titleArray count]) -_scrollView.frame.size.width, 0);
+                                }];
+                            }
+                            else {
+                                [UIView animateWithDuration:0.3 animations:^{
+                                    _scrollView.contentOffset = CGPointMake(60 * (i - 402), 0);
+                                }];
+                            }
+                        }
+                        else {
+                            [UIView animateWithDuration:0.3 animations:^{
+                                _scrollView.contentOffset = CGPointMake(0, 0);
+                            }];
+                        }
+                    }
+                    break;
+                case 2:
+                    if ([titleArray count] > 5) {
+                        if (button.frame.origin.x > (_scrollView.frame.size.width / 2.0)) {
+                            if ((button.tag - 400) >= [titleArray count] - 3) {
+                                [UIView animateWithDuration:0.3 animations:^{
+                                    _scrollView.contentOffset = CGPointMake((60 * [titleArray count]) -_scrollView.frame.size.width, 0);
+                                }];
+                            }
+                            else {
+                                [UIView animateWithDuration:0.3 animations:^{
+                                    _scrollView.contentOffset = CGPointMake(60 * (i - 402), 0);
+                                }];
+                            }
+                        }
+                        else {
+                            [UIView animateWithDuration:0.3 animations:^{
+                                _scrollView.contentOffset = CGPointMake(0, 0);
+                            }];
+                        }
+                    }
+                    break;
+                    
+                default:
+                    if ([titleArray count] > 6) {
+                        if (button.frame.origin.x > (_scrollView.frame.size.width / 2.0)) {
+                            if ((button.tag - 400) >= [titleArray count] - 3) {
+                                [UIView animateWithDuration:0.3 animations:^{
+                                    _scrollView.contentOffset = CGPointMake((60 * [titleArray count]) -_scrollView.frame.size.width, 0);
+                                }];
+                            }
+                            else {
+                                [UIView animateWithDuration:0.3 animations:^{
+                                    _scrollView.contentOffset = CGPointMake(60 * (i - 402), 0);
+                                }];
+                            }
+                        }
+                        else {
+                            [UIView animateWithDuration:0.3 animations:^{
+                                _scrollView.contentOffset = CGPointMake(0, 0);
+                            }];
+                        }
+                    }
+                    break;
             }
-            else {
-                [UIView animateWithDuration:0.3 animations:^{
-                    _scrollView.contentOffset = CGPointMake(0, 0);
-                }];
-            }
+            
         
         }
         else {
@@ -209,7 +398,7 @@
 //定义展示的UICollectionViewCell的个数
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return [titleArray count];
+    return [listArray count];
 }
 //定义展示的Section的个数
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -221,6 +410,7 @@
 {
     // Set up the reuse identifier
     LifeServiceCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier: @"lifeServiceCell" forIndexPath:indexPath];
+    [cell setData:[listArray objectAtIndex:indexPath.row]];
     return cell;
 }
 #pragma mark --UICollectionViewDelegateFlowLayout
@@ -238,17 +428,123 @@
 //UICollectionView被选中时调用的方法
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    /*
-    UICollectionViewCell * cell = (UICollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
-    NSLog(@"%ld",(long)indexPath.row);
-     */
     LifeServiceIntroViewController *lifeServiceIntroVC = [[LifeServiceIntroViewController alloc] init];
+    lifeServiceIntroVC.proId = [[listArray objectAtIndex:indexPath.row] id];
     [self.navigationController pushViewController:lifeServiceIntroVC animated:YES];
 }
 //返回这个UICollectionView是否可以被选择
 -(BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     return YES;
+}
+
+
+#pragma mark 刷新
+//下拉刷新和上拉加载相关
+- (void)dealloc{
+    [_footerview free];
+    [_headerview free];
+}
+
+- (void)initfooterview{
+    _footerview = [[MJRefreshFooterView alloc]initWithScrollView:_collectionView];
+    _footerview.delegate = self;
+}
+
+- (void)initheaderview{
+    _headerview = [[MJRefreshHeaderView alloc]initWithScrollView:_collectionView];
+    _headerview.delegate = self;
+}
+
+//下拉刷新和上拉加载代理
+- (void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
+{
+    _baseview = refreshView;
+    if (_baseview == _footerview) {
+        pageNum++;
+        
+        MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+        HUD.mode = MBProgressHUDModeIndeterminate;
+        HUD.labelText = @"Loading";
+        HUD.removeFromSuperViewOnHide = YES;
+        
+        
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        
+        NSDictionary *parameter;
+        
+        if (btnTag == 0) {
+            parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],
+                          @"status":@"0",
+                          @"type":@"",
+                          @"page":[NSNumber numberWithInt:pageNum],
+                          @"pageSize":@"6"};
+        }
+        else {
+            parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],
+                          @"status":@"0",
+                          @"type":[[dataArray objectAtIndex:btnTag - 1] id],
+                          @"page":[NSNumber numberWithInt:pageNum],
+                          @"pageSize":@"6"};
+        }
+        
+        
+        NSString *urlStr = [NSString stringWithFormat:@"%@Product",SERVER_HOST];
+        
+        // 设置超时时间
+        [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+        manager.requestSerializer.timeoutInterval = 10.f;
+        [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+        
+        [manager GET:urlStr parameters:parameter
+             success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                 [HUD hide:YES];
+                 
+                 NSError *err;
+                 
+                 if ([responseObject[@"responseCode"] intValue] == 0) {
+                     listArray = [ProductListModel arrayOfModelsFromDictionaries:responseObject[@"data"] error:&err];
+                     
+                     [_collectionView reloadData];
+                 }
+                 else {
+                     SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
+                 }
+                 
+             }
+             failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                 [HUD hide:YES];
+                 if(error.code == -1001)
+                 {
+                     SHOW_ALERT(@"提示", @"网络请求超时");
+                 }else if (error.code == -1009)
+                 {
+                     SHOW_ALERT(@"提示", @"网络连接已断开");
+                 }
+             }];
+        
+        
+        [self performSelector:@selector(hidden) withObject:nil afterDelay:1.5];
+    }
+    if (_baseview == _headerview) {
+        pageNum = 1;
+        [self productList:btnTag];
+        //        _baseview = refreshView;
+        [self performSelector:@selector(hidden) withObject:nil afterDelay:1.5];
+    }
+    
+}
+
+- (void)hidden
+{
+    if (_baseview == _headerview)
+    {
+        [_headerview endRefreshing];
+    }
+    else
+    {
+        [_footerview endRefreshing];
+    }
 }
 
 

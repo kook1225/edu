@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ProductListModel.h"
 
 @interface LifeServiceCell : UICollectionViewCell {
     CGFloat scale;
@@ -18,5 +19,7 @@
 @property (nonatomic,strong) UILabel *priceLabel;
 @property (nonatomic,strong) UILabel *oldPriceLabel;
 @property (nonatomic,strong) UILabel *saledLabel;
+
+- (void)setData:(ProductListModel *)model;
 
 @end

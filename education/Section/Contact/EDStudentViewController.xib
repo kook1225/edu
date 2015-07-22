@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -122,7 +122,7 @@
                                 <constraint firstItem="NWU-3M-4rI" firstAttribute="leading" secondItem="dZr-fi-UBU" secondAttribute="leading" constant="10" id="wQ7-s2-Rq9"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jjg-qb-POS" userLabel="学校-View">
+                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jjg-qb-POS" userLabel="学校-View">
                             <rect key="frame" x="0.0" y="145" width="320" height="45"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="学校" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RcS-IU-pjd">
@@ -161,7 +161,7 @@
                                 <constraint firstItem="RcS-IU-pjd" firstAttribute="top" secondItem="Jjg-qb-POS" secondAttribute="top" constant="15" id="uyV-fh-FOz"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TVP-WG-Vbx" userLabel="年级-View">
+                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TVP-WG-Vbx" userLabel="年级-View">
                             <rect key="frame" x="0.0" y="190" width="320" height="45"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="年级" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QWI-YZ-T3C">
@@ -200,7 +200,7 @@
                                 <constraint firstItem="5jQ-iM-EuY" firstAttribute="leading" secondItem="QWI-YZ-T3C" secondAttribute="leading" id="wii-if-SxX"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PPa-FP-Vdk" userLabel="班级-View">
+                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PPa-FP-Vdk" userLabel="班级-View">
                             <rect key="frame" x="0.0" y="235" width="320" height="45"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="班级" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t1h-Zh-gFr">
@@ -239,7 +239,7 @@
                                 <constraint firstItem="SQj-BG-sca" firstAttribute="trailing" secondItem="bjp-zw-bjd" secondAttribute="trailing" id="zjt-Be-G5l"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bnV-pE-i4J" userLabel="姓名-View">
+                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bnV-pE-i4J" userLabel="姓名-View">
                             <rect key="frame" x="0.0" y="280" width="320" height="45"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="姓名" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uLf-N3-Vo3">
@@ -278,7 +278,7 @@
                                 <constraint firstItem="CES-q7-YlF" firstAttribute="trailing" secondItem="br3-KF-K2d" secondAttribute="trailing" id="szi-tk-nzn"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ahy-dn-UTH" userLabel="性别-View">
+                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ahy-dn-UTH" userLabel="性别-View">
                             <rect key="frame" x="0.0" y="325" width="320" height="45"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="性别" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VZt-sh-HGE">
@@ -317,7 +317,7 @@
                                 <constraint firstItem="oWy-Gd-Fux" firstAttribute="centerX" secondItem="ahy-dn-UTH" secondAttribute="centerX" id="tNh-Qf-UwA"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5nz-YI-xwo" userLabel="生日-View">
+                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5nz-YI-xwo" userLabel="生日-View">
                             <rect key="frame" x="0.0" y="370" width="320" height="45"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="生日" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w0T-OY-0Af">
@@ -348,7 +348,7 @@
                                 <constraint firstItem="VIA-Ul-2uX" firstAttribute="baseline" secondItem="w0T-OY-0Af" secondAttribute="baseline" id="rmS-Oi-Stx"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cch-11-YLZ" userLabel="家长-View">
+                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cch-11-YLZ" userLabel="家长-View">
                             <rect key="frame" x="0.0" y="415" width="320" height="35"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="49z-Id-m0f">
@@ -375,7 +375,7 @@
                                 <constraint firstItem="49z-Id-m0f" firstAttribute="top" secondItem="Cch-11-YLZ" secondAttribute="top" constant="12" id="rqT-K5-Fh6"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tDL-M3-dfv" userLabel="妈妈姓名-View">
+                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tDL-M3-dfv" userLabel="妈妈姓名-View">
                             <rect key="frame" x="0.0" y="450" width="320" height="45"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="妈妈姓名" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hq6-IN-nU7">
@@ -414,7 +414,7 @@
                                 <constraint firstItem="8Td-OI-BLP" firstAttribute="centerX" secondItem="tDL-M3-dfv" secondAttribute="centerX" id="fD9-35-Swu"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZEZ-Ir-RkZ" userLabel="妈妈电话-View">
+                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZEZ-Ir-RkZ" userLabel="妈妈电话-View">
                             <rect key="frame" x="0.0" y="495" width="320" height="45"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="妈妈电话" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ciN-Wl-kT1">
@@ -453,7 +453,7 @@
                                 <constraint firstItem="a4z-FV-70s" firstAttribute="centerX" secondItem="ZEZ-Ir-RkZ" secondAttribute="centerX" id="wfU-zK-MaJ"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vab-OP-qAN" userLabel="爸爸姓名-View">
+                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vab-OP-qAN" userLabel="爸爸姓名-View">
                             <rect key="frame" x="0.0" y="540" width="320" height="45"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="爸爸姓名" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J90-Yy-Wnq">
@@ -492,7 +492,7 @@
                                 <constraint firstItem="AYj-dT-mTn" firstAttribute="leading" secondItem="J90-Yy-Wnq" secondAttribute="leading" id="xdV-Nv-ggz"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OoU-ah-tNw" userLabel="爸爸电话-View">
+                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OoU-ah-tNw" userLabel="爸爸电话-View">
                             <rect key="frame" x="0.0" y="585" width="320" height="45"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="爸爸电话" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K5a-au-137">
@@ -523,7 +523,7 @@
                                 <constraint firstItem="K5a-au-137" firstAttribute="leading" secondItem="OoU-ah-tNw" secondAttribute="leading" constant="10" id="ziw-b0-RtM"/>
                             </constraints>
                         </view>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uLc-uN-xnV">
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uLc-uN-xnV">
                             <rect key="frame" x="60" y="650" width="200" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="B4A-Tg-YSR"/>
