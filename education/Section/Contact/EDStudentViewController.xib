@@ -7,7 +7,19 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EDStudentViewController">
             <connections>
+                <outlet property="bornLabel" destination="VIA-Ul-2uX" id="TeN-V1-zQM"/>
+                <outlet property="classLabel" destination="bjp-zw-bjd" id="7bt-yK-KOd"/>
+                <outlet property="dadName" destination="EIl-s3-jTQ" id="DZl-Qb-XWr"/>
+                <outlet property="dadPhone" destination="IVi-au-p87" id="711-bR-aN7"/>
+                <outlet property="grade" destination="JIy-5R-7h1" id="7vS-0x-XmA"/>
+                <outlet property="headImg" destination="WDQ-Vd-dT9" id="e4b-Jy-WoU"/>
+                <outlet property="location" destination="ubT-eC-avc" id="goj-de-sbV"/>
+                <outlet property="momName" destination="3OZ-4d-hMq" id="pak-y0-HJI"/>
+                <outlet property="momPhone" destination="M7b-QH-DzC" id="TDM-JW-JxA"/>
+                <outlet property="nameLabel" destination="br3-KF-K2d" id="tVP-91-UZT"/>
+                <outlet property="school" destination="hSo-fs-HCb" id="KLs-uw-XjJ"/>
                 <outlet property="scrollView" destination="bfJ-xg-OEP" id="hHR-ws-dO2"/>
+                <outlet property="sexLabel" destination="sO7-Hv-ZPN" id="ySW-eS-La0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

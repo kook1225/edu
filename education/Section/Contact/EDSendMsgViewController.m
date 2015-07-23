@@ -17,6 +17,8 @@
     NSString *filePath;
     NSData *fileData;
     UIImagePickerController *picker;
+    
+    NSMutableString *picAdd;
 }
 @property (weak, nonatomic) IBOutlet UIView *headView;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
@@ -32,6 +34,7 @@ NSString *TMP_UPLOAD_IMG_PATH=@"";
     self.title = @"发送私信";
     self.navigationItem.leftBarButtonItem = [Tools getNavBarItem:self clickAction:@selector(back)];
     
+    picAdd = [NSMutableString string];
     [self drawlayer];
 }
 
@@ -60,46 +63,60 @@ NSString *TMP_UPLOAD_IMG_PATH=@"";
 }
 - (IBAction)sendFuction:(id)sender {
     
-    /*
-    MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    HUD.mode = MBProgressHUDModeIndeterminate;
-    HUD.labelText = @"Loading";
-    HUD.removeFromSuperViewOnHide = YES;
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
-    manager.requestSerializer.timeoutInterval = 10.f;
-    [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
-    
-    NSDictionary *pramaters = @{@"access_token":[SEUtils getUserInfo].TokenInfo.access_token,
-                                @"extension":@"jpg",
-                                @"media":TMP_UPLOAD_IMG_PATH};
-    NSString *urlString = [NSString stringWithFormat:@"%@UploadAPI",IMG_HOST];
-    
-    [manager POST:urlString parameters:pramaters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        [formData appendPartWithFileData:fileData name:@"avatar" fileName:@"head_image.png" mimeType:@"image/png"];
-    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [HUD setHidden:YES];
-        NSLog(@"res--%@",responseObject);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [HUD setHidden:YES];
-        if (operation.response.statusCode == 401) {
-            NSLog(@"请求超时");
-            //   [SEUtils repetitionLogin];
-        }else if(error.code == -1001)
-        {
-            SHOW_ALERT(@"提示", @"网络请求超时");
-        }else if (error.code == -1009)
-        {
-            SHOW_ALERT(@"提示", @"网络连接已断开");
-        }
-        else {
-            NSLog(@"Error:%@",error);
-            NSLog(@"err:%@",operation.responseObject[@"message"]);
-            //   SHOW_ALERT(@"提示",operation.responseObject[@"message"])
-        }
-    }];
-   */
+    NSLog(@"detailID---%@",_detailId);
+    if ([_textView.text length] == 0 || [_textView.text isEqualToString:@"想和老师/小伙伴说些什么呢？"]) {
+        SHOW_ALERT(@"提示", @"内容不能为空");
+    }
+    else {
+        MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+        HUD.mode = MBProgressHUDModeIndeterminate;
+        HUD.labelText = @"Loading";
+        HUD.removeFromSuperViewOnHide = YES;
+        
+        
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        
+        NSDictionary *parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],
+                                    @"targetId":_detailId,
+                                    @"images":picAdd,
+                                    @"content":_textView.text,
+                                    @"clientType":@"2"
+                                    };
+        
+        NSString *urlStr = [NSString stringWithFormat:@"%@PrivateMessage",SERVER_HOST];
+        
+        
+        // 设置超时时间
+        [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+        manager.requestSerializer.timeoutInterval = 10.f;
+        [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+        
+        [manager POST:urlStr parameters:parameter
+              success:^(AFHTTPRequestOperation *operation, id responseObject) {            [HUD hide:YES];
+                  
+                  if ([responseObject[@"responseCode"] intValue] == 0) {
+                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"发布成功" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+                      alert.tag = 201;
+                      [alert show];
+                  }
+                  else {
+                      SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
+                  }
+                  
+                  
+              }
+              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                  [HUD hide:YES];
+                  if(error.code == -1001)
+                  {
+                      SHOW_ALERT(@"提示", @"网络请求超时");
+                  }else if (error.code == -1009)
+                  {
+                      SHOW_ALERT(@"提示", @"网络连接已断开");
+                  }
+              }];
+    }
+
 }
 
 - (void)addImageView
@@ -211,13 +228,73 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
         
         //得到选择后沙盒中图片的完整路径
         filePath = [DocumentsPath stringByAppendingPathComponent:imagePath];
-        fileData = [NSData dataWithContentsOfMappedFile:filePath];
-        
+        fileData = [NSData dataWithContentsOfFile:filePath options:NSDataReadingMappedIfSafe error:nil];
         //上传图片
         [pk dismissViewControllerAnimated:YES completion:^{
             imageNum++;
            
             [self setImgFrame:imageNum image:[UIImage imageWithContentsOfFile:filePath]];
+            
+            if (imageNum == 3) {
+                addImgBtn.hidden = YES;
+            }
+            
+            MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+            HUD.mode = MBProgressHUDModeIndeterminate;
+            HUD.labelText = @"Loading";
+            HUD.removeFromSuperViewOnHide = YES;
+            
+            
+            AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+            
+            NSDictionary *parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],
+                                        @"extension":@"jpg"
+                                        };
+            
+            NSString *urlStr = [NSString stringWithFormat:@"%@/UploadAPI/",IMAGE_HOST];
+            
+            
+            // 设置超时时间
+            [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+            manager.requestSerializer.timeoutInterval = 10.f;
+            [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+            
+            
+            [manager POST:urlStr parameters:parameter constructingBodyWithBlock:^(id <AFMultipartFormData> formData) {
+                //[formData appendPartWithFormData:fileData name:@"media"];
+                [formData appendPartWithFileData:fileData name:@"media" fileName:@"1.jpg" mimeType:@"image/jpeg"];
+            }
+                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                      [HUD hide:YES];
+                      if ([responseObject[@"responseCode"] intValue] == 0) {
+                          if (imageNum == 1) {
+                              [picAdd appendString:[NSString stringWithFormat:@"%@",responseObject[@"data"]]];
+                          }
+                          else {
+                              [picAdd appendString:[NSString stringWithFormat:@",%@",responseObject[@"data"]]];
+                          }
+                          
+                          NSLog(@"pic:%@",picAdd);
+                          
+                      }
+                      else {
+                          SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
+                      }
+                      
+                      
+                  }
+                  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                      [HUD hide:YES];
+                      if(error.code == -1001)
+                      {
+                          SHOW_ALERT(@"提示", @"网络请求超时");
+                      }else if (error.code == -1009)
+                      {
+                          SHOW_ALERT(@"提示", @"网络连接已断开");
+                      }
+                  }];
+            
+
         }];
         
     }

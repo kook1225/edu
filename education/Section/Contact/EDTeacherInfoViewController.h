@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface EDTeacherInfoViewController : UIViewController
-
+@property (nonatomic,strong) NSDictionary *detailDic;
 @end

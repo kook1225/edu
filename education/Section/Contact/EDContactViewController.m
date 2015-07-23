@@ -12,6 +12,7 @@
 #import "EDStudentViewController.h"
 #import "SETabBarViewController.h"
 #import "ChineseString.h"
+#import <UIImageView+WebCache.h>
 
 @interface EDContactViewController ()
 {
@@ -21,7 +22,6 @@
     NSMutableArray *teacherArray;
     NSMutableArray *studentArray;
     
-    NSArray *stuArray1;
     NSString *typeString;
     
    
@@ -30,13 +30,10 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *userBtn;
 @property (weak, nonatomic) IBOutlet UIButton *studentBtn;
-@property(nonatomic,retain)NSMutableArray *stuTitleArray;
-@property(nonatomic,retain)NSMutableArray *studentArray;
+
 @end
 
 @implementation EDContactViewController
-@synthesize stuTitleArray;
-@synthesize studentArray;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -48,13 +45,10 @@
     teacherArray = [NSMutableArray array];
     studentArray = [NSMutableArray array];
     
-    [self drawlayer];
-//    NSArray *array1 = @[@"asdd",@"haha",@"阿什",@"知道"];
-    //            responseObject[@"data"][@"classContacts"][0][@"students"];
-//    stuTitleArray = [ChineseString IndexArray:array1];
-//    studentArray = [ChineseString LetterSortArray:array1];
-    [self AFNRequest];
     typeString = @"学生";
+    [self drawlayer];
+    [self AFNRequest];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -90,27 +84,27 @@
         [HUD setHidden:YES];
         NSLog(@"res--%@",responseObject[@"data"]);
         if ([responseObject[@"responseCode"] intValue] ==0) {
+    
             
-           /* NSArray *teaNameArray = responseObject[@"data"][@"classContacts"][0][@"teachers"];
-            NSMutableArray *teaArray = [NSMutableArray array];
-            for (int i=0; i<teaNameArray.count; i++) {
-                [teaArray addObject:teaNameArray[i][@"JSXM"]];
+            NSArray *teaDataArray = responseObject[@"data"][@"classContacts"][0][@"teachers"];
+            NSMutableArray *teaNameArray = [NSMutableArray array];
+            for (int i=0; i<teaDataArray.count; i++) {
+                [teaNameArray addObject:teaDataArray[i][@"JSXM"]];
             }
             
-           teaTitleArrray = [ChineseString IndexArray:teaArray];
-            teacherArray = [ChineseString LetterSortArray:teaArray];
+            teaTitleArrray = [ChineseString IndexArray:teaNameArray];
+            teacherArray = [self getPaixuArray:teaTitleArrray dataArray:teaDataArray];
 
-            NSArray *stuNameArray = responseObject[@"data"][@"classContacts"][0][@"students"];
-            stuArray1 = responseObject[@"data"][@"classContacts"][0][@"students"];
-            NSMutableArray *stuArray = [NSMutableArray array];
-            for (int i=0; i<stuNameArray.count; i++) {
-                [stuArray addObject:stuNameArray[i][@"XSXM"]];
+            
+            NSArray *stuDataArray = responseObject[@"data"][@"classContacts"][0][@"students"];
+            NSMutableArray *stuNameArray = [NSMutableArray array];
+            for (int i=0; i<stuDataArray.count; i++) {
+                [stuNameArray addObject:stuDataArray[i][@"XSXM"]];
             }
-            stuTitleArray = [ChineseString IndexArray:stuArray];
-            studentArray = [ChineseString LetterSortArray:stuArray];
-           NSArray *detailArray = [self getPaixuArray:studentArray key:@"XSXM"];
-//            detailArray = [[detailArray reverseObjectEnumerator]allObjects];
-            NSLog(@"detail--%@",detailArray);*/
+            stuTitleArray = [ChineseString IndexArray:stuNameArray];
+            studentArray = [self getPaixuArray:stuTitleArray dataArray:stuDataArray];
+            
+             
             [_tableView reloadData];
             
         }else
@@ -226,19 +220,24 @@
     }
     if ([typeString isEqualToString:@"学生"])
     {
-        contentCell.name.text = [[studentArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
-        NSLog(@"------%@",[studentArray objectAtIndex:indexPath.section]);
-//        if(indexPath.row == studentArray.count-1)
-//        {
-//            contentCell.lineView.hidden = YES;
-//        }
+        contentCell.name.text = studentArray[indexPath.section][indexPath.row][@"XSXM"];
+        NSURL *url = [NSURL URLWithString:studentArray[indexPath.section][indexPath.row][@"YHTX"]];
+        [contentCell.contactImg sd_setImageWithURL:url placeholderImage:nil];
+        
+        if(indexPath.row == [studentArray[indexPath.section] count]-1)
+        {
+            contentCell.lineView.hidden = YES;
+        }
     }else
     {
-        contentCell.name = [[teacherArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
-//        if(indexPath.row == teacherArray.count-1)
-//        {
-//            contentCell.lineView.hidden = YES;
-//        }
+        contentCell.name.text = [[teacherArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row][@"JSXM"];
+        NSURL *url = [NSURL URLWithString:teacherArray[indexPath.section][indexPath.row][@"YHTX"]];
+        [contentCell.contactImg sd_setImageWithURL:url placeholderImage:nil];
+        
+        if(indexPath.row == [teacherArray[indexPath.section] count]-1)
+        {
+            contentCell.lineView.hidden = YES;
+        }
     }
     
     
@@ -247,32 +246,43 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    EDTeacherInfoViewController *teacherVC = [[EDTeacherInfoViewController alloc]init];
-//    [self.navigationController pushViewController:teacherVC animated:YES];
+     if ([typeString isEqualToString:@"学生"])
+     {
+         EDStudentViewController *studentVC = [[EDStudentViewController alloc]init];
+         studentVC.detailDic = studentArray[indexPath.section][indexPath.row];
+         [self.navigationController pushViewController:studentVC animated:YES];
+
+         
+     }else
+     {
+         EDTeacherInfoViewController *teacherVC = [[EDTeacherInfoViewController alloc]init];
+         teacherVC.detailDic =  teacherArray[indexPath.row][indexPath.row];
+         [self.navigationController pushViewController:teacherVC animated:YES];
+     }
+
     
-    EDStudentViewController *studentVC = [[EDStudentViewController alloc]init];
-    [self.navigationController pushViewController:studentVC animated:YES];
 }
 
-- (NSMutableArray *)getPaixuArray:(NSMutableArray *)mutableArray key:(NSString *)key
+- (NSMutableArray *)getPaixuArray:(NSMutableArray *)titleArray dataArray:(NSArray *)dataArray
 {
-    NSMutableArray *detailArray = [NSMutableArray array];
+    NSMutableArray *item = [NSMutableArray array];
+    NSMutableArray *stumuableArray = [NSMutableArray array];
     
-        for (int i=0; i<mutableArray.count; i++) {
-            NSArray *array = mutableArray[i];
-            for (int j=0; j<array.count; j++) {
-                for (int h =0; h<stuArray1.count; h++) {
-                    if ([stuArray1[h][key] isEqualToString:array[j]]) {
-                        [detailArray addObject:stuArray1[h]];
-                        
-                    }
-                }
-                
+    for (int j=0; j<titleArray.count; j++)
+    {
+        item = [NSMutableArray array];
+        for (int i=0;i<dataArray.count;i++)
+        {
+            if ([dataArray[i][@"SZM"] isEqualToString:titleArray[j]]) {
+                //
+                [item  addObject:dataArray[i]];
+                //
             }
         }
-    
-  
-
-    return detailArray;
+        [stumuableArray addObject:item];
+        
+    }
+//    NSLog(@"array-----5%@",stumuableArray);
+    return stumuableArray;
 }
 @end
