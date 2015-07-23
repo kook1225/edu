@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ProductListModel.h"
 
 @interface SureOrderViewController : UIViewController
+
+@property (nonatomic,strong) ProductListModel *model;
 
 @end

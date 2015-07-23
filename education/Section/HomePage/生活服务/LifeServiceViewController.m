@@ -28,7 +28,7 @@
     UIView *menuView;
     FXBlurView *blurView;
     NSArray *dataArray;
-    NSArray *listArray;
+    NSMutableArray *listArray;
     
     BOOL menu;
     
@@ -57,7 +57,7 @@
     
     titleArray = [NSMutableArray array];
     dataArray = [NSArray array];
-    listArray = [NSArray array];
+    listArray = [NSMutableArray array];
     
     [titleArray addObject:@"全部"];
     
@@ -218,14 +218,14 @@
                       @"status":@"0",
                       @"type":@"",
                       @"page":@"1",
-                      @"pageSize":@"6"};
+                      @"pageSize":@"8"};
     }
     else {
         parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],
                       @"status":@"0",
                       @"type":[[dataArray objectAtIndex:tag - 1] id],
                       @"page":@"1",
-                      @"pageSize":@"6"};
+                      @"pageSize":@"8"};
     }
     
     
@@ -478,14 +478,14 @@
                           @"status":@"0",
                           @"type":@"",
                           @"page":[NSNumber numberWithInt:pageNum],
-                          @"pageSize":@"6"};
+                          @"pageSize":@"8"};
         }
         else {
             parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],
                           @"status":@"0",
                           @"type":[[dataArray objectAtIndex:btnTag - 1] id],
                           @"page":[NSNumber numberWithInt:pageNum],
-                          @"pageSize":@"6"};
+                          @"pageSize":@"8"};
         }
         
         
@@ -500,12 +500,10 @@
              success:^(AFHTTPRequestOperation *operation, id responseObject) {
                  [HUD hide:YES];
                  
-                 NSError *err;
-                 
                  if ([responseObject[@"responseCode"] intValue] == 0) {
-                     listArray = [ProductListModel arrayOfModelsFromDictionaries:responseObject[@"data"] error:&err];
-                     
+                     [listArray addObjectsFromArray:[ProductListModel arrayOfModelsFromDictionaries:responseObject[@"data"]]];
                      [_collectionView reloadData];
+                     
                  }
                  else {
                      SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);

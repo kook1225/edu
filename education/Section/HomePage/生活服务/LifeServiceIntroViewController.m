@@ -9,10 +9,12 @@
 #import "LifeServiceIntroViewController.h"
 #import "SureOrderViewController.h"
 #import "ProductListModel.h"
+#import "CheckImageViewController.h"
 
 @interface LifeServiceIntroViewController ()<UIWebViewDelegate> {
     CGFloat scale;
     NSArray *imagesArray;
+    ProductListModel *model;
 }
 @property (weak, nonatomic) IBOutlet UIImageView *topImageView;
 @property (weak, nonatomic) IBOutlet UIView *introView;
@@ -38,6 +40,7 @@
     _topImageView.frame = CGRectMake(0, 0, SCREENWIDTH, 213 * scale);
     _introView.frame = CGRectMake(0, CGRectGetMaxY(_topImageView.frame), SCREENWIDTH, _introView.frame.size.height);
     _webView.frame = CGRectMake(0, CGRectGetMaxY(_introView.frame), SCREENWIDTH, _webView.frame.size.height);
+    
     
     [self proIntro];
     
@@ -70,8 +73,17 @@
 }
 - (IBAction)buyBtn:(id)sender {
     SureOrderViewController *sureOrderVC = [[SureOrderViewController alloc] init];
+    sureOrderVC.model = model;
     [self.navigationController pushViewController:sureOrderVC animated:YES];
 }
+
+- (IBAction)imageTap:(id)sender {
+    CheckImageViewController *checkImageVC = [[CheckImageViewController alloc] init];
+    checkImageVC.dataArray = imagesArray;
+    checkImageVC.page = 0;
+    [self.navigationController pushViewController:checkImageVC animated:YES];
+}
+
 
 - (void)proIntro {
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
@@ -103,13 +115,26 @@
              NSError *err;
              
              if ([responseObject[@"responseCode"] intValue] == 0) {
-                 ProductListModel *model = [[ProductListModel alloc] initWithDictionary:responseObject[@"data"] error:&err];
+                 model = [[ProductListModel alloc] initWithDictionary:responseObject[@"data"] error:&err];
                  
                  imagesArray = [model.img componentsSeparatedByString:@","];
                  
                  NSString *urlStr = [NSString stringWithFormat:@"%@%@",IMG_HOST,imagesArray[0]];
                  NSURL *url = [NSURL URLWithString:urlStr];
                  [_topImageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"1"]];
+                 
+                 UIImageView *numImageView = [[UIImageView alloc] initWithFrame:CGRectMake(260 * scale, 175 * scale, 50, 30)];
+                 [numImageView setImage:[UIImage imageNamed:@"blackNav"]];
+                 numImageView.layer.cornerRadius = 5.0f;
+                 numImageView.clipsToBounds = YES;
+                 [_topImageView addSubview:numImageView];
+                 
+                 UILabel *numLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 50, 30)];
+                 numLabel.textColor = [UIColor whiteColor];
+                 numLabel.textAlignment = NSTextAlignmentCenter;
+                 numLabel.font = [UIFont systemFontOfSize:14];
+                 numLabel.text = [NSString stringWithFormat:@"共%lu张",(unsigned long)[imagesArray count]];
+                 [numImageView addSubview:numLabel];
                  
                  
                  _titleLabel.text = model.name;
