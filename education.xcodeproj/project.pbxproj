@@ -179,6 +179,8 @@
 		768F891E1B5F72E60054F73C /* LifeServiceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 768F891A1B5F72E60054F73C /* LifeServiceCell.m */; };
 		768F891F1B5F72E60054F73C /* SelectAddCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 768F891C1B5F72E60054F73C /* SelectAddCell.m */; };
 		768F89201B5F72E60054F73C /* SelectAddCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 768F891D1B5F72E60054F73C /* SelectAddCell.xib */; };
+		768F89231B608CE00054F73C /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 768F89221B608CE00054F73C /* Base64.m */; };
+		768F89261B60939D0054F73C /* ShipAddListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 768F89251B60939D0054F73C /* ShipAddListModel.m */; };
 		768FFAF11B4238D9008E577F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF01B4238D9008E577F /* main.m */; };
 		768FFAF41B4238D9008E577F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF31B4238D9008E577F /* AppDelegate.m */; };
 		768FFAFC1B4238D9008E577F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 768FFAFB1B4238D9008E577F /* Images.xcassets */; };
@@ -487,6 +489,10 @@
 		768F891B1B5F72E60054F73C /* SelectAddCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectAddCell.h; sourceTree = "<group>"; };
 		768F891C1B5F72E60054F73C /* SelectAddCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectAddCell.m; sourceTree = "<group>"; };
 		768F891D1B5F72E60054F73C /* SelectAddCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectAddCell.xib; sourceTree = "<group>"; };
+		768F89211B608CE00054F73C /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64.h; sourceTree = "<group>"; };
+		768F89221B608CE00054F73C /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64.m; sourceTree = "<group>"; };
+		768F89241B60939D0054F73C /* ShipAddListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShipAddListModel.h; sourceTree = "<group>"; };
+		768F89251B60939D0054F73C /* ShipAddListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShipAddListModel.m; sourceTree = "<group>"; };
 		768FFAEB1B4238D9008E577F /* education.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = education.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		768FFAEF1B4238D9008E577F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		768FFAF01B4238D9008E577F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -1116,6 +1122,8 @@
 				768F89131B5F49E90054F73C /* LifeServiceListTypeModel.m */,
 				768F89151B5F70A50054F73C /* ProductListModel.h */,
 				768F89161B5F70A50054F73C /* ProductListModel.m */,
+				768F89241B60939D0054F73C /* ShipAddListModel.h */,
+				768F89251B60939D0054F73C /* ShipAddListModel.m */,
 			);
 			path = "生活服务";
 			sourceTree = "<group>";
@@ -1232,6 +1240,8 @@
 				768F890C1B5B88860054F73C /* CheckImageViewController.h */,
 				768F890D1B5B88860054F73C /* CheckImageViewController.m */,
 				768F890E1B5B88860054F73C /* CheckImageViewController.xib */,
+				768F89211B608CE00054F73C /* Base64.h */,
+				768F89221B608CE00054F73C /* Base64.m */,
 			);
 			path = component;
 			sourceTree = "<group>";
@@ -1530,7 +1540,9 @@
 				1857A0531B4CF74B00501EA0 /* EDGradeRecodeViewController.m in Sources */,
 				768F89171B5F70A50054F73C /* ProductListModel.m in Sources */,
 				187F7DD01B43C469005CC8D8 /* Tools.m in Sources */,
+				768F89231B608CE00054F73C /* Base64.m in Sources */,
 				1857A0D51B5663A900501EA0 /* GradeModel.m in Sources */,
+				768F89261B60939D0054F73C /* ShipAddListModel.m in Sources */,
 				768F89021B5896160054F73C /* DynamicInfoModel.m in Sources */,
 				7644069E1B4BC1F900541C86 /* AddReceiveAddressViewController.m in Sources */,
 				1808B3181B43D6480050E3B4 /* EDGradeCell.m in Sources */,

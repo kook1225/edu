@@ -6,7 +6,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddReceiveAddressViewController">
             <connections>
+                <outlet property="ZipCodeTextField" destination="B0H-ah-8VS" id="3KL-OD-7Qw"/>
+                <outlet property="addIntroTextField" destination="SPF-0o-14w" id="aTr-D4-4sk"/>
                 <outlet property="checkImageView" destination="0cf-Bi-JvE" id="Haj-jm-BU3"/>
+                <outlet property="mobileTextField" destination="JgR-W8-Jbc" id="elR-H1-YOj"/>
+                <outlet property="nameTextField" destination="Wmr-Zs-X10" id="oqA-jd-QPr"/>
                 <outlet property="saveBtn" destination="Zbj-zG-ZLR" id="E57-hf-2Ep"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

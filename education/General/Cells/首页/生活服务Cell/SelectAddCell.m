@@ -24,6 +24,17 @@
     [self.checkImageView setImage:[UIImage imageNamed:@"check"]];
 }
 
+- (void)setData:(ShipAddListModel *)model {
+    _nameLabel.text = model.contact;
+    _mobileLabel.text = model.tel;
+    if ([model.is_default intValue] == 1) {
+        _addLabel.text = [NSString stringWithFormat:@"[默认]%@%@%@%@",model.province,model.city,model.district,model.address];
+    }
+    else {
+        _addLabel.text = [NSString stringWithFormat:@"%@%@%@%@",model.province,model.city,model.district,model.address];
+    }
+}
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
     // Configure the view for the selected state
