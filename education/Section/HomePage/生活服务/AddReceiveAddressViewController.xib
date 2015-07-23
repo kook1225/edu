@@ -8,6 +8,7 @@
             <connections>
                 <outlet property="ZipCodeTextField" destination="B0H-ah-8VS" id="3KL-OD-7Qw"/>
                 <outlet property="addIntroTextField" destination="SPF-0o-14w" id="aTr-D4-4sk"/>
+                <outlet property="areaTextField" destination="yiU-6r-KYe" id="uc0-Jo-rVB"/>
                 <outlet property="checkImageView" destination="0cf-Bi-JvE" id="Haj-jm-BU3"/>
                 <outlet property="mobileTextField" destination="JgR-W8-Jbc" id="elR-H1-YOj"/>
                 <outlet property="nameTextField" destination="Wmr-Zs-X10" id="oqA-jd-QPr"/>
@@ -41,6 +42,9 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="pPZ-Ly-h10"/>
+                            </connections>
                         </textField>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -66,6 +70,9 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="u9b-9m-vMH"/>
+                            </connections>
                         </textField>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -86,7 +93,7 @@
                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" id="yiU-6r-KYe">
+                        <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" id="yiU-6r-KYe">
                             <rect key="frame" x="71" y="11" width="211" height="30"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -98,6 +105,10 @@
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <gestureRecognizers/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="Gcz-jL-hoo" appends="YES" id="6Ns-5G-ela"/>
+                    </connections>
                 </view>
                 <view contentMode="scaleToFill" id="R8R-MR-wzr">
                     <rect key="frame" x="0.0" y="150" width="320" height="50"/>
@@ -120,6 +131,9 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="Ise-24-r5i"/>
+                            </connections>
                         </textField>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -145,6 +159,9 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="ZgO-ui-zEv"/>
+                            </connections>
                         </textField>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -208,6 +225,11 @@
         <tapGestureRecognizer id="Oet-pS-V1L">
             <connections>
                 <action selector="setAdd:" destination="-1" id="ei3-4q-BYK"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="Gcz-jL-hoo">
+            <connections>
+                <action selector="areaSelect:" destination="-1" id="N3a-ku-NTS"/>
             </connections>
         </tapGestureRecognizer>
     </objects>

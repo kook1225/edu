@@ -181,6 +181,9 @@
 		768F89201B5F72E60054F73C /* SelectAddCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 768F891D1B5F72E60054F73C /* SelectAddCell.xib */; };
 		768F89231B608CE00054F73C /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 768F89221B608CE00054F73C /* Base64.m */; };
 		768F89261B60939D0054F73C /* ShipAddListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 768F89251B60939D0054F73C /* ShipAddListModel.m */; };
+		768F89291B60CDA40054F73C /* ProvinceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 768F89281B60CDA40054F73C /* ProvinceModel.m */; };
+		768F892C1B60CDAD0054F73C /* CityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 768F892B1B60CDAD0054F73C /* CityModel.m */; };
+		768F892F1B60CDB90054F73C /* DistrictModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 768F892E1B60CDB90054F73C /* DistrictModel.m */; };
 		768FFAF11B4238D9008E577F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF01B4238D9008E577F /* main.m */; };
 		768FFAF41B4238D9008E577F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF31B4238D9008E577F /* AppDelegate.m */; };
 		768FFAFC1B4238D9008E577F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 768FFAFB1B4238D9008E577F /* Images.xcassets */; };
@@ -493,6 +496,12 @@
 		768F89221B608CE00054F73C /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64.m; sourceTree = "<group>"; };
 		768F89241B60939D0054F73C /* ShipAddListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShipAddListModel.h; sourceTree = "<group>"; };
 		768F89251B60939D0054F73C /* ShipAddListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShipAddListModel.m; sourceTree = "<group>"; };
+		768F89271B60CDA40054F73C /* ProvinceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProvinceModel.h; sourceTree = "<group>"; };
+		768F89281B60CDA40054F73C /* ProvinceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProvinceModel.m; sourceTree = "<group>"; };
+		768F892A1B60CDAD0054F73C /* CityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityModel.h; sourceTree = "<group>"; };
+		768F892B1B60CDAD0054F73C /* CityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityModel.m; sourceTree = "<group>"; };
+		768F892D1B60CDB90054F73C /* DistrictModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistrictModel.h; sourceTree = "<group>"; };
+		768F892E1B60CDB90054F73C /* DistrictModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistrictModel.m; sourceTree = "<group>"; };
 		768FFAEB1B4238D9008E577F /* education.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = education.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		768FFAEF1B4238D9008E577F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		768FFAF01B4238D9008E577F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -1124,6 +1133,12 @@
 				768F89161B5F70A50054F73C /* ProductListModel.m */,
 				768F89241B60939D0054F73C /* ShipAddListModel.h */,
 				768F89251B60939D0054F73C /* ShipAddListModel.m */,
+				768F89271B60CDA40054F73C /* ProvinceModel.h */,
+				768F89281B60CDA40054F73C /* ProvinceModel.m */,
+				768F892A1B60CDAD0054F73C /* CityModel.h */,
+				768F892B1B60CDAD0054F73C /* CityModel.m */,
+				768F892D1B60CDB90054F73C /* DistrictModel.h */,
+				768F892E1B60CDB90054F73C /* DistrictModel.m */,
 			);
 			path = "生活服务";
 			sourceTree = "<group>";
@@ -1551,6 +1566,7 @@
 				768F891F1B5F72E60054F73C /* SelectAddCell.m in Sources */,
 				764406991B4BBE2000541C86 /* ManageAddViewController.m in Sources */,
 				764406851B4A5CAA00541C86 /* LifeServiceIntroViewController.m in Sources */,
+				768F892C1B60CDAD0054F73C /* CityModel.m in Sources */,
 				1857A0251B4BC3FB00501EA0 /* EDOrderBottomCell.m in Sources */,
 				1857A0AE1B4F510100501EA0 /* EDNoticeViewController.m in Sources */,
 				18579FF91B4BC2B800501EA0 /* EDOrderDetailViewController.m in Sources */,
@@ -1628,6 +1644,8 @@
 				1857A0DC1B5663A900501EA0 /* UserInfoModel.m in Sources */,
 				18579FFB1B4BC2B800501EA0 /* EDAlterPwdViewController.m in Sources */,
 				76F121301B54B82E00635209 /* GTMBase64.m in Sources */,
+				768F892F1B60CDB90054F73C /* DistrictModel.m in Sources */,
+				768F89291B60CDA40054F73C /* ProvinceModel.m in Sources */,
 				1857A0E51B56648100501EA0 /* EDInfoArrayModel.m in Sources */,
 				1808B33A1B44DEB00050E3B4 /* EDContactContentCell.m in Sources */,
 				764406A31B4BCD4600541C86 /* EditAddViewController.m in Sources */,

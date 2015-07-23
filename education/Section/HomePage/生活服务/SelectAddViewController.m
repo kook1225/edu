@@ -33,9 +33,11 @@
     tabBarView = (SETabBarViewController *)self.navigationController.parentViewController;
     [tabBarView tabBarViewHidden];
     
-    [self addList];
-    
     self.navigationItem.leftBarButtonItem = [Tools getNavBarItem:self clickAction:@selector(back)];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self addList];
 }
 
 #pragma mark - Custom Method
