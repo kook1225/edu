@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <QuartzCore/QuartzCore.h>
 #import "UserModel.h"
+#import "Base64.h"
+#include <CommonCrypto/CommonCryptor.h>
 
 @interface SEUtils : NSObject
 
@@ -24,6 +26,9 @@
 +(NSString *)formatMatchWithDate:(NSString *)dateStr;
 + (NSString *)formatDateWithString:(NSString *)str;
 
+// des加密算法
++(NSString *) encryptUseDES:(NSString *)plainText key:(NSString *)key;
++(NSString *) decryptUseDES:(NSString *)cipherText key:(NSString *)key;
 //+(BOOL)isRequestSuccessWithStatusCode:(int)statusCode;
 //+(BOOL)checkNetworkWithRequest:(ASIHTTPRequest *)request;
 

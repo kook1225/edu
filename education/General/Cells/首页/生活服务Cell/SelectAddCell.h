@@ -7,11 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ShipAddListModel.h"
 
 @interface SelectAddCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *checkImageView;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *mobileLabel;
+@property (weak, nonatomic) IBOutlet UILabel *addLabel;
 
 
 - (void)setData;
+
+- (void)setData:(ShipAddListModel *)model;
 
 @end

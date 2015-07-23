@@ -29,12 +29,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = @"私信详情";
+    if ([self.title  isEqual: @""]) {
+        self.title = @"私信详情";
+    }
     
     self.navigationItem.leftBarButtonItem = [Tools getNavBarItem:self clickAction:@selector(back)];
     
-    _nameLabel.text = [NSString stringWithFormat:@"%@留言",_model.FBRXM];
+    if ([self.title  isEqual: @"详情"]) {
+        _nameLabel.text = [NSString stringWithFormat:@"%@",_model.XXBT];
+        _dateLabel.frame = CGRectMake(_nameLabel.frame.origin.x, CGRectGetMaxY(_nameLabel.frame) + 5, 134, 15);
+        _dateLabel.textAlignment = NSTextAlignmentLeft;
+        _dateLabel.font = [UIFont systemFontOfSize:11];
+        _dateLabel.textColor = [UIColor colorWithRed:156.0/255.0f green:156.0/255.0f blue:156.0/255.0f alpha:1.000];
+    }
+    else {
+        _nameLabel.text = [NSString stringWithFormat:@"%@留言",_model.FBRXM];
+    }
     _dateLabel.text = _model.FBSJ;
+
     
     if (![_model.TPDZ isEqualToString:@""]) {
         imgArray = [NSMutableArray arrayWithArray:[_model.TPDZ componentsSeparatedByString:@","]];
@@ -71,7 +83,7 @@
   
     _noteLabel.frame = CGRectMake(8, 8,labelSize.width, labelSize.height);
     
-    _containView.frame = CGRectMake(10, 40, SCREENWIDTH - 20, CGRectGetMaxY(_noteLabel.frame)+40);
+    _containView.frame = CGRectMake(10, CGRectGetMaxY(_dateLabel.frame) + 10, SCREENWIDTH - 20, CGRectGetMaxY(_noteLabel.frame)+40);
     
     _checkImg.frame = CGRectMake(10, CGRectGetMaxY(_containView.frame)+10, 50, 15);
     

@@ -10,4 +10,6 @@
 
 @interface LifeServiceIntroViewController : UIViewController
 
+@property (nonatomic,strong) NSString *proId;
+
 @end

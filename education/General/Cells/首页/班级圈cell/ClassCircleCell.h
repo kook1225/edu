@@ -35,6 +35,7 @@
 @property (nonatomic,strong) UILabel *evaluteLabel;
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) UIButton *priBtn;
+@property (nonatomic,strong) UIButton *rlyBtn;
 
 - (void)setIntroductionText:(NSString*)text image:(NSArray *)imagesArray reply:(ListModel *)model index:(NSInteger)indexRow;
 
