@@ -13,11 +13,10 @@
 
 @interface SureOrderViewController ()<SelectAddViewControllerDelegate> {
     int num;
-    int checkRow;
+    NSString *checkId;
     NSArray *dataArray;
 }
 @property (weak, nonatomic) IBOutlet UILabel *addLabel;
-@property (weak, nonatomic) IBOutlet UILabel *mobileLabel;
 @property (weak, nonatomic) IBOutlet UILabel *numLabel;
 @property (weak, nonatomic) IBOutlet UILabel *goodsNumLabel;
 @property (nonatomic,strong) UILabel *oldPriceLabel;
@@ -43,7 +42,7 @@
     
     num = 1;
     
-    checkRow = 0;
+    checkId = @"";
     
     dataArray = [NSArray array];
     
@@ -147,12 +146,26 @@
                      _topView1.hidden = NO;
                      _topView2.hidden = YES;
                      
-                     _recevieNameLabel.text = [dataArray[checkRow] contact];
-                     _telLabel.text = [dataArray[checkRow] tel];
-                     
-                     _addLabel.text = [NSString stringWithFormat:@"%@%@%@%@",[dataArray[checkRow] province],[dataArray[checkRow] city],[dataArray[checkRow] district],[dataArray[checkRow] address]];
-                     _addLabel.numberOfLines = 2;
-                     [_addLabel sizeToFit];
+                     if (![checkId  isEqual: @""]) {
+                         for (int i = 0; i < [dataArray count]; i++) {
+                             if ([[[dataArray objectAtIndex:i] id] isEqualToString:checkId]) {
+                                 _recevieNameLabel.text = [dataArray[i] contact];
+                                 _telLabel.text = [dataArray[i] tel];
+                                 
+                                 _addLabel.text = [NSString stringWithFormat:@"%@%@%@%@",[dataArray[i] province],[dataArray[i] city],[dataArray[i] district],[dataArray[i] address]];
+                                 _addLabel.numberOfLines = 2;
+                                 [_addLabel sizeToFit];
+                             }
+                         }
+                     }
+                     else {
+                         _recevieNameLabel.text = [dataArray[0] contact];
+                         _telLabel.text = [dataArray[0] tel];
+                         
+                         _addLabel.text = [NSString stringWithFormat:@"%@%@%@%@",[dataArray[0] province],[dataArray[0] city],[dataArray[0] district],[dataArray[0] address]];
+                         _addLabel.numberOfLines = 2;
+                         [_addLabel sizeToFit];
+                     }
                      
                  }
              }
@@ -193,7 +206,7 @@
 - (IBAction)addTap:(id)sender {
     SelectAddViewController *selectAddVC = [[SelectAddViewController alloc] init];
     selectAddVC.delegate = self;
-    selectAddVC.checkRow = checkRow;
+    selectAddVC.checkID = checkId;
     [self.navigationController pushViewController:selectAddVC animated:YES];
 }
 
@@ -204,8 +217,8 @@
 
 
 #pragma mark - SelectAddViewControllerDelegate Method
-- (void)selectedAdd:(int)row {
-    checkRow = row;
+- (void)selectedAdd:(NSString *)checkID {
+    checkId = checkID;
     
     [self addList];
 }

@@ -109,13 +109,12 @@
 
 - (IBAction)manageAddBtn:(id)sender {
     ManageAddViewController *manageAddVC = [[ManageAddViewController alloc] init];
-    manageAddVC.checkRow = _checkRow;
     [self.navigationController pushViewController:manageAddVC animated:YES];
 }
 
 #pragma mark - UITableViewDelegate Method
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self.delegate selectedAdd:(int)indexPath.row];
+    [self.delegate selectedAdd:[[dataArray objectAtIndex:indexPath.row] id]];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -135,8 +134,15 @@
         //通过xib的名称加载自定义的cell
         cell = [[[NSBundle mainBundle] loadNibNamed:@"SelectAddCell" owner:self options:nil] lastObject];
     }
-    if (_checkRow == indexPath.row) {
+  
+    if ([_checkID isEqualToString:[[dataArray objectAtIndex:indexPath.row] id]]) {
         [cell setData];
+    }
+    
+    if ([_checkID  isEqual: @""]) {
+        if (indexPath.row == 0) {
+            [cell setData];
+        }
     }
     
     [cell setData:[dataArray objectAtIndex:indexPath.row]];
