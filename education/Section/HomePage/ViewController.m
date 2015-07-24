@@ -24,6 +24,9 @@
 #import "EDNoticeViewController.h"
 #import "EDClassOnlineViewController.h"
 #import "SchoolTimeTableViewController.h"
+#import "WebViewViewController.h"
+#import "ListModel.h"
+#import "EDPhotoDetailViewController.h"
 #import <UIImageView+WebCache.h>
 
 #define IMAGEHEIGHT (160 * ([UIScreen mainScreen].bounds.size.height/568.0))
@@ -32,11 +35,14 @@
 
 @interface ViewController ()<UIAlertViewDelegate> {
     CGFloat scale;
-    NSArray *stringArray;
-    NSArray *imagesArray;
+    NSMutableArray *stringArray;
+    NSMutableArray *imagesArray;
     UIView *borderView;
     UIButton *imageBtn;
     NSTimer *myTimer;
+    NSArray *dataArray;
+    NSMutableArray *imageArrays;
+    
     SETabBarViewController *tabBarViewController;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -50,12 +56,9 @@
     [super viewDidLoad];
     scale = SCALE;
     
-    stringArray = [NSArray array];
-    imagesArray = [NSArray array];
-    
-    stringArray = @[@"h和和哈哈哈哈哈哈",@"是是是是是是是是是是是是是是是是是呃呃呃呃呃呃呃呃呃是",@"去去去去去去去去去去去去去去去去去去去去去去去去去去去去去去去求去去去去去去去去去去去去去去去去去去去去去去求"];
-    
-    imagesArray = @[@"1",@"1",@"1"];
+    stringArray = [NSMutableArray array];
+    imagesArray = [NSMutableArray array];
+    dataArray = [NSArray array];
     
 
     
@@ -93,6 +96,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     
     [self vipUserAction];
+    [self classCircleApi];
     
     self.navigationController.navigationBar.hidden = YES;
     [_scrollView setContentOffset:CGPointMake(SCREENWIDTH, 0)];
@@ -104,6 +108,73 @@
 }
 
 #pragma mark - Custom Method
+
+- (void)classCircleApi {
+    stringArray = [NSMutableArray array];
+    imagesArray = [NSMutableArray array];
+    
+    MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    HUD.mode = MBProgressHUDModeIndeterminate;
+    HUD.labelText = @"Loading";
+    HUD.removeFromSuperViewOnHide = YES;
+    
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    NSDictionary *parameter;
+    
+    // 当老师登录时注意获取班级id
+    if ([[[[SEUtils getUserInfo] UserDetail] userinfo].YHLB intValue] == 3) {
+        parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],@"bjid":[[[[SEUtils getUserInfo] UserDetail] studentInfo] BJID],@"pageSize":@"3",@"page":@"1"};
+    }
+    else {
+        parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],@"bjid":@"",@"pageSize":@"3",@"page":@"1"};
+    }
+    
+    
+    NSString *urlStr = [NSString stringWithFormat:@"%@ClassZoneDynamic",SERVER_HOST];
+    
+    // 设置超时时间
+    [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+    manager.requestSerializer.timeoutInterval = 10.f;
+    [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+    
+    [manager GET:urlStr parameters:parameter
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             [HUD hide:YES];
+             
+             NSError *err;
+             
+             if ([responseObject[@"responseCode"] intValue] == 0) {
+                 
+                 dataArray = [ListModel arrayOfModelsFromDictionaries:responseObject[@"data"][@"list"] error:&err];
+                 
+                 for (int i = 0; i < [dataArray count]; i++) {
+                     [stringArray addObject:[[dataArray objectAtIndex:i] dynamicInfo].TPSM];
+                     [imagesArray addObject:[[dataArray objectAtIndex:i] dynamicInfo].TPLY];
+                 }
+                 //NSLog(@"string---------:%@",stringArray);
+                 //NSLog(@"array:%@",imagesArray);
+                 
+                 [_tableView reloadData];
+             }
+             else {
+                 SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
+             }
+             
+             
+         }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             [HUD hide:YES];
+             if(error.code == -1001)
+             {
+                 SHOW_ALERT(@"提示", @"网络请求超时");
+             }else if (error.code == -1009)
+             {
+                 SHOW_ALERT(@"提示", @"网络连接已断开");
+             }
+         }];
+}
 
 - (void)vipUserAction {
     
@@ -173,9 +244,13 @@
                  _scrollView.showsVerticalScrollIndicator = NO;
                  
                  
-                 
+                 if ([slideImages count] > 1) {
                  // 设置scrollView的滚动范围为图片数量+2
-                 _scrollView.contentSize = CGSizeMake(SCREENWIDTH*([slideImages count]+2),IMAGEHEIGHT);
+                     _scrollView.contentSize = CGSizeMake(SCREENWIDTH*([slideImages count]+2),IMAGEHEIGHT);
+                 }
+                 else {
+                     _scrollView.contentSize = CGSizeMake(SCREENWIDTH,IMAGEHEIGHT);
+                 }
                  
                  
                  /*
@@ -186,8 +261,13 @@
                  // 首次显示的页面
                  
                  UIImageView *imageView = [[UIImageView alloc] init];
-                 [imageView sd_setImageWithURL:[NSURL URLWithString:slideImages[slideImages.count-1]] placeholderImage:nil];
+                 NSString *urlStr = [NSString stringWithFormat:@"%@%@",IMG_HOST,slideImages[slideImages.count-1]];
+                 
+                 [imageView sd_setImageWithURL:[NSURL URLWithString:urlStr] placeholderImage:[UIImage imageNamed:@"1"]];
+            
+                 
 //                 [imageView setImage:[UIImage imageNamed:[slideImages objectAtIndex:[slideImages count]-1]]];
+                 
                  imageView.frame = CGRectMake(0, 0, SCREENWIDTH, IMAGEHEIGHT);
                  
                  // 把最后一张图片添加到scrollView中
@@ -201,7 +281,8 @@
                          //loop this bit
                          UIImageView *imageView = [[UIImageView alloc] init];
                          imageView.userInteractionEnabled = YES;
-                          [imageView sd_setImageWithURL:[NSURL URLWithString:slideImages[i]] placeholderImage:nil];
+                         NSString *urlStr = [NSString stringWithFormat:@"%@%@",IMG_HOST,slideImages[i]];
+                          [imageView sd_setImageWithURL:[NSURL URLWithString:urlStr] placeholderImage:nil];
 //                         [imageView setImage:[UIImage imageNamed:[slideImages objectAtIndex:i]]];
                          imageView.frame = CGRectMake(SCREENWIDTH*i+SCREENWIDTH, 0, SCREENWIDTH, IMAGEHEIGHT);
                          
@@ -211,7 +292,8 @@
                      
                      
                      imageView = [[UIImageView alloc] init];
-                      [imageView sd_setImageWithURL:[NSURL URLWithString:slideImages[0]] placeholderImage:nil];
+                     NSString *urlStr = [NSString stringWithFormat:@"%@%@",IMG_HOST,slideImages[0]];
+                      [imageView sd_setImageWithURL:[NSURL URLWithString:urlStr] placeholderImage:[UIImage imageNamed:@"1"]];
 //                     [imageView setImage:[UIImage imageNamed:[slideImages objectAtIndex:0]]];
                      imageView.frame = CGRectMake(SCREENWIDTH*([slideImages count] + 1), 0, SCREENWIDTH, IMAGEHEIGHT);
                      
@@ -382,6 +464,11 @@
     
 }
 
+- (void)skipWeb {
+    WebViewViewController *webViewVC = [[WebViewViewController alloc] init];
+    [self.navigationController pushViewController:webViewVC animated:YES];
+}
+
 #pragma mark - UIAlertViewDelegate Method
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (alertView.tag == 201) {
@@ -393,7 +480,12 @@
 
 #pragma mark - UITableViewDelegate Method
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    if (indexPath.row > 3) {
+        EDPhotoDetailViewController *photoDetail = [[EDPhotoDetailViewController alloc]init];
+        photoDetail.model = [dataArray objectAtIndex:indexPath.row - 4];
+        photoDetail.index = [NSString stringWithFormat:@"%ld",(long)indexPath.row - 4];
+        [self.navigationController pushViewController:photoDetail animated:YES];
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -438,6 +530,8 @@
             cell = [[[NSBundle mainBundle] loadNibNamed:@"UserIntroCell" owner:self options:nil] lastObject];
         }
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        [cell setData];
+        [cell.schoolBtn addTarget:self action:@selector(skipWeb) forControlEvents:UIControlEventTouchUpInside];
         return cell;
     }
     else if (indexPath.row == 2) {
@@ -479,7 +573,14 @@
             cell = [[[NSBundle mainBundle] loadNibNamed:@"HomePageListCell" owner:self options:nil] lastObject];
         }
         
-        [cell setIntroductionText:[stringArray objectAtIndex:[indexPath row] - 4] image:imagesArray reply:@[@"啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊a",@"范德萨范德萨范德萨范德萨大叔大叔的"] index:indexPath.row - 4];
+        imageArrays = [NSMutableArray array];
+        
+        NSString *imageStr = [imagesArray objectAtIndex:indexPath.row - 4];
+        
+        imageArrays = [NSMutableArray arrayWithArray:[imageStr componentsSeparatedByString:@","]];
+        
+        [cell setIntroductionText:[stringArray objectAtIndex:[indexPath row] - 4] image:imageArrays reply:[dataArray objectAtIndex:indexPath.row - 4] index:indexPath.row - 4];
+        [cell setData:[dataArray objectAtIndex:indexPath.row - 4]];
         
         return cell;
     }

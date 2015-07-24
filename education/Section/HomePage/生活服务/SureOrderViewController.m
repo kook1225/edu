@@ -107,15 +107,20 @@
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
+    NSString *token = [[[SEUtils getUserInfo] TokenInfo] access_token];
+    NSString *yhm = [[[[SEUtils getUserInfo] UserDetail] userinfo] YHM];
     
-    NSLog(@"token:%@",[[[SEUtils getUserInfo] TokenInfo] access_token]);
-    NSLog(@"yhm:%@",[[[[SEUtils getUserInfo] UserDetail] userinfo] YHM]);
+    NSLog(@"token:%@",token);
+    NSLog(@"yhm:%@",yhm);
     
     NSString *code = [SEUtils encryptUseDES:[[[SEUtils getUserInfo] TokenInfo] access_token] key:[[[[SEUtils getUserInfo] UserDetail] userinfo] YHM]];
+    
     NSLog(@"code:%@",code);
     
-    NSString *text = [SEUtils decryptUseDES:code key:[[[[SEUtils getUserInfo] UserDetail] userinfo] YHM]];
-    NSLog(@"text:%@",text);
+    //NSString *text = [SEUtils decryptUseDES:code key:[[[[SEUtils getUserInfo] UserDetail] userinfo] YHM]];
+    //NSLog(@"text:%@",text);
+    
+    
     
     
     NSDictionary *parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],@"code":code};
