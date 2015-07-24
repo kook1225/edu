@@ -10,9 +10,11 @@
 #import "EDPhotoDetailCell.h"
 #import "CheckImageViewController.h"
 #import "IQKeyboardManager.h"
+#import "SETabBarViewController.h"
 
 @interface EDPhotoDetailViewController ()<UITextFieldDelegate> {
     NSArray *dataArray;
+    SETabBarViewController *tabBarViewController;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -28,6 +30,9 @@
     // Do any additional setup after loading the view from its nib.
     self.title = @"详情";
     self.navigationItem.leftBarButtonItem = [Tools getNavBarItem:self clickAction:@selector(back)];
+    
+    tabBarViewController = (SETabBarViewController *)self.navigationController.parentViewController;
+    [tabBarViewController tabBarViewHidden];
     
     _replyView.hidden = YES;
     

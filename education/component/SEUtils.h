@@ -29,6 +29,9 @@
 // des加密算法
 +(NSString *) encryptUseDES:(NSString *)plainText key:(NSString *)key;
 +(NSString *) decryptUseDES:(NSString *)cipherText key:(NSString *)key;
+
++ (NSData *)DESEncrypt:(NSData *)data WithKey:(NSString *)key;
+
 //+(BOOL)isRequestSuccessWithStatusCode:(int)statusCode;
 //+(BOOL)checkNetworkWithRequest:(ASIHTTPRequest *)request;
 

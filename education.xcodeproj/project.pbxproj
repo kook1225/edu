@@ -184,6 +184,8 @@
 		768F89291B60CDA40054F73C /* ProvinceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 768F89281B60CDA40054F73C /* ProvinceModel.m */; };
 		768F892C1B60CDAD0054F73C /* CityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 768F892B1B60CDAD0054F73C /* CityModel.m */; };
 		768F892F1B60CDB90054F73C /* DistrictModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 768F892E1B60CDB90054F73C /* DistrictModel.m */; };
+		768F89341B61D7CD0054F73C /* WebViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 768F89321B61D7CD0054F73C /* WebViewViewController.m */; };
+		768F89351B61D7CD0054F73C /* WebViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 768F89331B61D7CD0054F73C /* WebViewViewController.xib */; };
 		768FFAF11B4238D9008E577F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF01B4238D9008E577F /* main.m */; };
 		768FFAF41B4238D9008E577F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF31B4238D9008E577F /* AppDelegate.m */; };
 		768FFAFC1B4238D9008E577F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 768FFAFB1B4238D9008E577F /* Images.xcassets */; };
@@ -502,6 +504,9 @@
 		768F892B1B60CDAD0054F73C /* CityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityModel.m; sourceTree = "<group>"; };
 		768F892D1B60CDB90054F73C /* DistrictModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistrictModel.h; sourceTree = "<group>"; };
 		768F892E1B60CDB90054F73C /* DistrictModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistrictModel.m; sourceTree = "<group>"; };
+		768F89311B61D7CD0054F73C /* WebViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewViewController.h; sourceTree = "<group>"; };
+		768F89321B61D7CD0054F73C /* WebViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewViewController.m; sourceTree = "<group>"; };
+		768F89331B61D7CD0054F73C /* WebViewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewViewController.xib; sourceTree = "<group>"; };
 		768FFAEB1B4238D9008E577F /* education.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = education.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		768FFAEF1B4238D9008E577F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		768FFAF01B4238D9008E577F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -1155,6 +1160,16 @@
 			path = "生活服务Cell";
 			sourceTree = "<group>";
 		};
+		768F89301B61D7AD0054F73C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				768F89311B61D7CD0054F73C /* WebViewViewController.h */,
+				768F89321B61D7CD0054F73C /* WebViewViewController.m */,
+				768F89331B61D7CD0054F73C /* WebViewViewController.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		768FFAE21B4238D9008E577F = {
 			isa = PBXGroup;
 			children = (
@@ -1236,6 +1251,7 @@
 		768FFB171B423BBE008E577F /* General */ = {
 			isa = PBXGroup;
 			children = (
+				768F89301B61D7AD0054F73C /* Views */,
 				1857A0E91B574E4200501EA0 /* lib */,
 				768FFB2E1B42C325008E577F /* Cells */,
 			);
@@ -1486,6 +1502,7 @@
 				1808B31E1B43D6650050E3B4 /* EDSubjectCell.xib in Resources */,
 				18579F8E1B45401100501EA0 /* EDEditInfoViewController.xib in Resources */,
 				1857A02E1B4CAB2B00501EA0 /* EDMyPhotoViewController.xib in Resources */,
+				768F89351B61D7CD0054F73C /* WebViewViewController.xib in Resources */,
 				7644068B1B4A783A00541C86 /* SureOrderViewController.xib in Resources */,
 				1808B33B1B44DEB00050E3B4 /* EDContactContentCell.xib in Resources */,
 				764406EE1B4FA31300541C86 /* SchoolTimeTableViewController.xib in Resources */,
@@ -1544,6 +1561,7 @@
 			files = (
 				768FFB3C1B42DE44008E577F /* HomePageListCell.m in Sources */,
 				76F121321B54B82E00635209 /* SecurityUtil.m in Sources */,
+				768F89341B61D7CD0054F73C /* WebViewViewController.m in Sources */,
 				764406A81B4BD07F00541C86 /* SelectPayViewController.m in Sources */,
 				1857A0891B4D6E9800501EA0 /* EDPrivateNoteSelectedCell.m in Sources */,
 				768F89051B58962C0054F73C /* AuthorModel.m in Sources */,

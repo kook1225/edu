@@ -14,6 +14,27 @@
     // Initialization code
 }
 
+- (void)setData {
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@",IMG_HOST,[[[[SEUtils getUserInfo] UserDetail] userinfo] YHTX]];
+    NSURL *url = [NSURL URLWithString:urlStr];
+    [_leftImageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"1"]];
+    
+    
+    if ([[[[[SEUtils getUserInfo] UserDetail] userinfo] YHLB] intValue] == 3) {
+        _nameLabel.text = [[[[SEUtils getUserInfo] UserDetail] teacherInfo] JSXM];
+        _schoolLabel.text = [[[[SEUtils getUserInfo] UserDetail] schoolInfo] DWMC];
+        _classImageView.hidden = YES;
+    }
+    else {
+        _nameLabel.text = [[[[SEUtils getUserInfo] UserDetail] studentInfo] XSXM];
+        _schoolLabel.text = [[[[SEUtils getUserInfo] UserDetail] schoolInfo] DWMC];
+        _classLabel.text = [NSString stringWithFormat:@"%@%@",[[[[SEUtils getUserInfo] UserDetail] studentInfo] NJMC],[[[[SEUtils getUserInfo] UserDetail] studentInfo] BJMC]];
+    }
+    
+}
+
+
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

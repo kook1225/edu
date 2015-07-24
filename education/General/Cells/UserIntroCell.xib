@@ -30,7 +30,7 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="class" translatesAutoresizingMaskIntoConstraints="NO" id="9JO-7y-ZHi">
                         <rect key="frame" x="64" y="43" width="15" height="15"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="五方小学" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQU-dL-wkN">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQU-dL-wkN">
                         <rect key="frame" x="81" y="25" width="106" height="15"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="106" id="s8M-j9-Age"/>
@@ -39,7 +39,7 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="201401班" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CXj-Ie-h50">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CXj-Ie-h50">
                         <rect key="frame" x="82" y="43" width="106" height="15"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -54,7 +54,7 @@
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="李小白" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mDg-mm-Xbn">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mDg-mm-Xbn">
                         <rect key="frame" x="64" y="8" width="123" height="15"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -91,6 +91,14 @@
                     <constraint firstAttribute="centerY" secondItem="cQU-dL-wkN" secondAttribute="centerY" id="roV-kk-4b6"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="classImageView" destination="9JO-7y-ZHi" id="osL-nR-jYD"/>
+                <outlet property="classLabel" destination="CXj-Ie-h50" id="W8X-JV-wut"/>
+                <outlet property="leftImageView" destination="3Wa-pL-ZtS" id="vkX-Wz-cMJ"/>
+                <outlet property="nameLabel" destination="mDg-mm-Xbn" id="Nlm-eF-Pa4"/>
+                <outlet property="schoolBtn" destination="gjg-zv-VRX" id="mbE-Nu-PHp"/>
+                <outlet property="schoolLabel" destination="cQU-dL-wkN" id="P8X-qH-76n"/>
+            </connections>
             <point key="canvasLocation" x="241" y="146"/>
         </tableViewCell>
     </objects>
