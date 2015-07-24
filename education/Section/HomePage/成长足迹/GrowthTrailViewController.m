@@ -139,6 +139,7 @@
         EDPrivateDetailViewController *privateDetailVC = [[EDPrivateDetailViewController alloc] init];
         privateDetailVC.model = [dataArray objectAtIndex:indexPath.row];
         privateDetailVC.title = @"详情";
+        privateDetailVC.type = @"成长足迹";
         [self.navigationController pushViewController:privateDetailVC animated:YES];
     }
 }

@@ -29,9 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    if ([self.title  isEqual: @""]) {
-        self.title = @"私信详情";
-    }
+    
     
     self.navigationItem.leftBarButtonItem = [Tools getNavBarItem:self clickAction:@selector(back)];
     
@@ -41,18 +39,23 @@
         _dateLabel.textAlignment = NSTextAlignmentLeft;
         _dateLabel.font = [UIFont systemFontOfSize:11];
         _dateLabel.textColor = [UIColor colorWithRed:156.0/255.0f green:156.0/255.0f blue:156.0/255.0f alpha:1.000];
+        _dateLabel.text = _model.FBSJ;
+        if (![_model.TPDZ isEqualToString:@""]) {
+            imgArray = [NSMutableArray arrayWithArray:[_model.TPDZ componentsSeparatedByString:@","]];
+        }
+        
+        [self drawlayer:_model.FBNR array:imgArray];
     }
     else {
-        _nameLabel.text = [NSString stringWithFormat:@"%@留言",_model.FBRXM];
+        _nameLabel.text = [NSString stringWithFormat:@"%@留言",_name];
+        _dateLabel.text = _date;
+        imgArray = [NSMutableArray arrayWithArray:[_imagesString componentsSeparatedByString:@","]];
+        [self drawlayer:_content array:imgArray];
     }
-    _dateLabel.text = _model.FBSJ;
+    
 
     
-    if (![_model.TPDZ isEqualToString:@""]) {
-        imgArray = [NSMutableArray arrayWithArray:[_model.TPDZ componentsSeparatedByString:@","]];
-    }
     
-    [self drawlayer:_model.FBNR array:imgArray];
 }
 
 #pragma mark 常用方法

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -14,70 +13,52 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="820-Mj-LUy">
-                        <rect key="frame" x="10" y="63" width="300" height="1"/>
+                    <view contentMode="scaleToFill" id="820-Mj-LUy">
+                        <rect key="frame" x="12" y="64" width="296" height="1"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.9137254901960784" green="0.9137254901960784" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="1" id="fdS-xc-0mt"/>
-                        </constraints>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noteSpot" translatesAutoresizingMaskIntoConstraints="NO" id="UgW-lD-KtK">
-                        <rect key="frame" x="10" y="15" width="13" height="13"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="13" id="Cz0-Vr-eUN"/>
-                        </constraints>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noteSpot" id="UgW-lD-KtK">
+                        <rect key="frame" x="12" y="15" width="13" height="13"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2015-06-17 14:30" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xj4-XH-IJd">
-                        <rect key="frame" x="205" y="15" width="105" height="15"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="105" id="5Xl-OK-ah8"/>
-                        </constraints>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2015-06-17 14:30" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xj4-XH-IJd">
+                        <rect key="frame" x="203" y="15" width="105" height="15"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="感觉考试棒棒哒" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TR6-mN-QtI">
-                        <rect key="frame" x="10" y="41" width="300" height="15"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="感觉考试棒棒哒" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TR6-mN-QtI">
+                        <rect key="frame" x="12" y="41" width="296" height="15"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="from 王美丽" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RW3-gh-kpr">
-                        <rect key="frame" x="27" y="15" width="69" height="15"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="69" id="Y2u-lh-Vq1"/>
-                        </constraints>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="from 王美丽" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RW3-gh-kpr">
+                        <rect key="frame" x="30" y="15" width="69" height="15"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-                <constraints>
-                    <constraint firstItem="820-Mj-LUy" firstAttribute="leading" secondItem="TR6-mN-QtI" secondAttribute="leading" id="3sd-uo-fHJ"/>
-                    <constraint firstItem="820-Mj-LUy" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="8ZK-zL-4fh"/>
-                    <constraint firstItem="TR6-mN-QtI" firstAttribute="trailing" secondItem="xj4-XH-IJd" secondAttribute="trailing" id="9JN-yF-Am4"/>
-                    <constraint firstItem="RW3-gh-kpr" firstAttribute="leading" secondItem="UgW-lD-KtK" secondAttribute="trailing" constant="4" id="DLK-ou-uoV"/>
-                    <constraint firstItem="TR6-mN-QtI" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="ERf-eR-jcG"/>
-                    <constraint firstItem="UgW-lD-KtK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="ZIR-nd-LwL"/>
-                    <constraint firstItem="820-Mj-LUy" firstAttribute="top" secondItem="TR6-mN-QtI" secondAttribute="bottom" constant="7" id="cjO-4D-XsH"/>
-                    <constraint firstItem="UgW-lD-KtK" firstAttribute="top" secondItem="RW3-gh-kpr" secondAttribute="top" id="eXX-nI-qLg"/>
-                    <constraint firstAttribute="bottom" secondItem="820-Mj-LUy" secondAttribute="bottom" id="fo4-iJ-sdc"/>
-                    <constraint firstItem="TR6-mN-QtI" firstAttribute="leading" secondItem="UgW-lD-KtK" secondAttribute="leading" id="muB-3c-x4w"/>
-                    <constraint firstItem="TR6-mN-QtI" firstAttribute="trailing" secondItem="820-Mj-LUy" secondAttribute="trailing" id="nJh-yv-aX7"/>
-                    <constraint firstItem="TR6-mN-QtI" firstAttribute="top" secondItem="UgW-lD-KtK" secondAttribute="bottom" constant="13" id="ptF-el-Fvv"/>
-                    <constraint firstItem="TR6-mN-QtI" firstAttribute="top" secondItem="RW3-gh-kpr" secondAttribute="bottom" constant="11" id="qqe-Hh-ykP"/>
-                    <constraint firstItem="RW3-gh-kpr" firstAttribute="baseline" secondItem="xj4-XH-IJd" secondAttribute="baseline" id="szz-hR-9O2"/>
-                </constraints>
-                <variation key="default">
-                    <mask key="constraints">
-                        <exclude reference="fo4-iJ-sdc"/>
-                    </mask>
-                </variation>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="contentLabel" destination="TR6-mN-QtI" id="MiR-x7-3l9"/>
+                <outlet property="dateLabel" destination="xj4-XH-IJd" id="aH6-Dv-MOM"/>
+                <outlet property="nameLabel" destination="RW3-gh-kpr" id="twO-bH-iPy"/>
+            </connections>
             <point key="canvasLocation" x="245" y="307.5"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="noteSpot" width="12" height="12"/>
     </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>

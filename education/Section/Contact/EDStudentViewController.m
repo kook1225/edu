@@ -28,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *momPhone;
 @property (weak, nonatomic) IBOutlet UILabel *dadName;
 @property (weak, nonatomic) IBOutlet UILabel *dadPhone;
+@property (weak, nonatomic) IBOutlet UIButton *sendBtn;
 
 @end
 
@@ -59,9 +60,9 @@
 {
     _headImg.layer.cornerRadius = 4.0f;
     _headImg.layer.masksToBounds = YES;
-//    _sendBtn.layer.cornerRadius = 4.0f;
-//    _sendBtn.layer.masksToBounds = YES;
-//    
+    _sendBtn.layer.cornerRadius = 4.0f;
+    _sendBtn.layer.masksToBounds = YES;
+//
     _location.text = _detailDic[@"QYMC"];
     _school.text = _detailDic[@"DWMC"];
     _grade.text = _detailDic[@"NJMC"];

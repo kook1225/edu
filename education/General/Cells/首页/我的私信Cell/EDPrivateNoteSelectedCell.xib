@@ -65,6 +65,11 @@
                     </mask>
                 </variation>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="contentLabel" destination="2It-rY-IS9" id="IXF-u4-BfW"/>
+                <outlet property="dateLabel" destination="rKQ-ZN-QHb" id="EtU-dn-pYR"/>
+                <outlet property="nameLabel" destination="ZSt-Ye-b9B" id="VTj-zh-S0w"/>
+            </connections>
         </tableViewCell>
     </objects>
 </document>

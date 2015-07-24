@@ -15,5 +15,9 @@
 }
 
 @property (nonatomic,strong) growUpModel *model;
-
+@property (nonatomic,strong) NSString *type;
+@property (nonatomic,strong) NSString *name;
+@property (nonatomic,strong) NSString *date;
+@property (nonatomic,strong) NSString *content;
+@property (nonatomic,strong) NSString *imagesString;
 @end
