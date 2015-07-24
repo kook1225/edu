@@ -10,7 +10,6 @@
 #import "ShipAddListModel.h"
 
 @interface ManageAddViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
-@property (nonatomic) int checkRow;
 @property (nonatomic,strong) NSArray *dataArray;
 
 @end

@@ -107,6 +107,7 @@
 #pragma mark - UITableViewDelegate Method
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     EditAddViewController *editAddVC = [[EditAddViewController alloc] init];
+    editAddVC.shipAddModel = [_dataArray objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:editAddVC animated:YES];
 }
 
@@ -127,11 +128,7 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"SelectAddCell" owner:self options:nil] lastObject];
     }
     
-    /*
-    if (_checkRow == indexPath.row) {
-        [cell setData];
-    }
-    */
+
     [cell setData:[_dataArray objectAtIndex:indexPath.row]];
 
     return cell;

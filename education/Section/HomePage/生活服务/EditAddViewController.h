@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ShipAddListModel.h"
 
 @interface EditAddViewController : UIViewController
+
+@property (nonatomic,strong) ShipAddListModel *shipAddModel;
 
 @end

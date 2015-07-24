@@ -10,12 +10,12 @@
 
 @protocol SelectAddViewControllerDelegate <NSObject>
 
-- (void)selectedAdd:(int)row;
+- (void)selectedAdd:(NSString *)checkID;
 
 @end
 
 @interface SelectAddViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
-@property (nonatomic) int checkRow;
+@property (nonatomic) NSString *checkID;
 @property (nonatomic,weak) id<SelectAddViewControllerDelegate> delegate;
 
 @end
