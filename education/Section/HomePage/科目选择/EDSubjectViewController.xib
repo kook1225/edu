@@ -32,6 +32,7 @@
                     <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="npV-cJ-1HU"/>
+                        <outlet property="delegate" destination="-1" id="K4Y-gt-VJX"/>
                     </connections>
                 </tableView>
             </subviews>

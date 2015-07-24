@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface EDHomeWorkViewController : UIViewController
-
+@property (nonatomic,strong) NSString *detailId;
 @end

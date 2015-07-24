@@ -56,7 +56,7 @@
     if ([[SEUtils getUserInfo].UserDetail.userinfo.YHLB intValue] ==3) {
         //老师
         pramaters= @{@"access_token":[SEUtils getUserInfo].TokenInfo.access_token,
-                     @"XSID":[SEUtils getUserInfo].UserDetail.studentInfo.ID
+                     @"XSID":_detailId
                      };
     }else
     {
@@ -73,7 +73,13 @@
         if ([responseObject[@"responseCode"] intValue] ==0) {
           
             dataArray = responseObject[@"data"];
-            [_tableView reloadData];
+            if (dataArray.count !=0) {
+                [_tableView reloadData];
+            }else
+            {
+                SHOW_ALERT(@"提示", @"暂无数据");
+            }
+            
         }else
         {
             SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);

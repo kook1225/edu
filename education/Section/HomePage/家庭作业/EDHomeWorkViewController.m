@@ -134,10 +134,23 @@
     
    NSLog(@"类型--%@",[SEUtils getUserInfo].UserDetail.userinfo.YHLB);
     NSDictionary *pramaters;
-//    if ([[SEUtils getUserInfo].UserDetail.userinfo.YHLB intValue] ==3) {
+    if ([[SEUtils getUserInfo].UserDetail.userinfo.YHLB intValue] ==3) {
         //老师
         pramaters= @{@"access_token":[SEUtils getUserInfo].TokenInfo.access_token,
                     @"type":@"2",
+                     @"page":@"1",
+                     @"pagesize":@"10",
+                     @"bjid":_detailId,
+                     @"ceci":@"",
+                     @"xueke":@"",
+                     @"pushtime":date,
+                     @"V_type":@""
+                     };
+  
+    }else
+    {
+        pramaters= @{@"access_token":[SEUtils getUserInfo].TokenInfo.access_token,
+                     @"type":@"2",
                      @"page":@"1",
                      @"pagesize":@"10",
                      @"ceci":@"",
@@ -145,8 +158,7 @@
                      @"pushtime":date,
                      @"V_type":@""
                      };
-  
-    
+    }
     
     NSString *urlString = [NSString stringWithFormat:@"%@EduOnlineList",SERVER_HOST];
     
@@ -155,7 +167,7 @@
         NSLog(@"res--%@",responseObject);
         if ([responseObject[@"responseCode"] intValue] ==0) {
             
-            dataArray = responseObject[@"data"];
+            dataArray = responseObject[@"data"][@"list"];
             [_tableView reloadData];
         }else
         {
@@ -215,7 +227,7 @@
     UILabel *homeWork = [[UILabel alloc]initWithFrame:CGRectMake(10, 5, TAB_WITHDE-20, 40)];
     homeWork.textColor = [UIColor colorWithRed:255/255.0f green:124/255.0f blue:6/255.0f alpha:1.0];
     homeWork.font = [UIFont systemFontOfSize:12.0];
-    NSString *text = [NSString stringWithFormat:@"%@:%@",dataArray[indexPath.row][@"Name"],dataArray[indexPath.row][@"Bak"]];
+    NSString *text = [NSString stringWithFormat:@"%@:%@",dataArray[indexPath.row][@"ZYMC"],dataArray[indexPath.row][@"ZYNR"]];
     homeWork.numberOfLines = 0;
     
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc]initWithString:text];;

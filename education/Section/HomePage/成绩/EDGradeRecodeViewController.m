@@ -60,12 +60,16 @@
     if ([[SEUtils getUserInfo].UserDetail.userinfo.YHLB intValue] ==3) {
         //老师
         pramaters= @{@"access_token":[SEUtils getUserInfo].TokenInfo.access_token,
-                     @"XSID":[SEUtils getUserInfo].UserDetail.studentInfo.ID
+                     @"XSID":_detailId,
+                     @"page":@"1",
+                     @"pageSize":@"10"
                      };
     }else
     {
         pramaters= @{@"access_token":[SEUtils getUserInfo].TokenInfo.access_token,
-                     @"XSID":@""};
+                     @"XSID":@"",
+                     @"page":@"1",
+                     @"pageSize":@"10"};
     }
     NSString *urlString = [NSString stringWithFormat:@"%@StudentScore",SERVER_HOST];
     

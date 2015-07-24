@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface EDPhySicalTestViewController : UIViewController
-
+@property (nonatomic,strong) NSString *detailId;
 @end

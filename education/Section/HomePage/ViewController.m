@@ -375,6 +375,7 @@
     if ([[SEUtils getUserInfo].UserDetail.userinfo.YHLB intValue] ==3 ) {
         EDSubjectViewController *subjectVC = [[EDSubjectViewController alloc]init];
         subjectVC.title = @"选择班级";
+        subjectVC.type  = @"我的课表";
         [self.navigationController pushViewController:subjectVC animated:YES];
     }else
     {
@@ -419,6 +420,7 @@
     if ([[SEUtils getUserInfo].UserDetail.userinfo.YHLB intValue] ==3 ) {
         EDSubjectViewController *subjectVC = [[EDSubjectViewController alloc]init];
         subjectVC.title = @"选择班级";
+        subjectVC.type  = @"成绩档案";
         [self.navigationController pushViewController:subjectVC animated:YES];
     }else
     {
@@ -433,6 +435,7 @@
     if ([[SEUtils getUserInfo].UserDetail.userinfo.YHLB intValue] ==3 ) {
         EDSubjectViewController *subjectVC = [[EDSubjectViewController alloc]init];
         subjectVC.title = @"选择班级";
+        subjectVC.type  = @"家庭作业";
         [self.navigationController pushViewController:subjectVC animated:YES];
     }else
     {
@@ -465,6 +468,7 @@
     if ([[SEUtils getUserInfo].UserDetail.userinfo.YHLB intValue] ==3 ) {
         EDSubjectViewController *subjectVC = [[EDSubjectViewController alloc]init];
         subjectVC.title = @"选择班级";
+        subjectVC.type  = @"体质体能";
         [self.navigationController pushViewController:subjectVC animated:YES];
     }else
     {

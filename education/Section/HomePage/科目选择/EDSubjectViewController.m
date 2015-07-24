@@ -10,12 +10,18 @@
 #import "EDGradeCell.h"
 #import "EDSubjectCell.h"
 #import "SETabBarViewController.h"
+#import "EDHomeWorkViewController.h"
+#import "EDPhySicalTestViewController.h"
+#import "SchoolTimeTableViewController.h"
+#import "EDGradeRecodeViewController.h"
 
 @interface EDSubjectViewController ()
 {
     SETabBarViewController *tabBarView;
     NSArray *grdArray;
     NSArray *subArray;
+    BOOL GradeSelected;
+    BOOL classSelected;
 }
 @property (weak, nonatomic) IBOutlet UITableView *gradeTableView;
 @property (weak, nonatomic) IBOutlet UITableView *subjectTableView;
@@ -160,6 +166,7 @@
         if (subCell == nil) {
             subCell = [[[NSBundle mainBundle]loadNibNamed:@"EDSubjectCell" owner:self options:nil]lastObject];
         }
+        subCell.subject.text = subArray[indexPath.row][@"BJMC"];
         return subCell;
     }
 }
@@ -167,10 +174,38 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (tableView == _gradeTableView) {
+//        GradeSelected = YES;
+        EDGradeCell *gradeCell = (EDGradeCell *)[tableView cellForRowAtIndexPath:indexPath];
+        gradeCell.grade.textColor = [UIColor redColor];
+        [_gradeTableView reloadData];
         [self  AFNRequest:2 class:grdArray[indexPath.row][@"NJID"]];
+
     }else
     {
-       
+        
+       if ([_type isEqualToString:@"家庭作业"])
+       {
+           EDHomeWorkViewController *homeWorkVC = [[EDHomeWorkViewController alloc]init];
+           homeWorkVC.detailId = subArray[indexPath.row][@"BJID"];
+           [self.navigationController pushViewController:homeWorkVC animated:YES];
+       }else if ([_type isEqualToString:@"我的课表"])
+       {
+           SchoolTimeTableViewController *schoolTimeVC = [[SchoolTimeTableViewController alloc]init];
+           schoolTimeVC.detailId = subArray[indexPath.row][@"BJID"];
+           [self.navigationController pushViewController:schoolTimeVC animated:YES];
+           
+       }else if ([_type isEqualToString:@"成绩档案"])
+       {
+           EDGradeRecodeViewController *gradeVC = [[EDGradeRecodeViewController alloc]init];
+           gradeVC.detailId = subArray[indexPath.row][@"BJID"];
+           [self.navigationController pushViewController:gradeVC animated:YES];
+       }else
+       {
+           //体质体能
+           EDPhySicalTestViewController *physicalVC = [[EDPhySicalTestViewController alloc]init];
+           physicalVC.detailId = subArray[indexPath.row][@"BJID"];
+           [self.navigationController pushViewController:physicalVC animated:YES];
+       }
     }
 
 }

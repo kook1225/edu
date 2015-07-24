@@ -48,6 +48,8 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+
+
 - (void)timeTable {
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     HUD.mode = MBProgressHUDModeIndeterminate;
@@ -59,9 +61,19 @@
     
     NSDictionary *parameter;
     
-    parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],
-                  @"BJID":[[[[SEUtils getUserInfo] UserDetail] studentInfo] BJID]
-                  };
+    if ([[SEUtils getUserInfo].UserDetail.userinfo.YHLB intValue] ==3)
+    {
+        parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],
+                      @"BJID":_detailId
+                      };
+    }else
+    {
+        parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],
+                      @"BJID":@""
+//                      [[[SEUtils getUserInfo] UserDetail] studentInfo] BJID]
+                      };
+    }
+    
     
     
     NSString *urlStr = [NSString stringWithFormat:@"%@ClassSchedule",SERVER_HOST];

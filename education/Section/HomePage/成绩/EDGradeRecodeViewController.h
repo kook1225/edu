@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface EDGradeRecodeViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
-
+@property (nonatomic,strong) NSString *detailId;
 
 @end
