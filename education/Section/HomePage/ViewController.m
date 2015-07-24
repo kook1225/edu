@@ -244,9 +244,13 @@
                  _scrollView.showsVerticalScrollIndicator = NO;
                  
                  
-                 
+                 if ([slideImages count] > 1) {
                  // 设置scrollView的滚动范围为图片数量+2
-                 _scrollView.contentSize = CGSizeMake(SCREENWIDTH*([slideImages count]+2),IMAGEHEIGHT);
+                     _scrollView.contentSize = CGSizeMake(SCREENWIDTH*([slideImages count]+2),IMAGEHEIGHT);
+                 }
+                 else {
+                     _scrollView.contentSize = CGSizeMake(SCREENWIDTH,IMAGEHEIGHT);
+                 }
                  
                  
                  /*
@@ -257,8 +261,13 @@
                  // 首次显示的页面
                  
                  UIImageView *imageView = [[UIImageView alloc] init];
-                 [imageView sd_setImageWithURL:[NSURL URLWithString:slideImages[slideImages.count-1]] placeholderImage:nil];
+                 NSString *urlStr = [NSString stringWithFormat:@"%@%@",IMG_HOST,slideImages[slideImages.count-1]];
+                 
+                 [imageView sd_setImageWithURL:[NSURL URLWithString:urlStr] placeholderImage:[UIImage imageNamed:@"1"]];
+            
+                 
 //                 [imageView setImage:[UIImage imageNamed:[slideImages objectAtIndex:[slideImages count]-1]]];
+                 
                  imageView.frame = CGRectMake(0, 0, SCREENWIDTH, IMAGEHEIGHT);
                  
                  // 把最后一张图片添加到scrollView中
@@ -272,7 +281,8 @@
                          //loop this bit
                          UIImageView *imageView = [[UIImageView alloc] init];
                          imageView.userInteractionEnabled = YES;
-                          [imageView sd_setImageWithURL:[NSURL URLWithString:slideImages[i]] placeholderImage:nil];
+                         NSString *urlStr = [NSString stringWithFormat:@"%@%@",IMG_HOST,slideImages[i]];
+                          [imageView sd_setImageWithURL:[NSURL URLWithString:urlStr] placeholderImage:nil];
 //                         [imageView setImage:[UIImage imageNamed:[slideImages objectAtIndex:i]]];
                          imageView.frame = CGRectMake(SCREENWIDTH*i+SCREENWIDTH, 0, SCREENWIDTH, IMAGEHEIGHT);
                          
@@ -282,7 +292,8 @@
                      
                      
                      imageView = [[UIImageView alloc] init];
-                      [imageView sd_setImageWithURL:[NSURL URLWithString:slideImages[0]] placeholderImage:nil];
+                     NSString *urlStr = [NSString stringWithFormat:@"%@%@",IMG_HOST,slideImages[0]];
+                      [imageView sd_setImageWithURL:[NSURL URLWithString:urlStr] placeholderImage:[UIImage imageNamed:@"1"]];
 //                     [imageView setImage:[UIImage imageNamed:[slideImages objectAtIndex:0]]];
                      imageView.frame = CGRectMake(SCREENWIDTH*([slideImages count] + 1), 0, SCREENWIDTH, IMAGEHEIGHT);
                      
