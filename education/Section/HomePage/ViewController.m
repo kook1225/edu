@@ -28,6 +28,7 @@
 #import "ListModel.h"
 #import "EDPhotoDetailViewController.h"
 #import <UIImageView+WebCache.h>
+#import "EDSubjectViewController.h"
 
 #define IMAGEHEIGHT (160 * ([UIScreen mainScreen].bounds.size.height/568.0))
 #define USERINTROHEIGHT (64 * ([UIScreen mainScreen].bounds.size.height/568.0))
@@ -376,8 +377,16 @@
 }
 
 - (void)schoolTimeTable {
-    SchoolTimeTableViewController *schoolTimeTableVC = [[SchoolTimeTableViewController alloc] init];
-    [self.navigationController pushViewController:schoolTimeTableVC animated:YES];
+    if ([[SEUtils getUserInfo].UserDetail.userinfo.YHLB intValue] ==3 ) {
+        EDSubjectViewController *subjectVC = [[EDSubjectViewController alloc]init];
+        subjectVC.title = @"选择班级";
+        [self.navigationController pushViewController:subjectVC animated:YES];
+    }else
+    {
+        SchoolTimeTableViewController *schoolTimeTableVC = [[SchoolTimeTableViewController alloc] init];
+        [self.navigationController pushViewController:schoolTimeTableVC animated:YES];
+    }
+    
 }
 
 - (void)myLetter {
@@ -407,24 +416,42 @@
 
 - (void)problem {
     EDSubjectViewController *subjectVC = [[EDSubjectViewController alloc]init];
+    subjectVC.title = @"选择科目";
     [self.navigationController pushViewController:subjectVC animated:YES];
 }
 
 - (void)score {
-    EDGradeRecodeViewController *gradeVC = [[EDGradeRecodeViewController alloc]init];
-    [self.navigationController pushViewController:gradeVC animated:YES];
+    if ([[SEUtils getUserInfo].UserDetail.userinfo.YHLB intValue] ==3 ) {
+        EDSubjectViewController *subjectVC = [[EDSubjectViewController alloc]init];
+        subjectVC.title = @"选择班级";
+        [self.navigationController pushViewController:subjectVC animated:YES];
+    }else
+    {
+        EDGradeRecodeViewController *gradeVC = [[EDGradeRecodeViewController alloc]init];
+        [self.navigationController pushViewController:gradeVC animated:YES];
+    }
+    
 }
 
 - (void)homework {
-    if (_vipUser) {
-        EDHomeWorkViewController *homeWorkVC = [[EDHomeWorkViewController alloc]init];
-        [self.navigationController pushViewController:homeWorkVC animated:YES];
+    
+    if ([[SEUtils getUserInfo].UserDetail.userinfo.YHLB intValue] ==3 ) {
+        EDSubjectViewController *subjectVC = [[EDSubjectViewController alloc]init];
+        subjectVC.title = @"选择班级";
+        [self.navigationController pushViewController:subjectVC animated:YES];
+    }else
+    {
+        if (_vipUser) {
+            EDHomeWorkViewController *homeWorkVC = [[EDHomeWorkViewController alloc]init];
+            [self.navigationController pushViewController:homeWorkVC animated:YES];
+        }
+        else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"成为VIP才能使用该功能哟!" delegate:self cancelButtonTitle:@"先逛逛" otherButtonTitles:@"成为VIP", nil];
+            alert.tag = 201;
+            [alert show];
+        }
     }
-    else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"成为VIP才能使用该功能哟!" delegate:self cancelButtonTitle:@"先逛逛" otherButtonTitles:@"成为VIP", nil];
-        alert.tag = 201;
-        [alert show];
-    }
+    
 }
 
 - (void)growUp {
@@ -440,21 +467,32 @@
 }
 
 - (void)body {
-    if (_vipUser) {
-        EDPhySicalTestViewController *physicalVC = [[EDPhySicalTestViewController alloc]init];
-        [self.navigationController pushViewController:physicalVC animated:YES];
+    if ([[SEUtils getUserInfo].UserDetail.userinfo.YHLB intValue] ==3 ) {
+        EDSubjectViewController *subjectVC = [[EDSubjectViewController alloc]init];
+        subjectVC.title = @"选择班级";
+        [self.navigationController pushViewController:subjectVC animated:YES];
+    }else
+    {
+        if (_vipUser) {
+            EDPhySicalTestViewController *physicalVC = [[EDPhySicalTestViewController alloc]init];
+            [self.navigationController pushViewController:physicalVC animated:YES];
+        }
+        else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"成为VIP才能使用该功能哟!" delegate:self cancelButtonTitle:@"先逛逛" otherButtonTitles:@"成为VIP", nil];
+            alert.tag = 201;
+            [alert show];
+        }
     }
-    else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"成为VIP才能使用该功能哟!" delegate:self cancelButtonTitle:@"先逛逛" otherButtonTitles:@"成为VIP", nil];
-        alert.tag = 201;
-        [alert show];
-    }
+    
 }
 
 - (void)courseOnLine {
     if (_vipUser) {
-        EDClassOnlineViewController *classOnlineVC = [[EDClassOnlineViewController alloc]init];
-        [self.navigationController pushViewController:classOnlineVC animated:YES];
+//        EDClassOnlineViewController *classOnlineVC = [[EDClassOnlineViewController alloc]init];
+//        [self.navigationController pushViewController:classOnlineVC animated:YES];
+        EDSubjectViewController *subjectVC = [[EDSubjectViewController alloc]init];
+        subjectVC.title = @"选择科目";
+        [self.navigationController pushViewController:subjectVC animated:YES];
     }
     else {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"成为VIP才能使用该功能哟!" delegate:self cancelButtonTitle:@"先逛逛" otherButtonTitles:@"成为VIP", nil];

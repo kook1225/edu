@@ -26,7 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = @"选择年级";
+//    self.title = @"选择年级";
     self.navigationItem.leftBarButtonItem = [Tools getNavBarItem:self clickAction:@selector(back)];
     
     
