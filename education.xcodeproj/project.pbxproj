@@ -187,6 +187,7 @@
 		768F892F1B60CDB90054F73C /* DistrictModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 768F892E1B60CDB90054F73C /* DistrictModel.m */; };
 		768F89341B61D7CD0054F73C /* WebViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 768F89321B61D7CD0054F73C /* WebViewViewController.m */; };
 		768F89351B61D7CD0054F73C /* WebViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 768F89331B61D7CD0054F73C /* WebViewViewController.xib */; };
+		768F89391B62540C0054F73C /* SchoolTimeTableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 768F89381B62540C0054F73C /* SchoolTimeTableModel.m */; };
 		768FFAF11B4238D9008E577F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF01B4238D9008E577F /* main.m */; };
 		768FFAF41B4238D9008E577F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF31B4238D9008E577F /* AppDelegate.m */; };
 		768FFAFC1B4238D9008E577F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 768FFAFB1B4238D9008E577F /* Images.xcassets */; };
@@ -510,6 +511,8 @@
 		768F89311B61D7CD0054F73C /* WebViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewViewController.h; sourceTree = "<group>"; };
 		768F89321B61D7CD0054F73C /* WebViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewViewController.m; sourceTree = "<group>"; };
 		768F89331B61D7CD0054F73C /* WebViewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewViewController.xib; sourceTree = "<group>"; };
+		768F89371B62540C0054F73C /* SchoolTimeTableModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolTimeTableModel.h; sourceTree = "<group>"; };
+		768F89381B62540C0054F73C /* SchoolTimeTableModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolTimeTableModel.m; sourceTree = "<group>"; };
 		768FFAEB1B4238D9008E577F /* education.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = education.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		768FFAEF1B4238D9008E577F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		768FFAF01B4238D9008E577F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -880,6 +883,7 @@
 		1857A0DE1B5663EF00501EA0 /* 首页 */ = {
 			isa = PBXGroup;
 			children = (
+				768F89361B6253FB0054F73C /* 我的课表 */,
 				768F89111B5F492F0054F73C /* 生活服务 */,
 				187119241B5CCD1B000F8DD4 /* 成绩 */,
 				768F88F91B5892CB0054F73C /* 班级圈 */,
@@ -1171,6 +1175,15 @@
 				768F89331B61D7CD0054F73C /* WebViewViewController.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		768F89361B6253FB0054F73C /* 我的课表 */ = {
+			isa = PBXGroup;
+			children = (
+				768F89371B62540C0054F73C /* SchoolTimeTableModel.h */,
+				768F89381B62540C0054F73C /* SchoolTimeTableModel.m */,
+			);
+			path = "我的课表";
 			sourceTree = "<group>";
 		};
 		768FFAE21B4238D9008E577F = {
@@ -1613,6 +1626,7 @@
 				1857A00C1B4BC2E800501EA0 /* EDInfomationViewController.m in Sources */,
 				1857A0081B4BC2E800501EA0 /* EDPhysicalDetailViewController.m in Sources */,
 				1808B34E1B44FD1C0050E3B4 /* EDSendMsgViewController.m in Sources */,
+				768F89391B62540C0054F73C /* SchoolTimeTableModel.m in Sources */,
 				1857A00A1B4BC2E800501EA0 /* EDPhySicalTestViewController.m in Sources */,
 				1857A0DA1B5663A900501EA0 /* TokenInforModel.m in Sources */,
 				1857A0E81B573A4E00501EA0 /* EDInfoDetailModel.m in Sources */,
