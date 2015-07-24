@@ -26,14 +26,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-//    self.title = @"选择年级";
+
     self.navigationItem.leftBarButtonItem = [Tools getNavBarItem:self clickAction:@selector(back)];
     
     
     
     tabBarView = (SETabBarViewController *)self.navigationController.parentViewController;
     [tabBarView tabBarViewHidden];
-    [self AFNRequest:3 class:nil];
+    if([self.title isEqualToString:@"选择班级"])
+    {
+        [self AFNRequest:3 class:nil];
+    }
+
     
     
 }
