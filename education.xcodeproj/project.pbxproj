@@ -23,6 +23,7 @@
 		1808B34F1B44FD1C0050E3B4 /* EDSendMsgViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1808B34D1B44FD1C0050E3B4 /* EDSendMsgViewController.xib */; };
 		184AE9F81B5F967F00FAEC5A /* EDStudentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184AE9F61B5F967F00FAEC5A /* EDStudentViewController.m */; };
 		184AE9F91B5F967F00FAEC5A /* EDStudentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 184AE9F71B5F967F00FAEC5A /* EDStudentViewController.xib */; };
+		184AE9FC1B61C92D00FAEC5A /* EScrollerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 184AE9FB1B61C92D00FAEC5A /* EScrollerView.m */; };
 		18579F8D1B45401100501EA0 /* EDEditInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18579F8B1B45401100501EA0 /* EDEditInfoViewController.m */; };
 		18579F8E1B45401100501EA0 /* EDEditInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18579F8C1B45401100501EA0 /* EDEditInfoViewController.xib */; };
 		18579FE31B4BC24E00501EA0 /* EDSetProblemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18579FDE1B4BC24E00501EA0 /* EDSetProblemViewController.m */; };
@@ -242,6 +243,8 @@
 		184AE9F51B5F967F00FAEC5A /* EDStudentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDStudentViewController.h; sourceTree = "<group>"; };
 		184AE9F61B5F967F00FAEC5A /* EDStudentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDStudentViewController.m; sourceTree = "<group>"; };
 		184AE9F71B5F967F00FAEC5A /* EDStudentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDStudentViewController.xib; sourceTree = "<group>"; };
+		184AE9FA1B61C92D00FAEC5A /* EScrollerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EScrollerView.h; sourceTree = "<group>"; };
+		184AE9FB1B61C92D00FAEC5A /* EScrollerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EScrollerView.m; sourceTree = "<group>"; };
 		18579F8A1B45401100501EA0 /* EDEditInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDEditInfoViewController.h; sourceTree = "<group>"; };
 		18579F8B1B45401100501EA0 /* EDEditInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDEditInfoViewController.m; sourceTree = "<group>"; };
 		18579F8C1B45401100501EA0 /* EDEditInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDEditInfoViewController.xib; sourceTree = "<group>"; };
@@ -1321,6 +1324,8 @@
 		76F121281B54B82E00635209 /* GTMBase64 */ = {
 			isa = PBXGroup;
 			children = (
+				184AE9FA1B61C92D00FAEC5A /* EScrollerView.h */,
+				184AE9FB1B61C92D00FAEC5A /* EScrollerView.m */,
 				76F121291B54B82E00635209 /* GTMBase64.h */,
 				76F1212A1B54B82E00635209 /* GTMBase64.m */,
 				76F1212B1B54B82E00635209 /* GTMDefines.h */,
@@ -1576,6 +1581,7 @@
 				768F89231B608CE00054F73C /* Base64.m in Sources */,
 				1857A0D51B5663A900501EA0 /* GradeModel.m in Sources */,
 				768F89261B60939D0054F73C /* ShipAddListModel.m in Sources */,
+				184AE9FC1B61C92D00FAEC5A /* EScrollerView.m in Sources */,
 				768F89021B5896160054F73C /* DynamicInfoModel.m in Sources */,
 				7644069E1B4BC1F900541C86 /* AddReceiveAddressViewController.m in Sources */,
 				1808B3181B43D6480050E3B4 /* EDGradeCell.m in Sources */,

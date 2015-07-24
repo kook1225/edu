@@ -68,6 +68,7 @@
 - (IBAction)sendMsgBtn:(id)sender {
     EDSendMsgViewController *sendMsgVC = [[EDSendMsgViewController alloc]init];
     sendMsgVC.detailId = _detailDic[@"UID"];
+    sendMsgVC.type = @"3";
     [self.navigationController pushViewController:sendMsgVC animated:YES];
 }
 @end

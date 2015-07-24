@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController<UITableViewDataSource,UITableViewDelegate> {
-    NSMutableArray *slideImages;
+    NSArray *slideImages;
     UIPageControl *_page;
 }
 
