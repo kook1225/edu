@@ -80,7 +80,8 @@ NSString *TMP_UPLOAD_IMG_PATH=@"";
                                     @"targetId":_detailId,
                                     @"images":picAdd,
                                     @"content":_textView.text,
-                                    @"clientType":@"2"
+                                    @"clientType":@"2",
+                                    @"targetType":_type
                                     };
         
         NSString *urlStr = [NSString stringWithFormat:@"%@PrivateMessage",SERVER_HOST];

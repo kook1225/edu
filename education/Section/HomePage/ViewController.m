@@ -24,6 +24,7 @@
 #import "EDNoticeViewController.h"
 #import "EDClassOnlineViewController.h"
 #import "SchoolTimeTableViewController.h"
+#import <UIImageView+WebCache.h>
 
 #define IMAGEHEIGHT (160 * ([UIScreen mainScreen].bounds.size.height/568.0))
 #define USERINTROHEIGHT (64 * ([UIScreen mainScreen].bounds.size.height/568.0))
@@ -56,7 +57,7 @@
     
     imagesArray = @[@"1",@"1",@"1"];
     
-    slideImages = [NSMutableArray arrayWithArray:@[@"example1",@"example2",@"example3"]];
+
     
     tabBarViewController = (SETabBarViewController *)self.navigationController.parentViewController;
     
@@ -64,82 +65,10 @@
     // 判断vip用户
     [self vipUser];
     
+    //拿取banner图片
+    [self imageAFNRequest];
     
     
-    
-    // 是否设置回弹效果
-    _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, IMAGEHEIGHT)];
-    _scrollView.tag = 501;
-    _scrollView.delegate = self;
-    _scrollView.bounces = NO;
-    _scrollView.contentOffset = CGPointMake(SCREENWIDTH, 0);
-    _scrollView.pagingEnabled = YES;
-    _scrollView.showsHorizontalScrollIndicator = NO;
-    _scrollView.showsVerticalScrollIndicator = NO;
-    
-    
-    
-    // 设置scrollView的滚动范围为图片数量+2
-    _scrollView.contentSize = CGSizeMake(SCREENWIDTH*([slideImages count]+2),IMAGEHEIGHT);
-    
-    
-    /*
-    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectorSkip)];
-    [_scrollView addGestureRecognizer:tapGestureRecognizer];
-    */
-     
-    // 首次显示的页面
-   
-    UIImageView *imageView = [[UIImageView alloc] init];
-    [imageView setImage:[UIImage imageNamed:[slideImages objectAtIndex:[slideImages count]-1]]];
-    imageView.frame = CGRectMake(0, 0, SCREENWIDTH, IMAGEHEIGHT);
-    
-    // 把最后一张图片添加到scrollView中
-    [_scrollView addSubview:imageView];
-    
-    
-    if ([slideImages count] > 1) {
-        
-        // 把所有页面都添加到容器中
-        for (int i = 0;i<[slideImages count];i++) {
-            //loop this bit
-            UIImageView *imageView = [[UIImageView alloc] init];
-            imageView.userInteractionEnabled = YES;
-            [imageView setImage:[UIImage imageNamed:[slideImages objectAtIndex:i]]];
-            imageView.frame = CGRectMake(SCREENWIDTH*i+SCREENWIDTH, 0, SCREENWIDTH, IMAGEHEIGHT);
-            
-            // 把所有图片一次添加到scrollView中
-            [_scrollView addSubview:imageView];
-        }
-        
-        
-        imageView = [[UIImageView alloc] init];
-        [imageView setImage:[UIImage imageNamed:[slideImages objectAtIndex:0]]];
-        imageView.frame = CGRectMake(SCREENWIDTH*([slideImages count] + 1), 0, SCREENWIDTH, IMAGEHEIGHT);
-        
-        // 把第一张图片添加到scrollView中
-        [_scrollView addSubview:imageView];
-        
-        
-        // 假定需要滚动的图片数量为5张，编号为1~5，则此时scrollView中对应的图片编号为5，1，2，3，4，5，1共7张.
-        
-        [self performSelector:@selector(updateScrollView) withObject:nil afterDelay:0.0f];
-    }
-    
-    // UIPageControl页面控件
-    
-    // 新建page
-    _page = [[UIPageControl alloc]initWithFrame:CGRectMake(320/2 - 35, IMAGEHEIGHT - 30, 70, 30)];
-    
-    
-    _page.numberOfPages = [slideImages count];
-    _page.currentPage = 0;
-    
-    _page.pageIndicatorTintColor = [UIColor colorWithWhite:0.7 alpha:0.6];
-    _page.currentPageIndicatorTintColor = [UIColor redColor];
-    
-    [_page addTarget:self action:@selector(pageAction) forControlEvents:UIControlEventTouchUpInside];
-    [_tableView addSubview:_page];
     
     
     // cell
@@ -214,6 +143,127 @@
          }];
 }
 
+- (void)imageAFNRequest
+{
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    NSDictionary *parameter = @{@"type":@"1"};
+    
+    NSString *urlStr = [NSString stringWithFormat:@"%@Banner",SERVER_HOST];
+    
+    // 设置超时时间
+    [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+    manager.requestSerializer.timeoutInterval = 10.f;
+    [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+    
+    [manager GET:urlStr parameters:parameter
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             
+             NSLog(@"res---%@",responseObject);
+             if ([responseObject[@"responseCode"] intValue] == 0) {
+                 slideImages = [responseObject[@"data"] componentsSeparatedByString:@","];
+                 // 是否设置回弹效果
+                 _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, IMAGEHEIGHT)];
+                 _scrollView.tag = 501;
+                 _scrollView.delegate = self;
+                 _scrollView.bounces = NO;
+                 _scrollView.contentOffset = CGPointMake(SCREENWIDTH, 0);
+                 _scrollView.pagingEnabled = YES;
+                 _scrollView.showsHorizontalScrollIndicator = NO;
+                 _scrollView.showsVerticalScrollIndicator = NO;
+                 
+                 
+                 
+                 // 设置scrollView的滚动范围为图片数量+2
+                 _scrollView.contentSize = CGSizeMake(SCREENWIDTH*([slideImages count]+2),IMAGEHEIGHT);
+                 
+                 
+                 /*
+                  UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectorSkip)];
+                  [_scrollView addGestureRecognizer:tapGestureRecognizer];
+                  */
+                 
+                 // 首次显示的页面
+                 
+                 UIImageView *imageView = [[UIImageView alloc] init];
+                 [imageView sd_setImageWithURL:[NSURL URLWithString:slideImages[slideImages.count-1]] placeholderImage:nil];
+//                 [imageView setImage:[UIImage imageNamed:[slideImages objectAtIndex:[slideImages count]-1]]];
+                 imageView.frame = CGRectMake(0, 0, SCREENWIDTH, IMAGEHEIGHT);
+                 
+                 // 把最后一张图片添加到scrollView中
+                 [_scrollView addSubview:imageView];
+                 
+                 
+                 if ([slideImages count] > 1) {
+                     
+                     // 把所有页面都添加到容器中
+                     for (int i = 0;i<[slideImages count];i++) {
+                         //loop this bit
+                         UIImageView *imageView = [[UIImageView alloc] init];
+                         imageView.userInteractionEnabled = YES;
+                          [imageView sd_setImageWithURL:[NSURL URLWithString:slideImages[i]] placeholderImage:nil];
+//                         [imageView setImage:[UIImage imageNamed:[slideImages objectAtIndex:i]]];
+                         imageView.frame = CGRectMake(SCREENWIDTH*i+SCREENWIDTH, 0, SCREENWIDTH, IMAGEHEIGHT);
+                         
+                         // 把所有图片一次添加到scrollView中
+                         [_scrollView addSubview:imageView];
+                     }
+                     
+                     
+                     imageView = [[UIImageView alloc] init];
+                      [imageView sd_setImageWithURL:[NSURL URLWithString:slideImages[0]] placeholderImage:nil];
+//                     [imageView setImage:[UIImage imageNamed:[slideImages objectAtIndex:0]]];
+                     imageView.frame = CGRectMake(SCREENWIDTH*([slideImages count] + 1), 0, SCREENWIDTH, IMAGEHEIGHT);
+                     
+                     // 把第一张图片添加到scrollView中
+                     [_scrollView addSubview:imageView];
+                     
+                     
+                     // 假定需要滚动的图片数量为5张，编号为1~5，则此时scrollView中对应的图片编号为5，1，2，3，4，5，1共7张.
+                     
+                     [self performSelector:@selector(updateScrollView) withObject:nil afterDelay:0.0f];
+                 }
+                 
+                 // UIPageControl页面控件
+                 
+                 // 新建page
+                 _page = [[UIPageControl alloc]initWithFrame:CGRectMake(320/2 - 35, IMAGEHEIGHT - 30, 70, 30)];
+                 
+                 
+                 _page.numberOfPages = [slideImages count];
+                 _page.currentPage = 0;
+                 if (slideImages.count == 1) {
+                     _page.hidden = YES;
+                 }else
+                 {
+                     _page.hidden = NO;
+                 }
+                 
+                 _page.pageIndicatorTintColor = [UIColor colorWithWhite:0.7 alpha:0.6];
+                 _page.currentPageIndicatorTintColor = [UIColor redColor];
+                 
+                 [_page addTarget:self action:@selector(pageAction) forControlEvents:UIControlEventTouchUpInside];
+                 [_tableView addSubview:_page];
+
+                 [_tableView reloadData];
+             }
+             else {
+                 SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
+             }
+             
+             
+         }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             if(error.code == -1001)
+             {
+                 SHOW_ALERT(@"提示", @"网络请求超时");
+             }else if (error.code == -1009)
+             {
+                 SHOW_ALERT(@"提示", @"网络连接已断开");
+             }
+         }];
+
+}
 - (void)updateScrollView
 {
     [myTimer invalidate];

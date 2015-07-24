@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface EDSendMsgViewController : UIViewController
+@property (nonatomic,strong) NSString *type;
 @property (nonatomic,strong) NSString *detailId;
 @end
