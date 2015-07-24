@@ -10,8 +10,11 @@
 #import "SelectAddCell.h"
 #import "AddReceiveAddressViewController.h"
 #import "EditAddViewController.h"
+#import "SETabBarViewController.h"
 
-@interface ManageAddViewController ()
+@interface ManageAddViewController () {
+    SETabBarViewController *tabBarViewController;
+}
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *addAddressBtn;
 
@@ -22,6 +25,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"管理收货地址";
+    
+    tabBarViewController = (SETabBarViewController *)self.navigationController.parentViewController;
+    [tabBarViewController tabBarViewHidden];
     
     _addAddressBtn.layer.cornerRadius = 5.0f;
     
