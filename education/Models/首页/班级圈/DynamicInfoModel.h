@@ -26,5 +26,6 @@
 @property (strong,nonatomic) NSString<Optional> *FBFW;
 @property (strong,nonatomic) NSString<Optional> *FBID;
 @property (strong,nonatomic) NSString<Optional> *SFFB;
+@property (strong,nonatomic) NSString<Optional> *SLT;
 
 @end

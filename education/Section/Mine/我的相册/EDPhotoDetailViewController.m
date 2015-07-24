@@ -270,7 +270,7 @@
     
     NSMutableArray *imageArrays = [NSMutableArray array];
     
-    NSString *imageStr = _model.dynamicInfo.TPLY;
+    NSString *imageStr = _model.dynamicInfo.SLT;
     
     imageArrays = [NSMutableArray arrayWithArray:[imageStr componentsSeparatedByString:@","]];
     

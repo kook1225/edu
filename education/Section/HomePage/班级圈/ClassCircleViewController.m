@@ -282,7 +282,7 @@
                  
                  for (int i = 0; i < [dataArray count]; i++) {
                      [stringArray addObject:[[dataArray objectAtIndex:i] dynamicInfo].TPSM];
-                     [imagesArray addObject:[[dataArray objectAtIndex:i] dynamicInfo].TPLY];
+                     [imagesArray addObject:[[dataArray objectAtIndex:i] dynamicInfo].SLT];
                  }
                  //NSLog(@"string---------:%@",stringArray);
                  //NSLog(@"array:%@",imagesArray);

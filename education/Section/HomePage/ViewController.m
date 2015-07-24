@@ -72,9 +72,6 @@
     //拿取banner图片
     [self imageAFNRequest];
     
-    
-    
-    
     // cell
     borderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, 6 * scale)];
     borderView.backgroundColor = [UIColor colorWithRed:232.0/255.0 green:232.0/255.0 blue:232.0/255.0 alpha:1.000];
@@ -99,8 +96,11 @@
     [self vipUserAction];
     [self classCircleApi];
     
+    
     self.navigationController.navigationBar.hidden = YES;
-    [_scrollView setContentOffset:CGPointMake(SCREENWIDTH, 0)];
+    if ([slideImages count] > 1) {
+        [_scrollView setContentOffset:CGPointMake(SCREENWIDTH, 0)];
+    }
     [tabBarViewController tabBarViewShow];
 }
 
@@ -152,7 +152,7 @@
                  
                  for (int i = 0; i < [dataArray count]; i++) {
                      [stringArray addObject:[[dataArray objectAtIndex:i] dynamicInfo].TPSM];
-                     [imagesArray addObject:[[dataArray objectAtIndex:i] dynamicInfo].TPLY];
+                     [imagesArray addObject:[[dataArray objectAtIndex:i] dynamicInfo].SLT];
                  }
                  //NSLog(@"string---------:%@",stringArray);
                  //NSLog(@"array:%@",imagesArray);

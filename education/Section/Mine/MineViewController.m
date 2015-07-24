@@ -12,7 +12,7 @@
 #import "EDMyOrderViewController.h"
 #import "EDAlterPwdViewController.h"
 #import "EDMyPhotoViewController.h"
-#import "SelectAddViewController.h"
+#import "ManageAddViewController.h"
 #import "LoginViewController.h"
 
 @interface MineViewController ()<UIAlertViewDelegate> {
@@ -72,8 +72,8 @@
 }
 
 - (IBAction)userAddTap:(id)sender {
-    SelectAddViewController *selectAddVC = [[SelectAddViewController alloc] init];
-    [self.navigationController pushViewController:selectAddVC animated:YES];
+    ManageAddViewController *manageAddVC = [[ManageAddViewController alloc] init];
+    [self.navigationController pushViewController:manageAddVC animated:YES];
 }
 
 - (IBAction)userPhotoTap:(id)sender {
