@@ -124,13 +124,8 @@
     
     NSDictionary *parameter;
     
-    // 当老师登录时注意获取班级id
-    if ([[[[SEUtils getUserInfo] UserDetail] userinfo].YHLB intValue] == 3) {
-        parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],@"bjid":[[[[SEUtils getUserInfo] UserDetail] studentInfo] BJID],@"pageSize":@"3",@"page":@"1"};
-    }
-    else {
-        parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],@"bjid":@"",@"pageSize":@"3",@"page":@"1"};
-    }
+    
+    parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token]};
     
     
     NSString *urlStr = [NSString stringWithFormat:@"%@ClassZoneDynamic",SERVER_HOST];
