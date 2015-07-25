@@ -16,4 +16,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
 - (void)setdata:(EDInfoArrayModel *)model;
+- (void)setDicData:(NSDictionary *)dic;
 @end

@@ -19,5 +19,5 @@
 @property (strong,nonatomic) NSString<Optional> *ZYMC;
 @property (strong,nonatomic) NSString<Optional> *ZYNR;
 @property (strong,nonatomic) NSString<Optional> *ZYTP;
-@property (strong,nonatomic) NSString<Optional> *FBSJ;
+@property (strong,nonatomic) NSString<Optional> *TJSJ;
 @end

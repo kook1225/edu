@@ -24,6 +24,12 @@
 		184AE9F81B5F967F00FAEC5A /* EDStudentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184AE9F61B5F967F00FAEC5A /* EDStudentViewController.m */; };
 		184AE9F91B5F967F00FAEC5A /* EDStudentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 184AE9F71B5F967F00FAEC5A /* EDStudentViewController.xib */; };
 		184AE9FC1B61C92D00FAEC5A /* EScrollerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 184AE9FB1B61C92D00FAEC5A /* EScrollerView.m */; };
+		184AEA011B62AE3800FAEC5A /* EDSubjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184AE9FF1B62AE3800FAEC5A /* EDSubjectViewController.m */; };
+		184AEA021B62AE3800FAEC5A /* EDSubjectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 184AEA001B62AE3800FAEC5A /* EDSubjectViewController.xib */; };
+		184AEA071B62AE8400FAEC5A /* EDChooseSubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184AEA051B62AE8400FAEC5A /* EDChooseSubViewController.m */; };
+		184AEA081B62AE8400FAEC5A /* EDChooseSubViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 184AEA061B62AE8400FAEC5A /* EDChooseSubViewController.xib */; };
+		184AEA0D1B62B5D500FAEC5A /* EDProblemAnalyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184AEA0B1B62B5D500FAEC5A /* EDProblemAnalyViewController.m */; };
+		184AEA0E1B62B5D500FAEC5A /* EDProblemAnalyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 184AEA0C1B62B5D500FAEC5A /* EDProblemAnalyViewController.xib */; };
 		18579F8D1B45401100501EA0 /* EDEditInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18579F8B1B45401100501EA0 /* EDEditInfoViewController.m */; };
 		18579F8E1B45401100501EA0 /* EDEditInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18579F8C1B45401100501EA0 /* EDEditInfoViewController.xib */; };
 		18579FE31B4BC24E00501EA0 /* EDSetProblemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18579FDE1B4BC24E00501EA0 /* EDSetProblemViewController.m */; };
@@ -60,8 +66,6 @@
 		1857A0521B4CF74B00501EA0 /* EDGradeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1857A0491B4CF74B00501EA0 /* EDGradeDetailViewController.xib */; };
 		1857A0531B4CF74B00501EA0 /* EDGradeRecodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A04B1B4CF74B00501EA0 /* EDGradeRecodeViewController.m */; };
 		1857A0541B4CF74B00501EA0 /* EDGradeRecodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1857A04C1B4CF74B00501EA0 /* EDGradeRecodeViewController.xib */; };
-		1857A0551B4CF74B00501EA0 /* EDSubjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A04F1B4CF74B00501EA0 /* EDSubjectViewController.m */; };
-		1857A0561B4CF74B00501EA0 /* EDSubjectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1857A0501B4CF74B00501EA0 /* EDSubjectViewController.xib */; };
 		1857A05A1B4CF9A600501EA0 /* EDPhotoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A0581B4CF9A600501EA0 /* EDPhotoDetailViewController.m */; };
 		1857A05B1B4CF9A600501EA0 /* EDPhotoDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1857A0591B4CF9A600501EA0 /* EDPhotoDetailViewController.xib */; };
 		1857A05F1B4CFAB500501EA0 /* EDPhotoDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857A05D1B4CFAB500501EA0 /* EDPhotoDetailCell.m */; };
@@ -247,6 +251,15 @@
 		184AE9F71B5F967F00FAEC5A /* EDStudentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDStudentViewController.xib; sourceTree = "<group>"; };
 		184AE9FA1B61C92D00FAEC5A /* EScrollerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EScrollerView.h; sourceTree = "<group>"; };
 		184AE9FB1B61C92D00FAEC5A /* EScrollerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EScrollerView.m; sourceTree = "<group>"; };
+		184AE9FE1B62AE3800FAEC5A /* EDSubjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDSubjectViewController.h; sourceTree = "<group>"; };
+		184AE9FF1B62AE3800FAEC5A /* EDSubjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDSubjectViewController.m; sourceTree = "<group>"; };
+		184AEA001B62AE3800FAEC5A /* EDSubjectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDSubjectViewController.xib; sourceTree = "<group>"; };
+		184AEA041B62AE8400FAEC5A /* EDChooseSubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDChooseSubViewController.h; sourceTree = "<group>"; };
+		184AEA051B62AE8400FAEC5A /* EDChooseSubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDChooseSubViewController.m; sourceTree = "<group>"; };
+		184AEA061B62AE8400FAEC5A /* EDChooseSubViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDChooseSubViewController.xib; sourceTree = "<group>"; };
+		184AEA0A1B62B5D500FAEC5A /* EDProblemAnalyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDProblemAnalyViewController.h; sourceTree = "<group>"; };
+		184AEA0B1B62B5D500FAEC5A /* EDProblemAnalyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDProblemAnalyViewController.m; sourceTree = "<group>"; };
+		184AEA0C1B62B5D500FAEC5A /* EDProblemAnalyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDProblemAnalyViewController.xib; sourceTree = "<group>"; };
 		18579F8A1B45401100501EA0 /* EDEditInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDEditInfoViewController.h; sourceTree = "<group>"; };
 		18579F8B1B45401100501EA0 /* EDEditInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDEditInfoViewController.m; sourceTree = "<group>"; };
 		18579F8C1B45401100501EA0 /* EDEditInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDEditInfoViewController.xib; sourceTree = "<group>"; };
@@ -301,9 +314,6 @@
 		1857A04A1B4CF74B00501EA0 /* EDGradeRecodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDGradeRecodeViewController.h; sourceTree = "<group>"; };
 		1857A04B1B4CF74B00501EA0 /* EDGradeRecodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDGradeRecodeViewController.m; sourceTree = "<group>"; };
 		1857A04C1B4CF74B00501EA0 /* EDGradeRecodeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDGradeRecodeViewController.xib; sourceTree = "<group>"; };
-		1857A04E1B4CF74B00501EA0 /* EDSubjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDSubjectViewController.h; sourceTree = "<group>"; };
-		1857A04F1B4CF74B00501EA0 /* EDSubjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDSubjectViewController.m; sourceTree = "<group>"; };
-		1857A0501B4CF74B00501EA0 /* EDSubjectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDSubjectViewController.xib; sourceTree = "<group>"; };
 		1857A0571B4CF9A600501EA0 /* EDPhotoDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDPhotoDetailViewController.h; sourceTree = "<group>"; };
 		1857A0581B4CF9A600501EA0 /* EDPhotoDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDPhotoDetailViewController.m; sourceTree = "<group>"; };
 		1857A0591B4CF9A600501EA0 /* EDPhotoDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDPhotoDetailViewController.xib; sourceTree = "<group>"; };
@@ -624,6 +634,36 @@
 			path = "通讯录";
 			sourceTree = "<group>";
 		};
+		184AE9FD1B62AE3800FAEC5A /* 选择班级 */ = {
+			isa = PBXGroup;
+			children = (
+				184AE9FE1B62AE3800FAEC5A /* EDSubjectViewController.h */,
+				184AE9FF1B62AE3800FAEC5A /* EDSubjectViewController.m */,
+				184AEA001B62AE3800FAEC5A /* EDSubjectViewController.xib */,
+			);
+			path = "选择班级";
+			sourceTree = "<group>";
+		};
+		184AEA031B62AE5300FAEC5A /* 选择科目 */ = {
+			isa = PBXGroup;
+			children = (
+				184AEA041B62AE8400FAEC5A /* EDChooseSubViewController.h */,
+				184AEA051B62AE8400FAEC5A /* EDChooseSubViewController.m */,
+				184AEA061B62AE8400FAEC5A /* EDChooseSubViewController.xib */,
+			);
+			path = "选择科目";
+			sourceTree = "<group>";
+		};
+		184AEA091B62B59E00FAEC5A /* 难点解析 */ = {
+			isa = PBXGroup;
+			children = (
+				184AEA0A1B62B5D500FAEC5A /* EDProblemAnalyViewController.h */,
+				184AEA0B1B62B5D500FAEC5A /* EDProblemAnalyViewController.m */,
+				184AEA0C1B62B5D500FAEC5A /* EDProblemAnalyViewController.xib */,
+			);
+			path = "难点解析";
+			sourceTree = "<group>";
+		};
 		18579F891B453FF400501EA0 /* 我的资料 */ = {
 			isa = PBXGroup;
 			children = (
@@ -772,16 +812,6 @@
 				1857A0491B4CF74B00501EA0 /* EDGradeDetailViewController.xib */,
 			);
 			path = "成绩";
-			sourceTree = "<group>";
-		};
-		1857A04D1B4CF74B00501EA0 /* 科目选择 */ = {
-			isa = PBXGroup;
-			children = (
-				1857A04E1B4CF74B00501EA0 /* EDSubjectViewController.h */,
-				1857A04F1B4CF74B00501EA0 /* EDSubjectViewController.m */,
-				1857A0501B4CF74B00501EA0 /* EDSubjectViewController.xib */,
-			);
-			path = "科目选择";
 			sourceTree = "<group>";
 		};
 		1857A07A1B4D6E8000501EA0 /* 我的私信 */ = {
@@ -1299,6 +1329,9 @@
 		768FFB1A1B423BE8008E577F /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				184AEA091B62B59E00FAEC5A /* 难点解析 */,
+				184AEA031B62AE5300FAEC5A /* 选择科目 */,
+				184AE9FD1B62AE3800FAEC5A /* 选择班级 */,
 				764406E91B4F9F0C00541C86 /* 我的课表 */,
 				1857A0B01B4F583300501EA0 /* 在线课堂 */,
 				1857A0AA1B4F508400501EA0 /* 通知公告 */,
@@ -1306,7 +1339,6 @@
 				1857A07A1B4D6E8000501EA0 /* 我的私信 */,
 				764406AF1B4D4BA800541C86 /* 成长足迹 */,
 				1857A0461B4CF74B00501EA0 /* 成绩 */,
-				1857A04D1B4CF74B00501EA0 /* 科目选择 */,
 				18579FFD1B4BC2E800501EA0 /* 体能测试 */,
 				1857A0041B4BC2E800501EA0 /* 天天资讯 */,
 				764406601B4671A600541C86 /* 生活服务 */,
@@ -1488,7 +1520,6 @@
 				7644069A1B4BBE2000541C86 /* ManageAddViewController.xib in Resources */,
 				761749051B451C87006DD0AA /* MineViewController.xib in Resources */,
 				1808B32A1B44293C0050E3B4 /* EDDayInfoCell.xib in Resources */,
-				1857A0561B4CF74B00501EA0 /* EDSubjectViewController.xib in Resources */,
 				764406C51B4D6C0E00541C86 /* FillInforViewController.xib in Resources */,
 				1857A0651B4D082100501EA0 /* EDPhotoDetailHeadCell.xib in Resources */,
 				764406A41B4BCD4600541C86 /* EditAddViewController.xib in Resources */,
@@ -1500,6 +1531,7 @@
 				18579FFA1B4BC2B800501EA0 /* EDOrderDetailViewController.xib in Resources */,
 				764406BA1B4D558500541C86 /* JournalCell.xib in Resources */,
 				1857A0A41B4E702C00501EA0 /* EDHomeWorkViewController.xib in Resources */,
+				184AEA081B62AE8400FAEC5A /* EDChooseSubViewController.xib in Resources */,
 				1857A0161B4BC3CB00501EA0 /* EDPhysicalContentCell.xib in Resources */,
 				768FFB1F1B423C0A008E577F /* ViewController.xib in Resources */,
 				764406901B4AC4FA00541C86 /* SelectAddViewController.xib in Resources */,
@@ -1510,6 +1542,7 @@
 				768FFAFC1B4238D9008E577F /* Images.xcassets in Resources */,
 				768FFB381B42C8C4008E577F /* ButtonViewCell.xib in Resources */,
 				18579FFC1B4BC2B800501EA0 /* EDAlterPwdViewController.xib in Resources */,
+				184AEA0E1B62B5D500FAEC5A /* EDProblemAnalyViewController.xib in Resources */,
 				1857A0521B4CF74B00501EA0 /* EDGradeDetailViewController.xib in Resources */,
 				764406C01B4D642B00541C86 /* ParentRegisterViewController.xib in Resources */,
 				184AE9F91B5F967F00FAEC5A /* EDStudentViewController.xib in Resources */,
@@ -1522,6 +1555,7 @@
 				768F89101B5B88860054F73C /* CheckImageViewController.xib in Resources */,
 				1857A07F1B4D6E8000501EA0 /* EDPrivateNoteViewController.xib in Resources */,
 				1808B31E1B43D6650050E3B4 /* EDSubjectCell.xib in Resources */,
+				184AEA021B62AE3800FAEC5A /* EDSubjectViewController.xib in Resources */,
 				18579F8E1B45401100501EA0 /* EDEditInfoViewController.xib in Resources */,
 				1857A02E1B4CAB2B00501EA0 /* EDMyPhotoViewController.xib in Resources */,
 				768F89351B61D7CD0054F73C /* WebViewViewController.xib in Resources */,
@@ -1639,9 +1673,11 @@
 				1857A07E1B4D6E8000501EA0 /* EDPrivateNoteViewController.m in Sources */,
 				1857A0641B4D082100501EA0 /* EDPhotoDetailHeadCell.m in Sources */,
 				7644068A1B4A783A00541C86 /* SureOrderViewController.m in Sources */,
+				184AEA0D1B62B5D500FAEC5A /* EDProblemAnalyViewController.m in Sources */,
 				1857A0D41B5663A900501EA0 /* ClassModel.m in Sources */,
 				768F88FC1B5892DF0054F73C /* ClassCircleModel.m in Sources */,
 				764406E21B4F594C00541C86 /* NoticeIntroViewController.m in Sources */,
+				184AEA011B62AE3800FAEC5A /* EDSubjectViewController.m in Sources */,
 				1857A0681B4D0BF700501EA0 /* EDPhotoDetailContentCell.m in Sources */,
 				1871192A1B5CCD51000F8DD4 /* MUScoreListModel.m in Sources */,
 				1857A0B41B4F584900501EA0 /* EDClassOnlineViewController.m in Sources */,
@@ -1680,7 +1716,6 @@
 				1857A0E21B56641700501EA0 /* EDInfomationModel.m in Sources */,
 				1857A0D81B5663A900501EA0 /* StudentInfoModel.m in Sources */,
 				1857A0231B4BC3FB00501EA0 /* EDMyOrderCell.m in Sources */,
-				1857A0551B4CF74B00501EA0 /* EDSubjectViewController.m in Sources */,
 				764406511B458B1700541C86 /* ReplyCell.m in Sources */,
 				1857A0F41B574E7300501EA0 /* MJRefreshBaseView.m in Sources */,
 				1857A0DC1B5663A900501EA0 /* UserInfoModel.m in Sources */,
@@ -1690,6 +1725,7 @@
 				768F89291B60CDA40054F73C /* ProvinceModel.m in Sources */,
 				1857A0E51B56648100501EA0 /* EDInfoArrayModel.m in Sources */,
 				1808B33A1B44DEB00050E3B4 /* EDContactContentCell.m in Sources */,
+				184AEA071B62AE8400FAEC5A /* EDChooseSubViewController.m in Sources */,
 				764406A31B4BCD4600541C86 /* EditAddViewController.m in Sources */,
 				18579FE51B4BC24E00501EA0 /* EDSettingViewController.m in Sources */,
 				764406531B458B1700541C86 /* TopCell.m in Sources */,
