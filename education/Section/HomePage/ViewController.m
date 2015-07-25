@@ -29,6 +29,7 @@
 #import "EDPhotoDetailViewController.h"
 #import <UIImageView+WebCache.h>
 #import "EDSubjectViewController.h"
+#import "EDChooseSubViewController.h"
 
 #define IMAGEHEIGHT (160 * ([UIScreen mainScreen].bounds.size.height/568.0))
 #define USERINTROHEIGHT (64 * ([UIScreen mainScreen].bounds.size.height/568.0))
@@ -396,8 +397,17 @@
 }
 
 - (void)classSection {
-    ClassCircleViewController *classCircleVC  = [[ClassCircleViewController alloc] init];
-    [self.navigationController pushViewController:classCircleVC animated:YES];
+    if ([[SEUtils getUserInfo].UserDetail.userinfo.YHLB intValue] ==3 ) {
+        EDSubjectViewController *subjectVC = [[EDSubjectViewController alloc]init];
+        subjectVC.title = @"选择班级";
+        subjectVC.type  = @"班级圈";
+        [self.navigationController pushViewController:subjectVC animated:YES];
+    }else
+    {
+        ClassCircleViewController *classCircleVC  = [[ClassCircleViewController alloc] init];
+        [self.navigationController pushViewController:classCircleVC animated:YES];
+    }
+    
 }
 
 - (void)lifeService {
@@ -411,9 +421,9 @@
 }
 
 - (void)problem {
-    EDSubjectViewController *subjectVC = [[EDSubjectViewController alloc]init];
-    subjectVC.title = @"选择科目";
-    [self.navigationController pushViewController:subjectVC animated:YES];
+    EDChooseSubViewController *chooseSubjectVC = [[EDChooseSubViewController alloc]init];
+    chooseSubjectVC.type = @"难点解析";
+    [self.navigationController pushViewController:chooseSubjectVC animated:YES];
 }
 
 - (void)score {
@@ -486,12 +496,11 @@
 }
 
 - (void)courseOnLine {
+    
     if (_vipUser) {
-//        EDClassOnlineViewController *classOnlineVC = [[EDClassOnlineViewController alloc]init];
-//        [self.navigationController pushViewController:classOnlineVC animated:YES];
-        EDSubjectViewController *subjectVC = [[EDSubjectViewController alloc]init];
-        subjectVC.title = @"选择科目";
-        [self.navigationController pushViewController:subjectVC animated:YES];
+        EDChooseSubViewController *chooseSubjectVC = [[EDChooseSubViewController alloc]init];
+        chooseSubjectVC.type = @"在线课堂";
+        [self.navigationController pushViewController:chooseSubjectVC animated:YES];
     }
     else {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"成为VIP才能使用该功能哟!" delegate:self cancelButtonTitle:@"先逛逛" otherButtonTitles:@"成为VIP", nil];

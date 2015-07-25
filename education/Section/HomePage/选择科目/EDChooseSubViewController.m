@@ -1,51 +1,50 @@
 //
-//  EDSubjectViewController.m
+//  EDChooseSubViewController.m
 //  education
 //
-//  Created by Apple on 15/7/1.
+//  Created by Apple on 15/7/25.
 //  Copyright (c) 2015年 zhujun. All rights reserved.
 //
 
-#import "EDSubjectViewController.h"
+#import "EDChooseSubViewController.h"
+#import "SETabBarViewController.h"
 #import "EDGradeCell.h"
 #import "EDSubjectCell.h"
-#import "SETabBarViewController.h"
-#import "EDHomeWorkViewController.h"
-#import "EDPhySicalTestViewController.h"
-#import "SchoolTimeTableViewController.h"
-#import "EDGradeRecodeViewController.h"
+#import "EDClassOnlineViewController.h"
+#import "EDProblemAnalyViewController.h"
 
-@interface EDSubjectViewController ()
+@interface EDChooseSubViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
     SETabBarViewController *tabBarView;
     NSArray *grdArray;
     NSArray *subArray;
-    BOOL GradeSelected;
-    BOOL classSelected;
+    NSString *studentId;
+    NSString *gradeString;
+
 }
 @property (weak, nonatomic) IBOutlet UITableView *gradeTableView;
 @property (weak, nonatomic) IBOutlet UITableView *subjectTableView;
 @end
 
-@implementation EDSubjectViewController
+@implementation EDChooseSubViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-
     self.navigationItem.leftBarButtonItem = [Tools getNavBarItem:self clickAction:@selector(back)];
     
     
     
     tabBarView = (SETabBarViewController *)self.navigationController.parentViewController;
     [tabBarView tabBarViewHidden];
-    if([self.title isEqualToString:@"选择班级"])
+    
+    if ([[SEUtils getUserInfo].UserDetail.userinfo.YHLB intValue]== 3) {
+        studentId = @"";
+    }else
     {
-        [self AFNRequest:3 class:nil];
+        studentId = [SEUtils getUserInfo].UserDetail.studentInfo.XSID;
     }
-
-    
-    
+    [self AFNRequest:3 class:nil];
 }
 
 #pragma mark 常用方
@@ -55,7 +54,7 @@
 }
 - (void)AFNRequest:(int)num class:(NSString *)classId
 {
-//    dataArray = [NSMutableArray array];
+    //    dataArray = [NSMutableArray array];
     
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     HUD.mode = MBProgressHUDModeIndeterminate;
@@ -71,16 +70,17 @@
     NSDictionary *pramaters;
     if(num==1||num==3)
     {
-        pramaters= @{@"access_token":[SEUtils getUserInfo].TokenInfo.access_token};
-
+        pramaters= @{@"access_token":[SEUtils getUserInfo].TokenInfo.access_token,
+                     @"XSID":studentId};
+        
     }else
     {
         pramaters= @{@"access_token":[SEUtils getUserInfo].TokenInfo.access_token,
-                     @"NJID":classId};
-
+                     @"ceci":classId};
+        
     }
     
-    NSString *urlString = [NSString stringWithFormat:@"%@GradeClassStu",SERVER_HOST];
+    NSString *urlString = [NSString stringWithFormat:@"%@EduOnlineList",SERVER_HOST];
     
     [manager GET:urlString parameters:pramaters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [HUD setHidden:YES];
@@ -99,10 +99,10 @@
             {
                 grdArray = responseObject[@"data"];
                 [_gradeTableView reloadData];
-                [self AFNRequest:2 class:grdArray[0][@"NJID"]];
+                [self AFNRequest:2 class:grdArray[0][@"NJMC"]];
             }
             
-            
+            gradeString = grdArray[0][@"NJMC"];
         }else
         {
             SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
@@ -166,48 +166,41 @@
         if (subCell == nil) {
             subCell = [[[NSBundle mainBundle]loadNibNamed:@"EDSubjectCell" owner:self options:nil]lastObject];
         }
-        subCell.subject.text = subArray[indexPath.row][@"BJMC"];
+        subCell.subject.text = subArray[indexPath.row][@"KEMU"];
         return subCell;
     }
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (tableView == _gradeTableView) {
-//        GradeSelected = YES;
+        if (tableView == _gradeTableView) {
+        //        GradeSelected = YES;
         EDGradeCell *gradeCell = (EDGradeCell *)[tableView cellForRowAtIndexPath:indexPath];
         gradeCell.grade.textColor = [UIColor redColor];
         [_gradeTableView reloadData];
-        [self  AFNRequest:2 class:grdArray[indexPath.row][@"NJID"]];
-
+        gradeString = grdArray[indexPath.row][@"NJMC"];
+        [self  AFNRequest:2 class:grdArray[indexPath.row][@"NJMC"]];
+        
     }else
     {
         
-       if ([_type isEqualToString:@"家庭作业"])
-       {
-           EDHomeWorkViewController *homeWorkVC = [[EDHomeWorkViewController alloc]init];
-           homeWorkVC.detailId = subArray[indexPath.row][@"BJID"];
-           [self.navigationController pushViewController:homeWorkVC animated:YES];
-       }else if ([_type isEqualToString:@"我的课表"])
-       {
-           SchoolTimeTableViewController *schoolTimeVC = [[SchoolTimeTableViewController alloc]init];
-           schoolTimeVC.detailId = subArray[indexPath.row][@"BJID"];
-           [self.navigationController pushViewController:schoolTimeVC animated:YES];
-           
-       }else if ([_type isEqualToString:@"成绩档案"])
-       {
-           EDGradeRecodeViewController *gradeVC = [[EDGradeRecodeViewController alloc]init];
-           gradeVC.detailId = subArray[indexPath.row][@"BJID"];
-           [self.navigationController pushViewController:gradeVC animated:YES];
-       }else
-       {
-           //体质体能
-           EDPhySicalTestViewController *physicalVC = [[EDPhySicalTestViewController alloc]init];
-           physicalVC.detailId = subArray[indexPath.row][@"BJID"];
-           [self.navigationController pushViewController:physicalVC animated:YES];
-       }
+        if ([_type isEqualToString:@"在线课堂"])
+        {
+            EDClassOnlineViewController *classOnlineVC = [[EDClassOnlineViewController alloc]init];
+            classOnlineVC.title = [NSString stringWithFormat:@"在线课堂-%@",subArray[indexPath.row][@"KEMU"]];
+            [self.navigationController pushViewController:classOnlineVC animated:YES];
+            
+        }else
+        {
+            
+            EDProblemAnalyViewController *problemAnalyVC = [[EDProblemAnalyViewController alloc]init];
+            problemAnalyVC.title = [NSString stringWithFormat:@"难点解析-%@",subArray[indexPath.row][@"KEMU"]];
+            problemAnalyVC.nianji = gradeString;
+            problemAnalyVC.xueke = subArray[indexPath.row][@"KEMU"];
+            [self.navigationController pushViewController:problemAnalyVC animated:YES];
+        }
     }
-
+    
 }
 
 @end

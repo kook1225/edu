@@ -27,7 +27,7 @@
 {
     _titleLabel.text = model.ZYMC;
     
-    _dateLabel.text = [model.FBSJ substringToIndex:10];
+    _dateLabel.text = [model.TJSJ substringToIndex:10];
     NSString *text = model.ZYNR;
     NSMutableAttributedString *attriString = [[NSMutableAttributedString alloc]initWithString:text];
     NSMutableParagraphStyle *paragra = [[NSMutableParagraphStyle alloc]init];
@@ -35,7 +35,24 @@
     [attriString addAttribute:NSParagraphStyleAttributeName value:paragra range:NSMakeRange(0, [text length])];
     _contentLabel.attributedText = attriString;
     
-    NSURL *url = [NSURL URLWithString:model.ZYTP];
+    NSString *imgString = [NSString stringWithFormat:@"%@%@",IMG_HOST,model.ZYTP];
+    NSURL *url = [NSURL URLWithString:imgString];
+    [_headImg setImageWithURL:url placeholderImage:nil];
+}
+- (void)setDicData:(NSDictionary *)dic
+{
+    _titleLabel.text = dic[@"ZYMC"];
+    
+    _dateLabel.text = [dic[@"TJSJ"] substringToIndex:10];
+    NSString *text = dic[@"ZYNR"];
+    NSMutableAttributedString *attriString = [[NSMutableAttributedString alloc]initWithString:text];
+    NSMutableParagraphStyle *paragra = [[NSMutableParagraphStyle alloc]init];
+    [paragra setLineSpacing:3.0];
+    [attriString addAttribute:NSParagraphStyleAttributeName value:paragra range:NSMakeRange(0, [text length])];
+    _contentLabel.attributedText = attriString;
+    
+    NSString *imgString = [NSString stringWithFormat:@"%@%@",IMG_HOST,dic[@"ZYTP"]];
+    NSURL *url = [NSURL URLWithString:imgString];
     [_headImg setImageWithURL:url placeholderImage:nil];
 }
 @end
