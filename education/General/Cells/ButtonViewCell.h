@@ -24,6 +24,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *btn11;
 @property (weak, nonatomic) IBOutlet UIButton *btn12;
 
-- (void)vipUser:(BOOL)vip;
+- (void)vipUser:(NSString *)vip;
 
 @end

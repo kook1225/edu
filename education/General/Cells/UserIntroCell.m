@@ -34,11 +34,11 @@
     
     [_nameLabel sizeToFit];
     
-    
-    _vipImageView.frame = CGRectMake(CGRectGetMaxX(_nameLabel.frame), _nameLabel.frame.origin.y + 1, 15, 15);
-    [_vipImageView setImage:[UIImage imageNamed:@"vip"]];
-    [self.contentView addSubview:_vipImageView];
-    
+    if ([[[[[SEUtils getUserInfo] UserDetail] userinfo] IsVip] intValue] == 1) {
+        _vipImageView.frame = CGRectMake(CGRectGetMaxX(_nameLabel.frame), _nameLabel.frame.origin.y + 1, 15, 15);
+        [_vipImageView setImage:[UIImage imageNamed:@"vip"]];
+        [self.contentView addSubview:_vipImageView];
+    }
 }
 
 
