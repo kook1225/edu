@@ -38,10 +38,10 @@
 
 + (NSString *)formatMatchWithDate:(NSString *)dateStr {
     NSDateFormatter *startDateFromatter = [[NSDateFormatter alloc] init];
-    //yyyy-MM-dd
-    [startDateFromatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
+    
+    [startDateFromatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSDate *startDate = [startDateFromatter dateFromString:dateStr];
-    [startDateFromatter setDateFormat:@"yyyy-MM-dd hh:mm"];
+    [startDateFromatter setDateFormat:@"ddMM月"];
     NSString *startFormatStr = [startDateFromatter stringFromDate:startDate];
     return  [NSString stringWithFormat:@"%@",startFormatStr];
 }

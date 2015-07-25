@@ -11,6 +11,7 @@
 @implementation UserIntroCell
 
 - (void)awakeFromNib {
+    _vipImageView = [[UIImageView alloc] init];
     // Initialization code
 }
 
@@ -30,6 +31,13 @@
         _schoolLabel.text = [[[[SEUtils getUserInfo] UserDetail] schoolInfo] DWMC];
         _classLabel.text = [NSString stringWithFormat:@"%@%@",[[[[SEUtils getUserInfo] UserDetail] studentInfo] NJMC],[[[[SEUtils getUserInfo] UserDetail] studentInfo] BJMC]];
     }
+    
+    [_nameLabel sizeToFit];
+    
+    
+    _vipImageView.frame = CGRectMake(CGRectGetMaxX(_nameLabel.frame), _nameLabel.frame.origin.y + 1, 15, 15);
+    [_vipImageView setImage:[UIImage imageNamed:@"vip"]];
+    [self.contentView addSubview:_vipImageView];
     
 }
 
