@@ -744,12 +744,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "education/Section/HomePage/&#x9009;&#x62e9;&#x73ed;&#x7ea7;/EDSubjectViewController.m"
-            timestampString = "459662714.995553"
+            timestampString = "459671878.626765"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "173"
-            endingLineNumber = "173"
+            startingLineNumber = "176"
+            endingLineNumber = "176"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "education/Section/HomePage/&#x6210;&#x957f;&#x8db3;&#x8ff9;/GrowthTrailViewController.m"
+            timestampString = "459672308.849809"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "-growUpApi"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

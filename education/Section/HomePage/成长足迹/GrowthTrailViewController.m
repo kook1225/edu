@@ -83,7 +83,7 @@
     }
     else {
         parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],
-                      @"XSID":[[[[SEUtils getUserInfo] UserDetail] studentInfo] ID],
+                      @"XSID":[[[[SEUtils getUserInfo] UserDetail] studentInfo] XSID],
                       @"pageSize":@"10",
                       @"page":@"1"};
     }
