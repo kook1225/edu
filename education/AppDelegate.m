@@ -56,7 +56,7 @@
         self.window.rootViewController = guidePageViewController;
     }
     else{
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"everLaunched"];
+//        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"everLaunched"];
         
         LoginViewController *loginVC = [[LoginViewController alloc] init];
         self.window.rootViewController = loginVC;

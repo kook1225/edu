@@ -188,6 +188,9 @@
         {
             EDClassOnlineViewController *classOnlineVC = [[EDClassOnlineViewController alloc]init];
             classOnlineVC.title = [NSString stringWithFormat:@"在线课堂-%@",subArray[indexPath.row][@"KEMU"]];
+            
+            classOnlineVC.nianji = gradeString;
+            classOnlineVC.xueke = subArray[indexPath.row][@"KEMU"];
             [self.navigationController pushViewController:classOnlineVC animated:YES];
             
         }else

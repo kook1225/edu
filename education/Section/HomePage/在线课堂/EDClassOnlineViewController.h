@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface EDClassOnlineViewController : UIViewController
-
+@property (nonatomic,strong) NSString *nianji;
+@property (nonatomic,strong) NSString *xueke;
 @end
