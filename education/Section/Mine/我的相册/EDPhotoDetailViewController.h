@@ -12,7 +12,7 @@
 @interface EDPhotoDetailViewController : UIViewController
 
 @property (nonatomic,strong) ListModel *model;
-@property (nonatomic,strong) NSString *index;
+@property (nonatomic,strong) NSString *xxId;
 @property (nonatomic,strong) NSString *album;
 
 @end

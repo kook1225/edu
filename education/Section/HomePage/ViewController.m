@@ -506,7 +506,7 @@
     if (indexPath.row > 3) {
         EDPhotoDetailViewController *photoDetail = [[EDPhotoDetailViewController alloc]init];
         photoDetail.model = [dataArray objectAtIndex:indexPath.row - 4];
-        photoDetail.index = [NSString stringWithFormat:@"%ld",(long)indexPath.row - 4];
+        photoDetail.xxId = [[[dataArray objectAtIndex:indexPath.row - 4] dynamicInfo] ID];
         [self.navigationController pushViewController:photoDetail animated:YES];
     }
 }
