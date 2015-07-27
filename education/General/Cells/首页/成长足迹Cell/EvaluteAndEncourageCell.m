@@ -14,6 +14,10 @@
     // Initialization code
 }
 
+- (void)setData:(growUpModel *)model {
+    _dateLabel.text = model.FBSJ;
+}
+
 - (void)setIntroductionText:(NSString*)text name:(NSString *)name {
     
     //获得当前cell高度

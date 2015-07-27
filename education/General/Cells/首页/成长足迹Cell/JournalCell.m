@@ -24,7 +24,7 @@
         [_nameLabel sizeToFit];
         
         _replyBtn = [[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(_nameLabel.frame) + 10, _nameLabel.frame.origin.y - 2, 40, 20)];
-        [_replyBtn setTitle:@"回复1" forState:UIControlStateNormal];
+        [_replyBtn setTitle:[NSString stringWithFormat:@"回复%@",model.HFS] forState:UIControlStateNormal];
         _replyBtn.titleLabel.font = [UIFont systemFontOfSize:12];
         _replyBtn.backgroundColor = [UIColor colorWithRed:240.0/255.0f green:240.0/255.0f blue:240.0/255.0f alpha:1.000];
         
