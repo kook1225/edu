@@ -15,6 +15,7 @@
 #import "SchoolTimeTableViewController.h"
 #import "EDGradeRecodeViewController.h"
 #import "ClassCircleViewController.h"
+#import "EDChooseStudentsViewController.h"
 
 @interface EDSubjectViewController ()
 {
@@ -195,16 +196,28 @@
            
        }else if ([_type isEqualToString:@"成绩档案"])
        {
-           EDGradeRecodeViewController *gradeVC = [[EDGradeRecodeViewController alloc]init];
-           gradeVC.detailId = subArray[indexPath.row][@"BJID"];
-           [self.navigationController pushViewController:gradeVC animated:YES];
+           //要选择学生
+           EDChooseStudentsViewController *chooseStuVC = [[EDChooseStudentsViewController alloc]init];
+           chooseStuVC.classId = subArray[indexPath.row][@"BJID"];
+           chooseStuVC.type = @"成绩档案";
+           [self.navigationController pushViewController:chooseStuVC animated:YES];
        }else if ([_type isEqualToString:@"体质体能"])
        {
-           //体质体能
-           EDPhySicalTestViewController *physicalVC = [[EDPhySicalTestViewController alloc]init];
-           physicalVC.detailId = subArray[indexPath.row][@"BJID"];
-           [self.navigationController pushViewController:physicalVC animated:YES];
-       }else
+           //要选择学生
+          
+           EDChooseStudentsViewController *chooseStuVC = [[EDChooseStudentsViewController alloc]init];
+           chooseStuVC.classId = subArray[indexPath.row][@"BJID"];
+           chooseStuVC.type = @"体质体能";
+           [self.navigationController pushViewController:chooseStuVC animated:YES];
+       }else if ([_type isEqualToString:@"成长足迹"])
+       {
+           //要选择学生
+           EDChooseStudentsViewController *chooseStuVC = [[EDChooseStudentsViewController alloc]init];
+           chooseStuVC.classId = subArray[indexPath.row][@"BJID"];
+           chooseStuVC.type = @"成长足迹";
+           [self.navigationController pushViewController:chooseStuVC animated:YES];
+       }
+       else
        {
            ClassCircleViewController *classCircleVC = [[ClassCircleViewController alloc]init];
            classCircleVC.detailId = subArray[indexPath.row][@"BJID"];

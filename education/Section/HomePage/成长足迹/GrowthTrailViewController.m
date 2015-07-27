@@ -74,7 +74,7 @@
     
     if ([[[[[SEUtils getUserInfo] UserDetail] userinfo] YHLB] intValue] == 3) {
         parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],
-                      @"XSID":@"1405581",
+                      @"XSID":_detailId,
                       @"pageSize":@"10",
                       @"page":@"1"};
     }

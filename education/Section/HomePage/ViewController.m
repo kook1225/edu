@@ -425,11 +425,13 @@
     if ([[SEUtils getUserInfo].UserDetail.userinfo.YHLB intValue] ==3 ) {
         EDSubjectViewController *subjectVC = [[EDSubjectViewController alloc]init];
         subjectVC.title = @"选择班级";
-        subjectVC.type  = @"家庭作业";
+
+        subjectVC.type  = @"成长足迹";
         [self.navigationController pushViewController:subjectVC animated:YES];
     }else
         {
         if ([vipTag intValue] == 1) {
+
             GrowthTrailViewController *growthTrailVC = [[GrowthTrailViewController alloc] init];
             [self.navigationController pushViewController:growthTrailVC animated:YES];
         }
@@ -438,7 +440,9 @@
             alert.tag = 201;
             [alert show];
         }
+
     }
+
 }
 
 - (void)body {
