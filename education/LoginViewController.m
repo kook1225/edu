@@ -44,15 +44,10 @@
     [_userPwd setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
     [_userPwd setValue:[UIFont boldSystemFontOfSize:14] forKeyPath:@"_placeholderLabel.font"];
     
-    /*
-    //vip学生测试
-    _userName.text = @"13811111111";
-    _userPwd.text = @"111111";
-    */
-    //老师测试
-    _userName.text = @"13509090909";
-    _userPwd.text = @"123456";
-    
+    if ([SEUtils getUserInfo]) {
+        _userName.text = [[[[SEUtils getUserInfo] UserDetail] userinfo] YHM];
+    }
+   
     _loginBtn.layer.cornerRadius = 4.0f;
 }
 
