@@ -37,7 +37,6 @@
     NSString *text = _model.FBNR;
     _nameLabel.text = [NSString stringWithFormat:@"%@留言",_model.FBRXM];
     _dateLabel.text = _model.FBSJ;
-    _replyNumLabel.text = [NSString stringWithFormat:@"共%@条回复",_model.HFS];
     
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc]initWithString:text];;
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc]init];
@@ -114,6 +113,7 @@
               success:^(AFHTTPRequestOperation *operation, id responseObject) {           [HUD hide:YES];
                   
                   if ([responseObject[@"responseCode"] intValue] == 0) {
+                      
                       UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"回复成功" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
                       alert.tag = 201;
                       [alert show];
@@ -135,7 +135,7 @@
                   }
               }];
     }
-
+    
 }
 
 - (void)replyApi {
@@ -169,6 +169,8 @@
              
              if ([responseObject[@"responseCode"] intValue] == 0) {
                  dataArray = [growUpModel arrayOfModelsFromDictionaries:responseObject[@"data"] error:&err];
+                 
+                 _replyNumLabel.text = [NSString stringWithFormat:@"共%lu条回复",(unsigned long)[dataArray count]];
                  
                  [_tableView reloadData];
              }
@@ -235,7 +237,8 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (alertView.tag == 201) {
         if (buttonIndex == 0) {
-            [_replyTextField  resignFirstResponder];
+            [self replyApi];
+            [_replyTextField resignFirstResponder];
         }
     }
 }
