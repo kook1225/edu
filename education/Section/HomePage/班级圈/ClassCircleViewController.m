@@ -15,14 +15,20 @@
 #import "ListModel.h"
 #import "CheckImageViewController.h"
 #import "IQKeyboardManager.h"
+#import "MJRefresh.h"
 
-@interface ClassCircleViewController () {
+@interface ClassCircleViewController ()<MJRefreshBaseViewDelegate> {
     SETabBarViewController *tabBarViewController;
     NSMutableArray *stringArray;
     NSMutableArray *imagesArray;
-    NSArray *dataArray;
+    NSMutableArray *dataArray;
     NSMutableArray *imageArrays;
     int replyTag;
+    MJRefreshBaseView *_baseview;
+    MJRefreshFooterView *_footerview;
+    MJRefreshHeaderView *_headerview;
+    
+    int pageNum;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *replyView;
@@ -40,7 +46,12 @@
     
     stringArray = [NSMutableArray array];
     imagesArray = [NSMutableArray array];
-    dataArray = [NSArray array];
+    dataArray = [NSMutableArray array];
+    
+    pageNum = 1;
+    
+    [self initfooterview];
+    [self initheaderview];
     
     _replyView.hidden = YES;
     
@@ -353,6 +364,124 @@
     [cell.rlyBtn addTarget:self action:@selector(replyBtn:) forControlEvents:UIControlEventTouchUpInside];
     
     return cell;
+}
+
+#pragma mark 刷新
+//下拉刷新和上拉加载相关
+- (void)dealloc{
+    [_footerview free];
+    [_headerview free];
+}
+
+- (void)initfooterview{
+    _footerview = [[MJRefreshFooterView alloc]initWithScrollView:_tableView];
+    _footerview.delegate = self;
+}
+
+- (void)initheaderview{
+    _headerview = [[MJRefreshHeaderView alloc]initWithScrollView:_tableView];
+    _headerview.delegate = self;
+}
+
+//下拉刷新和上拉加载代理
+- (void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
+{
+    _baseview = refreshView;
+    if (_baseview == _footerview) {
+        stringArray = [NSMutableArray array];
+        imagesArray = [NSMutableArray array];
+        
+        pageNum++;
+        
+        MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+        HUD.mode = MBProgressHUDModeIndeterminate;
+        HUD.labelText = @"Loading";
+        HUD.removeFromSuperViewOnHide = YES;
+        
+        
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        
+        NSDictionary *parameter;
+        
+        // 当老师登录时注意获取班级id
+        if ([[[[SEUtils getUserInfo] UserDetail] userinfo].YHLB intValue] == 3) {
+            parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],
+                          @"bjid":_detailId,
+                          @"pageSize":@"10",
+                          @"page":[NSNumber numberWithInt:pageNum]};
+        }
+        else {
+            parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],
+                          @"bjid":@"",
+                          @"pageSize":@"10",
+                          @"page":[NSNumber numberWithInt:pageNum]};
+        }
+        
+        
+        NSString *urlStr = [NSString stringWithFormat:@"%@ClassZoneDynamic",SERVER_HOST];
+        
+        [manager GET:urlStr parameters:parameter success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [HUD setHidden:YES];
+            
+            // NSError *err;
+            
+            if ([responseObject[@"responseCode"] intValue] ==0) {
+                
+                // dataArray = [growUpModel arrayOfModelsFromDictionaries:responseObject[@"data"] error:&err];
+                [dataArray addObjectsFromArray:[ListModel arrayOfModelsFromDictionaries:responseObject[@"data"][@"list"]]];
+                
+                for (int i = 0; i < [dataArray count]; i++) {
+                    [stringArray addObject:[[dataArray objectAtIndex:i] dynamicInfo].TPSM];
+                    [imagesArray addObject:[[dataArray objectAtIndex:i] dynamicInfo].SLT];
+                }
+                
+                [_tableView reloadData];
+                
+            }else
+            {
+                SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
+            }
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [HUD setHidden:YES];
+            if (operation.response.statusCode == 401) {
+                NSLog(@"请求超时");
+                //   [SEUtils repetitionLogin];
+            }else if(error.code == -1001)
+            {
+                SHOW_ALERT(@"提示", @"网络请求超时");
+            }else if (error.code == -1009)
+            {
+                SHOW_ALERT(@"提示", @"网络连接已断开");
+            }
+            else {
+                NSLog(@"Error:%@",error);
+                NSLog(@"err:%@",operation.responseObject[@"message"]);
+                //   SHOW_ALERT(@"提示",operation.responseObject[@"message"])
+            }
+        }];
+        
+        
+        [self performSelector:@selector(hidden) withObject:nil afterDelay:1.5];
+    }
+    if (_baseview == _headerview) {
+        [self classCircleApi];
+        //        _baseview = refreshView;
+        [self performSelector:@selector(hidden) withObject:nil afterDelay:1.5];
+    }
+    
+}
+
+- (void)hidden
+{
+    if (_baseview == _headerview)
+    {
+        [_headerview endRefreshing];
+    }
+    else
+    {
+        [_footerview endRefreshing];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

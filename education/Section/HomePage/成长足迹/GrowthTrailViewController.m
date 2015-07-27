@@ -17,10 +17,11 @@
 
 @interface GrowthTrailViewController ()<MJRefreshBaseViewDelegate> {
     SETabBarViewController *tabBarViewController;
-    NSArray *dataArray;
+    NSMutableArray *dataArray;
     MJRefreshBaseView *_baseview;
     MJRefreshFooterView *_footerview;
     MJRefreshHeaderView *_headerview;
+    int pageNum;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -32,11 +33,12 @@
     [super viewDidLoad];
     self.title = @"成长足迹";
     
-    dataArray = [NSArray array];
+    dataArray = [NSMutableArray array];
     
     tabBarViewController = (SETabBarViewController *)self.navigationController.parentViewController;
     [tabBarViewController tabBarViewHidden];
 
+    pageNum = 1;
     
     [self initfooterview];
     [self initheaderview];
@@ -188,7 +190,6 @@
 {
     _baseview = refreshView;
     if (_baseview == _footerview) {
-        int pageNum =1;
         pageNum++;
         MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         HUD.mode = MBProgressHUDModeIndeterminate;
@@ -204,7 +205,7 @@
         
         if ([[[[[SEUtils getUserInfo] UserDetail] userinfo] YHLB] intValue] == 3) {
             parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],
-                          @"XSID":@"1405581",
+                          @"XSID":_detailId,
                           @"pageSize":@"10",
                           @"page":[NSNumber numberWithInt:pageNum]};
         }
@@ -221,11 +222,13 @@
         [manager GET:urlStr parameters:parameter success:^(AFHTTPRequestOperation *operation, id responseObject) {
             [HUD setHidden:YES];
             
-            NSError *err;
+           // NSError *err;
             
             if ([responseObject[@"responseCode"] intValue] ==0) {
                 
-                dataArray = [growUpModel arrayOfModelsFromDictionaries:responseObject[@"data"] error:&err];
+               // dataArray = [growUpModel arrayOfModelsFromDictionaries:responseObject[@"data"] error:&err];
+                
+                [dataArray addObjectsFromArray:[growUpModel arrayOfModelsFromDictionaries:responseObject[@"data"]]];
                 
                 [_tableView reloadData];
                 
