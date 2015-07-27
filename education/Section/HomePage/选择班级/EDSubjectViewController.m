@@ -16,6 +16,7 @@
 #import "EDGradeRecodeViewController.h"
 #import "ClassCircleViewController.h"
 #import "EDChooseStudentsViewController.h"
+#import "EDClassOnlineViewController.h"
 
 @interface EDSubjectViewController ()
 {
@@ -221,7 +222,8 @@
            schoolTimeVC.detailId = subArray[indexPath.row][@"BJID"];
            [self.navigationController pushViewController:schoolTimeVC animated:YES];
            
-       }else if ([_type isEqualToString:@"成绩档案"])
+       }
+       else if ([_type isEqualToString:@"成绩档案"])
        {
            //要选择学生
            EDChooseStudentsViewController *chooseStuVC = [[EDChooseStudentsViewController alloc]init];
@@ -251,11 +253,11 @@
            [self.navigationController pushViewController:classCircleVC animated:YES];
            
        }
-        [subSelected removeAllObjects];
-        NSString *selectNum = [NSString stringWithFormat:@"%ld",(long)indexPath.row];
-        
-        [subSelected addObject:selectNum];
-        [_subjectTableView  reloadData];
+//        [subSelected removeAllObjects];
+//        NSString *selectNum = [NSString stringWithFormat:@"%ld",(long)indexPath.row];
+//        
+//        [subSelected addObject:selectNum];
+//        [_subjectTableView  reloadData];
     }
 
 }

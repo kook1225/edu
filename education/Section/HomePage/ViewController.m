@@ -467,14 +467,7 @@
 }
 
 - (void)courseOnLine {
-    if ([[SEUtils getUserInfo].UserDetail.userinfo.YHLB intValue] ==3 ) {
-        EDSubjectViewController *subjectVC = [[EDSubjectViewController alloc]init];
-        subjectVC.title = @"选择班级";
-        subjectVC.type  = @"家庭作业";
-        [self.navigationController pushViewController:subjectVC animated:YES];
-    }else
-    {
-        if ([vipTag intValue] == 1) {
+     if ([vipTag intValue] == 1) {
             EDChooseSubViewController *chooseSubjectVC = [[EDChooseSubViewController alloc]init];
             chooseSubjectVC.type = @"在线课堂";
             [self.navigationController pushViewController:chooseSubjectVC animated:YES];
@@ -484,7 +477,7 @@
             alert.tag = 201;
             [alert show];
         }
-    }
+    
 }
 
 - (void)skipWeb {

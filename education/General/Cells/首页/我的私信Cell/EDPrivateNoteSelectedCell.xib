@@ -31,9 +31,9 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2015-06-17 14:30" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rKQ-ZN-QHb">
-                        <rect key="frame" x="205" y="15" width="105" height="15"/>
+                        <rect key="frame" x="151" y="15" width="159" height="15"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="105" id="jRA-ea-zwO"/>
+                            <constraint firstAttribute="width" constant="159" id="jRA-ea-zwO"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
