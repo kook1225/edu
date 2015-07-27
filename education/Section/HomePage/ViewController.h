@@ -13,7 +13,5 @@
     UIPageControl *_page;
 }
 
-@property (nonatomic) BOOL vipUser;
-
 @end
 

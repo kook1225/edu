@@ -24,5 +24,6 @@
 @property (strong,nonatomic) NSString<Optional> *GLXX;
 @property (strong,nonatomic) NSString<Optional> *GLQY;
 @property (strong,nonatomic) NSString<Optional> *YHTX;
+@property (strong,nonatomic) NSString<Optional> *IsVip;
 
 @end

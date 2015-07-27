@@ -13,5 +13,6 @@
 
 @property (nonatomic,strong) ListModel *model;
 @property (nonatomic,strong) NSString *index;
+@property (nonatomic,strong) NSString *album;
 
 @end

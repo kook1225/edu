@@ -15,6 +15,9 @@
 {
     SETabBarViewController *tabBarView;
     NSArray *dataArray;
+    NSMutableArray *stringArray;
+    NSMutableArray *imagesArray;
+    NSMutableArray *imageArrays;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -30,12 +33,77 @@
     
     tabBarView = (SETabBarViewController *)self.navigationController.parentViewController;
     [tabBarView tabBarViewHidden];
-    
-    [_tableView registerClass:[EDMyPhotoCell class] forCellReuseIdentifier:@"photo"];
-
-    dataArray = @[@"测试测试测试",@"特色看见俺还是看到哈开始的卡号上课好的卡号SD卡还是看到按客户贷款",@"安顺供电局阿訇是肯定就会卡上的卡号就是电话卡还是肯定回家啊"];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    
+    dataArray = [NSArray array];
+    stringArray = [NSMutableArray array];
+    imagesArray = [NSMutableArray array];
+    
+    [self album];
+}
+
+- (void)album {
+    MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    HUD.mode = MBProgressHUDModeIndeterminate;
+    HUD.labelText = @"Loading";
+    HUD.removeFromSuperViewOnHide = YES;
+    
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    NSDictionary *parameter;
+    
+    
+    parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],
+                  @"pageSize":@"10",
+                  @"page":@"1"};
+    
+    
+    NSString *urlStr = [NSString stringWithFormat:@"%@StudentAlbums",SERVER_HOST];
+    
+    // 设置超时时间
+    
+    [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+    manager.requestSerializer.timeoutInterval = 10.f;
+    [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+    
+    [manager GET:urlStr parameters:parameter
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             [HUD hide:YES];
+             
+             NSError *err;
+             
+             if ([responseObject[@"responseCode"] intValue] == 0) {
+                 
+                 dataArray = [ListModel arrayOfModelsFromDictionaries:responseObject[@"data"][@"list"] error:&err];
+                 
+                 for (int i = 0; i < [dataArray count]; i++) {
+                     [stringArray addObject:[[dataArray objectAtIndex:i] dynamicInfo].TPSM];
+                     [imagesArray addObject:[[dataArray objectAtIndex:i] dynamicInfo].SLT];
+                 }
+                 NSLog(@"imagesArray:%@",imagesArray);
+                 [_tableView reloadData];
+                 
+             }
+             else {
+                 SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
+             }
+             
+             
+         }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             [HUD hide:YES];
+             if(error.code == -1001)
+             {
+                 SHOW_ALERT(@"提示", @"网络请求超时");
+             }else if (error.code == -1009)
+             {
+                 SHOW_ALERT(@"提示", @"网络连接已断开");
+             }
+         }];
+}
 
 #pragma mark 常用方法
 - (void)back
@@ -57,14 +125,30 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    EDMyPhotoCell *photoCell = [tableView dequeueReusableCellWithIdentifier:@"photo"];
-    [photoCell setIntroductionText:dataArray[indexPath.row] image:@[@"example1",@"example2"]];
-    return photoCell;
+    EDMyPhotoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"photo"];
+    if (cell == nil) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"EDMyPhotoCell" owner:self options:nil] lastObject];
+    }
+    
+    imageArrays = [NSMutableArray array];
+    
+    NSString *imageStr = [imagesArray objectAtIndex:indexPath.row];
+    
+    imageArrays = [NSMutableArray arrayWithArray:[imageStr componentsSeparatedByString:@","]];
+    
+    [cell setIntroductionText:[stringArray objectAtIndex:[indexPath row]] image:imageArrays reply:[dataArray objectAtIndex:indexPath.row] index:indexPath.row];
+    [cell setData:[dataArray objectAtIndex:indexPath.row]];
+    
+    return cell;
+   
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     EDPhotoDetailViewController *photoDetailVC = [[EDPhotoDetailViewController alloc]init];
+    photoDetailVC.model = [dataArray objectAtIndex:indexPath.row];
+    photoDetailVC.index = [NSString stringWithFormat:@"%ld",(long)indexPath.row];
+    photoDetailVC.album = @"相册";
     [self.navigationController pushViewController:photoDetailVC animated:YES];
 }
 

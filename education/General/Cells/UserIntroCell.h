@@ -15,7 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *classLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *leftImageView;
 @property (weak, nonatomic) IBOutlet UIButton *schoolBtn;
-
+@property (nonatomic,strong) UIImageView *vipImageView;
 
 - (void)setData;
 

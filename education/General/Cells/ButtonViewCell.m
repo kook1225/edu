@@ -14,23 +14,26 @@
     // Initialization code
 }
 
-- (void)vipUser:(BOOL)vip {
+- (void)vipUser:(NSString *)vip {
     
     CGFloat scale = SCALE;
     
-    if (!vip) {
-        [_btn9 setBackgroundImage:[UIImage imageNamed:@"btn9v"] forState:UIControlStateNormal];
-        [_btn10 setBackgroundImage:[UIImage imageNamed:@"btn10v"] forState:UIControlStateNormal];
-        [_btn11 setBackgroundImage:[UIImage imageNamed:@"btn11v"] forState:UIControlStateNormal];
-        [_btn12 setBackgroundImage:[UIImage imageNamed:@"btn12v"] forState:UIControlStateNormal];
-        
-        for (int i = 0; i < 4; i++) {
-            UIImageView *vipImage = [[UIImageView alloc] initWithFrame:CGRectMake((2 + 80*i) * scale, 50 * scale, 15 * scale, 15 * scale)];
-            vipImage.tag = 401 + i;
-            [vipImage setImage:[UIImage imageNamed:@"vip"]];
-            [_bottomView addSubview:vipImage];
+    if ([[[SEUtils getUserInfo] UserDetail] studentInfo] != nil) {
+        if ([vip intValue] == 0) {
+            [_btn9 setBackgroundImage:[UIImage imageNamed:@"btn9v"] forState:UIControlStateNormal];
+            [_btn10 setBackgroundImage:[UIImage imageNamed:@"btn10v"] forState:UIControlStateNormal];
+            [_btn11 setBackgroundImage:[UIImage imageNamed:@"btn11v"] forState:UIControlStateNormal];
+            [_btn12 setBackgroundImage:[UIImage imageNamed:@"btn12v"] forState:UIControlStateNormal];
+            
+            for (int i = 0; i < 4; i++) {
+                UIImageView *vipImage = [[UIImageView alloc] initWithFrame:CGRectMake((2 + 80*i) * scale, 50 * scale, 15 * scale, 15 * scale)];
+                vipImage.tag = 401 + i;
+                [vipImage setImage:[UIImage imageNamed:@"vip"]];
+                [_bottomView addSubview:vipImage];
+            }
         }
     }
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

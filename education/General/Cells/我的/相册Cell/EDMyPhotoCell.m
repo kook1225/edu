@@ -2,62 +2,64 @@
 //  EDMyPhotoCell.m
 //  education
 //
-//  Created by Apple on 15/7/8.
+//  Created by zhujun on 15/7/25.
 //  Copyright (c) 2015年 zhujun. All rights reserved.
 //
 
 #import "EDMyPhotoCell.h"
+#import "AppDelegate.h"
+
+#define IMAGE_HEIGHT ([UIScreen mainScreen].bounds.size.width > 320 ? 95 : 75)
 
 @implementation EDMyPhotoCell
 
 - (void)awakeFromNib {
     // Initialization code
-}
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        [self setSelectionStyle:UITableViewCellSelectionStyleNone];
-        _dateLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, 15, 80, 30)];
-        _dateLabel.font = [UIFont systemFontOfSize:25];
-        _dateLabel.textColor = TEXTCOLOR;
-        NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-        [formatter setDateFormat:@"yyyy-MM-dd"];
-        NSString *dataTime = [formatter stringFromDate:[NSDate date]];
-        if ([dataTime isEqualToString:@"2015-07-08"]) {
-            _dateLabel.text = @"昨天";
-        }else
-        {
-            NSString *text = @"04六月";
-            NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc]initWithString:text];;
-            [attributedString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:12] range:NSMakeRange(2, text.length-2)];
-            _dateLabel.attributedText = attributedString;
-        }
-        [self.contentView addSubview:_dateLabel];
-        
-        _contentLabel = [[UILabel alloc]initWithFrame:CGRectMake(80, 15, SCREENWIDTH-90, 20)];
-        _contentLabel.textColor = TEXTCOLOR;
-        _contentLabel.font = [UIFont systemFontOfSize:12];
-        _contentLabel.numberOfLines = 0;
-        
-        
-        [self.contentView addSubview:_contentLabel];
-        
-        
-    }
-    return self;
+    _btnView = [[UIView alloc] init];
+    _btnView2 = [[UIView alloc] init];
+    [self.contentView addSubview:_btnView];
+    [self.contentView addSubview:_btnView2];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+- (void)prepareForReuse {
+    [_backView removeFromSuperview];
+    [_shareBtn removeFromSuperview];
+    [_evaluteBtn removeFromSuperview];
+    [_replyBtn removeFromSuperview];
 }
 
-- (void)setIntroductionText:(NSString*)text image:(NSArray *)imagesArray
-{
+- (void)setData:(ListModel *)model {
+    NSDateFormatter *startDateFromatter = [[NSDateFormatter alloc] init];
+    [startDateFromatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *nowDateStr = [startDateFromatter stringFromDate:[NSDate date]];
     
+    NSString *nowDateString = [SEUtils formatMatchWithDate:nowDateStr];
+    NSString *dateStr = [SEUtils formatMatchWithDate:model.dynamicInfo.TJSJ];
+    
+    if ([nowDateString isEqualToString:dateStr]) {
+        _dateLabel.text = @"今天";
+    }
+    else {
+        NSMutableAttributedString *str =[[NSMutableAttributedString alloc]initWithString:dateStr];
+        [str addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:11] range:NSMakeRange(2, [str length] - 2)];
+        [_dateLabel setAttributedText:str];
+    }
+    
+    [_dateLabel sizeToFit];
+}
+
+//赋值 and 自动换行,计算出cell的高度
+- (void)setIntroductionText:(NSString*)text image:(NSArray *)imagesArray reply:(ListModel *)model index:(NSInteger)indexRow{
+    row = indexRow;
+    
+    imageArray = [NSArray array];
+    
+    imageArray = imagesArray;
+    
+    //获得当前cell高度
     CGRect frame = [self frame];
+    
+    
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc]initWithString:text];;
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc]init];
     [paragraphStyle setLineSpacing:5];
@@ -66,7 +68,7 @@
     //文本赋值
     _contentLabel.attributedText = attributedString;
     //调节高度
-    CGSize size = CGSizeMake(SCREENWIDTH-90, 500000);
+    CGSize size = CGSizeMake(SCREENWIDTH - 73, 500000);
     
     labelSize = [_contentLabel sizeThatFits:size];
     
@@ -77,68 +79,153 @@
     
     _contentLabel.frame = CGRectMake(_contentLabel.frame.origin.x, _contentLabel.frame.origin.y, labelSize.width, labelSize.height);
     
+    _backView = [[UIView alloc] initWithFrame:CGRectMake(_contentLabel.frame.origin.x, CGRectGetMaxY(_contentLabel.frame) + 10, 0, 0)];
     
-    if (imagesArray.count ==0) {
-        _zanBtn = [[UIButton alloc]initWithFrame:CGRectMake(80, CGRectGetMaxY(_contentLabel.frame)+10, 40, 22)];
-        [_zanBtn setBackgroundImage:[UIImage imageNamed:@"praiseImage"] forState:UIControlStateNormal];
-        [_zanBtn setTitleEdgeInsets:UIEdgeInsetsMake(0, 20, 0, 0)];
-        [_zanBtn setTitle:@"110" forState:UIControlStateNormal];
-        [_zanBtn setTitleColor:[UIColor colorWithRed:128/255.0f green:128/255.0f blue:128/255.0f alpha:1.0] forState:UIControlStateNormal];
-        _zanBtn.titleLabel.font = [UIFont systemFontOfSize:10];
-        
-        
-        _msgBtn = [[UIButton alloc]initWithFrame:CGRectMake(130, CGRectGetMaxY(_contentLabel.frame)+10, 40, 22)];
-        [_msgBtn setBackgroundImage:[UIImage imageNamed:@"evaluteImage"] forState:UIControlStateNormal];
-        [_msgBtn setTitleEdgeInsets:UIEdgeInsetsMake(0, 20, 0, 0)];
-        [_msgBtn setTitle:@"120" forState:UIControlStateNormal];
-        [_msgBtn setTitleColor:[UIColor colorWithRed:128/255.0f green:128/255.0f blue:128/255.0f alpha:1.0] forState:UIControlStateNormal];
-        _msgBtn.titleLabel.font = [UIFont systemFontOfSize:10];
-        
-        [self.contentView addSubview:_msgBtn];
-        [self.contentView addSubview:_zanBtn];
-        
-        
-
-    }else
-    {
-        for (int i=0; i<imagesArray.count; i++) {
-            UIImageView *imgView = [[UIImageView alloc]initWithFrame:CGRectMake(80+95*i, CGRectGetMaxY(_contentLabel.frame)+10, 75, 75)];
-            imgView.contentMode = UIViewContentModeScaleToFill;
+    
+    if ([imagesArray count] != 0) {
+        for (int i = 0; i < [imagesArray count]; i++) {
             
-            imgView.image = [UIImage imageNamed:imagesArray[i]];
-            [self.contentView addSubview:imgView];
+            if ([imagesArray count] != 1) {
+                
+                imageView = [[UIImageView alloc] initWithFrame:CGRectMake((IMAGE_HEIGHT + 5)*(i - 3*(i/3)), (IMAGE_HEIGHT + 5) * (i/3), IMAGE_HEIGHT , IMAGE_HEIGHT)];
+                
+            }
+            else {
+                if ([imagesArray[0]  isEqual: @""]) {
+                    imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+                }
+                else {
+                    imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, IMAGE_HEIGHT, IMAGE_HEIGHT)];
+                }
+                
+            }
             
-            _zanBtn = [[UIButton alloc]initWithFrame:CGRectMake(80, CGRectGetMaxY(imgView.frame)+10, 40, 22)];
-            [_zanBtn setBackgroundImage:[UIImage imageNamed:@"praiseImage"] forState:UIControlStateNormal];
-            [_zanBtn setTitleEdgeInsets:UIEdgeInsetsMake(0, 20, 0, 0)];
-            [_zanBtn setTitle:@"110" forState:UIControlStateNormal];
-            [_zanBtn setTitleColor:[UIColor colorWithRed:128/255.0f green:128/255.0f blue:128/255.0f alpha:1.0] forState:UIControlStateNormal];
-            _zanBtn.titleLabel.font = [UIFont systemFontOfSize:10];
+            //[imageView setImage:[UIImage imageNamed:[imagesArray objectAtIndex:i]]];
             
             
-            _msgBtn = [[UIButton alloc]initWithFrame:CGRectMake(130, CGRectGetMaxY(imgView.frame)+10, 40, 22)];
-            [_msgBtn setBackgroundImage:[UIImage imageNamed:@"evaluteImage"] forState:UIControlStateNormal];
-            [_msgBtn setTitleEdgeInsets:UIEdgeInsetsMake(0, 20, 0, 0)];
-            [_msgBtn setTitle:@"120" forState:UIControlStateNormal];
-            [_msgBtn setTitleColor:[UIColor colorWithRed:128/255.0f green:128/255.0f blue:128/255.0f alpha:1.0] forState:UIControlStateNormal];
-            _msgBtn.titleLabel.font = [UIFont systemFontOfSize:10];
+            NSString *urlStr = [NSString stringWithFormat:@"%@%@",IMG_HOST,[imagesArray objectAtIndex:i]];
+            NSURL *url = [NSURL URLWithString:urlStr];
+            [imageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"1"]];
             
-            [self.contentView addSubview:_msgBtn];
-            [self.contentView addSubview:_zanBtn];
-
+            imageView.contentMode = UIViewContentModeScaleAspectFill;
+            
+            imageView.clipsToBounds = YES;
+            
+            
+            
+            UIButton *imageButton = [[UIButton alloc] init];
+            
+            imageButton = [UIButton buttonWithType:UIButtonTypeCustom];
+            
+            //imageButton.backgroundColor = [UIColor grayColor];
+            
+            if ([imagesArray[0]  isEqual: @""]) {
+                [imageButton setFrame:CGRectMake((IMAGE_HEIGHT + 5)*(i - 3*(i/3)), (IMAGE_HEIGHT + 5) * (i/3), 1 , 1)];
+            }
+            else {
+                [imageButton setFrame:CGRectMake((IMAGE_HEIGHT + 5)*(i - 3*(i/3)), (IMAGE_HEIGHT + 5) * (i/3), IMAGE_HEIGHT , IMAGE_HEIGHT)];
+            }
+            imageButton.tag = indexRow*100 +i;
+            [imageButton addTarget:self action:@selector(imageIntro:) forControlEvents:UIControlEventTouchUpInside];
+            
+            //[_backView addSubview:imageButton];
+            
+            
+            [_backView addSubview:imageView];
         }
         
+        //_backView.backgroundColor = [UIColor grayColor];
         
-       
+        if ([imagesArray[0]  isEqual: @""]) {
+            _backView.frame = CGRectMake(_contentLabel.frame.origin.x, CGRectGetMaxY(_contentLabel.frame) + 10, 295, 1);
+        }
+        else {
+            _backView.frame = CGRectMake(_contentLabel.frame.origin.x, CGRectGetMaxY(_contentLabel.frame) + 10, 295, IMAGE_HEIGHT*((([imagesArray count] - 1)/3) + 1));
+        }
+        //imageView.contentMode = UIViewContentModeScaleAspectFit;
+        
     }
     
-    _lineView = [[UIView alloc]initWithFrame:CGRectMake(10, CGRectGetMaxY(_msgBtn.frame)+10, SCREENWIDTH-20, 1)];
-    _lineView.backgroundColor = LINECOLOR;
-    [self.contentView addSubview:_lineView];
-    //计算出自适应的高度
-    frame.size.height = CGRectGetMaxY(_lineView.frame);
     
+    // _backView.backgroundColor = [UIColor whiteColor];
+    
+    [self.contentView addSubview:_backView];
+    
+    if ([imagesArray count] != 0) {
+        _btnView.frame = CGRectMake(_contentLabel.frame.origin.x, CGRectGetMaxY(_backView.frame) + 5*((([imagesArray count] - 1)/3) + 1), 45, 24);
+    }
+    else {
+        _btnView.frame = CGRectMake(_contentLabel.frame.origin.x, CGRectGetMaxY(_backView.frame) + 5, 45, 24);
+    }
+    // [self.contentView addSubview:_btnView];
+    
+    _praiseImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 45, 24)];
+    [_praiseImageView setImage:[UIImage imageNamed:@"praiseImage"]];
+    [_btnView addSubview:_praiseImageView];
+    
+    _praiseLabel = [[UILabel alloc] initWithFrame:CGRectMake(_btnView.frame.size.width - 18, 5, 15, 15)];
+    _praiseLabel.textAlignment = NSTextAlignmentCenter;
+    _praiseLabel.font = [UIFont systemFontOfSize:11];
+    if ([model.likes count] > 99) {
+        _praiseLabel.text = @"99";
+    }
+    else {
+        _praiseLabel.text = [NSString stringWithFormat:@"%lu",(unsigned long)[model.likes count]];
+    }
+    [_btnView addSubview:_praiseLabel];
+    
+    
+    _priBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 45, 24)];
+    [_btnView addSubview:_priBtn];
+    
+    
+    if ([imagesArray count] != 0) {
+        _btnView2.frame = CGRectMake(CGRectGetMaxX(_btnView.frame) + 10, CGRectGetMaxY(_backView.frame) + 5*((([imagesArray count] - 1)/3) + 1), 45, 24);
+    }
+    else {
+        _btnView2.frame = CGRectMake(_contentLabel.frame.origin.x, CGRectGetMaxY(_backView.frame) + 5, 45, 24);
+    }
+    
+    
+    //[self.contentView addSubview:_btnView2];
+    
+    _evaluteImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 45, 24)];
+    [_evaluteImageView setImage:[UIImage imageNamed:@"evaluteImage"]];
+    [_btnView2 addSubview:_evaluteImageView];
+    
+    _evaluteLabel = [[UILabel alloc] initWithFrame:CGRectMake(_btnView.frame.size.width - 18, 5, 15, 15)];
+    _evaluteLabel.textAlignment = NSTextAlignmentCenter;
+    _evaluteLabel.font = [UIFont systemFontOfSize:11];
+    if ([model.replys count] > 99) {
+        _evaluteLabel.text = @"99";
+    }
+    else {
+        _evaluteLabel.text = [NSString stringWithFormat:@"%lu",(unsigned long)[model.replys count]];
+    }
+    [_btnView2 addSubview:_evaluteLabel];
+    
+    _rlyBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 45, 24)];
+    [_btnView2 addSubview:_rlyBtn];
+    
+    
+    //计算出自适应的高度
+    frame.size.height = labelSize.height + 56 + _backView.frame.size.height + 5*((([imagesArray count] - 1)/3) + 1);
     
     self.frame = frame;
+    
 }
+
+
+- (void)imageIntro:(id)sender {
+    UIButton *btn = (UIButton *)sender;
+    NSLog(@"tag:%ld",(long)btn.tag);
+}
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+    
+    // Configure the view for the selected state
+}
+
+
 @end

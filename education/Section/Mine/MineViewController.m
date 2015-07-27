@@ -34,9 +34,12 @@
     _exitBtn.layer.masksToBounds = YES;
     
     
-    if (![[[SEUtils getUserInfo] UserDetail] teacherInfo]) {
+    if ([[[[[SEUtils getUserInfo] UserDetail] userinfo] YHLB] intValue] != 3) {
         _nameLabel.text = [[[SEUtils getUserInfo] UserDetail] studentInfo].XSXM;
         _addLabel.text = [NSString stringWithFormat:@"%@%@",[[[[SEUtils getUserInfo] UserDetail] studentInfo] NJMC],[[[[SEUtils getUserInfo] UserDetail] studentInfo] BJMC]];
+    }
+    else {
+        _nameLabel.text = [[[SEUtils getUserInfo] UserDetail] teacherInfo].JSXM;
     }
     
     tabBarViewController = (SETabBarViewController *)self.navigationController.parentViewController;

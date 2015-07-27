@@ -15,6 +15,10 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    _btnView = [[UIView alloc] init];
+    _btnView2 = [[UIView alloc] init];
+    [self.contentView addSubview:_btnView];
+    [self.contentView addSubview:_btnView2];
 }
 
 - (void)prepareForReuse {
@@ -140,12 +144,12 @@
     [self.contentView addSubview:_backView];
     
     if ([imagesArray count] != 0) {
-        _btnView = [[UIView alloc] initWithFrame:CGRectMake(_contentLabel.frame.origin.x, CGRectGetMaxY(_backView.frame) + 5*((([imagesArray count] - 1)/3) + 1), 45, 24)];
+        _btnView.frame = CGRectMake(_contentLabel.frame.origin.x, CGRectGetMaxY(_backView.frame) + 5*((([imagesArray count] - 1)/3) + 1), 45, 24);
     }
     else {
-        _btnView = [[UIView alloc] initWithFrame:CGRectMake(_contentLabel.frame.origin.x, CGRectGetMaxY(_backView.frame) + 5, 45, 24)];
+        _btnView.frame = CGRectMake(_contentLabel.frame.origin.x, CGRectGetMaxY(_backView.frame) + 5, 45, 24);
     }
-    [self.contentView addSubview:_btnView];
+   // [self.contentView addSubview:_btnView];
     
     _praiseImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 45, 24)];
     [_praiseImageView setImage:[UIImage imageNamed:@"praiseImage"]];
@@ -168,14 +172,14 @@
     
     
     if ([imagesArray count] != 0) {
-        _btnView2 = [[UIView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(_btnView.frame) + 10, CGRectGetMaxY(_backView.frame) + 5*((([imagesArray count] - 1)/3) + 1), 45, 24)];
+        _btnView2.frame = CGRectMake(CGRectGetMaxX(_btnView.frame) + 10, CGRectGetMaxY(_backView.frame) + 5*((([imagesArray count] - 1)/3) + 1), 45, 24);
     }
     else {
-        _btnView2 = [[UIView alloc] initWithFrame:CGRectMake(_contentLabel.frame.origin.x, CGRectGetMaxY(_backView.frame) + 5, 45, 24)];
+        _btnView2.frame = CGRectMake(_contentLabel.frame.origin.x, CGRectGetMaxY(_backView.frame) + 5, 45, 24);
     }
     
     
-    [self.contentView addSubview:_btnView2];
+    //[self.contentView addSubview:_btnView2];
     
     _evaluteImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 45, 24)];
     [_evaluteImageView setImage:[UIImage imageNamed:@"evaluteImage"]];

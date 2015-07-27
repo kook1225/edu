@@ -12,7 +12,7 @@
 #import "IQKeyboardManager.h"
 #import "SETabBarViewController.h"
 
-@interface EDPhotoDetailViewController ()<UITextFieldDelegate> {
+@interface EDPhotoDetailViewController ()<UITextFieldDelegate,UIAlertViewDelegate> {
     NSArray *dataArray;
     SETabBarViewController *tabBarViewController;
 }
@@ -30,6 +30,15 @@
     // Do any additional setup after loading the view from its nib.
     self.title = @"详情";
     self.navigationItem.leftBarButtonItem = [Tools getNavBarItem:self clickAction:@selector(back)];
+    
+    if ([_album isEqual: @"相册"]) {
+        UIButton *rightBarBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 25)];
+        [rightBarBtn addTarget:self action:@selector(deleteBtn) forControlEvents:UIControlEventTouchUpInside];
+        rightBarBtn.titleLabel.font = [UIFont boldSystemFontOfSize:16];
+        [rightBarBtn setTitle:@"删除" forState:UIControlStateNormal];
+        UIBarButtonItem *btnItem2 = [[UIBarButtonItem alloc] initWithCustomView:rightBarBtn];
+        self.navigationItem.rightBarButtonItem = btnItem2;
+    }
     
     tabBarViewController = (SETabBarViewController *)self.navigationController.parentViewController;
     [tabBarViewController tabBarViewHidden];
@@ -70,6 +79,12 @@
 - (void)back
 {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)deleteBtn {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"是否删除此信息?" delegate:self cancelButtonTitle:@"否" otherButtonTitles:@"是", nil];
+    alert.tag = 201;
+    [alert show];
 }
 
 -(void)seePic:(NSNotification *)notification{
@@ -142,54 +157,58 @@
 
 - (IBAction)replyButton:(id)sender {
     //NSLog(@"ddddddddd:%d",replyTag);
-    
-    MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
-    HUD.mode = MBProgressHUDModeIndeterminate;
-    HUD.labelText = @"Loading";
-    HUD.removeFromSuperViewOnHide = YES;
-    
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    
-    NSDictionary *parameter;
-    
-    parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],
-                  @"dynamicId":[[_model dynamicInfo] ID],
-                  @"content":_replyTextField.text};
-    
-    
-    NSString *urlStr = [NSString stringWithFormat:@"%@ClassZoneDynamicReply",SERVER_HOST];
-    
-    // 设置超时时间
-    [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
-    manager.requestSerializer.timeoutInterval = 10.f;
-    [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
-    
-    [manager POST:urlStr parameters:parameter
-          success:^(AFHTTPRequestOperation *operation, id responseObject) {
-              [HUD hide:YES];
-              
-              if ([responseObject[@"responseCode"] intValue] == 0) {
-                  SHOW_ALERT(@"提示", @"评论成功");
-                  _replyView.hidden = YES;
-                  [_replyTextField resignFirstResponder];
-                  [self classCircleApi];
+    if ([_replyTextField.text length] == 0) {
+        SHOW_ALERT(@"提示", @"评论不能为空");
+    }
+    else {
+        MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+        HUD.mode = MBProgressHUDModeIndeterminate;
+        HUD.labelText = @"Loading";
+        HUD.removeFromSuperViewOnHide = YES;
+        
+        
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        
+        NSDictionary *parameter;
+        
+        parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],
+                      @"dynamicId":[[_model dynamicInfo] ID],
+                      @"content":_replyTextField.text};
+        
+        
+        NSString *urlStr = [NSString stringWithFormat:@"%@ClassZoneDynamicReply",SERVER_HOST];
+        
+        // 设置超时时间
+        [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+        manager.requestSerializer.timeoutInterval = 10.f;
+        [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+        
+        [manager POST:urlStr parameters:parameter
+              success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                  [HUD hide:YES];
+                  
+                  if ([responseObject[@"responseCode"] intValue] == 0) {
+                      SHOW_ALERT(@"提示", @"评论成功");
+                      _replyView.hidden = YES;
+                      [_replyTextField resignFirstResponder];
+                      [self classCircleApi];
+                  }
+                  else {
+                      SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
+                  }
+                  
               }
-              else {
-                  SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
-              }
-              
-          }
-          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-              [HUD hide:YES];
-              if(error.code == -1001)
-              {
-                  SHOW_ALERT(@"提示", @"网络请求超时");
-              }else if (error.code == -1009)
-              {
-                  SHOW_ALERT(@"提示", @"网络连接已断开");
-              }
-          }];
+              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                  [HUD hide:YES];
+                  if(error.code == -1001)
+                  {
+                      SHOW_ALERT(@"提示", @"网络请求超时");
+                  }else if (error.code == -1009)
+                  {
+                      SHOW_ALERT(@"提示", @"网络连接已断开");
+                  }
+              }];
+    }
 }
 
 - (void)classCircleApi {
@@ -287,5 +306,63 @@
     return photoCell;
 }
 
+#pragma mark - UIAlertViewDelegate Method 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (alertView.tag == 201) {
+        if (buttonIndex == 1) {
+            MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+            HUD.mode = MBProgressHUDModeIndeterminate;
+            HUD.labelText = @"Loading";
+            HUD.removeFromSuperViewOnHide = YES;
+            
+            
+            AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+            
+            NSDictionary *parameter;
+            
+            parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],
+                          @"dynamicId":[[_model dynamicInfo] ID],
+                          };
+            
+            
+            NSString *urlStr = [NSString stringWithFormat:@"%@ClassZoneDynamic",SERVER_HOST];
+            
+            // 设置超时时间
+            [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+            manager.requestSerializer.timeoutInterval = 10.f;
+            [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+            
+            [manager DELETE:urlStr parameters:parameter
+                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                      [HUD hide:YES];
+                      
+                      if ([responseObject[@"responseCode"] intValue] == 0) {
+                          UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"删除成功" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+                          alert.tag = 202;
+                          [alert show];
+                      }
+                      else {
+                          SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
+                      }
+                      
+                  }
+                  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                      [HUD hide:YES];
+                      if(error.code == -1001)
+                      {
+                          SHOW_ALERT(@"提示", @"网络请求超时");
+                      }else if (error.code == -1009)
+                      {
+                          SHOW_ALERT(@"提示", @"网络连接已断开");
+                      }
+                  }];
+        }
+    }
+    else if (alertView.tag == 202) {
+        if (buttonIndex == 0) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    }
+}
 
 @end

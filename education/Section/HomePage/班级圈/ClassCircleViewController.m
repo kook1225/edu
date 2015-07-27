@@ -107,54 +107,58 @@
 
 - (IBAction)replyButton:(id)sender {
     //NSLog(@"ddddddddd:%d",replyTag);
-    
-    MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
-    HUD.mode = MBProgressHUDModeIndeterminate;
-    HUD.labelText = @"Loading";
-    HUD.removeFromSuperViewOnHide = YES;
-    
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    
-    NSDictionary *parameter;
-    
-    parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],
-                  @"dynamicId":[[[dataArray objectAtIndex:replyTag] dynamicInfo] ID],
-                  @"content":_replyTextField.text};
-    
-    
-    NSString *urlStr = [NSString stringWithFormat:@"%@ClassZoneDynamicReply",SERVER_HOST];
-    
-    // 设置超时时间
-    [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
-    manager.requestSerializer.timeoutInterval = 10.f;
-    [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
-    
-    [manager POST:urlStr parameters:parameter
-          success:^(AFHTTPRequestOperation *operation, id responseObject) {
-              [HUD hide:YES];
-              
-              if ([responseObject[@"responseCode"] intValue] == 0) {
-                  SHOW_ALERT(@"提示", @"评论成功");
-                  _replyView.hidden = YES;
-                  [_replyTextField resignFirstResponder];
-                  [self classCircleApi];
+    if ([_replyTextField.text length] == 0) {
+        SHOW_ALERT(@"提示", @"评论不能为空");
+    }
+    else {
+        MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+        HUD.mode = MBProgressHUDModeIndeterminate;
+        HUD.labelText = @"Loading";
+        HUD.removeFromSuperViewOnHide = YES;
+        
+        
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        
+        NSDictionary *parameter;
+        
+        parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],
+                      @"dynamicId":[[[dataArray objectAtIndex:replyTag] dynamicInfo] ID],
+                      @"content":_replyTextField.text};
+        
+        
+        NSString *urlStr = [NSString stringWithFormat:@"%@ClassZoneDynamicReply",SERVER_HOST];
+        
+        // 设置超时时间
+        [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+        manager.requestSerializer.timeoutInterval = 10.f;
+        [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+        
+        [manager POST:urlStr parameters:parameter
+              success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                  [HUD hide:YES];
+                  
+                  if ([responseObject[@"responseCode"] intValue] == 0) {
+                      SHOW_ALERT(@"提示", @"评论成功");
+                      _replyView.hidden = YES;
+                      [_replyTextField resignFirstResponder];
+                      [self classCircleApi];
+                  }
+                  else {
+                      SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
+                  }
+                  
               }
-              else {
-                  SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
-              }
-              
-          }
-          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-              [HUD hide:YES];
-              if(error.code == -1001)
-              {
-                  SHOW_ALERT(@"提示", @"网络请求超时");
-              }else if (error.code == -1009)
-              {
-                  SHOW_ALERT(@"提示", @"网络连接已断开");
-              }
-          }];
+              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                  [HUD hide:YES];
+                  if(error.code == -1001)
+                  {
+                      SHOW_ALERT(@"提示", @"网络请求超时");
+                  }else if (error.code == -1009)
+                  {
+                      SHOW_ALERT(@"提示", @"网络连接已断开");
+                  }
+              }];
+    }
 }
 
 -(void)seePic:(NSNotification *)notification{

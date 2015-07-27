@@ -44,9 +44,14 @@
     [_userPwd setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
     [_userPwd setValue:[UIFont boldSystemFontOfSize:14] forKeyPath:@"_placeholderLabel.font"];
     
-    //测试
+    /*
+    //vip学生测试
     _userName.text = @"13811111111";
     _userPwd.text = @"111111";
+    */
+    //老师测试
+    _userName.text = @"13509090909";
+    _userPwd.text = @"123456";
     
     _loginBtn.layer.cornerRadius = 4.0f;
 }
@@ -96,47 +101,7 @@
                           
                           if ([responseObject[@"responseCode"] intValue] == 0) {
                               [SEUtils setUserInfo:model];
-                              
-                              
-                              // 判断是否是vip用户
-                                  
-                              AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-                              
-                              NSDictionary *parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token]};
-                              
-                              NSString *urlStr = [NSString stringWithFormat:@"%@VIPer",SERVER_HOST];
-                              
-                              // 设置超时时间
-                              [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
-                              manager.requestSerializer.timeoutInterval = 10.f;
-                              [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
-                              
-                              [manager GET:urlStr parameters:parameter
-                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                       
-                                       if ([responseObject[@"responseCode"] intValue] == 0) {
-                                           vipUser = YES;
-                                           [self goHomeWork];
-                                       }
-                                       else {
-                                           vipUser = NO;
-                                           [self goHomeWork];
-                                       }
-                                       
-                                       
-                                   }
-                                   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                       if(error.code == -1001)
-                                       {
-                                           SHOW_ALERT(@"提示", @"网络请求超时");
-                                       }else if (error.code == -1009)
-                                       {
-                                           SHOW_ALERT(@"提示", @"网络连接已断开");
-                                       }
-                                   }];
-                              
-                
-                             
+                              [self goHomeWork];
                           }
                           else {
                               SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
@@ -173,7 +138,6 @@
 
 - (void)goHomeWork {
     ViewController *viewController = [[ViewController alloc] init];
-    viewController.vipUser = vipUser;
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:viewController];
     
     EDContactViewController *contactVC = [[EDContactViewController alloc] init];

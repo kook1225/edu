@@ -44,6 +44,7 @@
     NSTimer *myTimer;
     NSArray *dataArray;
     NSMutableArray *imageArrays;
+    NSString *vipTag;
     
     SETabBarViewController *tabBarViewController;
 }
@@ -62,13 +63,10 @@
     imagesArray = [NSMutableArray array];
     dataArray = [NSArray array];
     
-
+    vipTag = [[[[SEUtils getUserInfo] UserDetail] userinfo] IsVip];
     
     tabBarViewController = (SETabBarViewController *)self.navigationController.parentViewController;
     
-    
-    // 判断vip用户
-    [self vipUser];
     
     //拿取banner图片
     [self imageAFNRequest];
@@ -94,7 +92,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     
-    [self vipUserAction];
     [self classCircleApi];
     
     
@@ -163,44 +160,6 @@
          }
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
              [HUD hide:YES];
-             if(error.code == -1001)
-             {
-                 SHOW_ALERT(@"提示", @"网络请求超时");
-             }else if (error.code == -1009)
-             {
-                 SHOW_ALERT(@"提示", @"网络连接已断开");
-             }
-         }];
-}
-
-- (void)vipUserAction {
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    
-    NSDictionary *parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token]};
-    
-    NSString *urlStr = [NSString stringWithFormat:@"%@VIPer",SERVER_HOST];
-    
-    // 设置超时时间
-    [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
-    manager.requestSerializer.timeoutInterval = 10.f;
-    [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
-    
-    [manager GET:urlStr parameters:parameter
-         success:^(AFHTTPRequestOperation *operation, id responseObject) {
-             
-             if ([responseObject[@"responseCode"] intValue] == 0) {
-                 _vipUser = YES;
-                 [_tableView reloadData];
-             }
-             else {
-                 _vipUser = NO;
-                 [_tableView reloadData];
-             }
-             
-             
-         }
-         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
              if(error.code == -1001)
              {
                  SHOW_ALERT(@"提示", @"网络请求超时");
@@ -449,7 +408,7 @@
         [self.navigationController pushViewController:subjectVC animated:YES];
     }else
     {
-        if (_vipUser) {
+        if ([vipTag intValue] == 1) {
             EDHomeWorkViewController *homeWorkVC = [[EDHomeWorkViewController alloc]init];
             [self.navigationController pushViewController:homeWorkVC animated:YES];
         }
@@ -466,11 +425,13 @@
     if ([[SEUtils getUserInfo].UserDetail.userinfo.YHLB intValue] ==3 ) {
         EDSubjectViewController *subjectVC = [[EDSubjectViewController alloc]init];
         subjectVC.title = @"选择班级";
+
         subjectVC.type  = @"成长足迹";
         [self.navigationController pushViewController:subjectVC animated:YES];
     }else
-    {
-        if (_vipUser) {
+        {
+        if ([vipTag intValue] == 1) {
+
             GrowthTrailViewController *growthTrailVC = [[GrowthTrailViewController alloc] init];
             [self.navigationController pushViewController:growthTrailVC animated:YES];
         }
@@ -492,7 +453,7 @@
         [self.navigationController pushViewController:subjectVC animated:YES];
     }else
     {
-        if (_vipUser) {
+        if ([vipTag intValue] == 1) {
             EDPhySicalTestViewController *physicalVC = [[EDPhySicalTestViewController alloc]init];
             [self.navigationController pushViewController:physicalVC animated:YES];
         }
@@ -506,18 +467,24 @@
 }
 
 - (void)courseOnLine {
-    
-    if (_vipUser) {
-        EDChooseSubViewController *chooseSubjectVC = [[EDChooseSubViewController alloc]init];
-        chooseSubjectVC.type = @"在线课堂";
-        [self.navigationController pushViewController:chooseSubjectVC animated:YES];
+    if ([[SEUtils getUserInfo].UserDetail.userinfo.YHLB intValue] ==3 ) {
+        EDSubjectViewController *subjectVC = [[EDSubjectViewController alloc]init];
+        subjectVC.title = @"选择班级";
+        subjectVC.type  = @"家庭作业";
+        [self.navigationController pushViewController:subjectVC animated:YES];
+    }else
+    {
+        if ([vipTag intValue] == 1) {
+            EDChooseSubViewController *chooseSubjectVC = [[EDChooseSubViewController alloc]init];
+            chooseSubjectVC.type = @"在线课堂";
+            [self.navigationController pushViewController:chooseSubjectVC animated:YES];
+        }
+        else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"成为VIP才能使用该功能哟!" delegate:self cancelButtonTitle:@"先逛逛" otherButtonTitles:@"成为VIP", nil];
+            alert.tag = 201;
+            [alert show];
+        }
     }
-    else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"成为VIP才能使用该功能哟!" delegate:self cancelButtonTitle:@"先逛逛" otherButtonTitles:@"成为VIP", nil];
-        alert.tag = 201;
-        [alert show];
-    }
-    
 }
 
 - (void)skipWeb {
@@ -598,7 +565,7 @@
         }
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         
-        [cell vipUser:_vipUser];
+        [cell vipUser:vipTag];
         
         [cell.btn1 addTarget:self action:@selector(schoolTimeTable) forControlEvents:UIControlEventTouchUpInside];
         [cell.btn2 addTarget:self action:@selector(myLetter) forControlEvents:UIControlEventTouchUpInside];
