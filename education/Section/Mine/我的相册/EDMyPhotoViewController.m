@@ -147,7 +147,7 @@
 {
     EDPhotoDetailViewController *photoDetailVC = [[EDPhotoDetailViewController alloc]init];
     photoDetailVC.model = [dataArray objectAtIndex:indexPath.row];
-    photoDetailVC.index = [NSString stringWithFormat:@"%ld",(long)indexPath.row];
+    photoDetailVC.xxId = [[[dataArray objectAtIndex:indexPath.row] dynamicInfo] ID];
     photoDetailVC.album = @"相册";
     [self.navigationController pushViewController:photoDetailVC animated:YES];
 }

@@ -13,7 +13,6 @@
 #import "SETabBarViewController.h"
 
 @interface EDPhotoDetailViewController ()<UITextFieldDelegate,UIAlertViewDelegate> {
-    NSArray *dataArray;
     SETabBarViewController *tabBarViewController;
 }
 
@@ -47,6 +46,7 @@
     
     [_tableView registerClass:[EDPhotoDetailCell class] forCellReuseIdentifier:@"photo"];
     
+    [self classCircleApi];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(seePic:)
@@ -223,13 +223,8 @@
     
     NSDictionary *parameter;
     
-    // 当老师登录时注意获取班级id
-    if ([[[[SEUtils getUserInfo] UserDetail] userinfo].YHLB intValue] == 3) {
-        parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],@"bjid":[[[[SEUtils getUserInfo] UserDetail] studentInfo] BJID],@"pageSize":@"10",@"page":@"1"};
-    }
-    else {
-        parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],@"bjid":@"",@"pageSize":@"10",@"page":@"1"};
-    }
+  
+    parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],@"ID":_xxId};
     
     
     NSString *urlStr = [NSString stringWithFormat:@"%@ClassZoneDynamic",SERVER_HOST];
@@ -247,8 +242,7 @@
              
              if ([responseObject[@"responseCode"] intValue] == 0) {
                  
-                 dataArray = [ListModel arrayOfModelsFromDictionaries:responseObject[@"data"][@"list"] error:&err];
-                 _model = [dataArray objectAtIndex:[_index integerValue]];
+                 _model = [[ListModel alloc] initWithDictionary:responseObject[@"data"] error:&err];
                  [_tableView reloadData];
              }
              else {

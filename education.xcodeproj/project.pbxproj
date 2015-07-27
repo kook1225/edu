@@ -195,6 +195,9 @@
 		768F89391B62540C0054F73C /* SchoolTimeTableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 768F89381B62540C0054F73C /* SchoolTimeTableModel.m */; };
 		768F893D1B63A45A0054F73C /* EDMyPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 768F893B1B63A45A0054F73C /* EDMyPhotoCell.m */; };
 		768F893E1B63A45A0054F73C /* EDMyPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 768F893C1B63A45A0054F73C /* EDMyPhotoCell.xib */; };
+		768F89431B65BBC50054F73C /* GuidePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 768F89411B65BBC50054F73C /* GuidePageViewController.m */; };
+		768F89441B65BBC50054F73C /* GuidePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 768F89421B65BBC50054F73C /* GuidePageViewController.xib */; };
+		768F89481B65CD170054F73C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 768F89471B65CD170054F73C /* Default-568h@2x.png */; };
 		768FFAF11B4238D9008E577F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF01B4238D9008E577F /* main.m */; };
 		768FFAF41B4238D9008E577F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF31B4238D9008E577F /* AppDelegate.m */; };
 		768FFAFC1B4238D9008E577F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 768FFAFB1B4238D9008E577F /* Images.xcassets */; };
@@ -530,6 +533,10 @@
 		768F893A1B63A45A0054F73C /* EDMyPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDMyPhotoCell.h; sourceTree = "<group>"; };
 		768F893B1B63A45A0054F73C /* EDMyPhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDMyPhotoCell.m; sourceTree = "<group>"; };
 		768F893C1B63A45A0054F73C /* EDMyPhotoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDMyPhotoCell.xib; sourceTree = "<group>"; };
+		768F89401B65BBC50054F73C /* GuidePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuidePageViewController.h; sourceTree = "<group>"; };
+		768F89411B65BBC50054F73C /* GuidePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuidePageViewController.m; sourceTree = "<group>"; };
+		768F89421B65BBC50054F73C /* GuidePageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GuidePageViewController.xib; sourceTree = "<group>"; };
+		768F89471B65CD170054F73C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		768FFAEB1B4238D9008E577F /* education.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = education.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		768FFAEF1B4238D9008E577F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		768FFAF01B4238D9008E577F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -1234,6 +1241,16 @@
 			path = "我的课表";
 			sourceTree = "<group>";
 		};
+		768F893F1B65BBC50054F73C /* GuidePage */ = {
+			isa = PBXGroup;
+			children = (
+				768F89401B65BBC50054F73C /* GuidePageViewController.h */,
+				768F89411B65BBC50054F73C /* GuidePageViewController.m */,
+				768F89421B65BBC50054F73C /* GuidePageViewController.xib */,
+			);
+			path = GuidePage;
+			sourceTree = "<group>";
+		};
 		768FFAE21B4238D9008E577F = {
 			isa = PBXGroup;
 			children = (
@@ -1276,6 +1293,7 @@
 		768FFAEE1B4238D9008E577F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				768F89471B65CD170054F73C /* Default-568h@2x.png */,
 				1857A0F71B5754FB00501EA0 /* details.html */,
 				768FFAEF1B4238D9008E577F /* Info.plist */,
 				187F7DD11B43C789005CC8D8 /* education-PrefixHeader.pch */,
@@ -1304,6 +1322,7 @@
 		768FFB161B423BAC008E577F /* Section */ = {
 			isa = PBXGroup;
 			children = (
+				768F893F1B65BBC50054F73C /* GuidePage */,
 				18579FDC1B4BC24E00501EA0 /* Set */,
 				761749001B451C6C006DD0AA /* Mine */,
 				1808B32B1B4439C60050E3B4 /* Contact */,
@@ -1526,6 +1545,7 @@
 				764406541B458B1700541C86 /* TopCell.xib in Resources */,
 				1857A0BB1B4F596700501EA0 /* EDClassOnlineCell.xib in Resources */,
 				764406D41B4EA4DF00541C86 /* EvaluteAndEncourageCell.xib in Resources */,
+				768F89481B65CD170054F73C /* Default-568h@2x.png in Resources */,
 				764406651B4671BC00541C86 /* LifeServiceViewController.xib in Resources */,
 				18579FE41B4BC24E00501EA0 /* EDSetProblemViewController.xib in Resources */,
 				768FFAFF1B4238D9008E577F /* LaunchScreen.xib in Resources */,
@@ -1559,6 +1579,7 @@
 				768FFB381B42C8C4008E577F /* ButtonViewCell.xib in Resources */,
 				18579FFC1B4BC2B800501EA0 /* EDAlterPwdViewController.xib in Resources */,
 				184AEA0E1B62B5D500FAEC5A /* EDProblemAnalyViewController.xib in Resources */,
+				768F89441B65BBC50054F73C /* GuidePageViewController.xib in Resources */,
 				1857A0521B4CF74B00501EA0 /* EDGradeDetailViewController.xib in Resources */,
 				764406C01B4D642B00541C86 /* ParentRegisterViewController.xib in Resources */,
 				184AE9F91B5F967F00FAEC5A /* EDStudentViewController.xib in Resources */,
@@ -1708,6 +1729,7 @@
 				764406C41B4D6C0E00541C86 /* FillInforViewController.m in Sources */,
 				768FFAF11B4238D9008E577F /* main.m in Sources */,
 				18579F8D1B45401100501EA0 /* EDEditInfoViewController.m in Sources */,
+				768F89431B65BBC50054F73C /* GuidePageViewController.m in Sources */,
 				1808B31D1B43D6650050E3B4 /* EDSubjectCell.m in Sources */,
 				18579FEA1B4BC28A00501EA0 /* LoginViewController.m in Sources */,
 				768F89141B5F49E90054F73C /* LifeServiceListTypeModel.m in Sources */,

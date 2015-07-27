@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EDSetProblemViewController">
@@ -30,11 +30,11 @@
                     </connections>
                 </textView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pzv-kQ-JGl">
-                    <rect key="frame" x="80" y="264" width="160" height="30"/>
+                    <rect key="frame" x="53" y="264" width="215" height="41"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="oCf-w3-pCh"/>
+                        <constraint firstAttribute="height" constant="41" id="oCf-w3-pCh"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal" title="提 交" backgroundImage="navColor">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -50,7 +50,8 @@
                 <constraint firstItem="ZIX-zr-02X" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="EnI-ec-2eW"/>
                 <constraint firstItem="ZIX-zr-02X" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="NUX-4A-Kyg"/>
                 <constraint firstItem="Pzv-kQ-JGl" firstAttribute="top" secondItem="ZIX-zr-02X" secondAttribute="bottom" constant="44" id="UO2-0k-Mji"/>
-                <constraint firstItem="Pzv-kQ-JGl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="80" id="YOe-4M-KwZ"/>
+                <constraint firstItem="Pzv-kQ-JGl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="53" id="amP-ED-Hbp"/>
+                <constraint firstAttribute="trailing" secondItem="Pzv-kQ-JGl" secondAttribute="trailing" constant="52" id="k9x-rz-qAz"/>
                 <constraint firstItem="ZIX-zr-02X" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="uoG-pg-OOo"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>

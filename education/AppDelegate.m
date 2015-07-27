@@ -14,6 +14,7 @@
 #import "EDSettingViewController.h"
 #import "LoginViewController.h"
 #import "IQKeyboardManager.h"
+#import "GuidePageViewController.h"
 
 @interface AppDelegate ()
 
@@ -45,26 +46,22 @@
     [[IQKeyboardManager sharedManager] setEnable:YES];
     [[IQKeyboardManager sharedManager] setKeyboardDistanceFromTextField:5];
     
-    LoginViewController *loginVC = [[LoginViewController alloc] init];
-    /*
-    ViewController *viewController = [[ViewController alloc] init];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:viewController];
     
-    EDContactViewController *contactVC = [[EDContactViewController alloc] init];
-    UINavigationController *nav2 = [[UINavigationController alloc] initWithRootViewController:contactVC];
     
-    MineViewController *mineVC = [[MineViewController alloc] init];
-    UINavigationController *nav3 = [[UINavigationController alloc] initWithRootViewController:mineVC];
     
-    EDSettingViewController *settingVC = [[EDSettingViewController alloc] init];
-    UINavigationController *nav4 = [[UINavigationController alloc] initWithRootViewController:settingVC];
-    
-    SETabBarViewController *tabBarVC = [[SETabBarViewController alloc] initWithViewController:@[nav,nav2,nav3,nav4]];
-    
-     
-    self.window.rootViewController = tabBarVC;
-     */
-    self.window.rootViewController = loginVC;
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"everLaunched"]) {
+        //[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"everLaunched"];
+        
+        GuidePageViewController *guidePageViewController = [[GuidePageViewController alloc] init];
+        self.window.rootViewController = guidePageViewController;
+    }
+    else{
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"everLaunched"];
+        
+        LoginViewController *loginVC = [[LoginViewController alloc] init];
+        self.window.rootViewController = loginVC;
+    }
+
     [self.window makeKeyAndVisible];
     
     return YES;

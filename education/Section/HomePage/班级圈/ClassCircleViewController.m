@@ -179,7 +179,7 @@
     NSDictionary *dic = notification.userInfo;
     EDPhotoDetailViewController *photoDetail = [[EDPhotoDetailViewController alloc]init];
     photoDetail.model = [dataArray objectAtIndex:[dic[@"index"] intValue]];
-    photoDetail.index = dic[@"index"];
+    photoDetail.xxId = [[[dataArray objectAtIndex:[dic[@"index"] intValue]] dynamicInfo] ID];
     [self.navigationController pushViewController:photoDetail animated:YES];
 }
 
