@@ -72,13 +72,20 @@
         NSLog(@"res--%@",responseObject);
         if ([responseObject[@"responseCode"] intValue] ==0) {
           
-            dataArray = responseObject[@"data"];
-            if (dataArray.count !=0) {
-                [_tableView reloadData];
-            }else
+            if(responseObject[@"data"] ==nil)
             {
                 SHOW_ALERT(@"提示", @"暂无数据");
+            }else
+            {
+                dataArray = responseObject[@"data"];
+                if (dataArray.count != 0) {
+                    [_tableView reloadData];
+                }else
+                {
+                    SHOW_ALERT(@"提示", @"暂无数据");
+                }
             }
+            
             
         }else
         {

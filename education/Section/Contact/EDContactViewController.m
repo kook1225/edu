@@ -231,7 +231,7 @@
     }else
     {
         contentCell.name.text = [[teacherArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row][@"JSXM"];
-        NSString *imgString = [NSString stringWithFormat:@"%@%@",IMAGE_HOST,studentArray[indexPath.section][indexPath.row][@"YHTX"]];
+        NSString *imgString = [NSString stringWithFormat:@"%@%@",IMAGE_HOST,teacherArray[indexPath.section][indexPath.row][@"YHTX"]];
         NSURL *url = [NSURL URLWithString:imgString];
 
         [contentCell.contactImg sd_setImageWithURL:url placeholderImage:nil];

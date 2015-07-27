@@ -314,7 +314,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "education/Section/HomePage/&#x4f53;&#x80fd;&#x6d4b;&#x8bd5;/EDPhySicalTestViewController.m"
@@ -734,6 +734,22 @@
             startingLineNumber = "96"
             endingLineNumber = "96"
             landmarkName = "-AFNRequest"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "education/Section/HomePage/&#x9009;&#x62e9;&#x73ed;&#x7ea7;/EDSubjectViewController.m"
+            timestampString = "459662714.995553"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

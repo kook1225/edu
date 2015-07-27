@@ -22,6 +22,8 @@
     SETabBarViewController *tabBarView;
     NSArray *grdArray;
     NSArray *subArray;
+    NSMutableArray *grdSelected;
+    NSMutableArray *subSelected;
    
 }
 @property (weak, nonatomic) IBOutlet UITableView *gradeTableView;
@@ -36,7 +38,8 @@
 
     self.navigationItem.leftBarButtonItem = [Tools getNavBarItem:self clickAction:@selector(back)];
     
-    
+    grdSelected = [NSMutableArray array];
+    subSelected = [NSMutableArray array];
     
     tabBarView = (SETabBarViewController *)self.navigationController.parentViewController;
     [tabBarView tabBarViewHidden];
@@ -158,13 +161,32 @@
         if (gradeCell == nil) {
             gradeCell = [[[NSBundle mainBundle]loadNibNamed:@"EDGradeCell" owner:self options:nil]lastObject];
         }
+        
+        gradeCell.grade.textColor = [UIColor colorWithRed:51/255.0f green:51/255.0f blue:51/255.0f alpha:1.0];
+        if(grdSelected.count !=0)
+        {
+            if ([grdSelected[0]  intValue] == indexPath.row)
+            {
+                gradeCell.grade.textColor = [UIColor redColor];
+            }
+        }
+        
         gradeCell.grade.text = grdArray[indexPath.row][@"NJMC"];
+        
         return gradeCell;
     }else
     {
         EDSubjectCell *subCell = [tableView dequeueReusableCellWithIdentifier:@"subject"];
         if (subCell == nil) {
             subCell = [[[NSBundle mainBundle]loadNibNamed:@"EDSubjectCell" owner:self options:nil]lastObject];
+        }
+        subCell.subject.textColor = [UIColor colorWithRed:51/255.0f green:51/255.0f blue:51/255.0f alpha:1.0];
+        if(subSelected.count !=0)
+        {
+            if ([subSelected[0]  intValue] == indexPath.row)
+            {
+                subCell.subject.textColor = [UIColor redColor];
+            }
         }
         subCell.subject.text = subArray[indexPath.row][@"BJMC"];
         return subCell;
@@ -173,13 +195,18 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     if (tableView == _gradeTableView) {
-//        GradeSelected = YES;
-        EDGradeCell *gradeCell = (EDGradeCell *)[tableView cellForRowAtIndexPath:indexPath];
-        gradeCell.grade.textColor = [UIColor redColor];
+       
+        [grdSelected removeAllObjects];
+        NSString *selectNum = [NSString stringWithFormat:@"%ld",(long)indexPath.row];
+       
+        [grdSelected addObject:selectNum];
+        
         [_gradeTableView reloadData];
+      
         [self  AFNRequest:2 class:grdArray[indexPath.row][@"NJID"]];
-
+        
     }else
     {
         
@@ -224,6 +251,11 @@
            [self.navigationController pushViewController:classCircleVC animated:YES];
            
        }
+        [subSelected removeAllObjects];
+        NSString *selectNum = [NSString stringWithFormat:@"%ld",(long)indexPath.row];
+        
+        [subSelected addObject:selectNum];
+        [_subjectTableView  reloadData];
     }
 
 }
