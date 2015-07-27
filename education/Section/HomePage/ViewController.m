@@ -463,15 +463,25 @@
 }
 
 - (void)growUp {
-    if (_vipUser) {
-        GrowthTrailViewController *growthTrailVC = [[GrowthTrailViewController alloc] init];
-        [self.navigationController pushViewController:growthTrailVC animated:YES];
+    if ([[SEUtils getUserInfo].UserDetail.userinfo.YHLB intValue] ==3 ) {
+        EDSubjectViewController *subjectVC = [[EDSubjectViewController alloc]init];
+        subjectVC.title = @"选择班级";
+        subjectVC.type  = @"成长足迹";
+        [self.navigationController pushViewController:subjectVC animated:YES];
+    }else
+    {
+        if (_vipUser) {
+            GrowthTrailViewController *growthTrailVC = [[GrowthTrailViewController alloc] init];
+            [self.navigationController pushViewController:growthTrailVC animated:YES];
+        }
+        else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"成为VIP才能使用该功能哟!" delegate:self cancelButtonTitle:@"先逛逛" otherButtonTitles:@"成为VIP", nil];
+            alert.tag = 201;
+            [alert show];
+        }
+
     }
-    else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"成为VIP才能使用该功能哟!" delegate:self cancelButtonTitle:@"先逛逛" otherButtonTitles:@"成为VIP", nil];
-        alert.tag = 201;
-        [alert show];
-    }
+
 }
 
 - (void)body {

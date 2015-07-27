@@ -64,7 +64,7 @@
 }
 - (void)AFNRequest
 {
-    
+    NSLog(@"tea---%@",[SEUtils getUserInfo].UserDetail.teacherInfo);
     
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     HUD.mode = MBProgressHUDModeIndeterminate;
@@ -86,7 +86,7 @@
         if ([responseObject[@"responseCode"] intValue] ==0) {
     
             
-            NSArray *teaDataArray = responseObject[@"data"][@"classContacts"][0][@"teachers"];
+            NSArray *teaDataArray = responseObject[@"data"][@"teachers"];
             NSMutableArray *teaNameArray = [NSMutableArray array];
             for (int i=0; i<teaDataArray.count; i++) {
                 [teaNameArray addObject:teaDataArray[i][@"JSXM"]];
@@ -96,7 +96,7 @@
             teacherArray = [self getPaixuArray:teaTitleArrray dataArray:teaDataArray];
 
             
-            NSArray *stuDataArray = responseObject[@"data"][@"classContacts"][0][@"students"];
+            NSArray *stuDataArray = responseObject[@"data"][@"students"];
             NSMutableArray *stuNameArray = [NSMutableArray array];
             for (int i=0; i<stuDataArray.count; i++) {
                 [stuNameArray addObject:stuDataArray[i][@"XSXM"]];
@@ -178,7 +178,7 @@
         return [[studentArray objectAtIndex:section] count];
     }else
     {
-        return teacherArray.count;
+        return [teacherArray[section] count];
     }
  
 }
@@ -231,7 +231,9 @@
     }else
     {
         contentCell.name.text = [[teacherArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row][@"JSXM"];
-        NSURL *url = [NSURL URLWithString:teacherArray[indexPath.section][indexPath.row][@"YHTX"]];
+        NSString *imgString = [NSString stringWithFormat:@"%@%@",IMAGE_HOST,studentArray[indexPath.section][indexPath.row][@"YHTX"]];
+        NSURL *url = [NSURL URLWithString:imgString];
+
         [contentCell.contactImg sd_setImageWithURL:url placeholderImage:nil];
         
         if(indexPath.row == [teacherArray[indexPath.section] count]-1)

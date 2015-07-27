@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface GrowthTrailViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
-
+@property (nonatomic,strong) NSString *detailId;
 @end
