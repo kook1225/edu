@@ -8,6 +8,10 @@
             <connections>
                 <outlet property="centerView" destination="bdf-Di-inr" id="dRV-DI-6bA"/>
                 <outlet property="contentLabel" destination="lOc-T5-lnj" id="qBs-Uh-DUR"/>
+                <outlet property="dateLabel" destination="JN0-zT-KeD" id="jh9-ca-JzP"/>
+                <outlet property="nameLabel" destination="Fid-5e-anY" id="LNk-XJ-hWS"/>
+                <outlet property="replyNumLabel" destination="wgR-ra-FB7" id="GvI-oF-1SP"/>
+                <outlet property="replyTextField" destination="bFz-3J-MAJ" id="Zkd-Sn-UCg"/>
                 <outlet property="replyView" destination="6Ld-0n-9Sr" id="fnv-wn-JTK"/>
                 <outlet property="tableView" destination="dfe-5A-3Tc" id="m2H-2Q-BII"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -26,8 +30,8 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2015-07-04 10:30" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JN0-zT-KeD">
-                    <rect key="frame" x="10" y="40" width="106" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <rect key="frame" x="10" y="40" width="300" height="21"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" red="0.61176470589999998" green="0.61176470589999998" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -80,7 +84,10 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits"/>
+                                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="-1" id="yRe-Tl-oWb"/>
+                                    </connections>
                                 </textField>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4Ew-6x-MLz">
                                     <rect key="frame" x="251" y="1" width="48" height="38"/>
@@ -90,6 +97,9 @@
                                         <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="replyBtn:" destination="-1" eventType="touchUpInside" id="1os-lL-cy0"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
@@ -100,7 +110,7 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-            <point key="canvasLocation" x="253" y="273"/>
+            <point key="canvasLocation" x="293" y="248"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

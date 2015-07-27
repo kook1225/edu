@@ -33,8 +33,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    self.title = @"日志心情";
     
     picAdd = [NSMutableString string];
     
@@ -109,12 +107,12 @@
             AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
             
             NSDictionary *parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],
-                                        @"xsid":@"",
-                                        @"xxid":@"",
-                                        @"title":_titleTextField.text,
-                                        @"content":_textView.text,
-                                        @"picadd":picAdd,
-                                        @"type":@"1"};
+                                            @"xsid":@"",
+                                            @"xxid":@"",
+                                            @"title":_titleTextField.text,
+                                            @"content":_textView.text,
+                                            @"picadd":picAdd,
+                                            @"type":@"1"};
             
             NSString *urlStr = [NSString stringWithFormat:@"%@ChengZhang",SERVER_HOST];
             

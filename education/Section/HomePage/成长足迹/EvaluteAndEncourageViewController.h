@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "growUpModel.h"
 
 @interface EvaluteAndEncourageViewController : UIViewController<UITableViewDataSource,UITableViewDelegate> {
     CGSize labelSize;
 }
+
+@property (nonatomic,strong) growUpModel *model;
 
 @end

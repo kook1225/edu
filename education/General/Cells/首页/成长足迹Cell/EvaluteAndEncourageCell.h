@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "growUpModel.h"
 
 @interface EvaluteAndEncourageCell : UITableViewCell {
     CGSize labelSize;
@@ -15,5 +16,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
 
 - (void)setIntroductionText:(NSString*)text name:(NSString *)name;
+- (void)setData:(growUpModel *)model;
 
 @end

@@ -198,6 +198,8 @@
 		768F89431B65BBC50054F73C /* GuidePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 768F89411B65BBC50054F73C /* GuidePageViewController.m */; };
 		768F89441B65BBC50054F73C /* GuidePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 768F89421B65BBC50054F73C /* GuidePageViewController.xib */; };
 		768F89481B65CD170054F73C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 768F89471B65CD170054F73C /* Default-568h@2x.png */; };
+		768F894C1B6616450054F73C /* TeacherReplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 768F894A1B6616450054F73C /* TeacherReplyViewController.m */; };
+		768F894D1B6616450054F73C /* TeacherReplyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 768F894B1B6616450054F73C /* TeacherReplyViewController.xib */; };
 		768FFAF11B4238D9008E577F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF01B4238D9008E577F /* main.m */; };
 		768FFAF41B4238D9008E577F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF31B4238D9008E577F /* AppDelegate.m */; };
 		768FFAFC1B4238D9008E577F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 768FFAFB1B4238D9008E577F /* Images.xcassets */; };
@@ -537,6 +539,9 @@
 		768F89411B65BBC50054F73C /* GuidePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuidePageViewController.m; sourceTree = "<group>"; };
 		768F89421B65BBC50054F73C /* GuidePageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GuidePageViewController.xib; sourceTree = "<group>"; };
 		768F89471B65CD170054F73C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		768F89491B6616450054F73C /* TeacherReplyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherReplyViewController.h; sourceTree = "<group>"; };
+		768F894A1B6616450054F73C /* TeacherReplyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherReplyViewController.m; sourceTree = "<group>"; };
+		768F894B1B6616450054F73C /* TeacherReplyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeacherReplyViewController.xib; sourceTree = "<group>"; };
 		768FFAEB1B4238D9008E577F /* education.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = education.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		768FFAEF1B4238D9008E577F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		768FFAF01B4238D9008E577F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -1134,6 +1139,9 @@
 				764406CB1B4E763F00541C86 /* EvaluteAndEncourageViewController.h */,
 				764406CC1B4E763F00541C86 /* EvaluteAndEncourageViewController.m */,
 				764406CD1B4E763F00541C86 /* EvaluteAndEncourageViewController.xib */,
+				768F89491B6616450054F73C /* TeacherReplyViewController.h */,
+				768F894A1B6616450054F73C /* TeacherReplyViewController.m */,
+				768F894B1B6616450054F73C /* TeacherReplyViewController.xib */,
 			);
 			path = "成长足迹";
 			sourceTree = "<group>";
@@ -1534,6 +1542,7 @@
 				18579FE61B4BC24E00501EA0 /* EDSettingViewController.xib in Resources */,
 				1857A08A1B4D6E9800501EA0 /* EDPrivateNoteSelectedCell.xib in Resources */,
 				764406B41B4D4C0600541C86 /* GrowthTrailViewController.xib in Resources */,
+				768F894D1B6616450054F73C /* TeacherReplyViewController.xib in Resources */,
 				764406D91B4F4F5300541C86 /* AboutUsViewController.xib in Resources */,
 				1857A0091B4BC2E800501EA0 /* EDPhysicalDetailViewController.xib in Resources */,
 				764406501B458B1700541C86 /* ClassCircleCell.xib in Resources */,
@@ -1717,6 +1726,7 @@
 				764406E21B4F594C00541C86 /* NoticeIntroViewController.m in Sources */,
 				184AEA011B62AE3800FAEC5A /* EDSubjectViewController.m in Sources */,
 				1857A0681B4D0BF700501EA0 /* EDPhotoDetailContentCell.m in Sources */,
+				768F894C1B6616450054F73C /* TeacherReplyViewController.m in Sources */,
 				1871192A1B5CCD51000F8DD4 /* MUScoreListModel.m in Sources */,
 				1857A0B41B4F584900501EA0 /* EDClassOnlineViewController.m in Sources */,
 				1857A0271B4BC3FB00501EA0 /* EDOrderHeadCell.m in Sources */,

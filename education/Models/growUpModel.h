@@ -32,5 +32,6 @@
 @property (strong,nonatomic) NSString<Optional> *DWID;
 @property (strong,nonatomic) NSString<Optional> *NJID;
 @property (strong,nonatomic) NSString<Optional> *BJID;
+@property (strong,nonatomic) NSString<Optional> *HFS;
 
 @end

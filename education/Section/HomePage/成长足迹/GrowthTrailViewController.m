@@ -14,6 +14,7 @@
 #import "EDPrivateDetailViewController.h"
 #import "growUpModel.h"
 #import "MJRefresh.h"
+#import "TeacherReplyViewController.h"
 
 @interface GrowthTrailViewController ()<MJRefreshBaseViewDelegate> {
     SETabBarViewController *tabBarViewController;
@@ -126,15 +127,27 @@
 }
 
 - (void)sendBtn {
-    EDGrowDetailViewController *growDetailVC = [[EDGrowDetailViewController alloc]init];
-    [self.navigationController pushViewController:growDetailVC animated:YES];
-
+    
+    if ([[[[[SEUtils getUserInfo] UserDetail] userinfo] YHLB] intValue] == 3) {
+        TeacherReplyViewController *teacherReplyVC = [[TeacherReplyViewController alloc] init];
+        teacherReplyVC.title = @"评价与鼓励";
+        teacherReplyVC.studentId = _detailId;
+        [self.navigationController pushViewController:teacherReplyVC animated:YES];
+    }
+    else {
+        EDGrowDetailViewController *growDetailVC = [[EDGrowDetailViewController alloc]init];
+        [self.navigationController pushViewController:growDetailVC animated:YES];
+        growDetailVC.title = @"日志心情";
+    }
+    
+    
 }
 
 #pragma mark - UITableViewDelegate Method
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([[[dataArray objectAtIndex:indexPath.row] FBRLX] intValue] == 3) {
         EvaluteAndEncourageViewController *evaluteAndEncourageVC = [[EvaluteAndEncourageViewController alloc] init];
+        evaluteAndEncourageVC.model = [dataArray objectAtIndex:indexPath.row];
         [self.navigationController pushViewController:evaluteAndEncourageVC animated:YES];
     }
     else {
