@@ -468,9 +468,11 @@
 
 - (void)courseOnLine {
      if ([vipTag intValue] == 1) {
-            EDChooseSubViewController *chooseSubjectVC = [[EDChooseSubViewController alloc]init];
-            chooseSubjectVC.type = @"在线课堂";
-            [self.navigationController pushViewController:chooseSubjectVC animated:YES];
+//            EDChooseSubViewController *chooseSubjectVC = [[EDChooseSubViewController alloc]init];
+//            chooseSubjectVC.type = @"在线课堂";
+//            [self.navigationController pushViewController:chooseSubjectVC animated:YES];
+         EDClassOnlineViewController *classOnlineVC = [[EDClassOnlineViewController alloc]init];
+         [self.navigationController pushViewController:classOnlineVC animated:YES];
         }
         else {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"成为VIP才能使用该功能哟!" delegate:self cancelButtonTitle:@"先逛逛" otherButtonTitles:@"成为VIP", nil];

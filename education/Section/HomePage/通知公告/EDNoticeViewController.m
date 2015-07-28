@@ -21,6 +21,7 @@
     MJRefreshFooterView *_footerview;
     MJRefreshHeaderView *_headerview;
     NSMutableArray *dataArray;
+    int pageNum;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -40,6 +41,7 @@
     [tabBarView tabBarViewHidden];
     
     [self AFNRequest];
+    pageNum = 1;
 }
 
 
@@ -155,7 +157,7 @@
 {
     _baseview = refreshView;
     if (_baseview == _footerview) {
-        int pageNum =1;
+        
         pageNum++;
         MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         HUD.mode = MBProgressHUDModeIndeterminate;

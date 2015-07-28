@@ -8,10 +8,16 @@
 
 #import "EDProblemAnalyViewController.h"
 #import "EDDayInfoCell.h"
+#import "MJRefresh.h"
 
-@interface EDProblemAnalyViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface EDProblemAnalyViewController ()<UITableViewDelegate,UITableViewDataSource,MJRefreshBaseViewDelegate>
 {
     NSMutableArray *dataArray;
+    MJRefreshBaseView *_baseview;
+    MJRefreshFooterView *_footerview;
+    MJRefreshHeaderView *_headerview;
+    int pageNum;
+
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -25,6 +31,12 @@
     self.navigationItem.leftBarButtonItem = [Tools getNavBarItem:self clickAction:@selector(back)];
     
     [self AFNRequest:_nianji xueke:_xueke];
+    
+    pageNum = 1;
+    
+    [self initfooterview];
+    [self initheaderview];
+
 }
 
 #pragma mark 常用方法
@@ -49,14 +61,10 @@
     
     NSLog(@"类型--%@",[SEUtils getUserInfo].TokenInfo.access_token);
     NSDictionary *pramaters= @{@"access_token":[SEUtils getUserInfo].TokenInfo.access_token,
-                     @"type":@"1",
                      @"page":@"1",
                      @"pagesize":@"10",
-                     @"bjid":@"",
                      @"ceci":grade,
-                     @"xueke":sub,
-                     @"pushtime":@"",
-                     @"V_type":@""
+                     @"xueke":sub
                      };
         
    
@@ -95,6 +103,108 @@
     }];
     
 }
+
+#pragma mark 刷新
+//下拉刷新和上拉加载相关
+- (void)dealloc{
+    [_footerview free];
+    [_headerview free];
+}
+
+- (void)initfooterview{
+    _footerview = [[MJRefreshFooterView alloc]initWithScrollView:_tableView];
+    _footerview.delegate = self;
+}
+
+- (void)initheaderview{
+    _headerview = [[MJRefreshHeaderView alloc]initWithScrollView:_tableView];
+    _headerview.delegate = self;
+}
+
+//下拉刷新和上拉加载代理
+- (void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
+{
+    _baseview = refreshView;
+    if (_baseview == _footerview) {
+        
+        pageNum++;
+        MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        HUD.mode = MBProgressHUDModeIndeterminate;
+        HUD.labelText = @"Loading";
+        HUD.removeFromSuperViewOnHide = YES;
+        
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+        manager.requestSerializer.timeoutInterval = 10.f;
+        [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+        
+        NSLog(@"类型--%@",[SEUtils getUserInfo].TokenInfo.access_token);
+        NSDictionary *pramaters= @{@"access_token":[SEUtils getUserInfo].TokenInfo.access_token,
+                                   @"page":[NSNumber numberWithInt:pageNum],
+                                   @"pagesize":@"10",
+                                   @"ceci":_nianji,
+                                   @"xueke":_xueke
+                                   };
+        
+        
+        
+        NSString *urlString = [NSString stringWithFormat:@"%@EduOnlineList",SERVER_HOST];
+        
+        [manager GET:urlString parameters:pramaters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [HUD setHidden:YES];
+            NSLog(@"res--%@",responseObject);
+            if ([responseObject[@"responseCode"] intValue] ==0) {
+                
+                [dataArray addObjectsFromArray:responseObject[@"data"][@"list"]];
+                [_tableView reloadData];
+            }else
+            {
+                SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
+            }
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [HUD setHidden:YES];
+            if (operation.response.statusCode == 401) {
+                NSLog(@"请求超时");
+                //   [SEUtils repetitionLogin];
+            }else if(error.code == -1001)
+            {
+                SHOW_ALERT(@"提示", @"网络请求超时");
+            }else if (error.code == -1009)
+            {
+                SHOW_ALERT(@"提示", @"网络连接已断开");
+            }
+            else {
+                NSLog(@"Error:%@",error);
+                NSLog(@"err:%@",operation.responseObject[@"message"]);
+                //   SHOW_ALERT(@"提示",operation.responseObject[@"message"])
+            }
+        }];
+
+        
+        [self performSelector:@selector(hidden) withObject:nil afterDelay:1.5];
+    }
+    if (_baseview == _headerview) {
+        [self AFNRequest:_nianji xueke:_xueke];
+
+        //        _baseview = refreshView;
+        [self performSelector:@selector(hidden) withObject:nil afterDelay:1.5];
+    }
+    
+}
+
+- (void)hidden
+{
+    if (_baseview == _headerview)
+    {
+        [_headerview endRefreshing];
+    }
+    else
+    {
+        [_footerview endRefreshing];
+    }
+}
+
 
 #pragma mark tableView代理
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

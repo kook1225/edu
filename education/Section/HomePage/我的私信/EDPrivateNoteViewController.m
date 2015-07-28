@@ -11,12 +11,17 @@
 #import "EDPrivateNoteCell.h"
 #import "EDPrivateNoteSelectedCell.h"
 #import "EDPrivateDetailViewController.h"
+#import "MJRefresh.h"
 
-@interface EDPrivateNoteViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface EDPrivateNoteViewController ()<UITableViewDataSource,UITableViewDelegate,MJRefreshBaseViewDelegate>
 {
     SETabBarViewController *tabBarView;
     NSMutableArray *dataArray;
     NSMutableArray *selectedArray;
+    MJRefreshBaseView *_baseview;
+    MJRefreshHeaderView * _headerview;
+    MJRefreshFooterView * _footerview;
+    int pageNum;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -36,6 +41,11 @@
     
     selectedArray = [NSMutableArray array];
     [self AFNRequest];
+    
+    pageNum = 1;
+    [self initfooterview];
+    [self initheaderview];
+
 }
 
 #pragma mark 常用方法
@@ -103,6 +113,104 @@
     }];
     
 }
+
+#pragma mark 刷新
+//下拉刷新和上拉加载相关
+- (void)dealloc{
+    [_footerview free];
+    [_headerview free];
+}
+
+- (void)initfooterview{
+    _footerview = [[MJRefreshFooterView alloc]initWithScrollView:_tableView];
+    _footerview.delegate = self;
+}
+
+- (void)initheaderview{
+    _headerview = [[MJRefreshHeaderView alloc]initWithScrollView:_tableView];
+    _headerview.delegate = self;
+}
+
+//下拉刷新和上拉加载代理
+- (void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
+{
+    _baseview = refreshView;
+    if (_baseview == _footerview) {
+        
+        pageNum ++;
+        MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        HUD.mode = MBProgressHUDModeIndeterminate;
+        HUD.labelText = @"Loading";
+        HUD.removeFromSuperViewOnHide = YES;
+        
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+        manager.requestSerializer.timeoutInterval = 10.f;
+        [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+        
+        NSDictionary *pramaters= @{@"access_token":[SEUtils getUserInfo].TokenInfo.access_token,
+                                   @"pageSize":@"10",
+                                   @"page":[NSNumber numberWithInt:pageNum]};
+        
+        NSString *urlString = [NSString stringWithFormat:@"%@PrivateMessage",SERVER_HOST];
+        
+        [manager GET:urlString parameters:pramaters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [HUD setHidden:YES];
+            NSLog(@"res--%@",responseObject[@"data"]);
+            if ([responseObject[@"responseCode"] intValue] ==0) {
+                
+                [dataArray addObjectsFromArray:[NSMutableArray arrayWithArray:responseObject[@"data"][@"list"]]];
+                
+                
+                
+                [_tableView reloadData];
+                
+            }else
+            {
+                SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
+            }
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [HUD setHidden:YES];
+            if (operation.response.statusCode == 401) {
+                NSLog(@"请求超时");
+                //   [SEUtils repetitionLogin];
+            }else if(error.code == -1001)
+            {
+                SHOW_ALERT(@"提示", @"网络请求超时");
+            }else if (error.code == -1009)
+            {
+                SHOW_ALERT(@"提示", @"网络连接已断开");
+            }
+            else {
+                NSLog(@"Error:%@",error);
+                NSLog(@"err:%@",operation.responseObject[@"message"]);
+                //   SHOW_ALERT(@"提示",operation.responseObject[@"message"])
+            }
+        }];
+        
+        [self performSelector:@selector(hidden) withObject:nil afterDelay:1.5];
+    }
+    if (_baseview == _headerview) {
+        [self AFNRequest];
+        //        _baseview = refreshView;
+        [self performSelector:@selector(hidden) withObject:nil afterDelay:1.5];
+    }
+    
+}
+
+- (void)hidden
+{
+    if (_baseview == _headerview)
+    {
+        [_headerview endRefreshing];
+    }
+    else
+    {
+        [_footerview endRefreshing];
+    }
+}
+
 #pragma mark tableView 代理
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {

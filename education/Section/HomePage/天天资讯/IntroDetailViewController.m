@@ -86,10 +86,6 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 #pragma mark webView代理
 - (void)webViewDidFinishLoad:(UIWebView *)webView

@@ -34,8 +34,6 @@
     [super viewDidLoad];
     self.title = @"成长足迹";
     
-    dataArray = [NSMutableArray array];
-    
     tabBarViewController = (SETabBarViewController *)self.navigationController.parentViewController;
     [tabBarViewController tabBarViewHidden];
 
@@ -64,6 +62,8 @@
 }
 
 - (void)growUpApi {
+    dataArray = [NSMutableArray array];
+    
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     HUD.mode = MBProgressHUDModeIndeterminate;
     HUD.labelText = @"Loading";
@@ -72,7 +72,7 @@
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
-    //1405581
+    
     NSDictionary *parameter;
     
     if ([[[[[SEUtils getUserInfo] UserDetail] userinfo] YHLB] intValue] == 3) {
