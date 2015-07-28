@@ -7,6 +7,7 @@
 //
 
 #import "EDClassOnlineCell.h"
+#import <UIImageView+WebCache.h>
 
 @implementation EDClassOnlineCell
 
@@ -20,4 +21,13 @@
     // Configure the view for the selected state
 }
 
+- (void)setDataDic:(NSDictionary *)dic
+{
+    _titleLabel.text = dic[@"KEMU"];
+    _playCountLabel.text = [NSString stringWithFormat:@"已播放 %@次",dic[@"CECI"]];
+    
+    NSString *imgString = [NSString stringWithFormat:@"%@%@",IMAGE_HOST,dic[@"ZYTP"]];
+    NSURL *url = [NSURL URLWithString:imgString];
+    [_bkgImg sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"1"] ];
+}
 @end

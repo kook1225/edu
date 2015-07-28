@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface EDClassOnlineCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *bkgImg;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *playCountLabel;
 
+- (void)setDataDic:(NSDictionary *)dic;
 @end

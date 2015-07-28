@@ -138,7 +138,8 @@
     
 }
 
-- (void)replyApi {
+- (void)replyApi
+{
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     HUD.mode = MBProgressHUDModeIndeterminate;
     HUD.labelText = @"Loading";

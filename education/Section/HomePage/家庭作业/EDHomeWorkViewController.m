@@ -8,14 +8,21 @@
 
 #import "EDHomeWorkViewController.h"
 #import "SETabBarViewController.h"
+#import "MJRefresh.h"
 
-@interface EDHomeWorkViewController ()
+@interface EDHomeWorkViewController ()<MJRefreshBaseViewDelegate>
 {
     SETabBarViewController *tabBarView;
     CGFloat TAB_WITHDE;
     NSMutableArray *dataArray;
     UIDatePicker *datePicker;
     NSString *dateString;
+    MJRefreshBaseView *_baseview;
+    MJRefreshFooterView *_footerview;
+    MJRefreshHeaderView *_headerview;
+    int pageNum;
+   
+    
 }
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
@@ -39,6 +46,12 @@
     self.navigationItem.leftBarButtonItem = [Tools getNavBarItem:self clickAction:@selector(back)];
     tabBarView = (SETabBarViewController *)self.navigationController.parentViewController;
     [tabBarView tabBarViewHidden];
+    
+    pageNum = 1;
+    
+    [self initfooterview];
+    [self initheaderview];
+
     
     [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"homeWork"];
     
@@ -83,7 +96,8 @@
     _blurView.backgroundColor = [UIColor colorWithRed:51/255.0f green:57/255.0f blue:71/255.0f alpha:0.5];
     _blurView.frame = CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT);
     
-    [self AFNRequest:@""];
+    dateString = @"";
+    [self AFNRequest:dateString];
 }
 
 
@@ -137,26 +151,19 @@
     if ([[SEUtils getUserInfo].UserDetail.userinfo.YHLB intValue] ==3) {
         //老师
         pramaters= @{@"access_token":[SEUtils getUserInfo].TokenInfo.access_token,
-                    @"type":@"2",
                      @"page":@"1",
                      @"pagesize":@"10",
                      @"bjid":_detailId,
-                     @"ceci":@"",
-                     @"xueke":@"",
-                     @"pushtime":date,
-                     @"V_type":@""
+                     @"pushtime":date
                      };
   
     }else
     {
         pramaters= @{@"access_token":[SEUtils getUserInfo].TokenInfo.access_token,
-                     @"type":@"2",
                      @"page":@"1",
                      @"pagesize":@"10",
-                     @"ceci":@"",
-                     @"xueke":@"",
-                     @"pushtime":date,
-                     @"V_type":@""
+                     @"bjid":@"",
+                     @"pushtime":date
                      };
     }
     
@@ -227,7 +234,7 @@
     UILabel *homeWork = [[UILabel alloc]initWithFrame:CGRectMake(10, 5, TAB_WITHDE-20, 40)];
     homeWork.textColor = [UIColor colorWithRed:255/255.0f green:124/255.0f blue:6/255.0f alpha:1.0];
     homeWork.font = [UIFont systemFontOfSize:12.0];
-    NSString *text = [NSString stringWithFormat:@"%@:%@",dataArray[indexPath.row][@"ZYMC"],dataArray[indexPath.row][@"ZYNR"]];
+    NSString *text = [NSString stringWithFormat:@"%@",dataArray[indexPath.row][@"ZYNR"]];
     homeWork.numberOfLines = 0;
     
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc]initWithString:text];;
@@ -239,11 +246,121 @@
     homeWork.attributedText = attributedString;
     [cell addSubview:homeWork];
     
-    
-    
     return cell;
 }
 
+#pragma mark 刷新
+//下拉刷新和上拉加载相关
+- (void)dealloc{
+    [_footerview free];
+    [_headerview free];
+}
+
+- (void)initfooterview{
+    _footerview = [[MJRefreshFooterView alloc]initWithScrollView:_tableView];
+    _footerview.delegate = self;
+}
+
+- (void)initheaderview{
+    _headerview = [[MJRefreshHeaderView alloc]initWithScrollView:_tableView];
+    _headerview.delegate = self;
+}
+
+//下拉刷新和上拉加载代理
+- (void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
+{
+    _baseview = refreshView;
+    if (_baseview == _footerview) {
+        
+        pageNum++;
+        MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        HUD.mode = MBProgressHUDModeIndeterminate;
+        HUD.labelText = @"Loading";
+        HUD.removeFromSuperViewOnHide = YES;
+        
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+        manager.requestSerializer.timeoutInterval = 10.f;
+        [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+        
+        NSLog(@"类型--%@",[SEUtils getUserInfo].UserDetail.userinfo.YHLB);
+        NSDictionary *pramaters;
+        if ([[SEUtils getUserInfo].UserDetail.userinfo.YHLB intValue] ==3) {
+            //老师
+            pramaters= @{@"access_token":[SEUtils getUserInfo].TokenInfo.access_token,
+                         @"page":[NSNumber numberWithInt:pageNum],
+                         @"pagesize":@"10",
+                         @"bjid":_detailId,
+                         @"pushtime":dateString
+                         };
+            
+        }else
+        {
+            pramaters= @{@"access_token":[SEUtils getUserInfo].TokenInfo.access_token,
+                         @"page":[NSNumber numberWithInt:pageNum],
+                         @"pagesize":@"10",
+                         @"bjid":@"",
+                         @"pushtime":dateString
+                         };
+        }
+        
+        NSString *urlString = [NSString stringWithFormat:@"%@EduOnlineList",SERVER_HOST];
+        
+        [manager GET:urlString parameters:pramaters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [HUD setHidden:YES];
+            NSLog(@"res--%@",responseObject);
+            if ([responseObject[@"responseCode"] intValue] ==0) {
+                
+                [dataArray addObjectsFromArray:responseObject[@"data"][@"list"]];
+                [_tableView reloadData];
+            }else
+            {
+                SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
+            }
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [HUD setHidden:YES];
+            if (operation.response.statusCode == 401) {
+                NSLog(@"请求超时");
+                //   [SEUtils repetitionLogin];
+            }else if(error.code == -1001)
+            {
+                SHOW_ALERT(@"提示", @"网络请求超时");
+            }else if (error.code == -1009)
+            {
+                SHOW_ALERT(@"提示", @"网络连接已断开");
+            }
+            else {
+                NSLog(@"Error:%@",error);
+                NSLog(@"err:%@",operation.responseObject[@"message"]);
+                //   SHOW_ALERT(@"提示",operation.responseObject[@"message"])
+            }
+        }];
+
+        
+        
+        [self performSelector:@selector(hidden) withObject:nil afterDelay:1.5];
+    }
+    if (_baseview == _headerview) {
+        [self AFNRequest:dateString];
+        
+        //        _baseview = refreshView;
+        [self performSelector:@selector(hidden) withObject:nil afterDelay:1.5];
+    }
+    
+}
+
+- (void)hidden
+{
+    if (_baseview == _headerview)
+    {
+        [_headerview endRefreshing];
+    }
+    else
+    {
+        [_footerview endRefreshing];
+    }
+}
 
 
 @end

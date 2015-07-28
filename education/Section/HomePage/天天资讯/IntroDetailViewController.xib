@@ -8,6 +8,7 @@
             <connections>
                 <outlet property="scrollView" destination="Jpj-eF-K4Y" id="ZrA-2o-fG5"/>
                 <outlet property="timeLabel" destination="VGH-Na-q9m" id="8Ts-ij-iEU"/>
+                <outlet property="titleLabel" destination="VEc-14-ecD" id="o03-uD-SqT"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="webView" destination="REY-1p-Teg" id="50b-5t-jnT"/>
             </connections>
