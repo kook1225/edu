@@ -10,14 +10,20 @@
 #import "SETabBarViewController.h"
 #import "EDMyPhotoCell.h"
 #import "EDPhotoDetailViewController.h"
+#import "MJRefresh.h"
 
-@interface EDMyPhotoViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface EDMyPhotoViewController ()<UITableViewDataSource,UITableViewDelegate,MJRefreshBaseViewDelegate>
 {
     SETabBarViewController *tabBarView;
-    NSArray *dataArray;
+    NSMutableArray *dataArray;
     NSMutableArray *stringArray;
     NSMutableArray *imagesArray;
     NSMutableArray *imageArrays;
+    
+    MJRefreshBaseView *_baseview;
+    MJRefreshFooterView *_footerview;
+    MJRefreshHeaderView *_headerview;
+    int pageNum;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -31,13 +37,19 @@
     self.title = @"相册";
     self.navigationItem.leftBarButtonItem = [Tools getNavBarItem:self clickAction:@selector(back)];
     
+    pageNum = 1;
+    
+    [self initfooterview];
+    [self initheaderview];
+    
+    
     tabBarView = (SETabBarViewController *)self.navigationController.parentViewController;
     [tabBarView tabBarViewHidden];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     
-    dataArray = [NSArray array];
+    dataArray = [NSMutableArray array];
     stringArray = [NSMutableArray array];
     imagesArray = [NSMutableArray array];
     
@@ -151,5 +163,106 @@
     photoDetailVC.album = @"相册";
     [self.navigationController pushViewController:photoDetailVC animated:YES];
 }
+
+#pragma mark 刷新
+//下拉刷新和上拉加载相关
+- (void)dealloc{
+    [_footerview free];
+    [_headerview free];
+}
+
+- (void)initfooterview{
+    _footerview = [[MJRefreshFooterView alloc]initWithScrollView:_tableView];
+    _footerview.delegate = self;
+}
+
+- (void)initheaderview{
+    _headerview = [[MJRefreshHeaderView alloc]initWithScrollView:_tableView];
+    _headerview.delegate = self;
+}
+
+//下拉刷新和上拉加载代理
+- (void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
+{
+    _baseview = refreshView;
+    if (_baseview == _footerview) {
+        pageNum++;
+        MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        HUD.mode = MBProgressHUDModeIndeterminate;
+        HUD.labelText = @"Loading";
+        HUD.removeFromSuperViewOnHide = YES;
+        
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+        manager.requestSerializer.timeoutInterval = 10.f;
+        [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+        
+        NSDictionary *parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],
+                                    @"pageSize":@"10",
+                                    @"page":[NSNumber numberWithInt:pageNum]};
+        
+        
+        NSString *urlStr = [NSString stringWithFormat:@"%@StudentAlbums",SERVER_HOST];
+        
+        [manager GET:urlStr parameters:parameter success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [HUD setHidden:YES];
+            
+            // NSError *err;
+            
+            if ([responseObject[@"responseCode"] intValue] ==0) {
+                
+                // dataArray = [growUpModel arrayOfModelsFromDictionaries:responseObject[@"data"] error:&err];
+                
+                [dataArray addObjectsFromArray:[ListModel arrayOfModelsFromDictionaries:responseObject[@"data"]]];
+                
+                [_tableView reloadData];
+                
+            }else
+            {
+                SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
+            }
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [HUD setHidden:YES];
+            if (operation.response.statusCode == 401) {
+                NSLog(@"请求超时");
+                //   [SEUtils repetitionLogin];
+            }else if(error.code == -1001)
+            {
+                SHOW_ALERT(@"提示", @"网络请求超时");
+            }else if (error.code == -1009)
+            {
+                SHOW_ALERT(@"提示", @"网络连接已断开");
+            }
+            else {
+                NSLog(@"Error:%@",error);
+                NSLog(@"err:%@",operation.responseObject[@"message"]);
+                //   SHOW_ALERT(@"提示",operation.responseObject[@"message"])
+            }
+        }];
+        
+        
+        [self performSelector:@selector(hidden) withObject:nil afterDelay:1.5];
+    }
+    if (_baseview == _headerview) {
+        [self album];
+        //        _baseview = refreshView;
+        [self performSelector:@selector(hidden) withObject:nil afterDelay:1.5];
+    }
+    
+}
+
+- (void)hidden
+{
+    if (_baseview == _headerview)
+    {
+        [_headerview endRefreshing];
+    }
+    else
+    {
+        [_footerview endRefreshing];
+    }
+}
+
 
 @end
