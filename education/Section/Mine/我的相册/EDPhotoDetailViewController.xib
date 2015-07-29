@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EDPhotoDetailViewController">
             <connections>
+                <outlet property="msgLabel" destination="yU9-hM-p6S" id="dGD-d0-bI2"/>
+                <outlet property="msgView" destination="l5P-ZP-lf8" id="jNA-Dh-kri"/>
                 <outlet property="replyButton" destination="xcN-5a-vIq" id="KHW-NN-aYH"/>
                 <outlet property="replyTextField" destination="8Sw-Ie-nY0" id="1qw-fl-eUa"/>
                 <outlet property="replyView" destination="mGk-6h-Kmd" id="5Rm-2g-w0o"/>
@@ -82,19 +84,37 @@
                         <constraint firstItem="xcN-5a-vIq" firstAttribute="bottom" secondItem="8Sw-Ie-nY0" secondAttribute="bottom" id="rxf-AP-aGg"/>
                     </constraints>
                 </view>
+                <view alpha="0.69999998807907104" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l5P-ZP-lf8">
+                    <rect key="frame" x="80" y="380" width="160" height="30"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="成功" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yU9-hM-p6S">
+                            <rect key="frame" x="0.0" y="5" width="160" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="zX3-gV-dpt"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="mGk-6h-Kmd" secondAttribute="bottom" constant="50" id="BAA-x2-SkU"/>
                 <constraint firstAttribute="trailing" secondItem="mGk-6h-Kmd" secondAttribute="trailing" id="PVj-yd-fAe"/>
+                <constraint firstAttribute="trailing" secondItem="l5P-ZP-lf8" secondAttribute="trailing" constant="80" id="WDl-pc-1Ly"/>
+                <constraint firstAttribute="bottom" secondItem="l5P-ZP-lf8" secondAttribute="bottom" constant="94" id="e4S-kK-SjW"/>
                 <constraint firstAttribute="trailing" secondItem="16S-cP-S8m" secondAttribute="trailing" id="k0q-yN-d8G"/>
                 <constraint firstItem="16S-cP-S8m" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="tW5-2b-mpz"/>
                 <constraint firstItem="16S-cP-S8m" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="v8t-lR-gZc"/>
+                <constraint firstItem="l5P-ZP-lf8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="80" id="vCK-9Y-VYi"/>
                 <constraint firstAttribute="bottom" secondItem="16S-cP-S8m" secondAttribute="bottom" constant="50" id="yTa-Pt-WUm"/>
                 <constraint firstItem="mGk-6h-Kmd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="zFa-DX-ZEJ"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-            <point key="canvasLocation" x="231" y="100"/>
+            <point key="canvasLocation" x="1" y="-7"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

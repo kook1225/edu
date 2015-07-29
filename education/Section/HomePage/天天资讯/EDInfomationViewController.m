@@ -30,6 +30,7 @@
  }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *headView;
+@property (weak, nonatomic) IBOutlet UILabel *nonDataLabel;
 
 
 @end
@@ -52,6 +53,7 @@
 
     [self TitleAFNRequest];
     
+    _nonDataLabel.hidden = YES;
     
 }
 
@@ -175,9 +177,16 @@
         [HUD setHidden:YES];
         NSLog(@"res--%@",responseObject);
         if ([responseObject[@"responseCode"] intValue] ==0) {
-            EDInfomationModel *dic = [[EDInfomationModel alloc]initWithDictionary:responseObject[@"data"] error:nil];
-            dataArray = [EDInfoArrayModel arrayOfModelsFromDictionaries:dic.list error:nil];
-            [_tableView reloadData];
+            if (responseObject[@"data"] == [NSNull null]) {
+                _nonDataLabel.hidden = NO;
+                _tableView.hidden = YES;
+            }else
+            {
+                EDInfomationModel *dic = [[EDInfomationModel alloc]initWithDictionary:responseObject[@"data"] error:nil];
+                dataArray = [EDInfoArrayModel arrayOfModelsFromDictionaries:dic.list error:nil];
+                [_tableView reloadData];
+            }
+            
             
         }else
         {

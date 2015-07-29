@@ -25,6 +25,7 @@
     int pageNum;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UILabel *nonDataLabel;
 
 @end
 
@@ -40,6 +41,7 @@
     [tabBarView tabBarViewHidden];
     [self AFNRequest];
     
+    _nonDataLabel.hidden = YES;
     pageNum = 1;
     [self initfooterview];
     [self initheaderview];
@@ -88,8 +90,15 @@
         [HUD setHidden:YES];
         NSLog(@"res--%@",responseObject);
         if ([responseObject[@"responseCode"] intValue] ==0) {
-            dataArray = [MUScoreModel arrayOfModelsFromDictionaries:responseObject[@"data"] error:nil];
-            [_tableView reloadData];
+            if (responseObject[@"data"] == [NSNull null]) {
+                _nonDataLabel.hidden = NO;
+                _tableView.hidden = YES;
+            }else
+            {
+                dataArray = [MUScoreModel arrayOfModelsFromDictionaries:responseObject[@"data"] error:nil];
+                [_tableView reloadData];
+            }
+            
             
         }else
         {

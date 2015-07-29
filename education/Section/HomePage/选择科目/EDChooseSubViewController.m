@@ -24,6 +24,8 @@
 }
 @property (weak, nonatomic) IBOutlet UITableView *gradeTableView;
 @property (weak, nonatomic) IBOutlet UITableView *subjectTableView;
+@property (weak, nonatomic) IBOutlet UILabel *nonDataLabel;
+@property (weak, nonatomic) IBOutlet UILabel *nonDataLabel2;
 @end
 
 @implementation EDChooseSubViewController
@@ -37,6 +39,10 @@
     
     tabBarView = (SETabBarViewController *)self.navigationController.parentViewController;
     [tabBarView tabBarViewHidden];
+    
+    _nonDataLabel.hidden = YES;
+    _nonDataLabel2.hidden = YES;
+    
     
     if ([[SEUtils getUserInfo].UserDetail.userinfo.YHLB intValue]== 3) {
         studentId = @"";
@@ -88,18 +94,46 @@
         if ([responseObject[@"responseCode"] intValue] ==0) {
             
             if (num==1) {
-                grdArray = responseObject[@"data"];
-                [_gradeTableView reloadData];
+                if (responseObject[@"data"] == [NSNull null]) {
+                    _nonDataLabel.hidden = NO;
+                    _gradeTableView.hidden = YES;
+                }else
+                {
+                    _nonDataLabel.hidden = YES;
+                    _gradeTableView.hidden = NO;
+                    grdArray = responseObject[@"data"];
+                    [_gradeTableView reloadData];
+                }
+                
                 
             }else if(num == 2)
             {
-                subArray = responseObject[@"data"];
-                [_subjectTableView reloadData];
+                if (responseObject[@"data"] == [NSNull null]) {
+                    _nonDataLabel2.hidden = NO;
+                    _subjectTableView.hidden = YES;
+                }else
+                {
+                    _nonDataLabel2.hidden = YES;
+                    _subjectTableView.hidden = NO;
+                    subArray = responseObject[@"data"];
+                    [_subjectTableView reloadData];
+                }
+                
             }else
             {
-                grdArray = responseObject[@"data"];
-                [_gradeTableView reloadData];
-                [self AFNRequest:2 class:grdArray[0][@"NJMC"]];
+                if (responseObject[@"data"] == [NSNull null]) {
+                    _nonDataLabel.hidden = NO;
+                    _gradeTableView.hidden = YES;
+                }else
+                {
+                    _nonDataLabel.hidden = YES;
+                    _gradeTableView.hidden = NO;
+                    grdArray = responseObject[@"data"];
+                    [_gradeTableView reloadData];
+                    [self AFNRequest:2 class:grdArray[0][@"NJMC"]];
+                }
+
+                
             }
             
             gradeString = grdArray[0][@"NJMC"];

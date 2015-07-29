@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EDNoticeViewController">
             <connections>
+                <outlet property="nonDataLabel" destination="RUM-MO-K56" id="mEc-D9-dER"/>
                 <outlet property="tableView" destination="oBf-ia-Cq7" id="BYc-AF-oFs"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -23,16 +24,27 @@
                         <outlet property="delegate" destination="-1" id="3wi-ws-Ohq"/>
                     </connections>
                 </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂无数据" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RUM-MO-K56">
+                    <rect key="frame" x="132" y="241" width="56" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="0Kl-vE-zlw"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="oBf-ia-Cq7" secondAttribute="bottom" constant="50" id="CPh-XG-2Ej"/>
                 <constraint firstItem="oBf-ia-Cq7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="LPr-f9-c7o"/>
                 <constraint firstItem="oBf-ia-Cq7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="NnN-fR-78o"/>
+                <constraint firstItem="RUM-MO-K56" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="241" id="SM2-gg-5xa"/>
                 <constraint firstAttribute="trailing" secondItem="oBf-ia-Cq7" secondAttribute="trailing" id="kQd-Md-4i0"/>
+                <constraint firstItem="RUM-MO-K56" firstAttribute="centerX" secondItem="oBf-ia-Cq7" secondAttribute="centerX" id="wfc-37-5gN"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-            <point key="canvasLocation" x="245" y="258"/>
+            <point key="canvasLocation" x="38" y="-4"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -22,7 +22,8 @@
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *nonDataLabel;
-
+@property (weak, nonatomic) IBOutlet UIView *msgView;
+@property (weak, nonatomic) IBOutlet UILabel *msgLabel;
 @end
 
 @implementation EDChooseStudentsViewController
@@ -33,6 +34,11 @@
     self.title = @"选择学生";
     self.navigationItem.leftBarButtonItem = [Tools getNavBarItem:self clickAction:@selector(back)];
     _nonDataLabel.hidden = YES;
+    _msgView.hidden = YES;
+    _msgView.layer.cornerRadius = 4.0f;
+    _msgView.layer.masksToBounds = YES;
+    
+
     [self AFNRequest];
 }
 
@@ -41,6 +47,11 @@
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
+- (void)hiddenView
+{
+    _msgView.hidden = YES;
+}
+
 - (NSMutableArray *)getPaixuArray:(NSMutableArray *)titleArray dataArray:(NSArray *)dataArray
 {
     NSMutableArray *item = [NSMutableArray array];
@@ -112,7 +123,9 @@
             
         }else
         {
-            SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
+            _msgView.hidden = NO;
+            _msgLabel.text = responseObject[@"responseMessage"];
+            [self performSelector:@selector(hiddenView) withObject:self afterDelay:2.0];
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

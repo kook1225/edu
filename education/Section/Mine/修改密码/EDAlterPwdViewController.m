@@ -18,6 +18,8 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *surePwdTextField;
 @property (weak, nonatomic) IBOutlet UIButton *commitBtn;
+@property (weak, nonatomic) IBOutlet UIView *msgView;
+@property (weak, nonatomic) IBOutlet UILabel *msgLabel;
 
 @end
 
@@ -30,7 +32,8 @@
     
     tabBarView = (SETabBarViewController *)self.navigationController.parentViewController;
     [tabBarView tabBarViewHidden];
-    
+    _msgView.hidden = YES;
+   
     [self drawlayer];
 }
 #pragma mark 常用方法
@@ -38,10 +41,17 @@
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
+- (void)hiddenView
+{
+    _msgView.hidden = YES;
+}
 - (void)drawlayer
 {
     _commitBtn.layer.cornerRadius = 5.0f;
     _commitBtn.layer.masksToBounds = YES;
+    _msgView.layer.cornerRadius = 4.0f;
+    _msgView.layer.masksToBounds = YES;
+   
 }
 
 - (IBAction)commitFunction:(id)sender {
@@ -89,7 +99,10 @@
                               [alert show];
                           }
                           else {
-                              SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
+                              _msgView.hidden = NO;
+                              _msgLabel.text = responseObject[@"responseMessage"];
+                              [self performSelector:@selector(hiddenView) withObject:self afterDelay:2.0];
+
                           }
                           
                           

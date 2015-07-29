@@ -8,6 +8,8 @@
             <connections>
                 <outlet property="commitBtn" destination="2kL-gE-1dX" id="j0H-oD-ZOw"/>
                 <outlet property="headView" destination="baw-T2-MLL" id="ALC-uW-BTV"/>
+                <outlet property="msgLabel" destination="2fl-by-828" id="l9c-fM-nGV"/>
+                <outlet property="msgView" destination="wEw-OZ-REx" id="ziQ-fd-D9Z"/>
                 <outlet property="textView" destination="uFK-Ed-nxv" id="Vcc-GB-xI8"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -47,23 +49,41 @@
                         <action selector="sendFuction:" destination="-1" eventType="touchUpInside" id="RuE-Zf-n7b"/>
                     </connections>
                 </button>
+                <view alpha="0.69999998807907104" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wEw-OZ-REx">
+                    <rect key="frame" x="80" y="380" width="160" height="30"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="成功" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2fl-by-828">
+                            <rect key="frame" x="0.0" y="5" width="160" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="yen-lQ-ECa"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="uFK-Ed-nxv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="96" id="59R-mg-gPx"/>
                 <constraint firstAttribute="trailing" secondItem="baw-T2-MLL" secondAttribute="trailing" id="5k0-hK-hSY"/>
+                <constraint firstItem="wEw-OZ-REx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="80" id="9jq-aV-BFi"/>
                 <constraint firstItem="uFK-Ed-nxv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="G9f-XT-PfG"/>
                 <constraint firstItem="uFK-Ed-nxv" firstAttribute="centerX" secondItem="baw-T2-MLL" secondAttribute="centerX" id="Xyz-vb-QuC"/>
                 <constraint firstItem="uFK-Ed-nxv" firstAttribute="centerX" secondItem="2kL-gE-1dX" secondAttribute="centerX" id="Yh2-xb-q5B"/>
                 <constraint firstItem="2kL-gE-1dX" firstAttribute="top" secondItem="uFK-Ed-nxv" secondAttribute="bottom" constant="29" id="bb1-UE-Z75"/>
                 <constraint firstItem="baw-T2-MLL" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="dak-wk-iq1"/>
+                <constraint firstAttribute="bottom" secondItem="wEw-OZ-REx" secondAttribute="bottom" constant="94" id="gz3-jb-6he"/>
                 <constraint firstItem="2kL-gE-1dX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="80" id="jUH-Le-pVX"/>
                 <constraint firstItem="baw-T2-MLL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="qkB-fq-77j"/>
                 <constraint firstItem="uFK-Ed-nxv" firstAttribute="top" secondItem="baw-T2-MLL" secondAttribute="bottom" constant="1" id="xen-sT-ZXI"/>
+                <constraint firstAttribute="trailing" secondItem="wEw-OZ-REx" secondAttribute="trailing" constant="80" id="zjH-6t-ftd"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-            <point key="canvasLocation" x="245" y="258"/>
+            <point key="canvasLocation" x="-43" y="185"/>
         </view>
     </objects>
     <resources>

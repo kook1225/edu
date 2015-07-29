@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EDPrivateNoteViewController">
             <connections>
+                <outlet property="nonDataLabel" destination="gKl-KH-xSB" id="cLM-NI-5Q8"/>
                 <outlet property="tableView" destination="2fK-XJ-hjR" id="9Zq-gk-gdA"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -23,12 +24,24 @@
                         <outlet property="delegate" destination="-1" id="rCH-mu-8d9"/>
                     </connections>
                 </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂无数据" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKl-KH-xSB">
+                    <rect key="frame" x="130" y="216" width="60" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="EQN-Fy-XTD"/>
+                        <constraint firstAttribute="height" constant="21" id="FvV-Hm-RiN"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="2fK-XJ-hjR" secondAttribute="bottom" constant="50" id="480-s5-azA"/>
                 <constraint firstAttribute="trailing" secondItem="2fK-XJ-hjR" secondAttribute="trailing" id="P1z-rN-dK7"/>
+                <constraint firstItem="gKl-KH-xSB" firstAttribute="centerX" secondItem="2fK-XJ-hjR" secondAttribute="centerX" id="R1o-vc-gqQ"/>
                 <constraint firstItem="2fK-XJ-hjR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Rv4-Ue-oyd"/>
+                <constraint firstItem="gKl-KH-xSB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="216" id="Yly-jx-85W"/>
                 <constraint firstItem="2fK-XJ-hjR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bd1-78-aKg"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>

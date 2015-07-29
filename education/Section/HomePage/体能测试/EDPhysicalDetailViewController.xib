@@ -6,6 +6,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EDPhysicalDetailViewController">
             <connections>
+                <outlet property="msgLabel" destination="FMV-KR-b3h" id="lko-Tt-8cE"/>
+                <outlet property="msgView" destination="rgl-rm-4mf" id="Nmn-uu-5yK"/>
                 <outlet property="tableView" destination="amx-u8-W2G" id="nQP-hq-aXb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -23,13 +25,29 @@
                         <outlet property="delegate" destination="-1" id="Ufb-6F-FUd"/>
                     </connections>
                 </tableView>
+                <view alpha="0.69999998807907104" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rgl-rm-4mf">
+                    <rect key="frame" x="80" y="380" width="160" height="30"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="成功" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FMV-KR-b3h">
+                            <rect key="frame" x="0.0" y="5" width="160" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="amx-u8-W2G" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="1P7-Lq-cES"/>
                 <constraint firstAttribute="trailing" secondItem="amx-u8-W2G" secondAttribute="trailing" id="3t5-bY-OJs"/>
+                <constraint firstItem="rgl-rm-4mf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="380" id="58G-va-BbP"/>
                 <constraint firstItem="amx-u8-W2G" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Jph-bn-ALQ"/>
+                <constraint firstItem="rgl-rm-4mf" firstAttribute="centerX" secondItem="amx-u8-W2G" secondAttribute="centerX" id="Lhb-R1-P4h"/>
                 <constraint firstAttribute="bottom" secondItem="amx-u8-W2G" secondAttribute="bottom" constant="50" id="Tre-uC-5Br"/>
+                <constraint firstAttribute="bottom" secondItem="rgl-rm-4mf" secondAttribute="bottom" constant="94" id="tFN-Za-Hhi"/>
+                <constraint firstItem="rgl-rm-4mf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="80" id="wna-8G-dvi"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <point key="canvasLocation" x="245" y="176"/>

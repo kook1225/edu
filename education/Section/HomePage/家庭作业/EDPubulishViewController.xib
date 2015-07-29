@@ -11,6 +11,8 @@
                 <outlet property="containView" destination="nCt-25-13r" id="3Ru-pb-87c"/>
                 <outlet property="dateLabel" destination="tko-6g-2yY" id="avh-Ks-BJD"/>
                 <outlet property="dateView" destination="ZVv-ER-OYG" id="GrF-qV-M0v"/>
+                <outlet property="msgLabel" destination="Ejc-UQ-TZ2" id="dbZ-d6-W4a"/>
+                <outlet property="msgView" destination="bID-MF-8SS" id="8p3-pk-JMG"/>
                 <outlet property="publishBtn" destination="9a1-qF-hdE" id="Xct-gI-ShH"/>
                 <outlet property="sureBtn" destination="kjc-6J-clO" id="uwx-U1-R54"/>
                 <outlet property="textView" destination="rv2-3h-gi2" id="Nji-6N-U7t"/>
@@ -30,7 +32,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" id="ZVv-ER-OYG">
-                    <rect key="frame" x="125.9999999671864" y="8" width="186.0000000328136" height="30"/>
+                    <rect key="frame" x="125.99999996834123" y="8" width="186.00000003165877" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <view contentMode="scaleToFill" id="awB-ye-tYS">
@@ -39,11 +41,11 @@
                             <color key="backgroundColor" red="0.9137254901960784" green="0.9137254901960784" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </view>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowDown" id="fcW-FI-KNt">
-                            <rect key="frame" x="162.0000000328136" y="8" width="13" height="13"/>
+                            <rect key="frame" x="162.00000003165877" y="8" width="13" height="13"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2015-07-24" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tko-6g-2yY">
-                            <rect key="frame" x="13" y="4" width="129.0000000328136" height="21"/>
+                            <rect key="frame" x="13" y="4" width="129.00000003165877" height="21"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -80,6 +82,20 @@
                         <action selector="publishFunction:" destination="-1" eventType="touchUpInside" id="0Ug-vK-80L"/>
                     </connections>
                 </button>
+                <view alpha="0.69999998807907104" contentMode="scaleToFill" id="bID-MF-8SS">
+                    <rect key="frame" x="80" y="380" width="160" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="成功" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ejc-UQ-TZ2">
+                            <rect key="frame" x="0.0" y="5" width="160" height="21"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>

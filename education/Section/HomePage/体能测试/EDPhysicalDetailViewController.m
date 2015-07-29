@@ -17,6 +17,8 @@
     NSMutableArray *scoreArray;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIView *msgView;
+@property (weak, nonatomic) IBOutlet UILabel *msgLabel;
 
 @end
 
@@ -30,6 +32,10 @@
     dataArray = @[@"身高",@"体重",@"肺活量",@"五十米跑",@"坐位体前屈",@"50米*8往返跑",@"一分钟仰卧起坐",@"一分钟跳绳",@"八百米跑",@"一千米跑",@"引体向上"];
     
     [self AFNRequest];
+    _msgView.hidden = YES;
+    _msgView.layer.cornerRadius = 4.0f;
+    _msgView.layer.masksToBounds = YES;
+    
 }
 
 #pragma mark 常用方法
@@ -37,6 +43,11 @@
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
+- (void)hiddenView
+{
+    _msgView.hidden = YES;
+}
+
 - (void)AFNRequest
 {
     scoreArray = [NSMutableArray array];
@@ -77,7 +88,9 @@
             [_tableView reloadData];
         }else
         {
-            SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
+            _msgView.hidden = NO;
+            _msgLabel.text = responseObject[@"responseMessage"];
+            [self performSelector:@selector(hiddenView) withObject:self afterDelay:2.0];
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

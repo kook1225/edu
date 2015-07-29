@@ -22,6 +22,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *sureBtn;
 @property (strong, nonatomic) IBOutlet UIView *blurView;
 
+@property (weak, nonatomic) IBOutlet UIView *msgView;
+@property (weak, nonatomic) IBOutlet UILabel *msgLabel;
+
 @end
 
 @implementation EDPubulishViewController
@@ -49,6 +52,11 @@
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
+- (void)hiddenView
+{
+    _msgView.hidden = YES;
+}
+
 - (void)drawlayer
 {
     _dateView.layer.cornerRadius = 4.0f;
@@ -61,7 +69,10 @@
     
     _publishBtn.layer.cornerRadius = 4.0f;
     
-
+    _msgView.hidden = YES;
+    _msgView.layer.cornerRadius = 4.0f;
+    _msgView.layer.masksToBounds = YES;
+   
 
 }
 
@@ -94,10 +105,15 @@
             NSLog(@"res--%@",responseObject);
             if ([responseObject[@"responseCode"] intValue] ==0)
             {
-                SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
+                _msgView.hidden = NO;
+                _msgLabel.text = responseObject[@"responseMessage"];
+                [self performSelector:@selector(hiddenView) withObject:self afterDelay:2.0];
+                [self.navigationController popViewControllerAnimated:YES];
             }else
             {
-                SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
+                _msgView.hidden = NO;
+                _msgLabel.text = responseObject[@"responseMessage"];
+                [self performSelector:@selector(hiddenView) withObject:self afterDelay:2.0];
             }
             
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

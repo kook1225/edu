@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FillInforViewController">
@@ -9,6 +9,8 @@
                 <outlet property="areaLabel" destination="4by-Qy-7gU" id="VNL-HW-RKN"/>
                 <outlet property="classLabel" destination="T1g-NH-ihO" id="zCj-Os-yqV"/>
                 <outlet property="gradeLabel" destination="g0g-I8-CL7" id="xNM-Kv-8E7"/>
+                <outlet property="msgLabel" destination="OzT-Yo-q4l" id="Rbq-P1-XDz"/>
+                <outlet property="msgView" destination="nAc-e5-zo0" id="Rcj-se-aFa"/>
                 <outlet property="nameTextField" destination="STP-NV-gqs" id="0hR-mq-D2t"/>
                 <outlet property="registerBtn" destination="1Su-rS-sI7" id="cYC-QZ-SWB"/>
                 <outlet property="schoolLabel" destination="460-Ip-S5x" id="ZxA-Qa-SZm"/>
@@ -18,7 +20,7 @@
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
-            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" id="m2R-Xq-aFb" userLabel="old-View">
                     <rect key="frame" x="0.0" y="70" width="320" height="50"/>
@@ -235,6 +237,20 @@
                         <action selector="registerBtn:" destination="-1" eventType="touchUpInside" id="uCc-RP-wb2"/>
                     </connections>
                 </button>
+                <view alpha="0.69999998807907104" contentMode="scaleToFill" id="nAc-e5-zo0">
+                    <rect key="frame" x="75" y="380" width="160" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="成功" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OzT-Yo-q4l">
+                            <rect key="frame" x="0.0" y="5" width="160" height="21"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>

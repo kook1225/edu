@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EDPhySicalTestViewController">
             <connections>
+                <outlet property="nonDataLabel" destination="6nH-mU-Z16" id="Yfd-pQ-4Yh"/>
                 <outlet property="tableView" destination="D7K-zy-AN2" id="hkY-Ti-Xzv"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -23,6 +24,16 @@
                         <outlet property="delegate" destination="-1" id="X1u-Vb-z2B"/>
                     </connections>
                 </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂无数据" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6nH-mU-Z16">
+                    <rect key="frame" x="132" y="241" width="57" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="RlJ-ob-8Q8"/>
+                        <constraint firstAttribute="width" constant="57" id="S7K-Iv-Vnf"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -30,6 +41,8 @@
                 <constraint firstItem="D7K-zy-AN2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="hHv-wB-kRM"/>
                 <constraint firstAttribute="bottom" secondItem="D7K-zy-AN2" secondAttribute="bottom" constant="50" id="hSP-GH-L2U"/>
                 <constraint firstItem="D7K-zy-AN2" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="uMw-Eg-hMh"/>
+                <constraint firstItem="6nH-mU-Z16" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="241" id="xhe-fx-qaN"/>
+                <constraint firstItem="6nH-mU-Z16" firstAttribute="centerX" secondItem="D7K-zy-AN2" secondAttribute="centerX" id="yO5-5R-p0s"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <point key="canvasLocation" x="139" y="176"/>

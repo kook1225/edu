@@ -20,6 +20,9 @@
 @property (weak, nonatomic) IBOutlet UIView *replyView;
 @property (weak, nonatomic) IBOutlet UITextField *replyTextField;
 @property (weak, nonatomic) IBOutlet UIButton *replyButton;
+@property (weak, nonatomic) IBOutlet UIView *msgView;
+@property (weak, nonatomic) IBOutlet UILabel *msgLabel;
+
 @end
 
 @implementation EDPhotoDetailViewController
@@ -52,6 +55,11 @@
                                              selector:@selector(seePic:)
                                                  name:@"EDPhotoDetailCell"
                                                object:@"seePict"];
+    
+    _msgView.hidden = YES;
+    _msgView.layer.cornerRadius = 4.0f;
+    _msgView.layer.masksToBounds = YES;
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -60,6 +68,10 @@
 
 - (void)viewDidDisappear:(BOOL)animated {
     [[IQKeyboardManager sharedManager] setEnableAutoToolbar:YES];
+}
+- (void)hidden
+{
+    _msgView.hidden = YES;
 }
 
 #pragma mark - UITextFieldDelegate Method
@@ -134,7 +146,9 @@
                   [self classCircleApi];
               }
               else {
-                  SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
+                  _msgView.hidden = NO;
+                  _msgLabel.text = responseObject[@"responseMessage"];
+                  [self performSelector:@selector(hidden) withObject:self afterDelay:2.0];
               }
               
           }

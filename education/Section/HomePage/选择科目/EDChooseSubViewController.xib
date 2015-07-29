@@ -2,11 +2,14 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EDChooseSubViewController">
             <connections>
                 <outlet property="gradeTableView" destination="xRP-dz-E87" id="G0i-lb-Ci1"/>
+                <outlet property="nonDataLabel" destination="U74-Hs-ULe" id="Hhh-1a-eTM"/>
+                <outlet property="nonDataLabel2" destination="eyS-Cb-S2e" id="rVZ-gI-V9g"/>
                 <outlet property="subjectTableView" destination="HXr-QM-E6g" id="aMb-Nu-pL0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -35,15 +38,35 @@
                         <outlet property="delegate" destination="-1" id="kxQ-l2-uZE"/>
                     </connections>
                 </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂无数据" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U74-Hs-ULe">
+                    <rect key="frame" x="192" y="241" width="56" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂无数据" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyS-Cb-S2e">
+                    <rect key="frame" x="32" y="241" width="56" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="ITd-ZE-HPW"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="HXr-QM-E6g" firstAttribute="top" secondItem="xRP-dz-E87" secondAttribute="top" id="0lk-3j-Lfr"/>
                 <constraint firstItem="xRP-dz-E87" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="10U-HW-h1m"/>
+                <constraint firstItem="eyS-Cb-S2e" firstAttribute="centerX" secondItem="xRP-dz-E87" secondAttribute="centerX" id="1Ow-od-Lzw"/>
                 <constraint firstAttribute="trailing" secondItem="HXr-QM-E6g" secondAttribute="trailing" id="I0w-I1-gnW"/>
                 <constraint firstItem="xRP-dz-E87" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="LIL-z8-RpF"/>
                 <constraint firstItem="xRP-dz-E87" firstAttribute="bottom" secondItem="HXr-QM-E6g" secondAttribute="bottom" id="R0j-8s-w12"/>
                 <constraint firstAttribute="bottom" secondItem="xRP-dz-E87" secondAttribute="bottom" constant="50" id="UVf-OB-qFE"/>
+                <constraint firstItem="eyS-Cb-S2e" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="241" id="eFq-fF-Hr4"/>
+                <constraint firstItem="U74-Hs-ULe" firstAttribute="baseline" secondItem="eyS-Cb-S2e" secondAttribute="baseline" id="oXY-4y-fdV"/>
+                <constraint firstItem="U74-Hs-ULe" firstAttribute="firstBaseline" secondItem="eyS-Cb-S2e" secondAttribute="firstBaseline" id="p4c-FA-aJl"/>
+                <constraint firstItem="U74-Hs-ULe" firstAttribute="centerX" secondItem="HXr-QM-E6g" secondAttribute="centerX" id="s2k-BL-ErP"/>
                 <constraint firstItem="HXr-QM-E6g" firstAttribute="leading" secondItem="xRP-dz-E87" secondAttribute="trailing" id="vdK-Gs-ceY"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>

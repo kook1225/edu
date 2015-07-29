@@ -23,6 +23,8 @@
 @property (weak, nonatomic) IBOutlet UIView *headView;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet UIButton *commitBtn;
+@property (weak, nonatomic) IBOutlet UIView *msgView;
+@property (weak, nonatomic) IBOutlet UILabel *msgLabel;
 
 @end
 NSString *TMP_UPLOAD_IMG_PATH=@"";
@@ -43,6 +45,10 @@ NSString *TMP_UPLOAD_IMG_PATH=@"";
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
+- (void)hiddenView
+{
+    _msgView.hidden = YES;
+}
 
 - (void)drawlayer
 {
@@ -59,7 +65,10 @@ NSString *TMP_UPLOAD_IMG_PATH=@"";
     [addImgBtn addTarget:self action:@selector(addImageView) forControlEvents:UIControlEventTouchUpInside];
     [_headView addSubview:addImgBtn];
     
-    
+    _msgView.hidden = YES;
+    _msgView.layer.cornerRadius = 4.0f;
+    _msgView.layer.masksToBounds = YES;
+   
 }
 - (IBAction)sendFuction:(id)sender {
     
@@ -96,12 +105,15 @@ NSString *TMP_UPLOAD_IMG_PATH=@"";
               success:^(AFHTTPRequestOperation *operation, id responseObject) {            [HUD hide:YES];
                   
                   if ([responseObject[@"responseCode"] intValue] == 0) {
-                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"发布成功" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
-                      alert.tag = 201;
-                      [alert show];
+                      _msgView.hidden = NO;
+                      _msgLabel.text = responseObject[@"responseMessage"];
+                      [self performSelector:@selector(hiddenView) withObject:self afterDelay:2.0];
+                      [self.navigationController popViewControllerAnimated:YES];
                   }
                   else {
-                      SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
+                      _msgView.hidden = NO;
+                      _msgLabel.text = responseObject[@"responseMessage"];
+                      [self performSelector:@selector(hiddenView) withObject:self afterDelay:2.0];
                   }
                   
                   

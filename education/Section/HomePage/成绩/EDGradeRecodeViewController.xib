@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EDGradeRecodeViewController">
             <connections>
+                <outlet property="nonDataLabel" destination="aJJ-tH-vqz" id="HYK-WG-d06"/>
                 <outlet property="tableView" destination="dyH-Qf-QUO" id="j5C-SO-Kma"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -23,13 +24,25 @@
                         <outlet property="delegate" destination="-1" id="U7x-XO-gOB"/>
                     </connections>
                 </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂无数据" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJJ-tH-vqz">
+                    <rect key="frame" x="128" y="241" width="65" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="Log-8T-fqk"/>
+                        <constraint firstAttribute="width" constant="65" id="s1P-MV-Rhi"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="dyH-Qf-QUO" secondAttribute="trailing" id="ACS-nl-ktZ"/>
+                <constraint firstItem="aJJ-tH-vqz" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="241" id="Q0M-jj-Ru2"/>
                 <constraint firstAttribute="bottom" secondItem="dyH-Qf-QUO" secondAttribute="bottom" constant="50" id="Q1x-Dv-dl1"/>
                 <constraint firstItem="dyH-Qf-QUO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="bHT-o2-Zpa"/>
                 <constraint firstItem="dyH-Qf-QUO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bhx-X3-BIt"/>
+                <constraint firstItem="aJJ-tH-vqz" firstAttribute="centerX" secondItem="dyH-Qf-QUO" secondAttribute="centerX" id="nGB-1U-zaj"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <point key="canvasLocation" x="245" y="251"/>

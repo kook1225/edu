@@ -18,6 +18,7 @@
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+@property (weak, nonatomic) IBOutlet UILabel *nonDataLabel;
 @end
 
 @implementation EDPhySicalTestViewController
@@ -31,6 +32,8 @@
     tabBarView = (SETabBarViewController *)self.navigationController.parentViewController;
     [tabBarView tabBarViewHidden];
     [self AFNRequest];
+    
+    _nonDataLabel.hidden = YES;
 }
 
 #pragma mark 常用方法
@@ -74,16 +77,13 @@
           
             if(responseObject[@"data"] == [NSNull null])
             {
-                SHOW_ALERT(@"提示", @"暂无数据");
+                _nonDataLabel.hidden = NO;
+                _tableView.hidden = YES;
             }else
             {
                 dataArray = responseObject[@"data"];
-                if (dataArray.count != 0) {
-                    [_tableView reloadData];
-                }else
-                {
-                    SHOW_ALERT(@"提示", @"暂无数据");
-                }
+                [_tableView reloadData];
+                
             }
             
             

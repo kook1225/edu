@@ -7,6 +7,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EDSubjectViewController">
             <connections>
                 <outlet property="gradeTableView" destination="gxS-St-qc9" id="ftD-mB-ecz"/>
+                <outlet property="nonDataLabel" destination="UbY-m5-KUG" id="XcZ-EX-dxM"/>
+                <outlet property="nonDataLabel2" destination="dS0-7I-DIq" id="Xxk-GT-vcb"/>
                 <outlet property="subjectTableView" destination="G49-qV-ZMt" id="RsD-Sk-0yl"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -35,6 +37,24 @@
                         <outlet property="delegate" destination="-1" id="K4Y-gt-VJX"/>
                     </connections>
                 </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂无数据" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UbY-m5-KUG">
+                    <rect key="frame" x="31" y="241" width="58" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="z0f-2I-iH9"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂无数据" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dS0-7I-DIq">
+                    <rect key="frame" x="191" y="241" width="58" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="j7V-WD-9ay"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -42,8 +62,14 @@
                 <constraint firstItem="G49-qV-ZMt" firstAttribute="bottom" secondItem="gxS-St-qc9" secondAttribute="bottom" id="YmI-Ta-USJ"/>
                 <constraint firstItem="G49-qV-ZMt" firstAttribute="top" secondItem="gxS-St-qc9" secondAttribute="top" id="ZqE-74-w5t"/>
                 <constraint firstAttribute="bottom" secondItem="gxS-St-qc9" secondAttribute="bottom" constant="50" id="aLO-LP-yyR"/>
+                <constraint firstItem="dS0-7I-DIq" firstAttribute="leading" secondItem="gxS-St-qc9" secondAttribute="trailing" constant="71" id="aWS-nL-vcB"/>
+                <constraint firstAttribute="trailing" secondItem="dS0-7I-DIq" secondAttribute="trailing" constant="71" id="ayV-v5-trM"/>
+                <constraint firstAttribute="bottom" secondItem="UbY-m5-KUG" secondAttribute="bottom" constant="242" id="cUw-Ou-atZ"/>
+                <constraint firstAttribute="bottom" secondItem="dS0-7I-DIq" secondAttribute="bottom" constant="242" id="dUb-6A-dcL"/>
                 <constraint firstItem="gxS-St-qc9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="f6q-uN-Wie"/>
                 <constraint firstAttribute="trailing" secondItem="G49-qV-ZMt" secondAttribute="trailing" id="fYv-Bd-Zxf"/>
+                <constraint firstItem="UbY-m5-KUG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="31" id="lze-Hu-L03"/>
+                <constraint firstItem="G49-qV-ZMt" firstAttribute="leading" secondItem="UbY-m5-KUG" secondAttribute="trailing" constant="31" id="qET-S3-cqA"/>
                 <constraint firstItem="G49-qV-ZMt" firstAttribute="leading" secondItem="gxS-St-qc9" secondAttribute="trailing" id="s7X-wc-Msz"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>

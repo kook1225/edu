@@ -11,6 +11,9 @@
                 <outlet property="containView" destination="Cry-iN-ckX" id="Ks7-Ir-G9m"/>
                 <outlet property="dateLabel" destination="kgQ-Ha-8OT" id="Zlc-1h-Nha"/>
                 <outlet property="dateView" destination="ArI-sq-MCY" id="fHV-WQ-OJu"/>
+                <outlet property="msgLabel" destination="uj7-F3-myM" id="FtZ-KO-4Em"/>
+                <outlet property="msgView" destination="kis-5Y-lIV" id="hY5-p6-lkn"/>
+                <outlet property="nonDataLabel" destination="bnG-OW-ZQV" id="aYv-aa-Yzf"/>
                 <outlet property="publishBtn" destination="nG2-Ty-Wjb" id="5Qk-2q-N54"/>
                 <outlet property="tableView" destination="sbK-Ha-MHr" id="qMS-h8-jLn"/>
                 <outlet property="titleLabel" destination="Sqw-o3-wof" id="teX-QQ-Bs5"/>
@@ -93,6 +96,27 @@
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂无数据" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bnG-OW-ZQV">
+                            <rect key="frame" x="135" y="246" width="51" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view alpha="0.69999998807907104" contentMode="scaleToFill" id="kis-5Y-lIV">
+                            <rect key="frame" x="80" y="380" width="160" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="成功" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uj7-F3-myM">
+                                    <rect key="frame" x="0.0" y="5" width="160" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
@@ -100,7 +124,7 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-            <point key="canvasLocation" x="245" y="169"/>
+            <point key="canvasLocation" x="374" y="161"/>
         </view>
         <tapGestureRecognizer id="S20-nz-IQs">
             <connections>

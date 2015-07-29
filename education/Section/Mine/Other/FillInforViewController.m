@@ -29,6 +29,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *gradeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *classLabel;
 
+@property (weak, nonatomic) IBOutlet UIView *msgView;
+@property (weak, nonatomic) IBOutlet UILabel *msgLabel;
 @end
 
 @implementation FillInforViewController
@@ -79,11 +81,23 @@
 
     
     self.navigationItem.leftBarButtonItem = [Tools getNavBarItem:self clickAction:@selector(back)];
+    
+    
+    _msgView.hidden = YES;
+    _msgView.layer.cornerRadius = 4.0f;
+    _msgView.layer.masksToBounds = YES;
+    
+    
 }
 
 #pragma mark - Custom Method
 - (void)back {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)hidden
+{
+    _msgView.hidden = YES;
 }
 
 - (void)submitAction:(id)sender {
@@ -192,7 +206,9 @@
                   [self showPicker:btn.tag];
               }
               else {
-                  SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
+                  _msgView.hidden = NO;
+                  _msgLabel.text = responseObject[@"responseMessage"];
+                  [self performSelector:@selector(hidden) withObject:self afterDelay:2.0];
               }
               
               

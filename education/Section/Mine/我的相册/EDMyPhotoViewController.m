@@ -26,7 +26,8 @@
     int pageNum;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
+@property (weak, nonatomic) IBOutlet UIView *msgView;
+@property (weak, nonatomic) IBOutlet UILabel *msgLabel;
 @end
 
 @implementation EDMyPhotoViewController
@@ -45,6 +46,10 @@
     
     tabBarView = (SETabBarViewController *)self.navigationController.parentViewController;
     [tabBarView tabBarViewHidden];
+    
+    _msgView.hidden = YES;
+    _msgView.layer.cornerRadius = 4.0f;
+    _msgView.layer.masksToBounds = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -54,6 +59,10 @@
     imagesArray = [NSMutableArray array];
     
     [self album];
+}
+- (void)hiddenView
+{
+    _msgView.hidden = YES;
 }
 
 - (void)album {
@@ -100,7 +109,9 @@
                  
              }
              else {
-                 SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
+                 _msgView.hidden = NO;
+                 _msgLabel.text = responseObject[@"responseMessage"];
+                 [self performSelector:@selector(hidden) withObject:self afterDelay:2.0];
              }
              
              
@@ -242,12 +253,12 @@
         }];
         
         
-        [self performSelector:@selector(hidden) withObject:nil afterDelay:1.5];
+        [self performSelector:@selector(hiddenView) withObject:nil afterDelay:1.5];
     }
     if (_baseview == _headerview) {
         [self album];
         //        _baseview = refreshView;
-        [self performSelector:@selector(hidden) withObject:nil afterDelay:1.5];
+        [self performSelector:@selector(hiddenView) withObject:nil afterDelay:1.5];
     }
     
 }

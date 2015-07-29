@@ -20,7 +20,10 @@
 
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UILabel *nonDataLabel;
 
+@property (weak, nonatomic) IBOutlet UIView *msgView;
+@property (weak, nonatomic) IBOutlet UILabel *msgLabel;
 @end
 
 @implementation EDProblemAnalyViewController
@@ -36,6 +39,13 @@
     
     [self initfooterview];
     [self initheaderview];
+    
+    _nonDataLabel.hidden = YES;
+    _msgView.hidden = YES;
+    _msgView.layer.cornerRadius = 4.0f;
+    _msgView.layer.masksToBounds = YES;
+   
+
 
 }
 
@@ -43,6 +53,10 @@
 - (void)back
 {
     [self.navigationController popViewControllerAnimated:YES];
+}
+- (void)hiddenView
+{
+    _msgView.hidden = YES;
 }
 
 - (void)AFNRequest:(NSString *)grade xueke:(NSString *)sub
@@ -76,11 +90,20 @@
         NSLog(@"res--%@",responseObject);
         if ([responseObject[@"responseCode"] intValue] ==0) {
             
-            dataArray = responseObject[@"data"][@"list"];
-            [_tableView reloadData];
+            if (responseObject[@"data"][@"list"] == [NSNull null]) {
+                _nonDataLabel.hidden = NO;
+                _tableView.hidden = YES;
+            }else
+            {
+                dataArray = responseObject[@"data"][@"list"];
+                [_tableView reloadData];
+            }
+            
         }else
         {
-            SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
+            _msgView.hidden = NO;
+            _msgLabel.text = responseObject[@"responseMessage"];
+            [self performSelector:@selector(hiddenView) withObject:self afterDelay:2.0];
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

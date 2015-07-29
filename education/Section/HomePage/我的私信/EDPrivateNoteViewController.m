@@ -24,6 +24,7 @@
     int pageNum;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UILabel *nonDataLabel;
 
 @end
 
@@ -41,6 +42,7 @@
     
     selectedArray = [NSMutableArray array];
     [self AFNRequest];
+    _nonDataLabel.hidden = YES;
     
     pageNum = 1;
     [self initfooterview];
@@ -82,11 +84,17 @@
         NSLog(@"res--%@",responseObject[@"data"]);
         if ([responseObject[@"responseCode"] intValue] ==0) {
             
-            dataArray = [NSMutableArray arrayWithArray:responseObject[@"data"][@"list"]];
+            if (responseObject[@"data"][@"list"] == [NSNull null])
+            {
+                _nonDataLabel.hidden = NO;
+                _tableView.hidden = YES;
+            }else
+            {
+                dataArray = [NSMutableArray arrayWithArray:responseObject[@"data"][@"list"]];
+                
+                [_tableView reloadData];
+            }
             
-            
-            
-            [_tableView reloadData];
             
         }else
         {

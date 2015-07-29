@@ -31,6 +31,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *userBtn;
 @property (weak, nonatomic) IBOutlet UIButton *studentBtn;
 
+@property (weak, nonatomic) IBOutlet UILabel *nonDataLabel;
+@property (weak, nonatomic) IBOutlet UIView *msgView;
+@property (weak, nonatomic) IBOutlet UILabel *msgLabel;
+
 @end
 
 @implementation EDContactViewController
@@ -45,6 +49,7 @@
     teacherArray = [NSMutableArray array];
     studentArray = [NSMutableArray array];
     
+    _nonDataLabel.hidden = YES;
     typeString = @"学生";
     [self drawlayer];
     [self AFNRequest];
@@ -62,6 +67,11 @@
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
+- (void)hiddenView
+{
+    _msgView.hidden = YES;
+}
+
 - (void)AFNRequest
 {
     NSLog(@"tea---%@",[SEUtils getUserInfo].UserDetail.teacherInfo);
@@ -84,32 +94,44 @@
         [HUD setHidden:YES];
         NSLog(@"res--%@",responseObject[@"data"]);
         if ([responseObject[@"responseCode"] intValue] ==0) {
-    
             
-            NSArray *teaDataArray = responseObject[@"data"][@"teachers"];
-            NSMutableArray *teaNameArray = [NSMutableArray array];
-            for (int i=0; i<teaDataArray.count; i++) {
-                [teaNameArray addObject:teaDataArray[i][@"JSXM"]];
-            }
-            
-            teaTitleArrray = [ChineseString IndexArray:teaNameArray];
-            teacherArray = [self getPaixuArray:teaTitleArrray dataArray:teaDataArray];
+            if (responseObject[@"data"][@"teachers"] == [NSNull null]
+                || responseObject[@"data"][@"students"] == [NSNull null])
+            {
+                _nonDataLabel.hidden = NO;
+                _tableView.hidden = YES;
+                
+            }else
+            {
+                NSArray *teaDataArray = responseObject[@"data"][@"teachers"];
+                NSMutableArray *teaNameArray = [NSMutableArray array];
+                for (int i=0; i<teaDataArray.count; i++) {
+                    [teaNameArray addObject:teaDataArray[i][@"JSXM"]];
+                }
+                
+                teaTitleArrray = [ChineseString IndexArray:teaNameArray];
+                teacherArray = [self getPaixuArray:teaTitleArrray dataArray:teaDataArray];
+                
+                
+                NSArray *stuDataArray = responseObject[@"data"][@"students"];
+                NSMutableArray *stuNameArray = [NSMutableArray array];
+                for (int i=0; i<stuDataArray.count; i++) {
+                    [stuNameArray addObject:stuDataArray[i][@"XSXM"]];
+                }
+                stuTitleArray = [ChineseString IndexArray:stuNameArray];
+                studentArray = [self getPaixuArray:stuTitleArray dataArray:stuDataArray];
+                
+                
+                [_tableView reloadData];
 
-            
-            NSArray *stuDataArray = responseObject[@"data"][@"students"];
-            NSMutableArray *stuNameArray = [NSMutableArray array];
-            for (int i=0; i<stuDataArray.count; i++) {
-                [stuNameArray addObject:stuDataArray[i][@"XSXM"]];
             }
-            stuTitleArray = [ChineseString IndexArray:stuNameArray];
-            studentArray = [self getPaixuArray:stuTitleArray dataArray:stuDataArray];
             
-             
-            [_tableView reloadData];
             
         }else
         {
-            SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
+            _msgView.hidden = NO;
+            _msgLabel.text = responseObject[@"responseMessage"];
+            [self performSelector:@selector(hiddenView) withObject:self afterDelay:2.0];
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -139,6 +161,10 @@
     _buttonView.layer.masksToBounds = YES;
     _buttonView.layer.borderWidth = 1.0f;
     _buttonView.layer.borderColor = [UIColor colorWithRed:255/255.0f green:124/255.0f  blue:6/255.0f  alpha:1.0f].CGColor;
+    
+    _msgView.hidden = YES;
+    _msgView.layer.cornerRadius = 4.0f;
+    _msgView.layer.masksToBounds = YES;
     
     [_studentBtn setSelected:YES];
 }

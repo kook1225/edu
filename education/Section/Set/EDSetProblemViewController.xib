@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EDSetProblemViewController">
             <connections>
                 <outlet property="commitBtn" destination="Pzv-kQ-JGl" id="Tjf-AD-MMN"/>
+                <outlet property="msgLabel" destination="Yay-ak-QQR" id="wFs-VD-fkc"/>
+                <outlet property="msgView" destination="m6G-1J-2CZ" id="o3E-iI-VFx"/>
                 <outlet property="textView" destination="ZIX-zr-02X" id="Oco-Vw-pgh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -43,6 +45,25 @@
                         <action selector="commitFunction:" destination="-1" eventType="touchUpInside" id="NmC-lE-nq7"/>
                     </connections>
                 </button>
+                <view alpha="0.69999999999999973" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m6G-1J-2CZ">
+                    <rect key="frame" x="80" y="380" width="160" height="30"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="成功" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yay-ak-QQR">
+                            <rect key="frame" x="0.0" y="5" width="160" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="Yay-ak-QQR" firstAttribute="leading" secondItem="m6G-1J-2CZ" secondAttribute="leading" id="6Cc-y0-YBk"/>
+                        <constraint firstItem="Yay-ak-QQR" firstAttribute="top" secondItem="m6G-1J-2CZ" secondAttribute="top" constant="5" id="Jdu-i8-iy6"/>
+                        <constraint firstAttribute="height" constant="30" id="jXs-C9-yUX"/>
+                        <constraint firstAttribute="trailing" secondItem="Yay-ak-QQR" secondAttribute="trailing" id="jcG-dO-Yhd"/>
+                        <constraint firstAttribute="bottom" secondItem="Yay-ak-QQR" secondAttribute="bottom" constant="4" id="ldZ-HQ-8bX"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -51,8 +72,11 @@
                 <constraint firstItem="ZIX-zr-02X" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="NUX-4A-Kyg"/>
                 <constraint firstItem="Pzv-kQ-JGl" firstAttribute="top" secondItem="ZIX-zr-02X" secondAttribute="bottom" constant="44" id="UO2-0k-Mji"/>
                 <constraint firstItem="Pzv-kQ-JGl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="53" id="amP-ED-Hbp"/>
+                <constraint firstItem="m6G-1J-2CZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="80" id="bz1-5w-6bL"/>
+                <constraint firstAttribute="trailing" secondItem="m6G-1J-2CZ" secondAttribute="trailing" constant="80" id="ioW-Za-Ctx"/>
                 <constraint firstAttribute="trailing" secondItem="Pzv-kQ-JGl" secondAttribute="trailing" constant="52" id="k9x-rz-qAz"/>
                 <constraint firstItem="ZIX-zr-02X" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="uoG-pg-OOo"/>
+                <constraint firstAttribute="bottom" secondItem="m6G-1J-2CZ" secondAttribute="bottom" constant="94" id="y4Y-uj-fii"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <point key="canvasLocation" x="245" y="176"/>

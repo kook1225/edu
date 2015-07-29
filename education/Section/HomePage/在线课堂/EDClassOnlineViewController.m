@@ -28,6 +28,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *headView;
+@property (weak, nonatomic) IBOutlet UILabel *nonDataView;
 
 @end
 
@@ -44,6 +45,7 @@
     [tabBarView tabBarViewHidden];
     
     [self TitleAFNRequest];
+    _nonDataView.hidden = YES;
     
     pageNum = 1;
     [self initfooterview];
@@ -115,10 +117,17 @@
         NSLog(@"res--%@",responseObject);
         if ([responseObject[@"responseCode"] intValue] ==0) {
             
-            titleArray = responseObject[@"data"];
-            [self titleBtn:titleArray];
-            typeString = titleArray[0][@"ID"];
-            [self AFNRequest:typeString];
+            if (responseObject[@"data"] == [NSNull null]) {
+                _nonDataView.hidden = NO;
+                _tableView.hidden = YES;
+            }else
+            {
+                titleArray = responseObject[@"data"];
+                [self titleBtn:titleArray];
+                typeString = titleArray[0][@"ID"];
+                [self AFNRequest:typeString];
+            }
+            
         }else
         {
             SHOW_ALERT(@"提示",responseObject[@"responseMessage"]);

@@ -9,6 +9,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EDContactViewController">
             <connections>
                 <outlet property="buttonView" destination="BzR-eV-XvC" id="8SL-qn-nho"/>
+                <outlet property="msgLabel" destination="DfA-aC-hkI" id="XqT-BT-tYa"/>
+                <outlet property="msgView" destination="mSP-hN-gjB" id="i15-9a-hfF"/>
+                <outlet property="nonDataLabel" destination="Vzu-NG-Rj6" id="aTN-Fj-4hm"/>
                 <outlet property="studentBtn" destination="6Ky-Qf-BIp" id="eRc-o6-So1"/>
                 <outlet property="tableView" destination="EaM-ch-XRw" id="jxz-gD-XE3"/>
                 <outlet property="userBtn" destination="ndp-ob-oQN" id="kGO-Du-Dpc"/>
@@ -92,15 +95,45 @@
                         <outlet property="delegate" destination="-1" id="hPb-iv-86S"/>
                     </connections>
                 </tableView>
+                <view alpha="0.69999998807907104" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mSP-hN-gjB">
+                    <rect key="frame" x="80" y="380" width="160" height="30"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="成功" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DfA-aC-hkI">
+                            <rect key="frame" x="0.0" y="5" width="160" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="k0x-ae-DfA"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂无数据" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vzu-NG-Rj6">
+                    <rect key="frame" x="131" y="246" width="59" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="1rO-3N-jhV"/>
+                        <constraint firstAttribute="width" constant="59" id="MIO-Yu-0e9"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="mSP-hN-gjB" secondAttribute="bottom" constant="94" id="BlY-Jc-CYB"/>
+                <constraint firstAttribute="trailing" secondItem="mSP-hN-gjB" secondAttribute="trailing" constant="80" id="Gco-eU-a6F"/>
                 <constraint firstItem="4zD-Ee-zw6" firstAttribute="leading" secondItem="EaM-ch-XRw" secondAttribute="leading" id="H2i-o2-USj"/>
                 <constraint firstAttribute="trailing" secondItem="4zD-Ee-zw6" secondAttribute="trailing" id="Psy-JV-176"/>
                 <constraint firstItem="EaM-ch-XRw" firstAttribute="trailing" secondItem="4zD-Ee-zw6" secondAttribute="trailing" id="WgT-Of-E6O"/>
+                <constraint firstItem="Vzu-NG-Rj6" firstAttribute="centerX" secondItem="4zD-Ee-zw6" secondAttribute="centerX" id="Ygj-hN-VUa"/>
                 <constraint firstItem="EaM-ch-XRw" firstAttribute="top" secondItem="4zD-Ee-zw6" secondAttribute="bottom" id="ad4-rY-vBB"/>
+                <constraint firstItem="mSP-hN-gjB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="80" id="dwJ-6e-fBw"/>
                 <constraint firstItem="EaM-ch-XRw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="izV-9N-D9P"/>
                 <constraint firstItem="4zD-Ee-zw6" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="lRg-7g-Aew"/>
+                <constraint firstItem="Vzu-NG-Rj6" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="246" id="lkn-Ns-sgg"/>
                 <constraint firstAttribute="bottom" secondItem="EaM-ch-XRw" secondAttribute="bottom" constant="50" id="wlP-Ex-l6o"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>

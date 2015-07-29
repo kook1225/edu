@@ -6,6 +6,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EDProblemAnalyViewController">
             <connections>
+                <outlet property="msgLabel" destination="vvj-sl-TGJ" id="1BZ-Wf-aBc"/>
+                <outlet property="msgView" destination="zr9-gb-Xwi" id="TbH-TV-HnW"/>
+                <outlet property="nonDataLabel" destination="Xwh-FW-5dh" id="sZ9-VS-7KD"/>
                 <outlet property="tableView" destination="le8-kb-mjF" id="cce-rY-lNW"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -23,13 +26,44 @@
                         <outlet property="delegate" destination="-1" id="fe3-l3-Cgy"/>
                     </connections>
                 </tableView>
+                <view alpha="0.69999998807907104" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zr9-gb-Xwi">
+                    <rect key="frame" x="80" y="380" width="160" height="30"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="成功" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vvj-sl-TGJ">
+                            <rect key="frame" x="0.0" y="5" width="160" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="j5C-fT-OZO"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂无数据" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xwh-FW-5dh">
+                    <rect key="frame" x="130" y="241" width="61" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="61" id="IR7-6u-6ZQ"/>
+                        <constraint firstAttribute="height" constant="21" id="pXQ-zk-Sdw"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="Xwh-FW-5dh" firstAttribute="centerX" secondItem="zr9-gb-Xwi" secondAttribute="centerX" id="64h-mE-BrB"/>
                 <constraint firstAttribute="bottom" secondItem="le8-kb-mjF" secondAttribute="bottom" constant="50" id="ABs-d3-AGD"/>
+                <constraint firstAttribute="bottom" secondItem="zr9-gb-Xwi" secondAttribute="bottom" constant="94" id="DW2-UB-u52"/>
                 <constraint firstItem="le8-kb-mjF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ONn-q7-0Ih"/>
                 <constraint firstItem="le8-kb-mjF" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="SUz-c9-2fc"/>
                 <constraint firstAttribute="trailing" secondItem="le8-kb-mjF" secondAttribute="trailing" id="WGX-99-ALB"/>
+                <constraint firstAttribute="trailing" secondItem="zr9-gb-Xwi" secondAttribute="trailing" constant="80" id="XzG-2H-WTp"/>
+                <constraint firstItem="Xwh-FW-5dh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="241" id="fXK-Ok-Xjj"/>
+                <constraint firstItem="zr9-gb-Xwi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="80" id="qwp-gq-W30"/>
+                <constraint firstItem="Xwh-FW-5dh" firstAttribute="centerX" secondItem="le8-kb-mjF" secondAttribute="centerX" id="rs9-2p-abg"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <point key="canvasLocation" x="223" y="228"/>

@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EDAlterPwdViewController">
             <connections>
                 <outlet property="commitBtn" destination="Hc0-iu-qdg" id="DNX-Ug-J4m"/>
+                <outlet property="msgLabel" destination="1Ov-nx-Wl6" id="nJz-Ic-JM9"/>
+                <outlet property="msgView" destination="3GW-xy-vAb" id="JW0-xz-2lp"/>
                 <outlet property="nowPwdTextField" destination="n6w-5Q-0B8" id="5Pp-by-AAP"/>
                 <outlet property="oldPwdTextField" destination="aWE-Xq-Iwa" id="BBz-Nj-8zd"/>
                 <outlet property="surePwdTextField" destination="Vwh-Ud-dGe" id="M3j-fi-m0r"/>
@@ -104,6 +106,20 @@
                         <action selector="commitFunction:" destination="-1" eventType="touchUpInside" id="naE-q8-0Um"/>
                     </connections>
                 </button>
+                <view alpha="0.69999998807907104" contentMode="scaleToFill" id="3GW-xy-vAb">
+                    <rect key="frame" x="80" y="380" width="160" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="成功" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1Ov-nx-Wl6">
+                            <rect key="frame" x="0.0" y="5" width="160" height="21"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>

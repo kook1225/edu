@@ -14,7 +14,8 @@
     SETabBarViewController *tabBarView;
 }
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
-
+@property (weak, nonatomic) IBOutlet UIView *msgView;
+@property (weak, nonatomic) IBOutlet UILabel *msgLabel;
 @end
 
 @implementation AboutUsViewController
@@ -27,6 +28,10 @@
     [tabBarView tabBarViewHidden];
     
     self.navigationItem.leftBarButtonItem = [Tools getNavBarItem:self clickAction:@selector(back)];
+    
+    _msgView.hidden = YES;
+    _msgView.layer.cornerRadius = 4.0f;
+    _msgView.layer.masksToBounds = YES;
     
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     HUD.mode = MBProgressHUDModeIndeterminate;
@@ -57,7 +62,9 @@
             
         }else
         {
-            SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
+            _msgView.hidden = NO;
+            _msgLabel.text = responseObject[@"responseMessage"];
+            [self performSelector:@selector(hidden) withObject:self afterDelay:2.0];
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -87,19 +94,9 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)hidden
+{
+    _msgView.hidden = YES;
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -6,6 +6,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NoticeIntroViewController">
             <connections>
+                <outlet property="msgLabel" destination="HXG-u8-5pr" id="Ves-Kt-8gg"/>
+                <outlet property="msgView" destination="Qf8-pB-KEe" id="SOM-Nz-d67"/>
                 <outlet property="scrollView" destination="wEI-EL-aj2" id="1YT-Xl-csc"/>
                 <outlet property="timeLabel" destination="voc-ey-yJ2" id="zNr-pz-npv"/>
                 <outlet property="titleLabel" destination="Tij-zy-u6g" id="0iD-hc-Ffd"/>
@@ -46,6 +48,20 @@
                         </webView>
                     </subviews>
                 </scrollView>
+                <view alpha="0.69999998807907104" contentMode="scaleToFill" id="Qf8-pB-KEe">
+                    <rect key="frame" x="80" y="380" width="160" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="成功" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HXG-u8-5pr">
+                            <rect key="frame" x="0.0" y="5" width="160" height="21"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>

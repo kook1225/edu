@@ -32,6 +32,12 @@
 
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
 @property (weak, nonatomic) IBOutlet UIButton *publishBtn;
+
+@property (weak, nonatomic) IBOutlet UILabel *nonDataLabel;
+
+@property (weak, nonatomic) IBOutlet UIView *msgView;
+@property (weak, nonatomic) IBOutlet UILabel *msgLabel;
+
 @end
 
 @implementation EDHomeWorkViewController
@@ -101,6 +107,10 @@
     _blurView.backgroundColor = [UIColor colorWithRed:51/255.0f green:57/255.0f blue:71/255.0f alpha:0.5];
     _blurView.frame = CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT);
     
+    _nonDataLabel.hidden = YES;
+    _msgView.hidden = YES;
+    _msgView.layer.cornerRadius = 4.0f;
+    _msgView.layer.masksToBounds = YES;
     
     NSDateFormatter *formatter_minDate = [[NSDateFormatter alloc]init];
     [formatter_minDate setDateFormat:@"yyyy-MM-dd EEE"];
@@ -115,6 +125,11 @@
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
+- (void)hiddenView
+{
+    _msgView.hidden = YES;
+}
+
 - (IBAction)publishFunction:(id)sender
 {
     EDPubulishViewController *publishVC = [[EDPubulishViewController alloc]init];
@@ -192,7 +207,8 @@
             
             if(responseObject[@"data"][@"list"] == [NSNull null])
             {
-                SHOW_ALERT(@"提示", @"暂无数据");
+                _nonDataLabel.hidden = NO;
+                _tableView.hidden = YES;
             }else
             {
                 dataArray = responseObject[@"data"][@"list"];
@@ -204,7 +220,9 @@
             
         }else
         {
-            SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
+            _msgView.hidden = NO;
+            _msgLabel.text = responseObject[@"responseMessage"];
+            [self performSelector:@selector(hiddenView) withObject:self afterDelay:2.0];
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
