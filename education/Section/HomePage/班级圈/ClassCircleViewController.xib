@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ClassCircleViewController">
             <connections>
+                <outlet property="nonDataLabel" destination="oto-rO-6km" id="Qx5-XQ-s2b"/>
                 <outlet property="replyButton" destination="V17-Mc-x25" id="xs0-Sx-OQY"/>
                 <outlet property="replyTextField" destination="nmM-cG-SXv" id="UGc-WT-Inf"/>
                 <outlet property="replyView" destination="3y4-Vp-U85" id="6tg-qL-IjI"/>
@@ -83,13 +84,25 @@
                         <constraint firstItem="nmM-cG-SXv" firstAttribute="top" secondItem="4rQ-yY-ldM" secondAttribute="bottom" constant="6" id="t4w-dJ-aNt"/>
                     </constraints>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂无数据" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oto-rO-6km">
+                    <rect key="frame" x="0.0" y="195" width="320" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="XZo-oZ-xcc"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="3y4-Vp-U85" firstAttribute="leading" secondItem="Qcb-ZH-Ahp" secondAttribute="leading" id="20g-gM-ylq"/>
+                <constraint firstItem="oto-rO-6km" firstAttribute="trailing" secondItem="3y4-Vp-U85" secondAttribute="trailing" id="2jC-hV-7bt"/>
+                <constraint firstItem="oto-rO-6km" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="195" id="I0G-Gl-aYE"/>
                 <constraint firstItem="Qcb-ZH-Ahp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="MXc-iO-m1p"/>
                 <constraint firstItem="Qcb-ZH-Ahp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="T2U-KV-Yfc"/>
                 <constraint firstAttribute="trailing" secondItem="Qcb-ZH-Ahp" secondAttribute="trailing" id="ag0-kv-Gd6"/>
+                <constraint firstItem="oto-rO-6km" firstAttribute="leading" secondItem="3y4-Vp-U85" secondAttribute="leading" id="iPm-TI-1KY"/>
                 <constraint firstItem="3y4-Vp-U85" firstAttribute="trailing" secondItem="Qcb-ZH-Ahp" secondAttribute="trailing" id="iuG-e0-yo0"/>
                 <constraint firstAttribute="bottom" secondItem="3y4-Vp-U85" secondAttribute="bottom" constant="50" id="v8R-7r-6Z6"/>
                 <constraint firstAttribute="bottom" secondItem="Qcb-ZH-Ahp" secondAttribute="bottom" constant="50" id="vGT-p6-fwc"/>

@@ -42,6 +42,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *menuBtn;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UILabel *nonDataLabel;
 
 @end
 
@@ -54,6 +55,8 @@
     scale = SCALE;
     
     menu = NO;
+    
+    _nonDataLabel.hidden = YES;
     
     titleArray = [NSMutableArray array];
     dataArray = [NSArray array];
@@ -242,10 +245,19 @@
              
              NSError *err;
              
+             
              if ([responseObject[@"responseCode"] intValue] == 0) {
-                 listArray = [ProductListModel arrayOfModelsFromDictionaries:responseObject[@"data"] error:&err];
+                 if ([responseObject[@"data"] count] == 0) {
+                     _collectionView.hidden = YES;
+                     _nonDataLabel.hidden = NO;
+                 }
+                 else {
+                     _collectionView.hidden = NO;
+                     _nonDataLabel.hidden = YES;
+                     listArray = [ProductListModel arrayOfModelsFromDictionaries:responseObject[@"data"] error:&err];
                  
-                 [_collectionView reloadData];
+                     [_collectionView reloadData];
+                 }
              }
              else {
                  SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);

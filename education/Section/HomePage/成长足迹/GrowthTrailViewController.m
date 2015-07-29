@@ -25,6 +25,7 @@
     int pageNum;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UILabel *nonDataLabel;
 
 @end
 
@@ -33,6 +34,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"成长足迹";
+    
+    _nonDataLabel.hidden = YES;
     
     tabBarViewController = (SETabBarViewController *)self.navigationController.parentViewController;
     [tabBarViewController tabBarViewHidden];
@@ -104,9 +107,19 @@
              NSError *err;
              
              if ([responseObject[@"responseCode"] intValue] == 0) {
-                 dataArray = [growUpModel arrayOfModelsFromDictionaries:responseObject[@"data"] error:&err];
+                 if ([responseObject[@"data"] count] == 0) {
+                     _nonDataLabel.hidden = NO;
+                     _tableView.hidden = YES;
+                 }
+                 else {
+                     _nonDataLabel.hidden = YES;
+                     _tableView.hidden = NO;
+                     
+                     dataArray = [growUpModel arrayOfModelsFromDictionaries:responseObject[@"data"] error:&err];
+                     
+                     [_tableView reloadData];
+                 }
                  
-                 [_tableView reloadData];
              }
              else {
                  SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);

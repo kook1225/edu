@@ -34,6 +34,7 @@
 @property (weak, nonatomic) IBOutlet UIView *replyView;
 @property (weak, nonatomic) IBOutlet UITextField *replyTextField;
 @property (weak, nonatomic) IBOutlet UIButton *replyButton;
+@property (weak, nonatomic) IBOutlet UILabel *nonDataLabel;
 
 
 @end
@@ -43,6 +44,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"班级圈";
+    
+    _nonDataLabel.hidden = YES;
     
     stringArray = [NSMutableArray array];
     imagesArray = [NSMutableArray array];
@@ -292,17 +295,26 @@
              NSError *err;
              
              if ([responseObject[@"responseCode"] intValue] == 0) {
-    
-                 dataArray = [ListModel arrayOfModelsFromDictionaries:responseObject[@"data"][@"list"] error:&err];
                  
-                 for (int i = 0; i < [dataArray count]; i++) {
-                     [stringArray addObject:[[dataArray objectAtIndex:i] dynamicInfo].TPSM];
-                     [imagesArray addObject:[[dataArray objectAtIndex:i] dynamicInfo].SLT];
+                 if (responseObject[@"data"][@"list"] == [NSNull null]) {
+                     _tableView.hidden = YES;
+                     _nonDataLabel.hidden = NO;
                  }
+                 else {
+                     _tableView.hidden = NO;
+                     _nonDataLabel.hidden = YES;
+                     
+                     dataArray = [ListModel arrayOfModelsFromDictionaries:responseObject[@"data"][@"list"] error:&err];
+                     
+                     for (int i = 0; i < [dataArray count]; i++) {
+                         [stringArray addObject:[[dataArray objectAtIndex:i] dynamicInfo].TPSM];
+                         [imagesArray addObject:[[dataArray objectAtIndex:i] dynamicInfo].SLT];
+                     }
                  //NSLog(@"string---------:%@",stringArray);
                  //NSLog(@"array:%@",imagesArray);
                  
-                 [_tableView reloadData];
+                     [_tableView reloadData];
+                 }
              }
              else {
                  SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
