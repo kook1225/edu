@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GrowthTrailViewController">
             <connections>
+                <outlet property="nonDataLabel" destination="B2Y-fn-5k1" id="xdE-4g-dmV"/>
                 <outlet property="tableView" destination="VAl-Hm-wvc" id="S8n-rM-rLw"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -23,16 +24,28 @@
                         <outlet property="delegate" destination="-1" id="gyL-7C-h9v"/>
                     </connections>
                 </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂无数据" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2Y-fn-5k1">
+                    <rect key="frame" x="0.0" y="216" width="320" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="Fnf-zs-vAz"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="VAl-Hm-wvc" secondAttribute="trailing" id="3HI-iY-9OE"/>
+                <constraint firstItem="B2Y-fn-5k1" firstAttribute="trailing" secondItem="VAl-Hm-wvc" secondAttribute="trailing" id="47o-a7-BrU"/>
                 <constraint firstItem="VAl-Hm-wvc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="FDs-pN-zSg"/>
+                <constraint firstItem="B2Y-fn-5k1" firstAttribute="leading" secondItem="VAl-Hm-wvc" secondAttribute="leading" id="IVx-We-b4H"/>
                 <constraint firstAttribute="bottom" secondItem="VAl-Hm-wvc" secondAttribute="bottom" constant="50" id="V2j-cd-q8t"/>
+                <constraint firstItem="B2Y-fn-5k1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="216" id="WX0-fb-s8J"/>
                 <constraint firstItem="VAl-Hm-wvc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="aSM-7O-Ms3"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-            <point key="canvasLocation" x="225" y="136"/>
+            <point key="canvasLocation" x="191" y="101"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

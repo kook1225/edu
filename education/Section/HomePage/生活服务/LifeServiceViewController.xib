@@ -8,6 +8,7 @@
             <connections>
                 <outlet property="collectionView" destination="cam-aE-xR1" id="cyy-HL-wyx"/>
                 <outlet property="menuBtn" destination="1wV-S2-o3q" id="ZqT-vf-Y26"/>
+                <outlet property="nonDataLabel" destination="0BI-Vl-TSb" id="FlH-0a-Rv3"/>
                 <outlet property="scrollView" destination="B3B-e5-ky4" id="g7Y-f5-ppR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -62,18 +63,30 @@
                         <constraint firstAttribute="height" constant="1" id="3Yn-Pc-Wf7"/>
                     </constraints>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂无数据" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0BI-Vl-TSb">
+                    <rect key="frame" x="0.0" y="237" width="320" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="ALp-i5-XTY"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="B3B-e5-ky4" firstAttribute="bottom" secondItem="1wV-S2-o3q" secondAttribute="bottom" id="1yF-ig-wsc"/>
                 <constraint firstItem="B3B-e5-ky4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="2o4-BI-C1n"/>
+                <constraint firstItem="0BI-Vl-TSb" firstAttribute="centerY" secondItem="cam-aE-xR1" secondAttribute="centerY" id="3k6-9i-GJC"/>
                 <constraint firstItem="1wV-S2-o3q" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="5Tp-fI-IbV"/>
                 <constraint firstItem="1wV-S2-o3q" firstAttribute="leading" secondItem="B3B-e5-ky4" secondAttribute="trailing" id="DLJ-sx-uii"/>
                 <constraint firstItem="65k-9i-Cld" firstAttribute="trailing" secondItem="1wV-S2-o3q" secondAttribute="trailing" id="ONk-b0-YjX"/>
                 <constraint firstItem="65k-9i-Cld" firstAttribute="top" secondItem="1wV-S2-o3q" secondAttribute="bottom" id="R2X-C3-Zgg"/>
                 <constraint firstItem="cam-aE-xR1" firstAttribute="top" secondItem="65k-9i-Cld" secondAttribute="bottom" id="Thw-4v-ydW"/>
                 <constraint firstItem="cam-aE-xR1" firstAttribute="trailing" secondItem="65k-9i-Cld" secondAttribute="trailing" id="ah2-Is-Uul"/>
+                <constraint firstItem="0BI-Vl-TSb" firstAttribute="trailing" secondItem="65k-9i-Cld" secondAttribute="trailing" id="dVr-cp-aQl"/>
                 <constraint firstAttribute="bottom" secondItem="cam-aE-xR1" secondAttribute="bottom" constant="50" id="dxe-Eb-5mV"/>
+                <constraint firstItem="0BI-Vl-TSb" firstAttribute="leading" secondItem="65k-9i-Cld" secondAttribute="leading" id="hhs-UD-BEt"/>
                 <constraint firstAttribute="trailing" secondItem="1wV-S2-o3q" secondAttribute="trailing" id="iNw-cT-Oan"/>
                 <constraint firstItem="B3B-e5-ky4" firstAttribute="top" secondItem="1wV-S2-o3q" secondAttribute="top" id="iqI-wB-0eE"/>
                 <constraint firstItem="65k-9i-Cld" firstAttribute="leading" secondItem="B3B-e5-ky4" secondAttribute="leading" id="o3m-Hj-NlZ"/>
