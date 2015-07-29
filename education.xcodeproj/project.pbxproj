@@ -1525,6 +1525,7 @@
 				TargetAttributes = {
 					768FFAEA1B4238D9008E577F = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = 77BN3AW3ZP;
 					};
 					768FFB031B4238D9008E577F = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -1940,10 +1941,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ling Luo (XRAGYERKA8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ling Luo (XRAGYERKA8)";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/education/education-PrefixHeader.pch";
 				INFOPLIST_FILE = education/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -1953,10 +1958,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Hunan Wufang technology CO., LTD (77BN3AW3ZP)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Hunan Wufang technology CO., LTD (77BN3AW3ZP)";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/education/education-PrefixHeader.pch";
 				INFOPLIST_FILE = education/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

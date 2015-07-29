@@ -33,7 +33,7 @@
 
 #define IMAGEHEIGHT (160 * ([UIScreen mainScreen].bounds.size.height/568.0))
 #define USERINTROHEIGHT (64 * ([UIScreen mainScreen].bounds.size.height/568.0))
-#define BUTTONVIEWHEIGHT (204 * ([UIScreen mainScreen].bounds.size.height/568.0))
+#define BUTTONVIEWHEIGHT 204//(204 * ([UIScreen mainScreen].bounds.size.height/568.0))
 
 @interface ViewController ()<UIAlertViewDelegate> {
     CGFloat scale;
@@ -514,7 +514,7 @@
         return USERINTROHEIGHT;
     }
     else if (indexPath.row == 2) {
-        return BUTTONVIEWHEIGHT;
+        return BUTTONVIEWHEIGHT * scale;
     }
     else if (indexPath.row == 3) {
         return 32 * scale;

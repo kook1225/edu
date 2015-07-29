@@ -25,6 +25,8 @@
 
 @property (weak, nonatomic) IBOutlet UIView *msgView;
 @property (weak, nonatomic) IBOutlet UILabel *msgLabel;
+@property (weak, nonatomic) IBOutlet UILabel *gradeLabel;
+@property (weak, nonatomic) IBOutlet UIView *dateView;
 
 @end
 
@@ -39,6 +41,7 @@
     tabBarView = (SETabBarViewController *)self.navigationController.parentViewController;
     [tabBarView tabBarViewHidden];
     
+    _dateView.layer.cornerRadius = 5.0f;
     
     [self timeTable];
     
