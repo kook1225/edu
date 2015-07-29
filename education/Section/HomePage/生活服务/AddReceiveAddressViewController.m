@@ -137,17 +137,13 @@
     
     NSString *urlStr = [NSString stringWithFormat:@"%@AreaInfo",SERVER_HOST];
     
-    NSDictionary *parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],
-                                @"provinceid":@"",
-                                @"provincename":@""};
-    
     
     // 设置超时时间
     [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
     manager.requestSerializer.timeoutInterval = 10.f;
     [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
     
-    [manager GET:urlStr parameters:parameter
+    [manager GET:urlStr parameters:nil
           success:^(AFHTTPRequestOperation *operation, id responseObject) {
               [HUD hide:YES];
               
@@ -190,10 +186,7 @@
     
     NSString *urlStr = [NSString stringWithFormat:@"%@AreaInfo",SERVER_HOST];
     
-    NSDictionary *parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],
-                                @"provinceid":proinceId,
-                                @"cityid":@"",
-                                @"cityname":@""};
+    NSDictionary *parameter = @{@"provinceid":proinceId};
     
     
     // 设置超时时间
@@ -244,9 +237,7 @@
     
     NSString *urlStr = [NSString stringWithFormat:@"%@AreaInfo",SERVER_HOST];
     
-    NSDictionary *parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],
-                                @"cityid":cityId,
-                                @"districtname":@""};
+    NSDictionary *parameter = @{@"cityid":cityId};
     
     
     // 设置超时时间
@@ -422,6 +413,7 @@
     if (component == 0) {
         [self selectProvince:(int)row cityTag:0];
         [pickerView selectRow:0 inComponent:1 animated:YES];
+        [pickerView selectRow:0 inComponent:2 animated:YES];
     }
     else if (component == 1){
         [self selectCity:provinceID index:(int)row];
