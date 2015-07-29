@@ -76,7 +76,7 @@
     borderView.backgroundColor = [UIColor colorWithRed:232.0/255.0 green:232.0/255.0 blue:232.0/255.0 alpha:1.000];
 
     
-    imageBtn = [[UIButton alloc] initWithFrame:CGRectMake(10, 12, 56 * scale, 20 * scale)];
+    imageBtn = [[UIButton alloc] initWithFrame:CGRectMake(10, 12, 56 * scale, 26)];
     imageBtn.titleLabel.font = [UIFont systemFontOfSize:11];
     [imageBtn setTitleColor:[UIColor colorWithRed:255.0/255.0 green:124.0/255.0 blue:6.0/255.0 alpha:1.000] forState:UIControlStateNormal];
     [imageBtn setTitle:@"最新.班级圈" forState:UIControlStateNormal];
