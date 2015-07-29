@@ -7,9 +7,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EDHomeWorkViewController">
             <connections>
                 <outlet property="blurView" destination="Aq9-sU-T1l" id="ZLZ-b6-XoP"/>
+                <outlet property="bottomView" destination="dGh-pZ-PDD" id="SUT-WT-5cb"/>
                 <outlet property="containView" destination="Cry-iN-ckX" id="Ks7-Ir-G9m"/>
                 <outlet property="dateLabel" destination="kgQ-Ha-8OT" id="Zlc-1h-Nha"/>
                 <outlet property="dateView" destination="ArI-sq-MCY" id="fHV-WQ-OJu"/>
+                <outlet property="publishBtn" destination="nG2-Ty-Wjb" id="5Qk-2q-N54"/>
                 <outlet property="tableView" destination="sbK-Ha-MHr" id="qMS-h8-jLn"/>
                 <outlet property="titleLabel" destination="Sqw-o3-wof" id="teX-QQ-Bs5"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -70,6 +72,26 @@
                             <connections>
                                 <outletCollection property="gestureRecognizers" destination="S20-nz-IQs" appends="YES" id="DTp-AN-cPf"/>
                             </connections>
+                        </view>
+                        <view alpha="0.49999999999999961" contentMode="scaleToFill" id="dGh-pZ-PDD">
+                            <rect key="frame" x="0.0" y="404" width="320" height="50"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nG2-Ty-Wjb">
+                                    <rect key="frame" x="100" y="12" width="120" height="25"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="1" green="0.48627450979999998" blue="0.035294117649999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <state key="normal" title="发布新作业">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="publishFunction:" destination="-1" eventType="touchUpInside" id="CXb-QU-UtO"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
                     </subviews>
                     <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>

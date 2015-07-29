@@ -35,7 +35,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    _scrollView.contentSize = CGSizeMake(SCREENWIDTH, 900);
+    _scrollView.contentSize = CGSizeMake(SCREENWIDTH, 690);
 }
 
 #pragma mark 常用方法

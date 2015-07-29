@@ -14,6 +14,7 @@
 #import "EDMyPhotoViewController.h"
 #import "ManageAddViewController.h"
 #import "LoginViewController.h"
+#import "EDEditTeacherInfoViewController.h"
 
 @interface MineViewController ()<UIAlertViewDelegate> {
     SETabBarViewController *tabBarViewController;
@@ -65,8 +66,15 @@
 }
 #pragma mark - Custom Method
 - (IBAction)userIntroTap:(id)sender {
-    EDEditInfoViewController *editInfoVC = [[EDEditInfoViewController alloc]init];
-    [self.navigationController pushViewController:editInfoVC animated:YES];
+    if ([[SEUtils getUserInfo].UserDetail.userinfo.YHLB intValue] == 3) {
+        EDEditTeacherInfoViewController *teacherInfoVC = [[EDEditTeacherInfoViewController alloc]init];
+        [self.navigationController pushViewController:teacherInfoVC animated:YES];
+    }else
+    {
+        EDEditInfoViewController *editInfoVC = [[EDEditInfoViewController alloc]init];
+        [self.navigationController pushViewController:editInfoVC animated:YES];
+    }
+   
 }
 
 - (IBAction)userOrderTap:(id)sender {

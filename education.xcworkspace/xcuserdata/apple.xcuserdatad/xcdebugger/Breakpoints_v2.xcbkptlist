@@ -116,43 +116,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "education/Section/HomePage/&#x5bb6;&#x5ead;&#x4f5c;&#x4e1a;/EDHomeWorkViewController.m"
-            timestampString = "459762168.739603"
+            timestampString = "459833189.9756"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "174"
-            endingLineNumber = "174"
-            landmarkName = "-AFNRequest:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "education/Section/HomePage/&#x5bb6;&#x5ead;&#x4f5c;&#x4e1a;/EDHomeWorkViewController.m"
-            timestampString = "459762168.739603"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "170"
-            endingLineNumber = "170"
-            landmarkName = "-AFNRequest:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "education/Section/HomePage/&#x5bb6;&#x5ead;&#x4f5c;&#x4e1a;/EDHomeWorkViewController.m"
-            timestampString = "459762168.739603"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
             landmarkName = "-AFNRequest:"
             landmarkType = "5">
          </BreakpointContent>
@@ -206,11 +174,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "education/Section/Contact/EDContactViewController.m"
-            timestampString = "459652356.041357"
+            timestampString = "459834930.704188"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "234"
-            endingLineNumber = "234"
+            startingLineNumber = "239"
+            endingLineNumber = "239"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -382,11 +350,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "education/Section/Contact/EDContactViewController.m"
-            timestampString = "459652356.041357"
+            timestampString = "459834930.704188"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "288"
-            endingLineNumber = "288"
+            startingLineNumber = "293"
+            endingLineNumber = "293"
             landmarkName = "-getPaixuArray:dataArray:"
             landmarkType = "5">
          </BreakpointContent>
@@ -398,11 +366,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "education/Section/Contact/EDContactViewController.m"
-            timestampString = "459652356.041357"
+            timestampString = "459834930.704188"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "275"
-            endingLineNumber = "275"
+            startingLineNumber = "280"
+            endingLineNumber = "280"
             landmarkName = "-getPaixuArray:dataArray:"
             landmarkType = "5">
          </BreakpointContent>
@@ -414,11 +382,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "education/Section/Contact/EDContactViewController.m"
-            timestampString = "459652356.041357"
+            timestampString = "459834930.704188"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "253"
-            endingLineNumber = "253"
+            startingLineNumber = "258"
+            endingLineNumber = "258"
             landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -446,11 +414,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "education/Section/Contact/EDContactViewController.m"
-            timestampString = "459652356.041357"
+            timestampString = "459834930.704188"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "260"
-            endingLineNumber = "260"
+            startingLineNumber = "265"
+            endingLineNumber = "265"
             landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -568,11 +536,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "education/Section/HomePage/&#x5bb6;&#x5ead;&#x4f5c;&#x4e1a;/EDHomeWorkViewController.m"
-            timestampString = "459762168.739603"
+            timestampString = "459833189.9756"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "222"
-            endingLineNumber = "222"
+            startingLineNumber = "248"
+            endingLineNumber = "248"
             landmarkName = "-tableView:numberOfRowsInSection:"
             landmarkType = "5">
          </BreakpointContent>
@@ -596,7 +564,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "education/Section/HomePage/&#x4f53;&#x80fd;&#x6d4b;&#x8bd5;/EDPhySicalTestViewController.m"
@@ -766,6 +734,22 @@
             startingLineNumber = "175"
             endingLineNumber = "175"
             landmarkName = "-AFNRequest:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "education/Section/Contact/EDContactViewController.m"
+            timestampString = "459834525.661342"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "-AFNRequest"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

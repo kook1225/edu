@@ -72,7 +72,7 @@
         NSLog(@"res--%@",responseObject);
         if ([responseObject[@"responseCode"] intValue] ==0) {
           
-            if(responseObject[@"data"] ==nil)
+            if(responseObject[@"data"] == [NSNull null])
             {
                 SHOW_ALERT(@"提示", @"暂无数据");
             }else

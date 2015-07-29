@@ -121,6 +121,10 @@
 		1892CE471B6722B20060DD16 /* EDClassOnlinePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1892CE451B6722B20060DD16 /* EDClassOnlinePlayerViewController.m */; };
 		1892CE481B6722B20060DD16 /* EDClassOnlinePlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1892CE461B6722B20060DD16 /* EDClassOnlinePlayerViewController.xib */; };
 		1892CE4A1B6728460060DD16 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1892CE491B6728460060DD16 /* MediaPlayer.framework */; };
+		1892CE4E1B6780BC0060DD16 /* EDEditTeacherInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1892CE4C1B6780BC0060DD16 /* EDEditTeacherInfoViewController.m */; };
+		1892CE4F1B6780BC0060DD16 /* EDEditTeacherInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1892CE4D1B6780BC0060DD16 /* EDEditTeacherInfoViewController.xib */; };
+		1892CE581B6871930060DD16 /* EDPubulishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1892CE561B6871930060DD16 /* EDPubulishViewController.m */; };
+		1892CE591B6871930060DD16 /* EDPubulishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1892CE571B6871930060DD16 /* EDPubulishViewController.xib */; };
 		761749041B451C87006DD0AA /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 761749021B451C87006DD0AA /* MineViewController.m */; };
 		761749051B451C87006DD0AA /* MineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 761749031B451C87006DD0AA /* MineViewController.xib */; };
 		7644064D1B458B1700541C86 /* BottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 764406421B458B1700541C86 /* BottomCell.m */; };
@@ -419,6 +423,12 @@
 		1892CE451B6722B20060DD16 /* EDClassOnlinePlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDClassOnlinePlayerViewController.m; sourceTree = "<group>"; };
 		1892CE461B6722B20060DD16 /* EDClassOnlinePlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDClassOnlinePlayerViewController.xib; sourceTree = "<group>"; };
 		1892CE491B6728460060DD16 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		1892CE4B1B6780BC0060DD16 /* EDEditTeacherInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDEditTeacherInfoViewController.h; sourceTree = "<group>"; };
+		1892CE4C1B6780BC0060DD16 /* EDEditTeacherInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDEditTeacherInfoViewController.m; sourceTree = "<group>"; };
+		1892CE4D1B6780BC0060DD16 /* EDEditTeacherInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDEditTeacherInfoViewController.xib; sourceTree = "<group>"; };
+		1892CE551B6871930060DD16 /* EDPubulishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDPubulishViewController.h; sourceTree = "<group>"; };
+		1892CE561B6871930060DD16 /* EDPubulishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDPubulishViewController.m; sourceTree = "<group>"; };
+		1892CE571B6871930060DD16 /* EDPubulishViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDPubulishViewController.xib; sourceTree = "<group>"; };
 		4A377B404F6F3665E19C14D4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		761749011B451C87006DD0AA /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
 		761749021B451C87006DD0AA /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
@@ -695,6 +705,9 @@
 				18579F8A1B45401100501EA0 /* EDEditInfoViewController.h */,
 				18579F8B1B45401100501EA0 /* EDEditInfoViewController.m */,
 				18579F8C1B45401100501EA0 /* EDEditInfoViewController.xib */,
+				1892CE4B1B6780BC0060DD16 /* EDEditTeacherInfoViewController.h */,
+				1892CE4C1B6780BC0060DD16 /* EDEditTeacherInfoViewController.m */,
+				1892CE4D1B6780BC0060DD16 /* EDEditTeacherInfoViewController.xib */,
 			);
 			path = "我的资料";
 			sourceTree = "<group>";
@@ -871,6 +884,9 @@
 				1857A0A01B4E702C00501EA0 /* EDHomeWorkViewController.h */,
 				1857A0A11B4E702C00501EA0 /* EDHomeWorkViewController.m */,
 				1857A0A21B4E702C00501EA0 /* EDHomeWorkViewController.xib */,
+				1892CE551B6871930060DD16 /* EDPubulishViewController.h */,
+				1892CE561B6871930060DD16 /* EDPubulishViewController.m */,
+				1892CE571B6871930060DD16 /* EDPubulishViewController.xib */,
 			);
 			path = "家庭作业";
 			sourceTree = "<group>";
@@ -1584,6 +1600,7 @@
 				18579FF81B4BC2B800501EA0 /* EDMyOrderViewController.xib in Resources */,
 				1857A0181B4BC3CB00501EA0 /* EDPhysicalDetailHeadCell.xib in Resources */,
 				764406A91B4BD07F00541C86 /* SelectPayViewController.xib in Resources */,
+				1892CE4F1B6780BC0060DD16 /* EDEditTeacherInfoViewController.xib in Resources */,
 				768FFB331B42C333008E577F /* UserIntroCell.xib in Resources */,
 				18579FFA1B4BC2B800501EA0 /* EDOrderDetailViewController.xib in Resources */,
 				764406BA1B4D558500541C86 /* JournalCell.xib in Resources */,
@@ -1596,6 +1613,7 @@
 				18579FEB1B4BC28A00501EA0 /* LoginViewController.xib in Resources */,
 				1857A0F81B5754FB00501EA0 /* details.html in Resources */,
 				1857A00B1B4BC2E800501EA0 /* EDPhySicalTestViewController.xib in Resources */,
+				1892CE591B6871930060DD16 /* EDPubulishViewController.xib in Resources */,
 				764406861B4A5CAA00541C86 /* LifeServiceIntroViewController.xib in Resources */,
 				768FFAFC1B4238D9008E577F /* Images.xcassets in Resources */,
 				768FFB381B42C8C4008E577F /* ButtonViewCell.xib in Resources */,
@@ -1731,6 +1749,7 @@
 				1857A0DA1B5663A900501EA0 /* TokenInforModel.m in Sources */,
 				1857A0E81B573A4E00501EA0 /* EDInfoDetailModel.m in Sources */,
 				1857A0A81B4E705600501EA0 /* EDPrivateDetailViewController.m in Sources */,
+				1892CE4E1B6780BC0060DD16 /* EDEditTeacherInfoViewController.m in Sources */,
 				1857A07E1B4D6E8000501EA0 /* EDPrivateNoteViewController.m in Sources */,
 				1857A0641B4D082100501EA0 /* EDPhotoDetailHeadCell.m in Sources */,
 				7644068A1B4A783A00541C86 /* SureOrderViewController.m in Sources */,
@@ -1747,6 +1766,7 @@
 				764406641B4671BC00541C86 /* LifeServiceViewController.m in Sources */,
 				768FFB221B423C76008E577F /* SETabBarViewController.m in Sources */,
 				76F121351B54B99600635209 /* SEUtils.m in Sources */,
+				1892CE581B6871930060DD16 /* EDPubulishViewController.m in Sources */,
 				768F891E1B5F72E60054F73C /* LifeServiceCell.m in Sources */,
 				764406ED1B4FA31300541C86 /* SchoolTimeTableViewController.m in Sources */,
 				1857A0171B4BC3CB00501EA0 /* EDPhysicalDetailHeadCell.m in Sources */,

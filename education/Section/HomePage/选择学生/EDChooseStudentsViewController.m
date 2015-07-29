@@ -21,6 +21,7 @@
     NSMutableArray *studentArray;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UILabel *nonDataLabel;
 
 @end
 
@@ -31,6 +32,7 @@
     // Do any additional setup after loading the view from its nib.
     self.title = @"选择学生";
     self.navigationItem.leftBarButtonItem = [Tools getNavBarItem:self clickAction:@selector(back)];
+    _nonDataLabel.hidden = YES;
     [self AFNRequest];
 }
 
@@ -87,19 +89,26 @@
         if ([responseObject[@"responseCode"] intValue] ==0) {
             
             
-       
-            
-            
-            NSArray *stuDataArray = responseObject[@"data"];
-            NSMutableArray *stuNameArray = [NSMutableArray array];
-            for (int i=0; i<stuDataArray.count; i++) {
-                [stuNameArray addObject:stuDataArray[i][@"XSXM"]];
+            if (responseObject[@"data"] == [NSNull null])
+            {
+                _nonDataLabel.hidden = NO;
+                _tableView.hidden = YES;
+            }else
+            {
+                NSArray *stuDataArray = responseObject[@"data"];
+                NSMutableArray *stuNameArray = [NSMutableArray array];
+                for (int i=0; i<stuDataArray.count; i++) {
+                    [stuNameArray addObject:stuDataArray[i][@"XSXM"]];
+                }
+                stuTitleArray = [ChineseString IndexArray:stuNameArray];
+                studentArray = [self getPaixuArray:stuTitleArray dataArray:stuDataArray];
+                
+                
+                [_tableView reloadData];
             }
-            stuTitleArray = [ChineseString IndexArray:stuNameArray];
-            studentArray = [self getPaixuArray:stuTitleArray dataArray:stuDataArray];
             
             
-            [_tableView reloadData];
+            
             
         }else
         {

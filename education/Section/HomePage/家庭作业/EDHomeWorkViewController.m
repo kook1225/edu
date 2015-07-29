@@ -8,19 +8,16 @@
 
 #import "EDHomeWorkViewController.h"
 #import "SETabBarViewController.h"
-#import "MJRefresh.h"
+#import "EDPubulishViewController.h"
 
-@interface EDHomeWorkViewController ()<MJRefreshBaseViewDelegate>
+@interface EDHomeWorkViewController ()
 {
     SETabBarViewController *tabBarView;
     CGFloat TAB_WITHDE;
     NSMutableArray *dataArray;
     UIDatePicker *datePicker;
     NSString *dateString;
-    MJRefreshBaseView *_baseview;
-    MJRefreshFooterView *_footerview;
-    MJRefreshHeaderView *_headerview;
-    int pageNum;
+    
    
     
 }
@@ -33,6 +30,8 @@
 @property (strong, nonatomic) IBOutlet UIView *blurView;
 @property (weak, nonatomic) IBOutlet UIView *containView;
 
+@property (weak, nonatomic) IBOutlet UIView *bottomView;
+@property (weak, nonatomic) IBOutlet UIButton *publishBtn;
 @end
 
 @implementation EDHomeWorkViewController
@@ -47,11 +46,17 @@
     tabBarView = (SETabBarViewController *)self.navigationController.parentViewController;
     [tabBarView tabBarViewHidden];
     
-    pageNum = 1;
-    
-    [self initfooterview];
-    [self initheaderview];
+  
 
+    if([[SEUtils getUserInfo].UserDetail.userinfo.YHLB intValue] ==3)
+    {
+        _bottomView.hidden = NO;
+    }else
+    {
+        _bottomView.hidden = YES;
+    }
+    _publishBtn.layer.cornerRadius = 4.0f;
+    _publishBtn.layer.masksToBounds = YES;
     
     [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"homeWork"];
     
@@ -96,8 +101,12 @@
     _blurView.backgroundColor = [UIColor colorWithRed:51/255.0f green:57/255.0f blue:71/255.0f alpha:0.5];
     _blurView.frame = CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT);
     
-    dateString = @"";
-    [self AFNRequest:dateString];
+    
+    NSDateFormatter *formatter_minDate = [[NSDateFormatter alloc]init];
+    [formatter_minDate setDateFormat:@"yyyy-MM-dd EEE"];
+    dateString = [formatter_minDate stringFromDate:[NSDate date]];
+    _dateLabel.text = dateString;
+    [self AFNRequest:[dateString substringToIndex:10]];
 }
 
 
@@ -106,13 +115,20 @@
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
+- (IBAction)publishFunction:(id)sender
+{
+    EDPubulishViewController *publishVC = [[EDPubulishViewController alloc]init];
+    publishVC.banji = _detailId;
+    [self.navigationController pushViewController:publishVC animated:YES];
+}
+
 - (IBAction)cancelFunction:(id)sender {
     _blurView.hidden = YES;
 }
 - (IBAction)sureFunction:(id)sender {
     _blurView.hidden = YES;
     _dateLabel.text = dateString;
-    [self AFNRequest:dateString];
+    [self AFNRequest:[dateString substringToIndex:10]];
 }
 
 - (IBAction)dateTap:(id)sender {
@@ -123,11 +139,11 @@
     [formatter_minDate setDateFormat:@"yyyy-MM-dd EEE"];
     
     NSDate *minDate = [formatter_minDate dateFromString:@"2014-01-01"];
+    NSDate *maxDate = [formatter_minDate dateFromString:@"2100-01-01"];
     
     datePicker.minimumDate = minDate;
-    datePicker.maximumDate = [NSDate date];
+    datePicker.maximumDate = maxDate;
     [_containView addSubview:datePicker];
-     dateString = [formatter_minDate stringFromDate:[NSDate date]];
     [self pickViewShow];
     
 }
@@ -152,7 +168,7 @@
         //老师
         pramaters= @{@"access_token":[SEUtils getUserInfo].TokenInfo.access_token,
                      @"page":@"1",
-                     @"pagesize":@"10",
+                     @"pagesize":@"999",
                      @"bjid":_detailId,
                      @"pushtime":date
                      };
@@ -174,8 +190,18 @@
         NSLog(@"res--%@",responseObject);
         if ([responseObject[@"responseCode"] intValue] ==0) {
             
-            dataArray = responseObject[@"data"][@"list"];
-            [_tableView reloadData];
+            if(responseObject[@"data"][@"list"] == [NSNull null])
+            {
+                SHOW_ALERT(@"提示", @"暂无数据");
+            }else
+            {
+                dataArray = responseObject[@"data"][@"list"];
+                [_tableView reloadData];
+            }
+           
+           
+            
+            
         }else
         {
             SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
@@ -234,7 +260,7 @@
     UILabel *homeWork = [[UILabel alloc]initWithFrame:CGRectMake(10, 5, TAB_WITHDE-20, 40)];
     homeWork.textColor = [UIColor colorWithRed:255/255.0f green:124/255.0f blue:6/255.0f alpha:1.0];
     homeWork.font = [UIFont systemFontOfSize:12.0];
-    NSString *text = [NSString stringWithFormat:@"%@",dataArray[indexPath.row][@"ZYNR"]];
+    NSString *text = [NSString stringWithFormat:@"%@: %@",dataArray[indexPath.row][@"ZYMC"],dataArray[indexPath.row][@"ZYNR"]];
     homeWork.numberOfLines = 0;
     
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc]initWithString:text];;
@@ -249,118 +275,6 @@
     return cell;
 }
 
-#pragma mark 刷新
-//下拉刷新和上拉加载相关
-- (void)dealloc{
-    [_footerview free];
-    [_headerview free];
-}
-
-- (void)initfooterview{
-    _footerview = [[MJRefreshFooterView alloc]initWithScrollView:_tableView];
-    _footerview.delegate = self;
-}
-
-- (void)initheaderview{
-    _headerview = [[MJRefreshHeaderView alloc]initWithScrollView:_tableView];
-    _headerview.delegate = self;
-}
-
-//下拉刷新和上拉加载代理
-- (void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
-{
-    _baseview = refreshView;
-    if (_baseview == _footerview) {
-        
-        pageNum++;
-        MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        HUD.mode = MBProgressHUDModeIndeterminate;
-        HUD.labelText = @"Loading";
-        HUD.removeFromSuperViewOnHide = YES;
-        
-        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-        [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
-        manager.requestSerializer.timeoutInterval = 10.f;
-        [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
-        
-        NSLog(@"类型--%@",[SEUtils getUserInfo].UserDetail.userinfo.YHLB);
-        NSDictionary *pramaters;
-        if ([[SEUtils getUserInfo].UserDetail.userinfo.YHLB intValue] ==3) {
-            //老师
-            pramaters= @{@"access_token":[SEUtils getUserInfo].TokenInfo.access_token,
-                         @"page":[NSNumber numberWithInt:pageNum],
-                         @"pagesize":@"10",
-                         @"bjid":_detailId,
-                         @"pushtime":dateString
-                         };
-            
-        }else
-        {
-            pramaters= @{@"access_token":[SEUtils getUserInfo].TokenInfo.access_token,
-                         @"page":[NSNumber numberWithInt:pageNum],
-                         @"pagesize":@"10",
-                         @"bjid":@"",
-                         @"pushtime":dateString
-                         };
-        }
-        
-        NSString *urlString = [NSString stringWithFormat:@"%@EduOnlineList",SERVER_HOST];
-        
-        [manager GET:urlString parameters:pramaters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            [HUD setHidden:YES];
-            NSLog(@"res--%@",responseObject);
-            if ([responseObject[@"responseCode"] intValue] ==0) {
-                
-                [dataArray addObjectsFromArray:responseObject[@"data"][@"list"]];
-                [_tableView reloadData];
-            }else
-            {
-                SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
-            }
-            
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            [HUD setHidden:YES];
-            if (operation.response.statusCode == 401) {
-                NSLog(@"请求超时");
-                //   [SEUtils repetitionLogin];
-            }else if(error.code == -1001)
-            {
-                SHOW_ALERT(@"提示", @"网络请求超时");
-            }else if (error.code == -1009)
-            {
-                SHOW_ALERT(@"提示", @"网络连接已断开");
-            }
-            else {
-                NSLog(@"Error:%@",error);
-                NSLog(@"err:%@",operation.responseObject[@"message"]);
-                //   SHOW_ALERT(@"提示",operation.responseObject[@"message"])
-            }
-        }];
-
-        
-        
-        [self performSelector:@selector(hidden) withObject:nil afterDelay:1.5];
-    }
-    if (_baseview == _headerview) {
-        [self AFNRequest:dateString];
-        
-        //        _baseview = refreshView;
-        [self performSelector:@selector(hidden) withObject:nil afterDelay:1.5];
-    }
-    
-}
-
-- (void)hidden
-{
-    if (_baseview == _headerview)
-    {
-        [_headerview endRefreshing];
-    }
-    else
-    {
-        [_footerview endRefreshing];
-    }
-}
 
 
 @end

@@ -220,7 +220,12 @@
     }
     if ([typeString isEqualToString:@"学生"])
     {
+        if([studentArray[indexPath.section][indexPath.row][@"isVip"] intValue] ==1)
+        {
+            contentCell.name.textColor = [UIColor redColor];
+        }
         contentCell.name.text = studentArray[indexPath.section][indexPath.row][@"XSXM"];
+        
         NSURL *url = [NSURL URLWithString:studentArray[indexPath.section][indexPath.row][@"YHTX"]];
         [contentCell.contactImg sd_setImageWithURL:url placeholderImage:nil];
         
@@ -258,7 +263,7 @@
      }else
      {
          EDTeacherInfoViewController *teacherVC = [[EDTeacherInfoViewController alloc]init];
-         teacherVC.detailDic =  teacherArray[indexPath.row][indexPath.row];
+         teacherVC.detailDic =  teacherArray[indexPath.section][indexPath.row];
          [self.navigationController pushViewController:teacherVC animated:YES];
      }
 

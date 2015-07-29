@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EDChooseStudentsViewController">
             <connections>
+                <outlet property="nonDataLabel" destination="zxw-Ij-VI3" id="d3S-Gk-70V"/>
                 <outlet property="tableView" destination="nzt-5Y-1TJ" id="Cqg-mh-wyT"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -23,12 +24,24 @@
                         <outlet property="delegate" destination="-1" id="odh-wC-reJ"/>
                     </connections>
                 </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂无数据" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zxw-Ij-VI3">
+                    <rect key="frame" x="130" y="216" width="61" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="61" id="jRm-eS-RyY"/>
+                        <constraint firstAttribute="height" constant="21" id="lFc-WM-bFv"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="zxw-Ij-VI3" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="216" id="Vgh-9e-3nK"/>
                 <constraint firstItem="nzt-5Y-1TJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="WDW-CM-4nU"/>
                 <constraint firstAttribute="bottom" secondItem="nzt-5Y-1TJ" secondAttribute="bottom" constant="50" id="b6M-sH-mEW"/>
                 <constraint firstAttribute="trailing" secondItem="nzt-5Y-1TJ" secondAttribute="trailing" id="pJH-wO-e2G"/>
+                <constraint firstItem="zxw-Ij-VI3" firstAttribute="centerX" secondItem="nzt-5Y-1TJ" secondAttribute="centerX" id="sPL-an-CiM"/>
                 <constraint firstItem="nzt-5Y-1TJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="vH2-dK-DIf"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
