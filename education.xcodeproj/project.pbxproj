@@ -125,6 +125,8 @@
 		1892CE4F1B6780BC0060DD16 /* EDEditTeacherInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1892CE4D1B6780BC0060DD16 /* EDEditTeacherInfoViewController.xib */; };
 		1892CE581B6871930060DD16 /* EDPubulishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1892CE561B6871930060DD16 /* EDPubulishViewController.m */; };
 		1892CE591B6871930060DD16 /* EDPubulishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1892CE571B6871930060DD16 /* EDPubulishViewController.xib */; };
+		1892CE5D1B69CA1D0060DD16 /* EDProblemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1892CE5B1B69CA1D0060DD16 /* EDProblemDetailViewController.m */; };
+		1892CE5E1B69CA1D0060DD16 /* EDProblemDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1892CE5C1B69CA1D0060DD16 /* EDProblemDetailViewController.xib */; };
 		761749041B451C87006DD0AA /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 761749021B451C87006DD0AA /* MineViewController.m */; };
 		761749051B451C87006DD0AA /* MineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 761749031B451C87006DD0AA /* MineViewController.xib */; };
 		7644064D1B458B1700541C86 /* BottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 764406421B458B1700541C86 /* BottomCell.m */; };
@@ -429,6 +431,9 @@
 		1892CE551B6871930060DD16 /* EDPubulishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDPubulishViewController.h; sourceTree = "<group>"; };
 		1892CE561B6871930060DD16 /* EDPubulishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDPubulishViewController.m; sourceTree = "<group>"; };
 		1892CE571B6871930060DD16 /* EDPubulishViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDPubulishViewController.xib; sourceTree = "<group>"; };
+		1892CE5A1B69CA1D0060DD16 /* EDProblemDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDProblemDetailViewController.h; sourceTree = "<group>"; };
+		1892CE5B1B69CA1D0060DD16 /* EDProblemDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDProblemDetailViewController.m; sourceTree = "<group>"; };
+		1892CE5C1B69CA1D0060DD16 /* EDProblemDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDProblemDetailViewController.xib; sourceTree = "<group>"; };
 		4A377B404F6F3665E19C14D4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		761749011B451C87006DD0AA /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
 		761749021B451C87006DD0AA /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
@@ -695,6 +700,9 @@
 				184AEA0A1B62B5D500FAEC5A /* EDProblemAnalyViewController.h */,
 				184AEA0B1B62B5D500FAEC5A /* EDProblemAnalyViewController.m */,
 				184AEA0C1B62B5D500FAEC5A /* EDProblemAnalyViewController.xib */,
+				1892CE5A1B69CA1D0060DD16 /* EDProblemDetailViewController.h */,
+				1892CE5B1B69CA1D0060DD16 /* EDProblemDetailViewController.m */,
+				1892CE5C1B69CA1D0060DD16 /* EDProblemDetailViewController.xib */,
 			);
 			path = "难点解析";
 			sourceTree = "<group>";
@@ -1591,6 +1599,7 @@
 				1857A0261B4BC3FB00501EA0 /* EDOrderBottomCell.xib in Resources */,
 				768FFB3D1B42DE44008E577F /* HomePageListCell.xib in Resources */,
 				768F893E1B63A45A0054F73C /* EDMyPhotoCell.xib in Resources */,
+				1892CE5E1B69CA1D0060DD16 /* EDProblemDetailViewController.xib in Resources */,
 				7644069A1B4BBE2000541C86 /* ManageAddViewController.xib in Resources */,
 				761749051B451C87006DD0AA /* MineViewController.xib in Resources */,
 				1808B32A1B44293C0050E3B4 /* EDDayInfoCell.xib in Resources */,
@@ -1792,6 +1801,7 @@
 				1808B3291B44293C0050E3B4 /* EDDayInfoCell.m in Sources */,
 				764406D31B4EA4DF00541C86 /* EvaluteAndEncourageCell.m in Sources */,
 				764406BF1B4D642B00541C86 /* ParentRegisterViewController.m in Sources */,
+				1892CE5D1B69CA1D0060DD16 /* EDProblemDetailViewController.m in Sources */,
 				1857A05F1B4CFAB500501EA0 /* EDPhotoDetailCell.m in Sources */,
 				1808B3441B44EADB0050E3B4 /* EDTeacherInfoViewController.m in Sources */,
 				7644064D1B458B1700541C86 /* BottomCell.m in Sources */,

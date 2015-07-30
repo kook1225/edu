@@ -37,8 +37,9 @@
 #pragma mark TAP
 - (IBAction)contactUsTap:(id)sender {
     //联系我们
-    ContactUsViewController *contactUsVC = [[ContactUsViewController alloc] init];
-    [self.navigationController pushViewController:contactUsVC animated:YES];
+//    ContactUsViewController *contactUsVC = [[ContactUsViewController alloc] init];
+//    [self.navigationController pushViewController:contactUsVC animated:YES];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel://96255"]];
 }
 - (IBAction)problemTap:(id)sender {
     //问题反馈

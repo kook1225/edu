@@ -97,11 +97,11 @@
             
             if (num==1) {
                 if (responseObject[@"data"] == [NSNull null]) {
-                    _nonDataLabel.hidden = NO;
+                    _nonDataLabel2.hidden = NO;
                     _gradeTableView.hidden = YES;
                 }else
                 {
-                    _nonDataLabel.hidden = YES;
+                    _nonDataLabel2.hidden = YES;
                     _gradeTableView.hidden = NO;
                     grdArray = responseObject[@"data"];
                     [_gradeTableView reloadData];
@@ -110,12 +110,12 @@
                 
             }else if(num == 2)
             {
-                if (responseObject[@"data"] == [NSNull null]) {
-                    _nonDataLabel2.hidden = NO;
+                if ([responseObject[@"data"] count] == 0) {
+                    _nonDataLabel.hidden = NO;
                     _subjectTableView.hidden = YES;
                 }else
                 {
-                    _nonDataLabel2.hidden = YES;
+                    _nonDataLabel.hidden = YES;
                     _subjectTableView.hidden = NO;
                     subArray = responseObject[@"data"];
                     [_subjectTableView reloadData];
@@ -124,11 +124,11 @@
             }else
             {
                 if (responseObject[@"data"] == [NSNull null]) {
-                    _nonDataLabel.hidden = NO;
+                    _nonDataLabel2.hidden = NO;
                     _gradeTableView.hidden = YES;
                 }else
                 {
-                    _nonDataLabel.hidden = YES;
+                    _nonDataLabel2.hidden = YES;
                     _gradeTableView.hidden = NO;
                     grdArray = responseObject[@"data"];
                     [_gradeTableView reloadData];

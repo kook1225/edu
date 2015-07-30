@@ -9,6 +9,7 @@
 #import "EDProblemAnalyViewController.h"
 #import "EDDayInfoCell.h"
 #import "MJRefresh.h"
+#import "EDProblemDetailViewController.h"
 
 @interface EDProblemAnalyViewController ()<UITableViewDelegate,UITableViewDataSource,MJRefreshBaseViewDelegate>
 {
@@ -252,7 +253,9 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    EDProblemDetailViewController *problemDetailVC = [[EDProblemDetailViewController alloc]init];
+    problemDetailVC.detailId = dataArray[indexPath.row][@"ID"];
+    [self.navigationController pushViewController:problemDetailVC animated:YES];
 }
 
 
