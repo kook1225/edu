@@ -228,6 +228,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSString *nianji;
     
     if (tableView == _gradeTableView) {
        
@@ -238,6 +239,7 @@
         
         [_gradeTableView reloadData];
       
+        nianji = grdArray[indexPath.row][@"NJMC"];
         [self  AFNRequest:2 class:grdArray[indexPath.row][@"NJID"]];
         
     }else
@@ -247,11 +249,15 @@
        {
            EDHomeWorkViewController *homeWorkVC = [[EDHomeWorkViewController alloc]init];
            homeWorkVC.detailId = subArray[indexPath.row][@"BJID"];
+           homeWorkVC.nianji = nianji;
+           homeWorkVC.banji = subArray[indexPath.row][@"BJMC"];
            [self.navigationController pushViewController:homeWorkVC animated:YES];
        }else if ([_type isEqualToString:@"我的课表"])
        {
            SchoolTimeTableViewController *schoolTimeVC = [[SchoolTimeTableViewController alloc]init];
            schoolTimeVC.detailId = subArray[indexPath.row][@"BJID"];
+           schoolTimeVC.nianji = nianji;
+           schoolTimeVC.banji = subArray[indexPath.row][@"BJMC"];;
            [self.navigationController pushViewController:schoolTimeVC animated:YES];
            
        }

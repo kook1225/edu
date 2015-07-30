@@ -129,22 +129,6 @@
                                 <action selector="registerFunction:" destination="-1" eventType="touchUpInside" id="4vx-Dp-Px0"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NLM-1c-wZo">
-                            <rect key="frame" x="198" y="450" width="100" height="20"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="20" id="3Gl-02-jg2"/>
-                                <constraint firstAttribute="width" constant="100" id="MaV-U8-vef"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <inset key="titleEdgeInsets" minX="40" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" title="忘记密码？">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="findPwdFunction:" destination="-1" eventType="touchUpInside" id="XgK-or-dcF"/>
-                            </connections>
-                        </button>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginLogo" translatesAutoresizingMaskIntoConstraints="NO" id="wvg-P9-DVr">
                             <rect key="frame" x="11" y="14" width="300" height="220"/>
                             <constraints>
@@ -166,15 +150,12 @@
                         <constraint firstAttribute="bottom" secondItem="U8I-Mi-Dg1" secondAttribute="bottom" id="K65-lE-Oa0"/>
                         <constraint firstItem="U8I-Mi-Dg1" firstAttribute="centerY" secondItem="k3D-w8-cLm" secondAttribute="centerY" id="Mia-QK-6Rg"/>
                         <constraint firstItem="U8I-Mi-Dg1" firstAttribute="top" secondItem="k3D-w8-cLm" secondAttribute="top" id="V0J-Oh-bL6"/>
-                        <constraint firstAttribute="trailing" secondItem="NLM-1c-wZo" secondAttribute="trailing" constant="22" id="W3Z-I5-Nem"/>
                         <constraint firstItem="wvg-P9-DVr" firstAttribute="leading" secondItem="k3D-w8-cLm" secondAttribute="leading" constant="11" id="XWb-8v-a4o"/>
                         <constraint firstItem="wvg-P9-DVr" firstAttribute="top" secondItem="k3D-w8-cLm" secondAttribute="top" constant="14" id="b19-ZZ-Adk"/>
                         <constraint firstAttribute="trailing" secondItem="U8I-Mi-Dg1" secondAttribute="trailing" id="bgr-eM-Ctd"/>
                         <constraint firstItem="ZEe-Dj-9ZA" firstAttribute="centerX" secondItem="PHc-5T-wcT" secondAttribute="centerX" id="cbU-vr-h6N"/>
                         <constraint firstItem="ZtQ-Gh-BKe" firstAttribute="top" secondItem="ZWJ-TY-PIm" secondAttribute="bottom" constant="30" id="huc-rK-tYv"/>
                         <constraint firstItem="ZWJ-TY-PIm" firstAttribute="top" secondItem="mo3-Xj-4W9" secondAttribute="bottom" id="j4n-XK-BHy"/>
-                        <constraint firstItem="PHc-5T-wcT" firstAttribute="top" secondItem="NLM-1c-wZo" secondAttribute="bottom" constant="30" id="jhG-zk-6XM"/>
-                        <constraint firstItem="NLM-1c-wZo" firstAttribute="top" secondItem="ZtQ-Gh-BKe" secondAttribute="bottom" constant="5" id="kex-Rn-rsG"/>
                         <constraint firstItem="ZWJ-TY-PIm" firstAttribute="leading" secondItem="mo3-Xj-4W9" secondAttribute="leading" id="m3O-o0-FdW"/>
                         <constraint firstItem="wvg-P9-DVr" firstAttribute="centerX" secondItem="k3D-w8-cLm" secondAttribute="centerX" constant="1" id="mIH-op-LBW"/>
                         <constraint firstItem="ZtQ-Gh-BKe" firstAttribute="leading" secondItem="k3D-w8-cLm" secondAttribute="leading" constant="20" id="nnB-iM-qf5"/>

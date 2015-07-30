@@ -57,14 +57,17 @@
     if([[SEUtils getUserInfo].UserDetail.userinfo.YHLB intValue] ==3)
     {
         _bottomView.hidden = NO;
+        _titleLabel.text = [NSString stringWithFormat:@"%@级%@班",_nianji,_banji];
     }else
     {
         _bottomView.hidden = YES;
+        _titleLabel.text = [NSString stringWithFormat:@"%@级%@班",[SEUtils getUserInfo].UserDetail.studentInfo.NJMC,[SEUtils getUserInfo].UserDetail.studentInfo.BJMC];
     }
     _publishBtn.layer.cornerRadius = 4.0f;
     _publishBtn.layer.masksToBounds = YES;
     
     [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"homeWork"];
+    
     
     CGFloat slide_x= 0;
     CGFloat slide_y = 0;
@@ -192,7 +195,7 @@
     {
         pramaters= @{@"access_token":[SEUtils getUserInfo].TokenInfo.access_token,
                      @"page":@"1",
-                     @"pagesize":@"10",
+                     @"pagesize":@"999",
                      @"bjid":@"",
                      @"pushtime":date
                      };
@@ -211,6 +214,8 @@
                 _tableView.hidden = YES;
             }else
             {
+                _nonDataLabel.hidden = YES;
+                _tableView.hidden = NO;
                 dataArray = responseObject[@"data"][@"list"];
                 [_tableView reloadData];
             }

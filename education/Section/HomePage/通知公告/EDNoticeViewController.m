@@ -71,7 +71,8 @@
     NSDictionary *pramaters = @{@"access_token":[SEUtils getUserInfo].TokenInfo.access_token,
                                 @"type":@"2",
                                 @"pagesize":@"10",
-                                @"page":@"1"};
+                                @"page":@"1",
+                                @"zxtype":@""};
     NSString *urlString = [NSString stringWithFormat:@"%@NoticeList",SERVER_HOST];
     
     [manager GET:urlString parameters:pramaters success:^(AFHTTPRequestOperation *operation, id responseObject) {
