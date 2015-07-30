@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *exitBtn;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *addLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *topImgView;
 
 @end
 
@@ -43,12 +44,19 @@
         _nameLabel.text = [[[SEUtils getUserInfo] UserDetail] teacherInfo].JSXM;
     }
     
+    
+    
     tabBarViewController = (SETabBarViewController *)self.navigationController.parentViewController;
     
     _topImageView.layer.cornerRadius = _topImageView.frame.size.width / 2.0;
     _topImageView.layer.borderWidth = 2;
     _topImageView.layer.borderColor = [UIColor grayColor].CGColor;
     _topImageView.clipsToBounds = YES;
+    
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@",IMG_HOST,[[[[SEUtils getUserInfo] UserDetail] userinfo] YHTX]];
+    NSURL *url = [NSURL URLWithString:urlStr];
+    [_topImgView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"1"]];
+    
     // Do any additional setup after loading the view from its nib.
     }
 

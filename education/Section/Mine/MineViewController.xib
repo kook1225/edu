@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
@@ -10,6 +11,7 @@
                 <outlet property="exitBtn" destination="7gv-tw-gku" id="MzW-uf-onE"/>
                 <outlet property="nameLabel" destination="yCd-WR-a9n" id="7oa-4d-hcJ"/>
                 <outlet property="topImageView" destination="wct-wx-D8g" id="3MH-yf-zmO"/>
+                <outlet property="topImgView" destination="HPX-OO-ivz" id="dvC-0Y-HtL"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -228,7 +230,7 @@
         </tapGestureRecognizer>
     </objects>
     <resources>
-        <image name="1" width="99" height="82"/>
+        <image name="1" width="69" height="69"/>
         <image name="arrow" width="20" height="20"/>
         <image name="arrow2" width="20" height="20"/>
         <image name="backgroupImage" width="375" height="143"/>

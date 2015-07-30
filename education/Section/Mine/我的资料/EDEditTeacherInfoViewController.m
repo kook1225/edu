@@ -9,6 +9,7 @@
 #import "EDEditTeacherInfoViewController.h"
 #import "SETabBarViewController.h"
 #import <UIImageView+WebCache.h>
+#import "UserModel.h"
 
 @interface EDEditTeacherInfoViewController ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 {
@@ -66,7 +67,7 @@
     _subLabel.text = [SEUtils getUserInfo].UserDetail.teacherInfo.RJXK;
     _professionLabel.text = [SEUtils getUserInfo].UserDetail.teacherInfo.SRZW;
    
-    NSString *imgString = [NSString stringWithFormat:@"%@%@",IMAGE_HOST,[SEUtils getUserInfo].UserDetail.userinfo.YHTX];
+    NSString *imgString = [NSString stringWithFormat:@"%@%@",IMG_HOST,[SEUtils getUserInfo].UserDetail.userinfo.YHTX];
     NSURL *url = [NSURL URLWithString:imgString];
     [_headImg sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"1"]];
 }
@@ -203,7 +204,44 @@
                           
                           picAdd = [NSString stringWithFormat:@"%@",responseObject[@"data"]];
                           
-                          NSLog(@"pic:%@",picAdd);
+                          AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+                          
+                          NSDictionary *parameter;
+                          
+                          parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],
+                                        @"icon":picAdd};
+                          
+                          
+                          NSString *urlStr = [NSString stringWithFormat:@"%@MyIcon",SERVER_HOST];
+                          
+                          // 设置超时时间
+                          [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+                          manager.requestSerializer.timeoutInterval = 10.f;
+                          [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+                          
+                          [manager POST:urlStr parameters:parameter
+                                success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                    [HUD hide:YES];
+                                    
+                                    if ([responseObject[@"responseCode"] intValue] == 0) {
+                                        [self userInfo];
+                                        SHOW_ALERT(@"提示", @"修改成功");
+                                    }
+                                    else {
+                                        SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
+                                    }
+                                    
+                                }
+                                failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                    [HUD hide:YES];
+                                    if(error.code == -1001)
+                                    {
+                                        SHOW_ALERT(@"提示", @"网络请求超时");
+                                    }else if (error.code == -1009)
+                                    {
+                                        SHOW_ALERT(@"提示", @"网络连接已断开");
+                                    }
+                                }];
                           
                       }
                       else {
@@ -228,6 +266,47 @@
         
     }
     
+}
+
+- (void)userInfo {
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    NSDictionary *parameter;
+    
+    parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token]};
+    
+    
+    NSString *urlStr = [NSString stringWithFormat:@"%@MyInfo",SERVER_HOST];
+    
+    // 设置超时时间
+    [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+    manager.requestSerializer.timeoutInterval = 10.f;
+    [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+    
+    [manager GET:urlStr parameters:parameter
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             
+             NSError *err;
+             
+             UserModel *model = [[UserModel alloc] initWithDictionary:responseObject[@"data"] error:&err];
+             
+             if ([responseObject[@"responseCode"] intValue] == 0) {
+                 [SEUtils setUserInfo:model];
+             }
+             else {
+                 SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
+             }
+             
+         }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             if(error.code == -1001)
+             {
+                 SHOW_ALERT(@"提示", @"网络请求超时");
+             }else if (error.code == -1009)
+             {
+                 SHOW_ALERT(@"提示", @"网络连接已断开");
+             }
+         }];
 }
 
 

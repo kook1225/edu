@@ -24,4 +24,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *dadName;
 @property (weak, nonatomic) IBOutlet UITextField *dadPhone;
 
+@property (nonatomic,strong) NSString *imgAdd;
+
 @end
