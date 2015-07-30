@@ -39,7 +39,7 @@
     
     NSString *urlStr = [NSString stringWithFormat:@"%@%@",IMG_HOST,model.author.YHTX];
     NSURL *url = [NSURL URLWithString:urlStr];
-    [_leftImageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"1"]];
+    [_leftImageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@""]];
 }
 
 //赋值 and 自动换行,计算出cell的高度
@@ -142,7 +142,7 @@
             
             NSString *urlStr = [NSString stringWithFormat:@"%@%@",IMG_HOST,[imagesArray objectAtIndex:i]];
             NSURL *url = [NSURL URLWithString:urlStr];
-            [imageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"1"]];
+            [imageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@""]];
             
             imageView.contentMode = UIViewContentModeScaleAspectFill;
             
@@ -360,9 +360,17 @@
     
     NSDictionary *dic = @{@"index":[NSNumber numberWithInteger:row]};
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"ClassCircleCell"
-                                                        object:@"ReplyAction"
-                                                      userInfo:dic];
+    if ([_homePage  isEqual: @"首页"]) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"SETabBarViewController"
+                                                            object:@"ReplyAction"
+                                                          userInfo:dic];
+    }
+    else {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"ClassCircleCell"
+                                                            object:@"ReplyAction"
+                                                          userInfo:dic];
+    }
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -413,7 +421,12 @@
     
     NSDictionary *dic = @{@"tag":[NSNumber numberWithInteger:btn.tag]};
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"SETabBarViewController" object:@"seePic" userInfo:dic];
+    if ([_homePage  isEqual: @"首页"]) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"SETabBarViewController" object:@"seePic" userInfo:dic];
+    }
+    else {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"ClassCircleCell" object:@"seePic" userInfo:dic];
+    }
     
     /*
     CheckImageViewController *checkImageVC = [[CheckImageViewController alloc] init];

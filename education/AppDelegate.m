@@ -49,8 +49,8 @@
     
     
     
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"everLaunched"]) {
-        //[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"everLaunched"];
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"everLaunched"]) {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"everLaunched"];
         
         GuidePageViewController *guidePageViewController = [[GuidePageViewController alloc] init];
         self.window.rootViewController = guidePageViewController;

@@ -78,7 +78,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(seePic:)
-                                                 name:@"SETabBarViewController"
+                                                 name:@"ClassCircleCell"
                                                object:@"seePic"];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -89,6 +89,11 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [[IQKeyboardManager sharedManager] setEnableAutoToolbar:NO];
+    
+    stringArray = [NSMutableArray array];
+    imagesArray = [NSMutableArray array];
+    dataArray = [NSMutableArray array];
+    
     [self classCircleApi];
 }
 
@@ -127,7 +132,7 @@
     else {
         MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
         HUD.mode = MBProgressHUDModeIndeterminate;
-        HUD.labelText = @"Loading";
+        HUD.labelText = @"加载中...";
         HUD.removeFromSuperViewOnHide = YES;
         
         
@@ -204,7 +209,7 @@
     
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     HUD.mode = MBProgressHUDModeIndeterminate;
-    HUD.labelText = @"Loading";
+    HUD.labelText = @"加载中...";
     HUD.removeFromSuperViewOnHide = YES;
     
     
@@ -259,12 +264,10 @@
 }
 
 - (void)classCircleApi {
-    stringArray = [NSMutableArray array];
-    imagesArray = [NSMutableArray array];
     
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     HUD.mode = MBProgressHUDModeIndeterminate;
-    HUD.labelText = @"Loading";
+    HUD.labelText = @"加载中...";
     HUD.removeFromSuperViewOnHide = YES;
     
     
@@ -332,6 +335,7 @@
                  SHOW_ALERT(@"提示", @"网络连接已断开");
              }
          }];
+    
 }
 
 #pragma mark - UITableViewDelegate Method
@@ -356,17 +360,23 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"ClassCircleCell" owner:self options:nil] lastObject];
     }
     
-    
     imageArrays = [NSMutableArray array];
     
-    NSString *imageStr = [imagesArray objectAtIndex:indexPath.row];
+    if ([imagesArray count] != 0) {
     
-    imageArrays = [NSMutableArray arrayWithArray:[imageStr componentsSeparatedByString:@","]];
+        NSString *imageStr = [imagesArray objectAtIndex:indexPath.row];
+    
+        imageArrays = [NSMutableArray arrayWithArray:[imageStr componentsSeparatedByString:@","]];
+    }
+    else {
+        imageArrays =[NSMutableArray arrayWithArray:@[]];
+    }
 
     
-    //@[@"啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊a",@"范德萨范德萨范德萨范德萨大叔大叔的"]
+    if ([stringArray count] != 0) {
+        [cell setIntroductionText:[stringArray objectAtIndex:[indexPath row]] image:imageArrays reply:[dataArray objectAtIndex:indexPath.row] index:indexPath.row];
+    }
     
-    [cell setIntroductionText:[stringArray objectAtIndex:[indexPath row]] image:imageArrays reply:[dataArray objectAtIndex:indexPath.row] index:indexPath.row];
     
     [cell setData:[dataArray objectAtIndex:indexPath.row]];
     cell.priBtn.tag = 400 + indexPath.row;
@@ -400,14 +410,12 @@
 {
     _baseview = refreshView;
     if (_baseview == _footerview) {
-        stringArray = [NSMutableArray array];
-        imagesArray = [NSMutableArray array];
         
         pageNum++;
         
         MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
         HUD.mode = MBProgressHUDModeIndeterminate;
-        HUD.labelText = @"Loading";
+        HUD.labelText = @"加载中...";
         HUD.removeFromSuperViewOnHide = YES;
         
         
@@ -442,11 +450,17 @@
                 // dataArray = [growUpModel arrayOfModelsFromDictionaries:responseObject[@"data"] error:&err];
                 [dataArray addObjectsFromArray:[ListModel arrayOfModelsFromDictionaries:responseObject[@"data"][@"list"]]];
                 
-                for (int i = 0; i < [dataArray count]; i++) {
-                    [stringArray addObject:[[dataArray objectAtIndex:i] dynamicInfo].TPSM];
-                    [imagesArray addObject:[[dataArray objectAtIndex:i] dynamicInfo].SLT];
-                }
                 
+                if (responseObject[@"data"][@"list"] != [NSNull null]) {
+                    stringArray = [NSMutableArray array];
+                    imagesArray = [NSMutableArray array];
+                    
+                    for (int i = 0; i < [dataArray count]; i++) {
+                        [stringArray addObject:[[dataArray objectAtIndex:i] dynamicInfo].TPSM];
+                        [imagesArray addObject:[[dataArray objectAtIndex:i] dynamicInfo].SLT];
+                    }
+                }
+        
                 [_tableView reloadData];
                 
             }else
@@ -477,6 +491,8 @@
         [self performSelector:@selector(hidden) withObject:nil afterDelay:1.5];
     }
     if (_baseview == _headerview) {
+        stringArray = [NSMutableArray array];
+        imagesArray = [NSMutableArray array];
         [self classCircleApi];
         //        _baseview = refreshView;
         [self performSelector:@selector(hidden) withObject:nil afterDelay:1.5];

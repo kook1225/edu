@@ -148,7 +148,7 @@
 - (void)selectProvince:(int)index cityTag:(int)row{
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     HUD.mode = MBProgressHUDModeIndeterminate;
-    HUD.labelText = @"Loading";
+    HUD.labelText = @"加载中...";
     HUD.removeFromSuperViewOnHide = YES;
     
     
@@ -197,7 +197,7 @@
 - (void)selectCity:(NSString *)proinceId index:(int)row {
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     HUD.mode = MBProgressHUDModeIndeterminate;
-    HUD.labelText = @"Loading";
+    HUD.labelText = @"加载中...";
     HUD.removeFromSuperViewOnHide = YES;
     
     
@@ -248,7 +248,7 @@
 - (void)selectDistrict:(NSString *)cityId index:(int)row{
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     HUD.mode = MBProgressHUDModeIndeterminate;
-    HUD.labelText = @"Loading";
+    HUD.labelText = @"加载中...";
     HUD.removeFromSuperViewOnHide = YES;
     
     
@@ -322,7 +322,7 @@
                         else {
                             MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
                             HUD.mode = MBProgressHUDModeIndeterminate;
-                            HUD.labelText = @"Loading";
+                            HUD.labelText = @"加载中...";
                             HUD.removeFromSuperViewOnHide = YES;
                             
                             
@@ -388,7 +388,7 @@
 - (IBAction)deleteBtn:(id)sender {
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     HUD.mode = MBProgressHUDModeIndeterminate;
-    HUD.labelText = @"Loading";
+    HUD.labelText = @"加载中...";
     HUD.removeFromSuperViewOnHide = YES;
     
     

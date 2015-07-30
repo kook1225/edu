@@ -30,12 +30,15 @@
 #import <UIImageView+WebCache.h>
 #import "EDSubjectViewController.h"
 #import "EDChooseSubViewController.h"
+#import "ClassCircleCell.h"
+#import "CheckImageViewController.h"
+#import "IQKeyboardManager.h"
 
 #define IMAGEHEIGHT (160 * ([UIScreen mainScreen].bounds.size.height/568.0))
 #define USERINTROHEIGHT (64 * ([UIScreen mainScreen].bounds.size.height/568.0))
-#define BUTTONVIEWHEIGHT (204 * ([UIScreen mainScreen].bounds.size.height/568.0))
+#define BUTTONVIEWHEIGHT 204//(204 * ([UIScreen mainScreen].bounds.size.height/568.0))
 
-@interface ViewController ()<UIAlertViewDelegate> {
+@interface ViewController ()<UIAlertViewDelegate,UITextFieldDelegate> {
     CGFloat scale;
     NSMutableArray *stringArray;
     NSMutableArray *imagesArray;
@@ -46,10 +49,15 @@
     NSMutableArray *imageArrays;
     NSString *vipTag;
     
+    int replyTag;
+    
     SETabBarViewController *tabBarViewController;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic,strong) UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIView *replyView;
+@property (weak, nonatomic) IBOutlet UITextField *replyTextField;
+@property (weak, nonatomic) IBOutlet UIButton *replyButton;
 
 @end
 
@@ -58,6 +66,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     scale = SCALE;
+    
+    _replyView.hidden = YES;
     
     stringArray = [NSMutableArray array];
     imagesArray = [NSMutableArray array];
@@ -76,7 +86,7 @@
     borderView.backgroundColor = [UIColor colorWithRed:232.0/255.0 green:232.0/255.0 blue:232.0/255.0 alpha:1.000];
 
     
-    imageBtn = [[UIButton alloc] initWithFrame:CGRectMake(10, 12, 56 * scale, 20 * scale)];
+    imageBtn = [[UIButton alloc] initWithFrame:CGRectMake(10, 12, 56 * scale, 26)];
     imageBtn.titleLabel.font = [UIFont systemFontOfSize:11];
     [imageBtn setTitleColor:[UIColor colorWithRed:255.0/255.0 green:124.0/255.0 blue:6.0/255.0 alpha:1.000] forState:UIControlStateNormal];
     [imageBtn setTitle:@"最新.班级圈" forState:UIControlStateNormal];
@@ -88,9 +98,21 @@
     
     [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell2"];
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(seePic:)
+                                                 name:@"SETabBarViewController"
+                                               object:@"seePic"];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(replyAction:)
+                                                 name:@"SETabBarViewController"
+                                               object:@"ReplyAction"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [[IQKeyboardManager sharedManager] setEnableAutoToolbar:NO];
     
     [self classCircleApi];
     
@@ -103,6 +125,7 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
+    [[IQKeyboardManager sharedManager] setEnableAutoToolbar:YES];
     self.navigationController.navigationBar.hidden = NO;
 }
 
@@ -114,7 +137,7 @@
     
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     HUD.mode = MBProgressHUDModeIndeterminate;
-    HUD.labelText = @"Loading";
+    HUD.labelText = @"加载中...";
     HUD.removeFromSuperViewOnHide = YES;
     
     
@@ -499,12 +522,14 @@
 
 #pragma mark - UITableViewDelegate Method
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    /*
     if (indexPath.row > 3) {
         EDPhotoDetailViewController *photoDetail = [[EDPhotoDetailViewController alloc]init];
         photoDetail.model = [dataArray objectAtIndex:indexPath.row - 4];
         photoDetail.xxId = [[[dataArray objectAtIndex:indexPath.row - 4] dynamicInfo] ID];
         [self.navigationController pushViewController:photoDetail animated:YES];
     }
+     */
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -515,7 +540,7 @@
         return USERINTROHEIGHT;
     }
     else if (indexPath.row == 2) {
-        return BUTTONVIEWHEIGHT;
+        return BUTTONVIEWHEIGHT * scale;
     }
     else if (indexPath.row == 3) {
         return 32 * scale;
@@ -587,23 +612,198 @@
         return cell;
     }
     else {
-        HomePageListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"homePageListCell"];
+     
+        ClassCircleCell *cell = [tableView dequeueReusableCellWithIdentifier:@"classCircleCell"];
         if (cell == nil) {
-            cell = [[[NSBundle mainBundle] loadNibNamed:@"HomePageListCell" owner:self options:nil] lastObject];
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"ClassCircleCell" owner:self options:nil] lastObject];
         }
         
         imageArrays = [NSMutableArray array];
         
-        NSString *imageStr = [imagesArray objectAtIndex:indexPath.row - 4];
+        if ([imagesArray count] != 0) {
+            
+            NSString *imageStr = [imagesArray objectAtIndex:indexPath.row - 4];
+            
+            imageArrays = [NSMutableArray arrayWithArray:[imageStr componentsSeparatedByString:@","]];
+        }
+        else {
+            imageArrays =[NSMutableArray arrayWithArray:@[]];
+        }
         
-        imageArrays = [NSMutableArray arrayWithArray:[imageStr componentsSeparatedByString:@","]];
         
-        [cell setIntroductionText:[stringArray objectAtIndex:[indexPath row] - 4] image:imageArrays reply:[dataArray objectAtIndex:indexPath.row - 4] index:indexPath.row - 4];
+        //@[@"啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊a",@"范德萨范德萨范德萨范德萨大叔大叔的"]
+        
+        if ([stringArray count] != 0) {
+            [cell setIntroductionText:[stringArray objectAtIndex:[indexPath row] - 4] image:imageArrays reply:[dataArray objectAtIndex:indexPath.row - 4] index:indexPath.row - 4];
+        }
+        
         [cell setData:[dataArray objectAtIndex:indexPath.row - 4]];
+        cell.priBtn.tag = 400 + indexPath.row - 4;
+        [cell.priBtn addTarget:self action:@selector(evalutePri:) forControlEvents:UIControlEventTouchUpInside];
+        
+        cell.rlyBtn.tag = 500 + indexPath.row - 4;
+        [cell.rlyBtn addTarget:self action:@selector(replyBtn:) forControlEvents:UIControlEventTouchUpInside];
+        
+        cell.homePage = @"首页";
         
         return cell;
     }
 }
+
+// 点赞
+- (void)evalutePri:(id)sender {
+    UIButton *btn = (UIButton *)sender;
+    NSLog(@"tag----%d",(int)btn.tag - 400);
+    
+    MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    HUD.mode = MBProgressHUDModeIndeterminate;
+    HUD.labelText = @"加载中...";
+    HUD.removeFromSuperViewOnHide = YES;
+    
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    NSDictionary *parameter;
+    
+    parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],
+                  @"dynamicId":[[[dataArray objectAtIndex:btn.tag - 400] dynamicInfo] ID]};
+    
+    
+    NSString *urlStr = [NSString stringWithFormat:@"%@ClassZoneDynamicLike",SERVER_HOST];
+    
+    // 设置超时时间
+    [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+    manager.requestSerializer.timeoutInterval = 10.f;
+    [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+    
+    [manager POST:urlStr parameters:parameter
+          success:^(AFHTTPRequestOperation *operation, id responseObject) {
+              [HUD hide:YES];
+              
+              if ([responseObject[@"responseCode"] intValue] == 0) {
+                  SHOW_ALERT(@"提示", @"点赞成功");
+                  [self classCircleApi];
+              }
+              else {
+                  SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
+              }
+              
+          }
+          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+              [HUD hide:YES];
+              if(error.code == -1001)
+              {
+                  SHOW_ALERT(@"提示", @"网络请求超时");
+              }else if (error.code == -1009)
+              {
+                  SHOW_ALERT(@"提示", @"网络连接已断开");
+              }
+          }];
+}
+
+// 回复
+- (void)replyBtn:(id)sender {
+    
+    replyTag = 0;
+    
+    UIButton *btn = (UIButton *)sender;
+    replyTag = (int)btn.tag - 500;
+    _replyView.hidden = NO;
+    [_replyTextField becomeFirstResponder];
+    
+}
+
+-(void)seePic:(NSNotification *)notification{
+    NSDictionary *dic = notification.userInfo;
+    
+    CheckImageViewController *checkImageVC = [[CheckImageViewController alloc] init];
+    
+    NSString *imageStr = [imagesArray objectAtIndex:[dic[@"tag"] intValue]/100];
+    imageArrays = [NSMutableArray arrayWithArray:[imageStr componentsSeparatedByString:@","]];
+    
+    checkImageVC.dataArray = imageArrays;
+    checkImageVC.page = [dic[@"tag"] intValue]%100;
+    
+    [self.navigationController pushViewController:checkImageVC animated:YES];
+}
+
+-(void)replyAction:(NSNotification *)notification{
+    NSDictionary *dic = notification.userInfo;
+    EDPhotoDetailViewController *photoDetail = [[EDPhotoDetailViewController alloc]init];
+    photoDetail.model = [dataArray objectAtIndex:[dic[@"index"] intValue]];
+    photoDetail.xxId = [[[dataArray objectAtIndex:[dic[@"index"] intValue]] dynamicInfo] ID];
+    [self.navigationController pushViewController:photoDetail animated:YES];
+}
+
+- (IBAction)replyButton:(id)sender {
+    //NSLog(@"ddddddddd:%d",replyTag);
+    if ([_replyTextField.text length] == 0) {
+        SHOW_ALERT(@"提示", @"评论不能为空");
+    }
+    else {
+        MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+        HUD.mode = MBProgressHUDModeIndeterminate;
+        HUD.labelText = @"加载中...";
+        HUD.removeFromSuperViewOnHide = YES;
+        
+        
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        
+        NSDictionary *parameter;
+        
+        parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],
+                      @"dynamicId":[[[dataArray objectAtIndex:replyTag] dynamicInfo] ID],
+                      @"content":_replyTextField.text};
+        
+        
+        NSString *urlStr = [NSString stringWithFormat:@"%@ClassZoneDynamicReply",SERVER_HOST];
+        
+        // 设置超时时间
+        [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+        manager.requestSerializer.timeoutInterval = 10.f;
+        [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+        
+        [manager POST:urlStr parameters:parameter
+              success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                  [HUD hide:YES];
+                  
+                  if ([responseObject[@"responseCode"] intValue] == 0) {
+                      SHOW_ALERT(@"提示", @"评论成功");
+                      _replyView.hidden = YES;
+                      [_replyTextField resignFirstResponder];
+                      [self classCircleApi];
+                  }
+                  else {
+                      SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
+                  }
+                  
+              }
+              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                  [HUD hide:YES];
+                  if(error.code == -1001)
+                  {
+                      SHOW_ALERT(@"提示", @"网络请求超时");
+                  }else if (error.code == -1009)
+                  {
+                      SHOW_ALERT(@"提示", @"网络连接已断开");
+                  }
+              }];
+    }
+}
+
+#pragma mark - UITextFieldDelegate Method
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
+    _replyView.hidden = YES;
+    [_replyTextField resignFirstResponder];
+    return YES;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    _replyView.hidden = YES;
+    [_replyTextField resignFirstResponder];
+    return YES;
+}
+
 
 #pragma mark - UIScrollViewDelegate Method
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView

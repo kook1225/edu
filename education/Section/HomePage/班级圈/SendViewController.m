@@ -48,6 +48,10 @@
     [self drawlayer];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+}
+
 #pragma mark 常用方法
 - (void)back
 {
@@ -62,7 +66,7 @@
     else {
         MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
         HUD.mode = MBProgressHUDModeIndeterminate;
-        HUD.labelText = @"Loading";
+        HUD.labelText = @"加载中...";
         HUD.removeFromSuperViewOnHide = YES;
         
         
@@ -275,7 +279,7 @@
             
             MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
             HUD.mode = MBProgressHUDModeIndeterminate;
-            HUD.labelText = @"Loading";
+            HUD.labelText = @"加载中...";
             HUD.removeFromSuperViewOnHide = YES;
             
             
