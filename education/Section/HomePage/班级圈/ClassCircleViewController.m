@@ -264,6 +264,8 @@
 }
 
 - (void)classCircleApi {
+    stringArray = [NSMutableArray array];
+    imagesArray = [NSMutableArray array];
     
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     HUD.mode = MBProgressHUDModeIndeterminate;

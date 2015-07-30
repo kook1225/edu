@@ -595,10 +595,10 @@
         [cell.btn5 addTarget:self action:@selector(lifeService) forControlEvents:UIControlEventTouchUpInside];
         [cell.btn6 addTarget:self action:@selector(introDay) forControlEvents:UIControlEventTouchUpInside];
         [cell.btn7 addTarget:self action:@selector(problem) forControlEvents:UIControlEventTouchUpInside];
-        [cell.btn8 addTarget:self action:@selector(score) forControlEvents:UIControlEventTouchUpInside];
+        [cell.btn11 addTarget:self action:@selector(score) forControlEvents:UIControlEventTouchUpInside];
         [cell.btn9 addTarget:self action:@selector(homework) forControlEvents:UIControlEventTouchUpInside];
         [cell.btn10 addTarget:self action:@selector(growUp) forControlEvents:UIControlEventTouchUpInside];
-        [cell.btn11 addTarget:self action:@selector(body) forControlEvents:UIControlEventTouchUpInside];
+        [cell.btn8 addTarget:self action:@selector(body) forControlEvents:UIControlEventTouchUpInside];
         [cell.btn12 addTarget:self action:@selector(courseOnLine) forControlEvents:UIControlEventTouchUpInside];
         
         return cell;

@@ -24,6 +24,10 @@
     _leftImageView.clipsToBounds = YES;
     
     
+    if ([[[[[SEUtils getUserInfo] UserDetail] userinfo] YHLB] intValue] != 3 && [[[[[SEUtils getUserInfo] UserDetail] userinfo] IsVip] intValue] == 1) {
+        _nameLabel.textColor = [UIColor colorWithRed:255.0/255.0f green:42.0/255.0f blue:45.0/255.0f alpha:1.000];
+    }
+    
     if ([[[[[SEUtils getUserInfo] UserDetail] userinfo] YHLB] intValue] == 3) {
         _nameLabel.text = [[[[SEUtils getUserInfo] UserDetail] teacherInfo] JSXM];
         _schoolLabel.text = [[[[SEUtils getUserInfo] UserDetail] schoolInfo] DWMC];
