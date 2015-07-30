@@ -27,6 +27,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *msgLabel;
 @property (weak, nonatomic) IBOutlet UILabel *gradeLabel;
 @property (weak, nonatomic) IBOutlet UIView *dateView;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
 @end
 
@@ -44,6 +45,21 @@
     _dateView.layer.cornerRadius = 5.0f;
     
     [self timeTable];
+    
+    NSDateFormatter *formatter_minDate = [[NSDateFormatter alloc]init];
+    //[formatter_minDate setDateFormat:@"yyyy-MM-dd EEE"];
+    [formatter_minDate setDateFormat:@"EEEE"];
+    NSString *dateString = [formatter_minDate stringFromDate:[NSDate date]];
+    NSString *xqStr = [SEUtils setXQ:dateString];
+    
+    [formatter_minDate setDateFormat:@"yyyy-MM-dd"];
+    NSString *dateString2 = [formatter_minDate stringFromDate:[NSDate date]];
+    NSMutableString *dateStr = [NSMutableString stringWithFormat:@"%@ ",dateString2];
+    
+    [dateStr appendString:xqStr];
+    
+    _dateLabel.text = dateStr;
+    
     
     self.navigationItem.leftBarButtonItem = [Tools getNavBarItem:self clickAction:@selector(back)];
     _msgView.hidden = YES;

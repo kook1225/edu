@@ -32,6 +32,7 @@
 
 + (NSData *)DESEncrypt:(NSData *)data WithKey:(NSString *)key;
 
++ (NSString *)setXQ:(NSString *)xq;
 //+(BOOL)isRequestSuccessWithStatusCode:(int)statusCode;
 //+(BOOL)checkNetworkWithRequest:(ASIHTTPRequest *)request;
 

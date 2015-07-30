@@ -188,5 +188,29 @@
     return nil;
 }
 
++ (NSString *)setXQ:(NSString *)xq {
+    if ([xq  isEqual: @"Monday"]) {
+        return @"星期一";
+    }
+    else if ([xq  isEqual: @"Tuesday"]) {
+        return @"星期二";
+    }
+    else if ([xq  isEqual: @"Wednesday"]) {
+        return @"星期三";
+    }
+    else if ([xq  isEqual: @"Thursday"]) {
+        return @"星期四";
+    }
+    else if ([xq  isEqual: @"Friday"]) {
+        return @"星期五";
+    }
+    else if ([xq  isEqual: @"Saturday"]) {
+        return @"星期六";
+    }
+    else {
+        return @"星期天";
+    }
+}
+
 @end
 
