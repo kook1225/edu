@@ -20,6 +20,8 @@
     NSArray *subArray;
     NSString *studentId;
     NSString *gradeString;
+    
+    NSMutableArray *grdSelected;
 
 }
 @property (weak, nonatomic) IBOutlet UITableView *gradeTableView;
@@ -43,7 +45,7 @@
     _nonDataLabel.hidden = YES;
     _nonDataLabel2.hidden = YES;
     
-    
+    grdSelected = [NSMutableArray array];
     if ([[SEUtils getUserInfo].UserDetail.userinfo.YHLB intValue]== 3) {
         studentId = @"";
     }else
@@ -192,6 +194,15 @@
         if (gradeCell == nil) {
             gradeCell = [[[NSBundle mainBundle]loadNibNamed:@"EDGradeCell" owner:self options:nil]lastObject];
         }
+        gradeCell.grade.textColor = [UIColor colorWithRed:51/255.0f green:51/255.0f blue:51/255.0f alpha:1.0];
+        if(grdSelected.count !=0)
+        {
+            if ([grdSelected[0]  intValue] == indexPath.row)
+            {
+                gradeCell.grade.textColor = [UIColor redColor];
+            }
+        }
+        
         gradeCell.grade.text = grdArray[indexPath.row][@"NJMC"];
         return gradeCell;
     }else
@@ -207,8 +218,15 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-        if (tableView == _gradeTableView) {
-        //        GradeSelected = YES;
+        if (tableView == _gradeTableView)
+        {
+            [grdSelected removeAllObjects];
+            NSString *selectNum = [NSString stringWithFormat:@"%ld",(long)indexPath.row];
+            
+            [grdSelected addObject:selectNum];
+            
+            [_gradeTableView reloadData];
+            
         EDGradeCell *gradeCell = (EDGradeCell *)[tableView cellForRowAtIndexPath:indexPath];
         gradeCell.grade.textColor = [UIColor redColor];
         [_gradeTableView reloadData];

@@ -10,4 +10,6 @@
 
 @interface SchoolTimeTableViewController : UIViewController
 @property (nonatomic,strong) NSString *detailId;
+@property (nonatomic,strong) NSString *nianji;
+@property (nonatomic,strong) NSString *banji;
 @end

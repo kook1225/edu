@@ -405,6 +405,7 @@
 - (void)problem {
     EDChooseSubViewController *chooseSubjectVC = [[EDChooseSubViewController alloc]init];
     chooseSubjectVC.type = @"难点解析";
+    chooseSubjectVC.title = @"选择科目";
     [self.navigationController pushViewController:chooseSubjectVC animated:YES];
 }
 

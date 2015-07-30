@@ -246,7 +246,7 @@
     }
     if ([typeString isEqualToString:@"学生"])
     {
-        if([studentArray[indexPath.section][indexPath.row][@"isVip"] intValue] ==1)
+        if([studentArray[indexPath.section][indexPath.row][@"IsVip"] intValue] ==1)
         {
             contentCell.name.textColor = [UIColor redColor];
         }
