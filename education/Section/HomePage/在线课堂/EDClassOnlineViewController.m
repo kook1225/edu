@@ -11,6 +11,7 @@
 #import "EDClassOnlineCell.h"
 #import "EDClassOnlinePlayerViewController.h"
 #import "MJRefresh.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 @interface EDClassOnlineViewController ()<UITableViewDataSource,UITableViewDelegate,MJRefreshBaseViewDelegate>
 {
@@ -240,11 +241,99 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    EDClassOnlinePlayerViewController *classOnlinePlayVC = [[EDClassOnlinePlayerViewController alloc]init];
-    classOnlinePlayVC.type = dataArray[indexPath.row][@"ZYLX"];
-    classOnlinePlayVC.fileName = dataArray[indexPath.row][@"FJDZ"];
-    [self.navigationController pushViewController:classOnlinePlayVC animated:YES];
+//    EDClassOnlinePlayerViewController *classOnlinePlayVC = [[EDClassOnlinePlayerViewController alloc]init];
+//    
+//    classOnlinePlayVC.detailId = dataArray[indexPath.row][@"ID"];
+//    [self.navigationController pushViewController:classOnlinePlayVC animated:YES];
+    
+    MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    HUD.mode = MBProgressHUDModeIndeterminate;
+    HUD.labelText = @"加载中...";
+    HUD.removeFromSuperViewOnHide = YES;
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+    manager.requestSerializer.timeoutInterval = 10.f;
+    [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+    
+    NSDictionary *pramaters = @{@"access_token":[SEUtils getUserInfo].TokenInfo.access_token,
+                                @"infoId":dataArray[indexPath.row][@"ID"]};
+    NSString *urlString = [NSString stringWithFormat:@"%@EduOnlineDetail",SERVER_HOST];
+    
+    [manager GET:urlString parameters:pramaters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [HUD setHidden:YES];
+        NSLog(@"res--%@",responseObject);
+        if ([responseObject[@"responseCode"] intValue] ==0) {
+            
+           
+            
+            [self openmovie:responseObject[@"data"][@"ZYNR"]];
+            
+        }else
+        {
+            SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [HUD setHidden:YES];
+        if (operation.response.statusCode == 401) {
+            NSLog(@"请求超时");
+            //   [SEUtils repetitionLogin];
+        }else if(error.code == -1001)
+        {
+            SHOW_ALERT(@"提示", @"网络请求超时");
+        }else if (error.code == -1009)
+        {
+            SHOW_ALERT(@"提示", @"网络连接已断开");
+        }
+        else {
+            NSLog(@"Error:%@",error);
+            NSLog(@"err:%@",operation.responseObject[@"message"]);
+            //   SHOW_ALERT(@"提示",operation.responseObject[@"message"])
+        }
+    }];
+
 }
+
+#pragma mark 视屏
+-(void)openmovie:(NSString *)file
+{
+    
+    MPMoviePlayerViewController *movie = [[MPMoviePlayerViewController alloc]initWithContentURL:[NSURL URLWithString:file]];
+    
+    [movie.moviePlayer prepareToPlay];
+    [self presentMoviePlayerViewControllerAnimated:movie];
+    [movie.moviePlayer setControlStyle:MPMovieControlStyleFullscreen];
+    
+    [movie.view setBackgroundColor:[UIColor clearColor]];
+    
+    [movie.view setFrame:self.view.bounds];
+    [[NSNotificationCenter defaultCenter]addObserver:self
+     
+                                            selector:@selector(movieFinishedCallback:)
+     
+                                                name:MPMoviePlayerPlaybackDidFinishNotification
+     
+                                              object:movie.moviePlayer];
+    
+ 
+}
+-(void)movieFinishedCallback:(NSNotification*)notify{
+    
+    // 视频播放完或者在presentMoviePlayerViewControllerAnimated下的Done按钮被点击响应的通知。
+    
+    MPMoviePlayerController* theMovie = [notify object];
+    
+    [[NSNotificationCenter defaultCenter]removeObserver:self
+     
+                                                   name:MPMoviePlayerPlaybackDidFinishNotification
+     
+                                                 object:theMovie];
+    
+    [self dismissMoviePlayerViewControllerAnimated];
+    
+}
+
 
 #pragma mark 刷新
 //下拉刷新和上拉加载相关

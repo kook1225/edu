@@ -242,7 +242,7 @@
                  UIImageView *imageView = [[UIImageView alloc] init];
                  NSString *urlStr = [NSString stringWithFormat:@"%@%@",IMG_HOST,slideImages[slideImages.count-1]];
                  
-                 [imageView sd_setImageWithURL:[NSURL URLWithString:urlStr] placeholderImage:[UIImage imageNamed:@"1"]];
+                 [imageView sd_setImageWithURL:[NSURL URLWithString:urlStr] placeholderImage:[UIImage imageNamed:@"icon_default"]];
             
                  
 //                 [imageView setImage:[UIImage imageNamed:[slideImages objectAtIndex:[slideImages count]-1]]];
@@ -261,7 +261,7 @@
                          UIImageView *imageView = [[UIImageView alloc] init];
                          imageView.userInteractionEnabled = YES;
                          NSString *urlStr = [NSString stringWithFormat:@"%@%@",IMG_HOST,slideImages[i]];
-                          [imageView sd_setImageWithURL:[NSURL URLWithString:urlStr] placeholderImage:nil];
+                          [imageView sd_setImageWithURL:[NSURL URLWithString:urlStr] placeholderImage:[UIImage imageNamed:@"icon_default"]];
 //                         [imageView setImage:[UIImage imageNamed:[slideImages objectAtIndex:i]]];
                          imageView.frame = CGRectMake(SCREENWIDTH*i+SCREENWIDTH, 0, SCREENWIDTH, IMAGEHEIGHT);
                          
@@ -272,7 +272,7 @@
                      
                      imageView = [[UIImageView alloc] init];
                      NSString *urlStr = [NSString stringWithFormat:@"%@%@",IMG_HOST,slideImages[0]];
-                      [imageView sd_setImageWithURL:[NSURL URLWithString:urlStr] placeholderImage:[UIImage imageNamed:@"1"]];
+                      [imageView sd_setImageWithURL:[NSURL URLWithString:urlStr] placeholderImage:[UIImage imageNamed:@"icon_default"]];
 //                     [imageView setImage:[UIImage imageNamed:[slideImages objectAtIndex:0]]];
                      imageView.frame = CGRectMake(SCREENWIDTH*([slideImages count] + 1), 0, SCREENWIDTH, IMAGEHEIGHT);
                      

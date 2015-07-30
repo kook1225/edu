@@ -200,7 +200,7 @@
      contentCell.name.text = studentArray[indexPath.section][indexPath.row][@"XSXM"];
     NSString *imgString = [NSString stringWithFormat:@"%@%@",IMAGE_HOST,studentArray[indexPath.section][indexPath.row][@"YHTX"]];
         NSURL *url = [NSURL URLWithString:imgString];
-        [contentCell.contactImg sd_setImageWithURL:url placeholderImage:nil];
+        [contentCell.contactImg sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"1"]];
         
         if(indexPath.row == [studentArray[indexPath.section] count]-1)
         {

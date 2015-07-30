@@ -28,6 +28,6 @@
     
     NSString *imgString = [NSString stringWithFormat:@"%@%@",IMAGE_HOST,dic[@"ZYTP"]];
     NSURL *url = [NSURL URLWithString:imgString];
-    [_bkgImg sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"1"] ];
+    [_bkgImg sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"icon_default"] ];
 }
 @end

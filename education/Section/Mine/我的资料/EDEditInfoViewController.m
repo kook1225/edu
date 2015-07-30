@@ -72,7 +72,8 @@
     _dadName.text = [SEUtils getUserInfo].UserDetail.studentInfo.FQXM;
     _dadPhone.text = [SEUtils getUserInfo].UserDetail.studentInfo.FQDH;
     
-    NSURL *url = [NSURL URLWithString:[SEUtils getUserInfo].UserDetail.userinfo.YHTX];
+    NSString *imgString = [NSString stringWithFormat:@"%@%@",IMAGE_HOST,[SEUtils getUserInfo].UserDetail.userinfo.YHTX];
+    NSURL *url = [NSURL URLWithString:imgString];
     [_headImg sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"1"]];
 }
 - (IBAction)changHeadImg:(id)sender {

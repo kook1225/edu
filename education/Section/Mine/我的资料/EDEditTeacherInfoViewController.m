@@ -66,9 +66,9 @@
     _subLabel.text = [SEUtils getUserInfo].UserDetail.teacherInfo.RJXK;
     _professionLabel.text = [SEUtils getUserInfo].UserDetail.teacherInfo.SRZW;
    
-    
-    NSURL *url = [NSURL URLWithString:[SEUtils getUserInfo].UserDetail.userinfo.YHTX];
-    [_headImg sd_setImageWithURL:url placeholderImage:nil];
+    NSString *imgString = [NSString stringWithFormat:@"%@%@",IMAGE_HOST,[SEUtils getUserInfo].UserDetail.userinfo.YHTX];
+    NSURL *url = [NSURL URLWithString:imgString];
+    [_headImg sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"1"]];
 }
 
 - (IBAction)changHeadImg:(id)sender {
