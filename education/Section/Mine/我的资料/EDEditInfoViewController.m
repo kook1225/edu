@@ -18,7 +18,7 @@
     NSData *fileData;
     NSString *filePath;
     
-    NSMutableString *picAdd;
+    NSString *picAdd;
     
     UIImagePickerController *pic;
 }
@@ -32,8 +32,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"我的资料";
-    
-    picAdd = [NSMutableString string];
     
     self.navigationItem.leftBarButtonItem = [Tools getNavBarItem:self clickAction:@selector(back)];
     
@@ -207,7 +205,7 @@
                       [HUD hide:YES];
                       if ([responseObject[@"responseCode"] intValue] == 0) {
                           
-                         [picAdd appendString:[NSString stringWithFormat:@"%@",responseObject[@"data"]]];
+                          picAdd = [NSString stringWithFormat:@"%@",responseObject[@"data"]];
                           
                           NSLog(@"pic:%@",picAdd);
                           

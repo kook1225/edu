@@ -74,6 +74,7 @@
                         </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <gestureRecognizers/>
                     <constraints>
                         <constraint firstItem="7dQ-FY-vn1" firstAttribute="trailing" secondItem="Up1-6v-B8O" secondAttribute="trailing" id="E7j-aY-sLl"/>
                         <constraint firstItem="Up1-6v-B8O" firstAttribute="bottom" secondItem="Ktu-lp-jpx" secondAttribute="bottomMargin" id="MNV-V2-gOx"/>
@@ -86,6 +87,9 @@
                         <constraint firstAttribute="bottom" secondItem="7dQ-FY-vn1" secondAttribute="bottom" id="lEl-4e-GQS"/>
                         <constraint firstItem="7dQ-FY-vn1" firstAttribute="top" secondItem="Up1-6v-B8O" secondAttribute="bottom" constant="7" id="n9p-y4-i4I"/>
                     </constraints>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="1Rx-SL-OAf" appends="YES" id="7GC-rS-TGF"/>
+                    </connections>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fBr-Lp-5bM" userLabel="区域-View">
                     <rect key="frame" x="0.0" y="100" width="320" height="45"/>
@@ -314,6 +318,11 @@
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <point key="canvasLocation" x="224" y="342"/>
         </view>
+        <tapGestureRecognizer id="1Rx-SL-OAf">
+            <connections>
+                <action selector="changHeadImg:" destination="-1" id="X2x-Sx-eCT"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="example1" width="255" height="170"/>
