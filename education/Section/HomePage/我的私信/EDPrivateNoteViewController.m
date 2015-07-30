@@ -22,9 +22,14 @@
     MJRefreshHeaderView * _headerview;
     MJRefreshFooterView * _footerview;
     int pageNum;
+    
+    NSString *type;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *nonDataLabel;
+@property (weak, nonatomic) IBOutlet UIButton *sendBtn;
+@property (weak, nonatomic) IBOutlet UIButton *receiveBtn;
+@property (weak, nonatomic) IBOutlet UIView *buttonView;
 
 @end
 
@@ -41,12 +46,19 @@
     [tabBarView tabBarViewHidden];
     
     selectedArray = [NSMutableArray array];
-    [self AFNRequest];
+    type = @"2";
+    [self AFNRequest:type];
     _nonDataLabel.hidden = YES;
     
     pageNum = 1;
     [self initfooterview];
     [self initheaderview];
+    
+    _buttonView.layer.cornerRadius = 4.0f;
+    _buttonView.layer.masksToBounds = YES;
+    _buttonView.layer.borderWidth = 1.0f;
+    _buttonView.layer.borderColor = [UIColor colorWithRed:255/255.0f green:124/255.0f  blue:6/255.0f  alpha:1.0f].CGColor;
+    
 
 }
 
@@ -55,11 +67,26 @@
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
+- (IBAction)sendMsgFunction:(id)sender
+{
+    [_sendBtn setSelected:YES];
+    [_receiveBtn setSelected:NO];
+    type = @"1";
+    [self AFNRequest:type];
+}
+- (IBAction)receiveMsgFunction:(id)sender
+{
+    [_sendBtn setSelected:NO];
+    [_receiveBtn setSelected:YES];
+    type = @"2";
+    [self AFNRequest:type];
+}
+
 - (void)viewDidDisappear:(BOOL)animated
 {
-    [self AFNRequest];
+    [self AFNRequest:type];
 }
-- (void)AFNRequest
+- (void)AFNRequest:(NSString *)typeString
 {
     dataArray = [NSMutableArray array];
     
@@ -74,6 +101,7 @@
     [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
     
     NSDictionary *pramaters= @{@"access_token":[SEUtils getUserInfo].TokenInfo.access_token,
+                               @"type":typeString,
                                @"pageSize":@"10",
                                @"page":@"1"};
     
@@ -157,6 +185,7 @@
         [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
         
         NSDictionary *pramaters= @{@"access_token":[SEUtils getUserInfo].TokenInfo.access_token,
+                                   @"type":type,
                                    @"pageSize":@"10",
                                    @"page":[NSNumber numberWithInt:pageNum]};
         
@@ -200,7 +229,7 @@
         [self performSelector:@selector(hidden) withObject:nil afterDelay:1.5];
     }
     if (_baseview == _headerview) {
-        [self AFNRequest];
+        [self AFNRequest:type];
         //        _baseview = refreshView;
         [self performSelector:@selector(hidden) withObject:nil afterDelay:1.5];
     }
@@ -263,59 +292,64 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
    
-    MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    HUD.mode = MBProgressHUDModeIndeterminate;
-    HUD.labelText = @"加载中...";
-    HUD.removeFromSuperViewOnHide = YES;
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
-    manager.requestSerializer.timeoutInterval = 10.f;
-    [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
-    
-    NSDictionary *pramaters= @{@"access_token":[SEUtils getUserInfo].TokenInfo.access_token,
-                               @"ID":dataArray[indexPath.row][@"messageInfo"][@"ID"]};
-    
-    NSString *urlString = [NSString stringWithFormat:@"%@PrivateMessage",SERVER_HOST];
-    
-    [manager GET:urlString parameters:pramaters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [HUD setHidden:YES];
-        NSLog(@"res--%@",responseObject[@"data"]);
-        if ([responseObject[@"responseCode"] intValue] ==0) {
-            
-            EDPrivateDetailViewController *privateDetailVC = [[EDPrivateDetailViewController alloc]init];
-            privateDetailVC.name = dataArray[indexPath.row][@"author"][@"XM"];
-            privateDetailVC.date = dataArray[indexPath.row][@"messageInfo"][@"FSSJ"];
-            privateDetailVC.content = dataArray[indexPath.row][@"messageInfo"][@"XXNR"];
-            privateDetailVC.imagesString = dataArray[indexPath.row][@"messageInfo"][@"TPDZ"];
-            privateDetailVC.title = @"私信详情";
-            privateDetailVC.type = @"私信";
-            [self.navigationController pushViewController:privateDetailVC animated:YES];
-
-        }else
-        {
-            SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
-        }
+    if([type intValue] == 2)
+    {
+        MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        HUD.mode = MBProgressHUDModeIndeterminate;
+        HUD.labelText = @"加载中...";
+        HUD.removeFromSuperViewOnHide = YES;
         
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [HUD setHidden:YES];
-        if (operation.response.statusCode == 401) {
-            NSLog(@"请求超时");
-            //   [SEUtils repetitionLogin];
-        }else if(error.code == -1001)
-        {
-            SHOW_ALERT(@"提示", @"网络请求超时");
-        }else if (error.code == -1009)
-        {
-            SHOW_ALERT(@"提示", @"网络连接已断开");
-        }
-        else {
-            NSLog(@"Error:%@",error);
-            NSLog(@"err:%@",operation.responseObject[@"message"]);
-            //   SHOW_ALERT(@"提示",operation.responseObject[@"message"])
-        }
-    }];
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+        manager.requestSerializer.timeoutInterval = 10.f;
+        [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+        
+        NSDictionary *pramaters= @{@"access_token":[SEUtils getUserInfo].TokenInfo.access_token,
+                                   @"ID":dataArray[indexPath.row][@"messageInfo"][@"ID"]};
+        
+        NSString *urlString = [NSString stringWithFormat:@"%@PrivateMessage",SERVER_HOST];
+        
+        [manager GET:urlString parameters:pramaters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [HUD setHidden:YES];
+            NSLog(@"res--%@",responseObject[@"data"]);
+            if ([responseObject[@"responseCode"] intValue] ==0) {
+                
+                EDPrivateDetailViewController *privateDetailVC = [[EDPrivateDetailViewController alloc]init];
+                privateDetailVC.name = dataArray[indexPath.row][@"author"][@"XM"];
+                privateDetailVC.date = dataArray[indexPath.row][@"messageInfo"][@"FSSJ"];
+                privateDetailVC.content = dataArray[indexPath.row][@"messageInfo"][@"XXNR"];
+                privateDetailVC.imagesString = dataArray[indexPath.row][@"messageInfo"][@"TPDZ"];
+                privateDetailVC.title = @"私信详情";
+                privateDetailVC.type = @"私信";
+                [self.navigationController pushViewController:privateDetailVC animated:YES];
+                
+            }else
+            {
+                SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
+            }
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [HUD setHidden:YES];
+            if (operation.response.statusCode == 401) {
+                NSLog(@"请求超时");
+                //   [SEUtils repetitionLogin];
+            }else if(error.code == -1001)
+            {
+                SHOW_ALERT(@"提示", @"网络请求超时");
+            }else if (error.code == -1009)
+            {
+                SHOW_ALERT(@"提示", @"网络连接已断开");
+            }
+            else {
+                NSLog(@"Error:%@",error);
+                NSLog(@"err:%@",operation.responseObject[@"message"]);
+                //   SHOW_ALERT(@"提示",operation.responseObject[@"message"])
+            }
+        }];
 
+        
+    }
+    
     
     
     
