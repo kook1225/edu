@@ -53,7 +53,7 @@
         NSString *urlStr = [NSString stringWithFormat:@"%@%@",IMG_HOST,_dataArray[i]];
         NSURL *url = [NSURL URLWithString:urlStr];
         UIImageView *imageView = [[UIImageView alloc] init];
-        [imageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@""]];
+        [imageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"icon_default"]];
         
         imageView.contentMode = UIViewContentModeScaleAspectFit;
         if ([UIScreen mainScreen].bounds.size.height == 480) {

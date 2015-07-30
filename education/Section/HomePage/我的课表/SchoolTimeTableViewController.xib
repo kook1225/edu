@@ -658,7 +658,7 @@
                     <color key="backgroundColor" red="0.83137254900000002" green="0.83137254900000002" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
                 <view contentMode="scaleToFill" id="AO5-Iv-id9">
-                    <rect key="frame" x="69" y="72" width="180" height="30"/>
+                    <rect key="frame" x="68.5" y="72" width="180" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <view contentMode="scaleToFill" id="2IC-Lc-JYA">
