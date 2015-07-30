@@ -417,8 +417,15 @@
         [self.navigationController pushViewController:subjectVC animated:YES];
     }else
     {
-        EDGradeRecodeViewController *gradeVC = [[EDGradeRecodeViewController alloc]init];
-        [self.navigationController pushViewController:gradeVC animated:YES];
+        if ([vipTag intValue] == 1) {
+            EDGradeRecodeViewController *gradeVC = [[EDGradeRecodeViewController alloc]init];
+            [self.navigationController pushViewController:gradeVC animated:YES];
+        }
+        else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"成为VIP才能使用该功能哟!" delegate:self cancelButtonTitle:@"先逛逛" otherButtonTitles:@"成为VIP", nil];
+            alert.tag = 201;
+            [alert show];
+        }
     }
     
 }
@@ -477,15 +484,8 @@
         [self.navigationController pushViewController:subjectVC animated:YES];
     }else
     {
-        if ([vipTag intValue] == 1) {
-            EDPhySicalTestViewController *physicalVC = [[EDPhySicalTestViewController alloc]init];
-            [self.navigationController pushViewController:physicalVC animated:YES];
-        }
-        else {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"成为VIP才能使用该功能哟!" delegate:self cancelButtonTitle:@"先逛逛" otherButtonTitles:@"成为VIP", nil];
-            alert.tag = 201;
-            [alert show];
-        }
+        EDPhySicalTestViewController *physicalVC = [[EDPhySicalTestViewController alloc]init];
+        [self.navigationController pushViewController:physicalVC animated:YES];
     }
     
 }
