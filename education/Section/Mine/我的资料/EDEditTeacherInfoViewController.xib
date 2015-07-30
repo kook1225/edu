@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -73,6 +74,7 @@
                         </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <gestureRecognizers/>
                     <constraints>
                         <constraint firstItem="7dQ-FY-vn1" firstAttribute="trailing" secondItem="Up1-6v-B8O" secondAttribute="trailing" id="E7j-aY-sLl"/>
                         <constraint firstItem="Up1-6v-B8O" firstAttribute="bottom" secondItem="Ktu-lp-jpx" secondAttribute="bottomMargin" id="MNV-V2-gOx"/>
@@ -85,6 +87,9 @@
                         <constraint firstAttribute="bottom" secondItem="7dQ-FY-vn1" secondAttribute="bottom" id="lEl-4e-GQS"/>
                         <constraint firstItem="7dQ-FY-vn1" firstAttribute="top" secondItem="Up1-6v-B8O" secondAttribute="bottom" constant="7" id="n9p-y4-i4I"/>
                     </constraints>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="1Rx-SL-OAf" appends="YES" id="7GC-rS-TGF"/>
+                    </connections>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fBr-Lp-5bM" userLabel="区域-View">
                     <rect key="frame" x="0.0" y="100" width="320" height="45"/>
@@ -167,7 +172,7 @@
                         <constraint firstAttribute="bottom" secondItem="x1X-W7-uqb" secondAttribute="bottom" id="yYg-Nc-c7Z"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Kf-3F-YhJ" userLabel="姓名-View">
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Kf-3F-YhJ" userLabel="姓名-View">
                     <rect key="frame" x="-1" y="190" width="320" height="45"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="姓名" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNw-pG-6J4">
@@ -206,7 +211,7 @@
                         <constraint firstItem="TNw-pG-6J4" firstAttribute="leading" secondItem="0Kf-3F-YhJ" secondAttribute="leading" constant="10" id="lWF-HU-Jsk"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rfo-Mk-sz8" userLabel="任教学科-View">
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rfo-Mk-sz8" userLabel="任教学科-View">
                     <rect key="frame" x="-1" y="235" width="320" height="45"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="任教学科" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cb-eb-hI0">
@@ -245,7 +250,7 @@
                         <constraint firstItem="awf-PY-2ba" firstAttribute="baseline" secondItem="6cb-eb-hI0" secondAttribute="baseline" id="zdX-fl-rLg"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HWj-Di-LyS" userLabel="所任职务-View">
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HWj-Di-LyS" userLabel="所任职务-View">
                     <rect key="frame" x="-1" y="280" width="320" height="45"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="所任职务" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gle-rp-28k">
@@ -313,6 +318,11 @@
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <point key="canvasLocation" x="224" y="342"/>
         </view>
+        <tapGestureRecognizer id="1Rx-SL-OAf">
+            <connections>
+                <action selector="changHeadImg:" destination="-1" id="X2x-Sx-eCT"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="example1" width="255" height="170"/>

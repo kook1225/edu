@@ -39,7 +39,10 @@
     
     NSString *urlStr = [NSString stringWithFormat:@"%@%@",IMG_HOST,model.author.YHTX];
     NSURL *url = [NSURL URLWithString:urlStr];
-    [_leftImageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@""]];
+    [_leftImageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"1"]];
+    
+    _leftImageView.layer.cornerRadius = 5.0f;
+    [_leftImageView clipsToBounds];
 }
 
 //赋值 and 自动换行,计算出cell的高度
@@ -142,7 +145,7 @@
             
             NSString *urlStr = [NSString stringWithFormat:@"%@%@",IMG_HOST,[imagesArray objectAtIndex:i]];
             NSURL *url = [NSURL URLWithString:urlStr];
-            [imageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@""]];
+            [imageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"icon_default"]];
             
             imageView.contentMode = UIViewContentModeScaleAspectFill;
             

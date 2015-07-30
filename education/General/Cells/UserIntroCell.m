@@ -20,6 +20,9 @@
     NSURL *url = [NSURL URLWithString:urlStr];
     [_leftImageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"1"]];
     
+    _leftImageView.layer.cornerRadius = 5.0f;
+    _leftImageView.clipsToBounds = YES;
+    
     
     if ([[[[[SEUtils getUserInfo] UserDetail] userinfo] YHLB] intValue] == 3) {
         _nameLabel.text = [[[[SEUtils getUserInfo] UserDetail] teacherInfo] JSXM];
