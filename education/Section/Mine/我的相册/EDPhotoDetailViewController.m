@@ -118,7 +118,7 @@
 - (void)zanBtn:(id)sender {
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     HUD.mode = MBProgressHUDModeIndeterminate;
-    HUD.labelText = @"Loading";
+    HUD.labelText = @"加载中...";
     HUD.removeFromSuperViewOnHide = YES;
     
     
@@ -177,7 +177,7 @@
     else {
         MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
         HUD.mode = MBProgressHUDModeIndeterminate;
-        HUD.labelText = @"Loading";
+        HUD.labelText = @"加载中...";
         HUD.removeFromSuperViewOnHide = YES;
         
         
@@ -229,7 +229,7 @@
     
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     HUD.mode = MBProgressHUDModeIndeterminate;
-    HUD.labelText = @"Loading";
+    HUD.labelText = @"加载中...";
     HUD.removeFromSuperViewOnHide = YES;
     
     
@@ -320,7 +320,7 @@
         if (buttonIndex == 1) {
             MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
             HUD.mode = MBProgressHUDModeIndeterminate;
-            HUD.labelText = @"Loading";
+            HUD.labelText = @"加载中...";
             HUD.removeFromSuperViewOnHide = YES;
             
             

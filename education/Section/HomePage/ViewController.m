@@ -99,6 +99,7 @@
     [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell2"];
     
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(seePic:)
                                                  name:@"SETabBarViewController"
@@ -106,7 +107,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(replyAction:)
-                                                 name:@"ClassCircleCell"
+                                                 name:@"SETabBarViewController"
                                                object:@"ReplyAction"];
 }
 
@@ -136,7 +137,7 @@
     
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     HUD.mode = MBProgressHUDModeIndeterminate;
-    HUD.labelText = @"Loading";
+    HUD.labelText = @"加载中...";
     HUD.removeFromSuperViewOnHide = YES;
     
     
@@ -642,6 +643,8 @@
         cell.rlyBtn.tag = 500 + indexPath.row - 4;
         [cell.rlyBtn addTarget:self action:@selector(replyBtn:) forControlEvents:UIControlEventTouchUpInside];
         
+        cell.homePage = @"首页";
+        
         return cell;
     }
 }
@@ -653,7 +656,7 @@
     
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     HUD.mode = MBProgressHUDModeIndeterminate;
-    HUD.labelText = @"Loading";
+    HUD.labelText = @"加载中...";
     HUD.removeFromSuperViewOnHide = YES;
     
     
@@ -739,7 +742,7 @@
     else {
         MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
         HUD.mode = MBProgressHUDModeIndeterminate;
-        HUD.labelText = @"Loading";
+        HUD.labelText = @"加载中...";
         HUD.removeFromSuperViewOnHide = YES;
         
         

@@ -88,7 +88,7 @@
 - (void)proIntro {
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     HUD.mode = MBProgressHUDModeIndeterminate;
-    HUD.labelText = @"Loading";
+    HUD.labelText = @"加载中...";
     HUD.removeFromSuperViewOnHide = YES;
     
     

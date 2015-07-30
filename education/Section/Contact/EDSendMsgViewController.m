@@ -79,7 +79,7 @@ NSString *TMP_UPLOAD_IMG_PATH=@"";
     else {
         MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
         HUD.mode = MBProgressHUDModeIndeterminate;
-        HUD.labelText = @"Loading";
+        HUD.labelText = @"加载中...";
         HUD.removeFromSuperViewOnHide = YES;
         
         
@@ -254,7 +254,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
             
             MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
             HUD.mode = MBProgressHUDModeIndeterminate;
-            HUD.labelText = @"Loading";
+            HUD.labelText = @"加载中...";
             HUD.removeFromSuperViewOnHide = YES;
             
             

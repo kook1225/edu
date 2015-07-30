@@ -78,7 +78,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(seePic:)
-                                                 name:@"SETabBarViewController"
+                                                 name:@"ClassCircleCell"
                                                object:@"seePic"];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -132,7 +132,7 @@
     else {
         MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
         HUD.mode = MBProgressHUDModeIndeterminate;
-        HUD.labelText = @"Loading";
+        HUD.labelText = @"加载中...";
         HUD.removeFromSuperViewOnHide = YES;
         
         
@@ -209,7 +209,7 @@
     
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     HUD.mode = MBProgressHUDModeIndeterminate;
-    HUD.labelText = @"Loading";
+    HUD.labelText = @"加载中...";
     HUD.removeFromSuperViewOnHide = YES;
     
     
@@ -267,7 +267,7 @@
     
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     HUD.mode = MBProgressHUDModeIndeterminate;
-    HUD.labelText = @"Loading";
+    HUD.labelText = @"加载中...";
     HUD.removeFromSuperViewOnHide = YES;
     
     
@@ -373,8 +373,6 @@
     }
 
     
-    //@[@"啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊a",@"范德萨范德萨范德萨范德萨大叔大叔的"]
-    
     if ([stringArray count] != 0) {
         [cell setIntroductionText:[stringArray objectAtIndex:[indexPath row]] image:imageArrays reply:[dataArray objectAtIndex:indexPath.row] index:indexPath.row];
     }
@@ -417,7 +415,7 @@
         
         MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
         HUD.mode = MBProgressHUDModeIndeterminate;
-        HUD.labelText = @"Loading";
+        HUD.labelText = @"加载中...";
         HUD.removeFromSuperViewOnHide = YES;
         
         

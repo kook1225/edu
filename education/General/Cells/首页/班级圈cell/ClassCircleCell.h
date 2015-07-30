@@ -37,6 +37,8 @@
 @property (nonatomic,strong) UIButton *priBtn;
 @property (nonatomic,strong) UIButton *rlyBtn;
 
+@property (nonatomic,strong) NSString *homePage;
+
 - (void)setIntroductionText:(NSString*)text image:(NSArray *)imagesArray reply:(ListModel *)model index:(NSInteger)indexRow;
 
 - (void)setData:(ListModel *)model;

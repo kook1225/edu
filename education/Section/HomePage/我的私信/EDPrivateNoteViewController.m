@@ -65,7 +65,7 @@
     
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     HUD.mode = MBProgressHUDModeIndeterminate;
-    HUD.labelText = @"Loading";
+    HUD.labelText = @"加载中...";
     HUD.removeFromSuperViewOnHide = YES;
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -148,7 +148,7 @@
         pageNum ++;
         MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         HUD.mode = MBProgressHUDModeIndeterminate;
-        HUD.labelText = @"Loading";
+        HUD.labelText = @"加载中...";
         HUD.removeFromSuperViewOnHide = YES;
         
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -265,7 +265,7 @@
    
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     HUD.mode = MBProgressHUDModeIndeterminate;
-    HUD.labelText = @"Loading";
+    HUD.labelText = @"加载中...";
     HUD.removeFromSuperViewOnHide = YES;
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
