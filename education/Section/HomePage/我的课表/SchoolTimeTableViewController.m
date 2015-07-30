@@ -44,6 +44,13 @@
     
     _dateView.layer.cornerRadius = 5.0f;
     
+    if ([[[[[SEUtils getUserInfo] UserDetail] userinfo] YHLB] intValue] == 3) {
+        _gradeLabel.text = [NSString stringWithFormat:@"%@%@",_nianji,_banji];
+    }
+    else {
+        _gradeLabel.text = [NSString stringWithFormat:@"%@%@",[[[[SEUtils getUserInfo] UserDetail] studentInfo] NJMC],[[[[SEUtils getUserInfo] UserDetail] studentInfo] BJMC]];
+    }
+    
     [self timeTable];
     
     NSDateFormatter *formatter_minDate = [[NSDateFormatter alloc]init];
