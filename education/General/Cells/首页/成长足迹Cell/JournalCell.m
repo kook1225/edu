@@ -10,6 +10,10 @@
 
 @implementation JournalCell
 
+- (void) prepareForReuse {
+    [_replyBtn removeFromSuperview];
+}
+
 - (void)awakeFromNib {
     // Initialization code
 }

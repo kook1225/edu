@@ -31,6 +31,7 @@
 }
 
 - (void)setData:(ListModel *)model {
+    
     _nameLabel.text = model.author.XM;
     
     NSString *dateStr = [SEUtils formatDateWithString:model.dynamicInfo.TJSJ];
