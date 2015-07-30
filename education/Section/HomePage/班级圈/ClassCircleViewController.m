@@ -89,6 +89,11 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [[IQKeyboardManager sharedManager] setEnableAutoToolbar:NO];
+    
+    stringArray = [NSMutableArray array];
+    imagesArray = [NSMutableArray array];
+    dataArray = [NSMutableArray array];
+    
     [self classCircleApi];
 }
 

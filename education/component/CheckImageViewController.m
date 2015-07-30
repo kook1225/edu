@@ -9,10 +9,11 @@
 #import "CheckImageViewController.h"
 #import "AppDelegate.h"
 #import "UIImageView+AFNetworking.h"
-
+#import "SETabBarViewController.h"
 
 @interface CheckImageViewController ()<UIScrollViewDelegate> {
     int currentPage;
+    SETabBarViewController *tabBarViewController;
 }
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -26,6 +27,8 @@
     [super viewDidLoad];
     currentPage = _page + 1;
     
+    tabBarViewController = (SETabBarViewController *)self.navigationController.parentViewController;
+    [tabBarViewController tabBarViewHidden];
     
     NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%d/%lu",currentPage,(unsigned long)[_dataArray count]]];
     [str addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:21] range:NSMakeRange(0, 1)];
