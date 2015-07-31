@@ -15,6 +15,8 @@
     int num;
     NSString *checkId;
     NSArray *dataArray;
+    NSString *recevieUser;
+    NSString *zipCode;
 }
 @property (weak, nonatomic) IBOutlet UILabel *addLabel;
 @property (weak, nonatomic) IBOutlet UILabel *numLabel;
@@ -29,7 +31,7 @@
 @property (weak, nonatomic) IBOutlet UIView *topView2;
 @property (weak, nonatomic) IBOutlet UILabel *recevieNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *telLabel;
-
+@property (weak, nonatomic) IBOutlet UITextField *messageTextField;
 
 
 @end
@@ -154,22 +156,32 @@
                      if (![checkId  isEqual: @""]) {
                          for (int i = 0; i < [dataArray count]; i++) {
                              if ([[[dataArray objectAtIndex:i] id] isEqualToString:checkId]) {
-                                 _recevieNameLabel.text = [dataArray[i] contact];
+                                 _recevieNameLabel.text = [NSString stringWithFormat:@"收货人 : %@",[dataArray[i] contact]];
+                                 
+                                 recevieUser = [dataArray[i] contact];
+                                 
                                  _telLabel.text = [dataArray[i] tel];
                                  
                                  _addLabel.text = [NSString stringWithFormat:@"%@%@%@%@",[dataArray[i] province],[dataArray[i] city],[dataArray[i] district],[dataArray[i] address]];
                                  _addLabel.numberOfLines = 2;
                                  [_addLabel sizeToFit];
+                                 
+                                 zipCode = [dataArray[i] zip_code];
                              }
                          }
                      }
                      else {
-                         _recevieNameLabel.text = [dataArray[0] contact];
+                         _recevieNameLabel.text = [NSString stringWithFormat:@"收货人 : %@",[dataArray[0] contact]];
+                         
+                         recevieUser = [dataArray[0] contact];
+                         
                          _telLabel.text = [dataArray[0] tel];
                          
                          _addLabel.text = [NSString stringWithFormat:@"%@%@%@%@",[dataArray[0] province],[dataArray[0] city],[dataArray[0] district],[dataArray[0] address]];
                          _addLabel.numberOfLines = 2;
                          [_addLabel sizeToFit];
+                         
+                         zipCode = [dataArray[0] zip_code];
                      }
                      
                  }
@@ -216,8 +228,66 @@
 }
 
 - (IBAction)surePayBtn:(id)sender {
-    SelectPayViewController *selectPayVC = [[SelectPayViewController alloc] init];
-    [self.navigationController pushViewController:selectPayVC animated:YES];
+    if ([_recevieNameLabel.text length] == 0) {
+        SHOW_ALERT(@"提示",@"收货地址不能为空");
+    }
+    else {
+        MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+        HUD.mode = MBProgressHUDModeIndeterminate;
+        HUD.labelText = @"加载中...";
+        HUD.removeFromSuperViewOnHide = YES;
+        
+     
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        
+        NSDictionary *parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],
+                                    @"code":@"43242",
+                                    @"product_id":_model.id,
+                                    @"member_id":[[[[SEUtils getUserInfo] UserDetail] userinfo] ID],
+                                    @"contact":recevieUser,
+                                    @"tel":_telLabel.text,
+                                    @"address":_addLabel.text,
+                                    @"zipcode":zipCode,
+                                    @"num":[NSNumber numberWithInt:num],
+                                    @"note":@""
+                                    };
+     
+        
+        
+        NSString *urlStr = [NSString stringWithFormat:@"%@Order",SERVER_HOST];
+        
+        // 设置超时时间
+        [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+        manager.requestSerializer.timeoutInterval = 10.f;
+        [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+        
+        [manager POST:urlStr parameters:parameter
+             success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                 [HUD hide:YES];
+                 
+                 if ([responseObject[@"responseCode"] intValue] == 0) {
+                     SelectPayViewController *selectPayVC = [[SelectPayViewController alloc] init];
+                     [self.navigationController pushViewController:selectPayVC animated:YES];
+                 }
+                 else {
+                     SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
+                 }
+                 
+             }
+             failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                 [HUD hide:YES];
+                 if(error.code == -1001)
+                 {
+                     SHOW_ALERT(@"提示", @"网络请求超时");
+                 }else if (error.code == -1009)
+                 {
+                     SHOW_ALERT(@"提示", @"网络连接已断开");
+                 }
+             }];
+    }
+    
+    
+    
 }
 
 
