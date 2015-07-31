@@ -8,7 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol EDOrderDetailViewControllerDelegate <NSObject>
+
+- (void)setTableViewReload:(NSString *)typeStr;
+
+@end
+
 @interface EDOrderDetailViewController : UIViewController
+
+@property (nonatomic,strong) id<EDOrderDetailViewControllerDelegate> delegate;
+
 @property (nonatomic,strong) NSDictionary *dic;
 @property (nonatomic,strong)NSString *type;
 

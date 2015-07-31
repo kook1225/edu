@@ -16,7 +16,7 @@
 
 
 #define LINEWIDTH SCREENWIDTH/4
-@interface EDMyOrderViewController ()<MJRefreshBaseViewDelegate>
+@interface EDMyOrderViewController ()<MJRefreshBaseViewDelegate,EDOrderDetailViewControllerDelegate>
 {
     SETabBarViewController *tabBarView;
     UIView *lineView;
@@ -205,10 +205,18 @@
     
     EDOrderDetailViewController *orderDetaiVC = [[EDOrderDetailViewController alloc]init];
     orderDetaiVC.dic = dataArray[indexPath.row];
+    orderDetaiVC.type = type;
+    orderDetaiVC.delegate = self;
     [self.navigationController pushViewController:orderDetaiVC animated:YES];
     
 }
 
+#pragma 订单详情代理
+- (void)setTableViewReload:(NSString *)typeStr
+{
+    NSLog(@"typestr--%@",typeStr);
+    [self AFNRequest:typeStr];
+}
 #pragma mark 刷新
 //下拉刷新和上拉加载相关
 - (void)dealloc{

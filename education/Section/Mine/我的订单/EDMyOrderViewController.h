@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EDMyOrderViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
+
+@interface EDMyOrderViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 @end

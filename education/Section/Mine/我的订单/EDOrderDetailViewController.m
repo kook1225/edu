@@ -10,7 +10,7 @@
 #import "SETabBarViewController.h"
 #import <UIImageView+WebCache.h>
 
-@interface EDOrderDetailViewController ()
+@interface EDOrderDetailViewController ()<UIAlertViewDelegate>
 {
     SETabBarViewController *tabBarView;
 }
@@ -46,6 +46,8 @@
 - (void)hidden
 {
     _msgView.hidden = YES;
+    [self.delegate setTableViewReload:[NSString stringWithFormat:@"%@",_type]];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 - (void)drawlayer
 {
@@ -60,13 +62,6 @@
     _nonAddress.hidden = YES;
     _cancelBtn.hidden = YES;
     
-    if ([_type isEqualToString:@"1"]) {
-        _bottomView.hidden = YES;
-    }else if ([_type isEqualToString:@"2"])
-    {
-        _cancelBtn.hidden = YES;
-        [_commitBtn setTitle:@"确认收货" forState:UIControlStateNormal];
-    }
     
     
     
@@ -134,7 +129,9 @@
 }
 - (IBAction)cancaelBtn:(id)sender
 {
-    [self statusAFNRequst:@"0"];
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"确定删除订单？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    alert.tag = 200;
+    [alert show];
 
 }
 
@@ -219,6 +216,17 @@
     
 }
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex ==0) {
+        return;
+    }else
+    {
+        [self statusAFNRequst:@"0"];
+
+    }
+}
+
 - (void)statusAFNRequst:(NSString *)num
 {
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -247,12 +255,11 @@
             _msgView.hidden = NO;
             _msgLabel.text = responseObject[@"responseMessage"];
             [self performSelector:@selector(hidden) withObject:self afterDelay:2.0];
-            //                [self.navigationController popViewControllerAnimated:YES];
+           
         }else
         {
-            _msgView.hidden = NO;
-            _msgLabel.text = responseObject[@"responseMessage"];
-            [self performSelector:@selector(hidden) withObject:self afterDelay:2.0];
+            
+            SHOW_ALERT(@"提示", responseObject[@"responseMessage"])
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
