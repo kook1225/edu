@@ -68,9 +68,23 @@
         float buttonWith = SCREENWIDTH/viewControllerArray.count;
         float buttonHeight = TAB_BAR_VIEW_HEIGHT/5*4;
         
+        NSArray *arrayBtnImage;
+        NSArray *arrayBtnHighLight;
         
-        NSArray *arrayBtnImage = @[@"homePage_un",@"contactIndex_un",@"userCenter_un",@"setting_un"];
-        NSArray *arrayBtnHighLight = @[@"homePage",@"contactIndex",@"userCenter",@"setting"];
+        
+        if (SCREENHEIGHT > 568) {
+            arrayBtnImage = @[@"homePage_un",@"contactIndex_un",@"userCenter_un",@"setting_un"];
+            arrayBtnHighLight = @[@"homePage",@"contactIndex",@"userCenter",@"setting"];
+        }
+        else if (SCREENHEIGHT > 480 && SCREENHEIGHT <= 568) {
+            arrayBtnImage = @[@"homePage5s_un",@"contactIndex5s_un",@"userCenter5s_un",@"setting5s_un"];
+            arrayBtnHighLight = @[@"homePage5s",@"contactIndex5s",@"userCenter5s",@"setting5s"];
+        }
+        else {
+            arrayBtnImage = @[@"homePage6p_un",@"contactIndex6p_un",@"userCenter6p_un",@"setting6p_un"];
+            arrayBtnHighLight = @[@"homePage6p",@"contactIndex6p",@"userCenter6p",@"setting6p"];
+        }
+        
         
         
         for (int i=0; i<viewControllerArray.count; i++) {

@@ -429,7 +429,7 @@
                 <outlet property="btn8" destination="xL9-kp-hrP" id="MNq-zf-txg"/>
                 <outlet property="btn9" destination="tSW-FG-f41" id="bgy-EV-Fr3"/>
             </connections>
-            <point key="canvasLocation" x="341" y="184"/>
+            <point key="canvasLocation" x="249" y="206"/>
         </tableViewCell>
     </objects>
     <resources>
