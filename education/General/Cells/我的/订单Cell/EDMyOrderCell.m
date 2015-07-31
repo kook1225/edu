@@ -38,6 +38,7 @@
 //    
     _orderNumLabel.text = [NSString stringWithFormat:@"订单号:%@",dic[@"orderinfo"][@"order_num"]];
     
+
     NSString *status;
     if ([dic[@"orderinfo"][@"status"] intValue] ==0) {
         status = @"已取消";

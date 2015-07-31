@@ -20,15 +20,23 @@
     
     _seeOrderBtn.layer.cornerRadius = 5.0f;
     
-    self.navigationItem.leftBarButtonItem = [Tools getNavBarItem:self clickAction:@selector(back)];
+    UIButton *leftBarBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
+    [leftBarBtn addTarget:self action:@selector(backBtn) forControlEvents:UIControlEventTouchUpInside];
+    [leftBarBtn setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+    UIBarButtonItem *btnItem = [[UIBarButtonItem alloc] initWithCustomView:leftBarBtn];
+    self.navigationItem.leftBarButtonItem = btnItem;
 }
 
 #pragma mark - Custom Method
-- (void)back {
-    [self.navigationController popViewControllerAnimated:YES];
+- (void)backBtn {
+    NSLog(@"隐藏按钮");
 }
 
 - (IBAction)seeOrderBtn:(id)sender {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"PayEndViewController"
+                                                        object:@"popOrderList"
+                                                      userInfo:@{}];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {
