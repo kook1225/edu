@@ -37,6 +37,8 @@
     _priceLabel.text = [NSString stringWithFormat:@"￥%@",dic[@"orderinfo"][@"amount"]];
     
     _orderNumLabel.text = [NSString stringWithFormat:@"订单号:%@",dic[@"orderinfo"][@"order_num"]];
+    
     _orderStatusLabel.text = dic[@"orderinfo"][@"status"];
+    
 }
 @end

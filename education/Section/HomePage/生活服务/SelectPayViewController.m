@@ -26,11 +26,20 @@
     _priceLabel.text = [NSString stringWithFormat:@"你需要支付 : ¥%@",_priceStr];
     
     self.navigationItem.leftBarButtonItem = [Tools getNavBarItem:self clickAction:@selector(back)];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(popOrderList)
+                                                 name:@"PayEndViewController"
+                                               object:@"popOrderList"];
 }
 
 #pragma mark - Custom Method
 - (void)back {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)popOrderList {
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (IBAction)zhifubaoPay:(id)sender {
