@@ -874,12 +874,12 @@
 		18579FEC1B4BC2B800501EA0 /* 我的订单 */ = {
 			isa = PBXGroup;
 			children = (
-				768F89D11B6BDEA20054F73C /* EDOrderDetailViewController.xib */,
 				18579FED1B4BC2B800501EA0 /* EDMyOrderViewController.h */,
 				18579FEE1B4BC2B800501EA0 /* EDMyOrderViewController.m */,
 				768F89CF1B6BBDB90054F73C /* EDMyOrderViewController.xib */,
 				18579FF01B4BC2B800501EA0 /* EDOrderDetailViewController.h */,
 				18579FF11B4BC2B800501EA0 /* EDOrderDetailViewController.m */,
+				768F89D11B6BDEA20054F73C /* EDOrderDetailViewController.xib */,
 			);
 			path = "我的订单";
 			sourceTree = "<group>";
