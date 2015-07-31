@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *userPwd;
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;
 
+
 @end
 
 @implementation LoginViewController
@@ -51,6 +52,8 @@
    
     _loginBtn.layer.cornerRadius = 4.0f;
 }
+
+
 
 #pragma mark 按钮功能
 - (IBAction)loginFunction:(id)sender {
@@ -120,9 +123,7 @@
         }
     }
 }
-- (IBAction)findPwdFunction:(id)sender {
 
-}
 
 - (IBAction)registerFunction:(id)sender {
     ParentRegisterViewController *parentRegisterVC = [[ParentRegisterViewController alloc] init];
