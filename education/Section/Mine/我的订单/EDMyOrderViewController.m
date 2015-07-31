@@ -254,6 +254,8 @@
         [manager GET:urlString parameters:pramaters success:^(AFHTTPRequestOperation *operation, id responseObject) {
             [HUD setHidden:YES];
             NSLog(@"res--%@",responseObject);
+            NSError *error;
+            NSLog(@"error---%@",error);
             if ([responseObject[@"responseCode"] intValue] ==0)
             {
                 NSLog(@"res---%@",responseObject[@"data"]);

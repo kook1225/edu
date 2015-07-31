@@ -149,12 +149,6 @@
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="locationAddr" translatesAutoresizingMaskIntoConstraints="NO" id="j9K-a5-t9Z">
                             <rect key="frame" x="10" y="10" width="20" height="20"/>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowRight" translatesAutoresizingMaskIntoConstraints="NO" id="lOq-ta-rj8">
-                            <rect key="frame" x="295" y="33" width="13" height="13"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="13" id="SXe-fw-zeS"/>
-                            </constraints>
-                        </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂无地址信息，请您新建地址" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s9s-DK-nlA">
                             <rect key="frame" x="63" y="29" width="200" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -170,26 +164,22 @@
                     </subviews>
                     <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstItem="bIB-gs-Lns" firstAttribute="top" secondItem="PKh-dv-0lK" secondAttribute="bottom" constant="8" symbolic="YES" id="1ho-oo-C4H"/>
-                        <constraint firstItem="lOq-ta-rj8" firstAttribute="top" secondItem="2d7-Z7-yv6" secondAttribute="top" constant="33" id="5jM-gA-Jh2"/>
-                        <constraint firstItem="lOq-ta-rj8" firstAttribute="leading" secondItem="s9s-DK-nlA" secondAttribute="trailing" constant="32" id="73F-sB-7QS"/>
-                        <constraint firstAttribute="bottom" secondItem="s9s-DK-nlA" secondAttribute="bottom" constant="30" id="E2W-KD-d1j"/>
-                        <constraint firstItem="bIB-gs-Lns" firstAttribute="leading" secondItem="SJV-ye-Avk" secondAttribute="leading" id="F0G-74-eDA"/>
+                        <constraint firstItem="bIB-gs-Lns" firstAttribute="firstBaseline" secondItem="s9s-DK-nlA" secondAttribute="baseline" id="093-ms-0CW"/>
+                        <constraint firstItem="s9s-DK-nlA" firstAttribute="top" secondItem="SJV-ye-Avk" secondAttribute="bottom" id="78T-ck-zxY"/>
                         <constraint firstItem="SJV-ye-Avk" firstAttribute="leading" secondItem="j9K-a5-t9Z" secondAttribute="trailing" constant="2" id="FLj-CJ-D2C"/>
-                        <constraint firstItem="lOq-ta-rj8" firstAttribute="leading" secondItem="bIB-gs-Lns" secondAttribute="trailing" id="JzO-U6-O1v"/>
-                        <constraint firstItem="bIB-gs-Lns" firstAttribute="leading" secondItem="2d7-Z7-yv6" secondAttribute="leading" constant="32" id="Lky-Ch-jGM"/>
-                        <constraint firstAttribute="bottom" secondItem="bIB-gs-Lns" secondAttribute="bottom" constant="14" id="Msf-cH-2sx"/>
                         <constraint firstItem="PKh-dv-0lK" firstAttribute="leading" secondItem="SJV-ye-Avk" secondAttribute="trailing" constant="47" id="NWe-Eh-RHi"/>
-                        <constraint firstItem="bIB-gs-Lns" firstAttribute="centerX" secondItem="s9s-DK-nlA" secondAttribute="centerX" id="O0g-rg-KaT"/>
                         <constraint firstItem="j9K-a5-t9Z" firstAttribute="top" secondItem="2d7-Z7-yv6" secondAttribute="top" constant="10" id="R15-BA-lxz"/>
-                        <constraint firstItem="lOq-ta-rj8" firstAttribute="centerY" secondItem="s9s-DK-nlA" secondAttribute="centerY" id="Vjg-gQ-UQc"/>
-                        <constraint firstAttribute="trailing" secondItem="lOq-ta-rj8" secondAttribute="trailing" constant="12" id="W7l-Kj-Qd3"/>
                         <constraint firstItem="SJV-ye-Avk" firstAttribute="top" secondItem="2d7-Z7-yv6" secondAttribute="top" constant="14" id="WJC-aP-5hM"/>
+                        <constraint firstAttribute="bottom" secondItem="s9s-DK-nlA" secondAttribute="bottom" constant="30" id="WYs-KJ-8cf"/>
+                        <constraint firstAttribute="trailing" secondItem="s9s-DK-nlA" secondAttribute="trailing" constant="57" id="ZXJ-Gq-4fh"/>
+                        <constraint firstItem="bIB-gs-Lns" firstAttribute="leading" secondItem="2d7-Z7-yv6" secondAttribute="leading" constant="32" id="d53-r8-5kD"/>
+                        <constraint firstAttribute="bottom" secondItem="bIB-gs-Lns" secondAttribute="bottom" constant="14" id="dyw-E4-wIU"/>
                         <constraint firstItem="SJV-ye-Avk" firstAttribute="baseline" secondItem="PKh-dv-0lK" secondAttribute="firstBaseline" id="f6s-bh-Crq"/>
-                        <constraint firstItem="bIB-gs-Lns" firstAttribute="top" secondItem="SJV-ye-Avk" secondAttribute="bottom" constant="6" id="gFJ-mL-6cU"/>
-                        <constraint firstItem="s9s-DK-nlA" firstAttribute="baseline" secondItem="bIB-gs-Lns" secondAttribute="firstBaseline" id="h3g-5b-g22"/>
-                        <constraint firstItem="s9s-DK-nlA" firstAttribute="top" secondItem="PKh-dv-0lK" secondAttribute="bottom" constant="2" id="muN-Zx-WYH"/>
+                        <constraint firstItem="bIB-gs-Lns" firstAttribute="leading" secondItem="SJV-ye-Avk" secondAttribute="leading" id="g8Y-P9-RBg"/>
+                        <constraint firstItem="bIB-gs-Lns" firstAttribute="centerX" secondItem="s9s-DK-nlA" secondAttribute="centerX" id="gS9-B1-0a5"/>
+                        <constraint firstItem="s9s-DK-nlA" firstAttribute="leading" secondItem="2d7-Z7-yv6" secondAttribute="leading" constant="63" id="q1o-7u-iYM"/>
                         <constraint firstAttribute="trailing" secondItem="PKh-dv-0lK" secondAttribute="trailing" constant="40" id="s2H-Ta-xYW"/>
+                        <constraint firstItem="bIB-gs-Lns" firstAttribute="top" secondItem="PKh-dv-0lK" secondAttribute="bottom" constant="8" symbolic="YES" id="t1u-Nn-mfj"/>
                         <constraint firstItem="PKh-dv-0lK" firstAttribute="top" secondItem="2d7-Z7-yv6" secondAttribute="top" constant="12" id="tsY-7D-NuT"/>
                     </constraints>
                 </view>
@@ -346,8 +336,11 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <state key="normal" title="取消订单">
                                 <color key="titleColor" red="0.87058823529411766" green="0.87058823529411766" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" red="0.87058823529999996" green="0.87058823529999996" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
+                            <connections>
+                                <action selector="cancaelBtn:" destination="-1" eventType="touchUpInside" id="pKk-Yr-J93"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -416,7 +409,6 @@
         </view>
     </objects>
     <resources>
-        <image name="arrowRight" width="20" height="20"/>
         <image name="example1" width="255" height="170"/>
         <image name="locationAddr" width="20" height="20"/>
         <image name="navColor" width="375" height="64"/>
