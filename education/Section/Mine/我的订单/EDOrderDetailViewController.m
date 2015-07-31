@@ -34,6 +34,7 @@
     _msgView.hidden = YES;
     _msgView.layer.cornerRadius = 4.0f;
     _msgView.layer.masksToBounds = YES;
+    
 }
 
 #pragma mark 常用方法
@@ -72,18 +73,28 @@
     NSString *status;
     if ([_dic[@"orderinfo"][@"status"] intValue] ==0) {
         status = @"已取消";
+        _bottomView.hidden = YES;
     }else if ([_dic[@"orderinfo"][@"status"] intValue] ==1) {
         status = @"待支付";
+        _cancelBtn.hidden = NO;
+        [_commitBtn setTitle:@"立即支付" forState:UIControlStateNormal];
     }else if ([_dic[@"orderinfo"][@"status"] intValue] ==2) {
         status = @"待发货";
+        [_commitBtn setTitle:@"申请退款" forState:UIControlStateNormal];
+
     }else if ([_dic[@"orderinfo"][@"status"] intValue] ==3) {
         status = @"待收货";
+        [_commitBtn setTitle:@"确认收货" forState:UIControlStateNormal];
+
     }else if ([_dic[@"orderinfo"][@"status"] intValue] ==4) {
         status = @"交易成功";
+        _bottomView.hidden = YES;
     }else if ([_dic[@"orderinfo"][@"status"] intValue] ==5) {
         status = @"退单中";
+        _bottomView.hidden = YES;
     }else if ([_dic[@"orderinfo"][@"status"] intValue] ==6) {
         status = @"退单成功";
+        _bottomView.hidden = YES;
     }
     _orderStatus.text = status;
     _orderPrice.text = [NSString stringWithFormat:@"￥%@",_dic[@"orderinfo"][@"amount"]];
@@ -121,9 +132,25 @@
   
 
 }
+- (IBAction)cancaelBtn:(id)sender
+{
+    [self statusAFNRequst:@"0"];
+
+}
 
 - (IBAction)commitBtn:(id)sender
 {
+    if([_dic[@"orderinfo"][@"status"] intValue] ==2)
+    {
+        [self statusAFNRequst:@"5"];
+    }else
+    {
+        [self statusAFNRequst:@"4"];
+    }
+    
+    
+    
+    /*
     if ([_noteTextField.text isEqualToString:@""]) {
         _msgView.hidden = NO;
         _msgLabel.text = @"买家留言不能为空";
@@ -188,7 +215,64 @@
             }
         }];
 
-    }
+    }*/
     
+}
+
+- (void)statusAFNRequst:(NSString *)num
+{
+    MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    HUD.mode = MBProgressHUDModeIndeterminate;
+    HUD.labelText = @"加载中...";
+    HUD.removeFromSuperViewOnHide = YES;
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+    manager.requestSerializer.timeoutInterval = 10.f;
+    [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+    
+    NSDictionary *pramaters = @{@"access_token":[SEUtils getUserInfo].TokenInfo.access_token,
+                                @"code":[SEUtils getUserInfo].TokenInfo.access_token,
+                                @"order_num":_dic[@"orderinfo"][@"order_num"],
+                                @"status":num,
+                                };
+    
+    
+    NSString *urlString = [NSString stringWithFormat:@"%@setOrder",SERVER_HOST];
+    
+    [manager POST:urlString parameters:pramaters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [HUD setHidden:YES];
+        NSLog(@"res--%@",responseObject);
+        if ([responseObject[@"responseCode"] intValue] ==0) {
+            _msgView.hidden = NO;
+            _msgLabel.text = responseObject[@"responseMessage"];
+            [self performSelector:@selector(hidden) withObject:self afterDelay:2.0];
+            //                [self.navigationController popViewControllerAnimated:YES];
+        }else
+        {
+            _msgView.hidden = NO;
+            _msgLabel.text = responseObject[@"responseMessage"];
+            [self performSelector:@selector(hidden) withObject:self afterDelay:2.0];
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [HUD setHidden:YES];
+        if (operation.response.statusCode == 401) {
+            NSLog(@"请求超时");
+            //   [SEUtils repetitionLogin];
+        }else if(error.code == -1001)
+        {
+            SHOW_ALERT(@"提示", @"网络请求超时");
+        }else if (error.code == -1009)
+        {
+            SHOW_ALERT(@"提示", @"网络连接已断开");
+        }
+        else {
+            NSLog(@"Error:%@",error);
+            NSLog(@"err:%@",operation.responseObject[@"message"]);
+            //   SHOW_ALERT(@"提示",operation.responseObject[@"message"])
+        }
+    }];
+
 }
 @end
