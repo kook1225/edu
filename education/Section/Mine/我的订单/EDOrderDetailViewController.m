@@ -9,6 +9,7 @@
 #import "EDOrderDetailViewController.h"
 #import "SETabBarViewController.h"
 #import <UIImageView+WebCache.h>
+#import "SelectPayViewController.h"
 
 @interface EDOrderDetailViewController ()<UIAlertViewDelegate>
 {
@@ -142,7 +143,15 @@
         [self statusAFNRequst:@"5"];
     }else
     {
-        [self statusAFNRequst:@"4"];
+
+        SelectPayViewController *selectPayVC = [[SelectPayViewController alloc] init];
+        selectPayVC.orderId = _dic[@"orderinfo"][@"order_num"];
+        selectPayVC.priceStr = _dic[@"orderinfo"][@"amount"];
+        selectPayVC.proName = _dic[@"productinfo"][@"name"];
+        selectPayVC.proIntro = _dic[@"productinfo"][@"intro"];
+        selectPayVC.type = @"订单";
+        [self.navigationController pushViewController:selectPayVC animated:YES];
+        
     }
     
     

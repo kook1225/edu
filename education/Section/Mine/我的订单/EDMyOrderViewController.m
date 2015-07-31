@@ -43,6 +43,8 @@
     self.title = @"我的订单";
     self.navigationItem.leftBarButtonItem = [Tools getNavBarItem:self clickAction:@selector(back)];
     
+    dataArray = [NSMutableArray array];
+    
     tabBarView = (SETabBarViewController *)self.navigationController.parentViewController;
     [tabBarView tabBarViewHidden];
     
@@ -71,6 +73,7 @@
 
 - (void)AFNRequest:(NSString *)typeStr
 {
+    pageNum = 1;
     dataArray = [NSMutableArray array];
     
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -101,7 +104,7 @@
             {
                 _nonDataLabel.hidden = YES;
                 _tableView.hidden = NO;
-                dataArray = responseObject[@"data"];
+                dataArray = [NSMutableArray arrayWithArray:responseObject[@"data"]];
                 [_tableView reloadData];
             }
             
@@ -270,6 +273,7 @@
                 if (responseObject[@"data"] != [NSNull null])
                 {
                     [dataArray addObjectsFromArray:responseObject[@"data"]];
+                    
                     [_tableView reloadData];
                 }
             }

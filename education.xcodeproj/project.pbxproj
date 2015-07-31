@@ -40,7 +40,6 @@
 		18579FEB1B4BC28A00501EA0 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18579FE91B4BC28A00501EA0 /* LoginViewController.xib */; };
 		18579FF71B4BC2B800501EA0 /* EDMyOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18579FEE1B4BC2B800501EA0 /* EDMyOrderViewController.m */; };
 		18579FF91B4BC2B800501EA0 /* EDOrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18579FF11B4BC2B800501EA0 /* EDOrderDetailViewController.m */; };
-		18579FFA1B4BC2B800501EA0 /* EDOrderDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18579FF21B4BC2B800501EA0 /* EDOrderDetailViewController.xib */; };
 		18579FFB1B4BC2B800501EA0 /* EDAlterPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18579FF51B4BC2B800501EA0 /* EDAlterPwdViewController.m */; };
 		18579FFC1B4BC2B800501EA0 /* EDAlterPwdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18579FF61B4BC2B800501EA0 /* EDAlterPwdViewController.xib */; };
 		1857A0081B4BC2E800501EA0 /* EDPhysicalDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18579FFF1B4BC2E800501EA0 /* EDPhysicalDetailViewController.m */; };
@@ -228,6 +227,7 @@
 		768F89CA1B6B65460054F73C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 768F89C91B6B65460054F73C /* CoreGraphics.framework */; };
 		768F89CC1B6B654B0054F73C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 768F89CB1B6B654B0054F73C /* UIKit.framework */; };
 		768F89D01B6BBDB90054F73C /* EDMyOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 768F89CF1B6BBDB90054F73C /* EDMyOrderViewController.xib */; };
+		768F89D21B6BDEA20054F73C /* EDOrderDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 768F89D11B6BDEA20054F73C /* EDOrderDetailViewController.xib */; };
 		768FFAF11B4238D9008E577F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF01B4238D9008E577F /* main.m */; };
 		768FFAF41B4238D9008E577F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF31B4238D9008E577F /* AppDelegate.m */; };
 		768FFAFC1B4238D9008E577F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 768FFAFB1B4238D9008E577F /* Images.xcassets */; };
@@ -311,7 +311,6 @@
 		18579FEE1B4BC2B800501EA0 /* EDMyOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDMyOrderViewController.m; sourceTree = "<group>"; };
 		18579FF01B4BC2B800501EA0 /* EDOrderDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDOrderDetailViewController.h; sourceTree = "<group>"; };
 		18579FF11B4BC2B800501EA0 /* EDOrderDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDOrderDetailViewController.m; sourceTree = "<group>"; };
-		18579FF21B4BC2B800501EA0 /* EDOrderDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDOrderDetailViewController.xib; sourceTree = "<group>"; };
 		18579FF41B4BC2B800501EA0 /* EDAlterPwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDAlterPwdViewController.h; sourceTree = "<group>"; };
 		18579FF51B4BC2B800501EA0 /* EDAlterPwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDAlterPwdViewController.m; sourceTree = "<group>"; };
 		18579FF61B4BC2B800501EA0 /* EDAlterPwdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDAlterPwdViewController.xib; sourceTree = "<group>"; };
@@ -686,6 +685,7 @@
 		768F89C91B6B65460054F73C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		768F89CB1B6B654B0054F73C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		768F89CF1B6BBDB90054F73C /* EDMyOrderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDMyOrderViewController.xib; sourceTree = "<group>"; };
+		768F89D11B6BDEA20054F73C /* EDOrderDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDOrderDetailViewController.xib; sourceTree = "<group>"; };
 		768FFAEB1B4238D9008E577F /* education.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = education.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		768FFAEF1B4238D9008E577F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		768FFAF01B4238D9008E577F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -879,7 +879,7 @@
 				768F89CF1B6BBDB90054F73C /* EDMyOrderViewController.xib */,
 				18579FF01B4BC2B800501EA0 /* EDOrderDetailViewController.h */,
 				18579FF11B4BC2B800501EA0 /* EDOrderDetailViewController.m */,
-				18579FF21B4BC2B800501EA0 /* EDOrderDetailViewController.xib */,
+				768F89D11B6BDEA20054F73C /* EDOrderDetailViewController.xib */,
 			);
 			path = "我的订单";
 			sourceTree = "<group>";
@@ -1863,7 +1863,6 @@
 				764406A91B4BD07F00541C86 /* SelectPayViewController.xib in Resources */,
 				1892CE4F1B6780BC0060DD16 /* EDEditTeacherInfoViewController.xib in Resources */,
 				768FFB331B42C333008E577F /* UserIntroCell.xib in Resources */,
-				18579FFA1B4BC2B800501EA0 /* EDOrderDetailViewController.xib in Resources */,
 				764406BA1B4D558500541C86 /* JournalCell.xib in Resources */,
 				1857A0A41B4E702C00501EA0 /* EDHomeWorkViewController.xib in Resources */,
 				1892CE481B6722B20060DD16 /* EDClassOnlinePlayerViewController.xib in Resources */,
@@ -1889,6 +1888,7 @@
 				1892CE431B6535950060DD16 /* EDChooseStudentsViewController.xib in Resources */,
 				187F7DC81B43BDDF005CC8D8 /* EDGradeRecodeCell.xib in Resources */,
 				7644069F1B4BC1F900541C86 /* AddReceiveAddressViewController.xib in Resources */,
+				768F89D21B6BDEA20054F73C /* EDOrderDetailViewController.xib in Resources */,
 				7644064E1B458B1700541C86 /* BottomCell.xib in Resources */,
 				764406CF1B4E763F00541C86 /* EvaluteAndEncourageViewController.xib in Resources */,
 				768F89101B5B88860054F73C /* CheckImageViewController.xib in Resources */,

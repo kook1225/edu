@@ -14,6 +14,7 @@
 
 @interface SelectPayViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *contentLabel;
 
 @end
 
@@ -22,6 +23,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"选择支付";
+    
+    if ([_type  isEqual: @"订单"]) {
+        _contentLabel.text = @"请尽快支付哟~";
+    }
     
     _priceLabel.text = [NSString stringWithFormat:@"你需要支付 : ¥%@",_priceStr];
     

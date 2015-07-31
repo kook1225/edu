@@ -14,5 +14,6 @@
 @property (nonatomic,strong) NSString *priceStr;
 @property (nonatomic,strong) NSString *proName;
 @property (nonatomic,strong) NSString *proIntro;
+@property (nonatomic,strong) NSString *type;
 
 @end
