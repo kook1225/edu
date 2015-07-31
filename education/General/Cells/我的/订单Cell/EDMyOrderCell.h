@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface EDMyOrderCell : UITableViewCell
+{
+    NSNumber *count;
+}
 @property (weak, nonatomic) IBOutlet UIImageView *headImg;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;

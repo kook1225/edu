@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface EDOrderDetailViewController : UIViewController
+@property (nonatomic,strong) NSDictionary *dic;
 @property (nonatomic,strong)NSString *type;
 
 

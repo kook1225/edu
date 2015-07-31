@@ -12,16 +12,22 @@
 #import "EDOrderHeadCell.h"
 #import "EDOrderBottomCell.h"
 #import "EDOrderDetailViewController.h"
+#import "MJRefresh.h"
 
 
 #define LINEWIDTH SCREENWIDTH/4
-@interface EDMyOrderViewController ()
+@interface EDMyOrderViewController ()<MJRefreshBaseViewDelegate>
 {
     SETabBarViewController *tabBarView;
     UIView *lineView;
     NSString *type;
     NSMutableArray *dataArray;
     
+    MJRefreshBaseView *_baseview;
+    MJRefreshFooterView *_footerview;
+    MJRefreshHeaderView *_headerview;
+    
+    int pageNum;
 }
 
 @property (weak, nonatomic) IBOutlet UIView *headView;
@@ -49,7 +55,11 @@
     
     type = @"";
     [self AFNRequest:type];
+ 
+    pageNum = 1;
     
+    [self initfooterview];
+    [self initheaderview];
 }
 
 
@@ -89,6 +99,8 @@
                 _tableView.hidden = YES;
             }else
             {
+                _nonDataLabel.hidden = YES;
+                _tableView.hidden = NO;
                 dataArray = responseObject[@"data"];
                 [_tableView reloadData];
             }
@@ -134,21 +146,27 @@
     }
     switch (button.tag) {
         case 400:
+            type = @"";
+            
             lineView.frame = CGRectMake(0, 43, LINEWIDTH, 2);
             break;
         case 401:
+            type = @"1";
             lineView.frame = CGRectMake(LINEWIDTH, 43, LINEWIDTH, 2);
             break;
         case 402:
+            type = @"2";
             lineView.frame = CGRectMake(2*LINEWIDTH, 43, LINEWIDTH, 2);
             break;
         case 403:
+            type = @"3";
             lineView.frame = CGRectMake(3*LINEWIDTH, 43, LINEWIDTH, 2);
             break;
             
         default:
             break;
     }
+    [self AFNRequest:type];
 }
 
 #pragma mark tableView 代理
@@ -185,11 +203,105 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-        EDOrderDetailViewController *orderDetaiVC = [[EDOrderDetailViewController alloc]init];
-        orderDetaiVC.type = @"3";
-        [self.navigationController pushViewController:orderDetaiVC animated:YES];
+    EDOrderDetailViewController *orderDetaiVC = [[EDOrderDetailViewController alloc]init];
+    orderDetaiVC.dic = dataArray[indexPath.row];
+    [self.navigationController pushViewController:orderDetaiVC animated:YES];
     
 }
 
+#pragma mark 刷新
+//下拉刷新和上拉加载相关
+- (void)dealloc{
+    [_footerview free];
+    [_headerview free];
+}
 
+- (void)initfooterview{
+    _footerview = [[MJRefreshFooterView alloc]initWithScrollView:_tableView];
+    _footerview.delegate = self;
+}
+
+- (void)initheaderview{
+    _headerview = [[MJRefreshHeaderView alloc]initWithScrollView:_tableView];
+    _headerview.delegate = self;
+}
+
+//下拉刷新和上拉加载代理
+- (void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
+{
+    _baseview = refreshView;
+    if (_baseview == _footerview) {
+        
+        pageNum++;
+        
+        MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        HUD.mode = MBProgressHUDModeIndeterminate;
+        HUD.labelText = @"加载中...";
+        HUD.removeFromSuperViewOnHide = YES;
+        
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+        manager.requestSerializer.timeoutInterval = 10.f;
+        [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+        
+        NSDictionary *pramaters = @{@"access_token":[SEUtils getUserInfo].TokenInfo.access_token,
+                                    @"code":[SEUtils getUserInfo].TokenInfo.access_token,
+                                    @"pageSize":@"10",
+                                    @"page":[NSNumber numberWithInt:pageNum],
+                                    @"status":type};
+        NSString *urlString = [NSString stringWithFormat:@"%@Order",SERVER_HOST];
+        
+        [manager GET:urlString parameters:pramaters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [HUD setHidden:YES];
+            NSLog(@"res--%@",responseObject);
+            if ([responseObject[@"responseCode"] intValue] ==0)
+            {
+                NSLog(@"res---%@",responseObject[@"data"]);
+                if (responseObject[@"data"] != [NSNull null])
+                {
+                    [dataArray addObjectsFromArray:responseObject[@"data"]];
+                    [_tableView reloadData];
+                }
+            }
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [HUD setHidden:YES];
+            if (operation.response.statusCode == 401) {
+                NSLog(@"请求超时");
+                //   [SEUtils repetitionLogin];
+            }else if(error.code == -1001)
+            {
+                SHOW_ALERT(@"提示", @"网络请求超时");
+            }else if (error.code == -1009)
+            {
+                SHOW_ALERT(@"提示", @"网络连接已断开");
+            }
+            else {
+                NSLog(@"Error:%@",error);
+                NSLog(@"err:%@",operation.responseObject[@"message"]);
+                //   SHOW_ALERT(@"提示",operation.responseObject[@"message"])
+            }
+        }];
+        
+        
+        [self performSelector:@selector(hidden) withObject:nil afterDelay:1.5];
+    }
+    if (_baseview == _headerview) {
+        [self AFNRequest:type];
+        //        _baseview = refreshView;
+        [self performSelector:@selector(hidden) withObject:nil afterDelay:1.5];
+    }
+    
+}
+
+- (void)hidden
+{
+    if (_baseview == _headerview)
+    {
+        [_headerview endRefreshing];
+    }
+    else
+    {
+        [_footerview endRefreshing];
+    }
+}
 @end
