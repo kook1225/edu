@@ -15,6 +15,7 @@
                 <outlet property="numLabel" destination="7bb-Pt-oda" id="YSr-5o-zvb"/>
                 <outlet property="proName" destination="P92-Du-duC" id="pu6-jM-XhG"/>
                 <outlet property="recevieNameLabel" destination="rrD-lA-UcZ" id="yGe-BM-kfO"/>
+                <outlet property="surePayBtn" destination="x2U-vd-3PU" id="qVu-wX-EX1"/>
                 <outlet property="telLabel" destination="Z6P-ZV-wmR" id="weG-eY-nee"/>
                 <outlet property="topView1" destination="tsf-IE-dqN" id="as6-Bz-yux"/>
                 <outlet property="topView2" destination="zbU-PH-MW3" id="hfr-JS-sLp"/>
