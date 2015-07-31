@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -9,6 +10,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EDMyOrderViewController">
             <connections>
                 <outlet property="headView" destination="cro-la-TTa" id="Wnu-l7-xHt"/>
+                <outlet property="nonDataLabel" destination="SdF-mb-5Te" id="yev-Le-8uU"/>
                 <outlet property="tableView" destination="Zbf-gW-bWM" id="8aU-vq-iFW"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -130,6 +132,16 @@
                         <outlet property="delegate" destination="-1" id="1xv-my-V0k"/>
                     </connections>
                 </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂无数据" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SdF-mb-5Te">
+                    <rect key="frame" x="131" y="241" width="58" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="58" id="IHm-e5-txg"/>
+                        <constraint firstAttribute="height" constant="21" id="wog-lq-XfU"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -138,6 +150,8 @@
                 <constraint firstAttribute="bottom" secondItem="Zbf-gW-bWM" secondAttribute="bottom" constant="50" id="Shk-l8-wkj"/>
                 <constraint firstItem="Zbf-gW-bWM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Z6d-8H-z96"/>
                 <constraint firstItem="Zbf-gW-bWM" firstAttribute="top" secondItem="cro-la-TTa" secondAttribute="bottom" id="b2G-wE-1ii"/>
+                <constraint firstItem="SdF-mb-5Te" firstAttribute="centerX" secondItem="cro-la-TTa" secondAttribute="centerX" id="ckn-i1-jaG"/>
+                <constraint firstItem="SdF-mb-5Te" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="241" id="dnm-4B-4q9"/>
                 <constraint firstItem="cro-la-TTa" firstAttribute="leading" secondItem="Zbf-gW-bWM" secondAttribute="leading" id="ruM-eo-yHO"/>
                 <constraint firstItem="cro-la-TTa" firstAttribute="trailing" secondItem="Zbf-gW-bWM" secondAttribute="trailing" id="wa7-6N-eXe"/>
             </constraints>

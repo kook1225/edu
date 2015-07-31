@@ -20,4 +20,9 @@
     // Configure the view for the selected state
 }
 
+- (void)setDataDic:(NSDictionary *)dic
+{
+    _orderNumLabel.text = [NSString stringWithFormat:@"订单号:%@",dic[@"order_num"]];
+    _orderStatusLabel.text = dic[@"status"];
+}
 @end

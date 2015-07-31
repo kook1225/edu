@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface EDOrderBottomCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *countLabel;
+@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 
+- (void)setDataDic:(NSDictionary *)dic;
 @end

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -50,6 +51,10 @@
                     <constraint firstItem="fG6-WU-9i8" firstAttribute="top" secondItem="S2b-j3-0OY" secondAttribute="bottom" constant="11" id="saJ-KR-zgp"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="countLabel" destination="S2b-j3-0OY" id="eS6-HQ-Wrc"/>
+                <outlet property="priceLabel" destination="2CL-Kh-Hrb" id="dMu-Sj-Y2W"/>
+            </connections>
             <point key="canvasLocation" x="245" y="325"/>
         </tableViewCell>
     </objects>

@@ -13,17 +13,20 @@
 #import "EDOrderBottomCell.h"
 #import "EDOrderDetailViewController.h"
 
+
 #define LINEWIDTH SCREENWIDTH/4
 @interface EDMyOrderViewController ()
 {
     SETabBarViewController *tabBarView;
     UIView *lineView;
-    NSArray *dataArray;
+    NSString *type;
+    NSMutableArray *dataArray;
     
 }
 
 @property (weak, nonatomic) IBOutlet UIView *headView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UILabel *nonDataLabel;
 @end
 
 @implementation EDMyOrderViewController
@@ -31,7 +34,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = @"我的资料";
+    self.title = @"我的订单";
     self.navigationItem.leftBarButtonItem = [Tools getNavBarItem:self clickAction:@selector(back)];
     
     tabBarView = (SETabBarViewController *)self.navigationController.parentViewController;
@@ -42,7 +45,11 @@
     lineView.frame = CGRectMake(0, 43, LINEWIDTH, 2);
     [_headView addSubview:lineView];
     
-    dataArray = @[@"1",@"2"];
+    _nonDataLabel.hidden = YES;
+    
+    type = @"";
+    [self AFNRequest:type];
+    
 }
 
 
@@ -52,6 +59,66 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (void)AFNRequest:(NSString *)typeStr
+{
+    dataArray = [NSMutableArray array];
+    
+    MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    HUD.mode = MBProgressHUDModeIndeterminate;
+    HUD.labelText = @"加载中...";
+    HUD.removeFromSuperViewOnHide = YES;
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+    manager.requestSerializer.timeoutInterval = 10.f;
+    [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+    
+    NSDictionary *pramaters = @{@"access_token":[SEUtils getUserInfo].TokenInfo.access_token,
+                                @"code":[SEUtils getUserInfo].TokenInfo.access_token,
+                                @"pageSize":@"10",
+                                @"page":@"1",
+                                @"status":typeStr};
+    NSString *urlString = [NSString stringWithFormat:@"%@Order",SERVER_HOST];
+    
+    [manager GET:urlString parameters:pramaters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [HUD setHidden:YES];
+        NSLog(@"res--%@",responseObject);
+        if ([responseObject[@"responseCode"] intValue] ==0) {
+            if (responseObject[@"data"] == [NSNull null]) {
+                _nonDataLabel.hidden = NO;
+                _tableView.hidden = YES;
+            }else
+            {
+                dataArray = responseObject[@"data"];
+                [_tableView reloadData];
+            }
+            
+            
+        }else
+        {
+            SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [HUD setHidden:YES];
+        if (operation.response.statusCode == 401) {
+            NSLog(@"请求超时");
+            //   [SEUtils repetitionLogin];
+        }else if(error.code == -1001)
+        {
+            SHOW_ALERT(@"提示", @"网络请求超时");
+        }else if (error.code == -1009)
+        {
+            SHOW_ALERT(@"提示", @"网络连接已断开");
+        }
+        else {
+            NSLog(@"Error:%@",error);
+            NSLog(@"err:%@",operation.responseObject[@"message"]);
+            //   SHOW_ALERT(@"提示",operation.responseObject[@"message"])
+        }
+    }];
+    
+}
 
 #pragma mark 订单类型
 - (IBAction)typeBtnFunction:(id)sender {
@@ -85,61 +152,43 @@
 }
 
 #pragma mark tableView 代理
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 3;
-}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2+dataArray.count;
+    return dataArray.count;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row ==0) {
-        return 33;
-    }else if(indexPath.row <=dataArray.count)
-    {
-        return 95;
-    }else
-    {
-        return 44;
-    }
+    
+    return 172;
+   
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row ==0) {
-        EDOrderHeadCell *headCell = [tableView dequeueReusableCellWithIdentifier:@"orderHead"];
-        if (headCell == nil) {
-            headCell = [[[NSBundle mainBundle]loadNibNamed:@"EDOrderHeadCell" owner:self options:nil]lastObject];
-        }
-        return headCell;
-    }else if(indexPath.row <=dataArray.count)
-    {
+    NSLog(@"section--%ld",(long)indexPath.section);
+     NSLog(@"row--%ld",(long)indexPath.row);
+    
+    
+    
         EDMyOrderCell *contentCell = [tableView dequeueReusableCellWithIdentifier:@"orderContent"];
         if (contentCell == nil) {
             contentCell = [[[NSBundle mainBundle]loadNibNamed:@"EDMyOrderCell" owner:self options:nil]lastObject];
         }
-        return contentCell;
-    }else
-    {
-        EDOrderBottomCell *bottomCell = [tableView dequeueReusableCellWithIdentifier:@"orderBottom"];
-        if (bottomCell == nil) {
-            bottomCell = [[[NSBundle mainBundle]loadNibNamed:@"EDOrderBottomCell" owner:self options:nil]lastObject];
+        if (dataArray.count !=0) {
+            [contentCell setDataDic:dataArray[indexPath.row]];
         }
-        return bottomCell;
-    }
+    
+        return contentCell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-     if(indexPath.row <=dataArray.count)
-    {
+    
         EDOrderDetailViewController *orderDetaiVC = [[EDOrderDetailViewController alloc]init];
         orderDetaiVC.type = @"3";
         [self.navigationController pushViewController:orderDetaiVC animated:YES];
-    }
+    
 }
 
 
