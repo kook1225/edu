@@ -59,7 +59,7 @@
     
     NSString *urlStr = [NSString stringWithFormat:@"%@%@",IMG_HOST,_model.samll_img];
     NSURL *url = [NSURL URLWithString:urlStr];
-    [_leftImageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"1"]];
+    [_leftImageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"icon_default"]];
     
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(112, 35, 10, 20)];
     label.textColor = [UIColor colorWithRed:255.0/255.0 green:42.0/255.0 blue:45/255.0 alpha:1.000];

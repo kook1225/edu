@@ -45,7 +45,13 @@
                 _vipImageView.frame = CGRectMake(CGRectGetMaxX(_nameLabel.frame), _nameLabel.frame.origin.y + 3, 15, 15);
             }
             else {
-                _vipImageView.frame = CGRectMake(CGRectGetMaxX(_nameLabel.frame), _nameLabel.frame.origin.y + 1, 15, 15);
+                if (SCREENHEIGHT > 568) {
+                    _vipImageView.frame = CGRectMake(CGRectGetMaxX(_nameLabel.frame), _nameLabel.frame.origin.y + 1, 15, 15);
+                }
+                else {
+                    _vipImageView.frame = CGRectMake(CGRectGetMaxX(_nameLabel.frame), _nameLabel.frame.origin.y , 15, 15);
+                }
+                
             }
             [_vipImageView setImage:[UIImage imageNamed:@"vip"]];
             [self.contentView addSubview:_vipImageView];

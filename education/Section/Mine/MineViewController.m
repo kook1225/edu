@@ -53,15 +53,17 @@
     _topImageView.layer.borderColor = [UIColor grayColor].CGColor;
     _topImageView.clipsToBounds = YES;
     
-    NSString *urlStr = [NSString stringWithFormat:@"%@%@",IMG_HOST,[[[[SEUtils getUserInfo] UserDetail] userinfo] YHTX]];
-    NSURL *url = [NSURL URLWithString:urlStr];
-    [_topImgView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"1"]];
+    
     
     // Do any additional setup after loading the view from its nib.
     }
 
 - (void)viewWillAppear:(BOOL)animated {
     self.navigationController.navigationBar.hidden = YES;
+    
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@",IMG_HOST,[[[[SEUtils getUserInfo] UserDetail] userinfo] YHTX]];
+    NSURL *url = [NSURL URLWithString:urlStr];
+    [_topImgView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"1"]];
     
     [tabBarViewController tabBarViewShow];
 }
