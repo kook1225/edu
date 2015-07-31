@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -46,9 +47,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gjg-zv-VRX">
-                        <rect key="frame" x="189" y="19" width="75" height="30"/>
+                        <rect key="frame" x="189" y="17" width="75" height="30"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="75" id="0Gk-6J-NXp"/>
+                            <constraint firstAttribute="height" constant="30" id="fn9-Ho-4KY"/>
+                            <constraint firstAttribute="width" constant="75" id="kJS-PP-FzT"/>
                         </constraints>
                         <state key="normal" image="schoolWeb">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -63,10 +65,10 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="9JO-7y-ZHi" firstAttribute="leading" secondItem="KcH-kK-lYZ" secondAttribute="leading" id="0RV-6X-YmG"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="gjg-zv-VRX" secondAttribute="trailing" constant="48" id="1XP-Yt-Lfv"/>
                     <constraint firstItem="KcH-kK-lYZ" firstAttribute="top" secondItem="mDg-mm-Xbn" secondAttribute="bottom" constant="2" id="5Zr-do-5ir"/>
+                    <constraint firstItem="FKE-xS-BlP" firstAttribute="leading" secondItem="mDg-mm-Xbn" secondAttribute="trailing" constant="-187" id="5zP-LV-X8d"/>
                     <constraint firstAttribute="trailing" secondItem="FKE-xS-BlP" secondAttribute="trailing" id="Bhn-X8-WX6"/>
-                    <constraint firstItem="gjg-zv-VRX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="11" id="CS0-Gg-eDN"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="gjg-zv-VRX" secondAttribute="bottom" constant="6.5" id="DTF-9m-PxS"/>
                     <constraint firstItem="9JO-7y-ZHi" firstAttribute="bottom" secondItem="CXj-Ie-h50" secondAttribute="bottom" id="Dl7-2T-lIr"/>
                     <constraint firstItem="cQU-dL-wkN" firstAttribute="leading" secondItem="KcH-kK-lYZ" secondAttribute="trailing" constant="2" id="Dmz-jP-Phc"/>
                     <constraint firstAttribute="bottomMargin" secondItem="9JO-7y-ZHi" secondAttribute="bottom" constant="-2.5" id="HdQ-GF-akJ"/>
@@ -74,7 +76,6 @@
                     <constraint firstItem="FKE-xS-BlP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="LEG-UW-fG3"/>
                     <constraint firstItem="mDg-mm-Xbn" firstAttribute="leading" secondItem="KcH-kK-lYZ" secondAttribute="leading" id="LgR-dK-AQ8"/>
                     <constraint firstAttribute="bottom" secondItem="3Wa-pL-ZtS" secondAttribute="bottom" constant="10" id="MbW-U9-yI5"/>
-                    <constraint firstItem="gjg-zv-VRX" firstAttribute="leading" secondItem="mDg-mm-Xbn" secondAttribute="trailing" constant="2" id="Nby-3g-Hyz"/>
                     <constraint firstAttribute="bottom" secondItem="FKE-xS-BlP" secondAttribute="bottom" id="W3G-r3-apU"/>
                     <constraint firstItem="3Wa-pL-ZtS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="XyG-Z2-8y0"/>
                     <constraint firstItem="CXj-Ie-h50" firstAttribute="leading" secondItem="cQU-dL-wkN" secondAttribute="leading" constant="1" id="aaG-oN-1fH"/>
@@ -83,12 +84,12 @@
                     <constraint firstItem="9JO-7y-ZHi" firstAttribute="top" secondItem="KcH-kK-lYZ" secondAttribute="bottom" constant="3" id="eJ2-cF-DJX"/>
                     <constraint firstItem="FKE-xS-BlP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="eh0-Eq-b0I"/>
                     <constraint firstItem="mDg-mm-Xbn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="gId-3b-SfZ"/>
-                    <constraint firstItem="gjg-zv-VRX" firstAttribute="leading" secondItem="cQU-dL-wkN" secondAttribute="trailing" constant="2" id="kuX-LO-Yoa"/>
                     <constraint firstItem="mDg-mm-Xbn" firstAttribute="leading" secondItem="3Wa-pL-ZtS" secondAttribute="trailing" constant="10" id="llP-IY-QJ0"/>
                     <constraint firstAttribute="centerY" secondItem="KcH-kK-lYZ" secondAttribute="centerY" id="lvg-1t-c3q"/>
                     <constraint firstItem="KcH-kK-lYZ" firstAttribute="top" secondItem="cQU-dL-wkN" secondAttribute="top" id="pwN-aa-zbF"/>
                     <constraint firstItem="3Wa-pL-ZtS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="q75-Dc-vu8"/>
                     <constraint firstAttribute="centerY" secondItem="cQU-dL-wkN" secondAttribute="centerY" id="roV-kk-4b6"/>
+                    <constraint firstAttribute="centerY" secondItem="gjg-zv-VRX" secondAttribute="centerY" id="waD-oR-eAX"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -103,7 +104,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="1" width="99" height="82"/>
+        <image name="1" width="69" height="69"/>
         <image name="class" width="15" height="15"/>
         <image name="course" width="15" height="15"/>
         <image name="schoolWeb" width="66" height="31"/>

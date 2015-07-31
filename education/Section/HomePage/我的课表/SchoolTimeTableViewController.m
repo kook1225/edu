@@ -28,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *gradeLabel;
 @property (weak, nonatomic) IBOutlet UIView *dateView;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
 
@@ -73,6 +74,12 @@
     _msgView.layer.cornerRadius = 4.0f;
     _msgView.layer.masksToBounds = YES;
     
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    if (SCREENHEIGHT == 480) {
+        _scrollView.contentSize = CGSizeMake(SCREENWIDTH, 580);
+    }
 }
 
 #pragma mark 常用方法

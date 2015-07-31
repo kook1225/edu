@@ -34,8 +34,8 @@
 #import "CheckImageViewController.h"
 #import "IQKeyboardManager.h"
 
-#define IMAGEHEIGHT (160 * ([UIScreen mainScreen].bounds.size.height/568.0))
-#define USERINTROHEIGHT (64 * ([UIScreen mainScreen].bounds.size.height/568.0))
+#define IMAGEHEIGHT ([UIScreen mainScreen].bounds.size.height > 480 ? (160 * ([UIScreen mainScreen].bounds.size.height/568.0)) : 160)
+#define USERINTROHEIGHT ([UIScreen mainScreen].bounds.size.height > 480 ? (64 * ([UIScreen mainScreen].bounds.size.height/568.0)) : 64)
 #define BUTTONVIEWHEIGHT 204//(204 * ([UIScreen mainScreen].bounds.size.height/568.0))
 
 @interface ViewController ()<UIAlertViewDelegate,UITextFieldDelegate> {
