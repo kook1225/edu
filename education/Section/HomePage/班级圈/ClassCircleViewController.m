@@ -160,6 +160,7 @@
                       SHOW_ALERT(@"提示", @"评论成功");
                       _replyView.hidden = YES;
                       [_replyTextField resignFirstResponder];
+                      pageNum = 1;
                       [self classCircleApi];
                   }
                   else {
@@ -234,6 +235,7 @@
              
              if ([responseObject[@"responseCode"] intValue] == 0) {
                  SHOW_ALERT(@"提示", @"点赞成功");
+                 pageNum = 1;
                  [self classCircleApi];
              }
              else {
