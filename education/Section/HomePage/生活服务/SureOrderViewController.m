@@ -212,7 +212,7 @@
         num--;
         _numLabel.text = [NSString stringWithFormat:@"%d",num];
         _goodsNumLabel.text = [NSString stringWithFormat:@"x %d",num];
-        _totalPrice.text = [NSString stringWithFormat:@"%d",[_priceLabel.text intValue] * num];
+        _totalPrice.text = [NSString stringWithFormat:@"%g",[_priceLabel.text floatValue] * num];
     }
 }
 - (IBAction)addBtn:(id)sender {
@@ -220,7 +220,7 @@
         num++;
         _numLabel.text = [NSString stringWithFormat:@"%d",num];
         _goodsNumLabel.text = [NSString stringWithFormat:@"x %d",num];
-        _totalPrice.text = [NSString stringWithFormat:@"%d",[_priceLabel.text intValue] * num];
+        _totalPrice.text = [NSString stringWithFormat:@"%g",[_priceLabel.text floatValue] * num];
     }
 }
 
@@ -335,7 +335,6 @@
                              if ([resultDic[@"resultStatus"] intValue] == 9000) {
                                  SelectPayViewController *selectPayVC = [[SelectPayViewController alloc] init];
                                  [self.navigationController pushViewController:selectPayVC animated:YES];
-                                 
                              }
                              
                          }];

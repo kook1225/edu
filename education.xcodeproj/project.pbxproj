@@ -221,6 +221,13 @@
 		768F89BC1B6B4EF80054F73C /* openssl_wrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 768F89B21B6B4EF80054F73C /* openssl_wrapper.m */; };
 		768F89BD1B6B4EF80054F73C /* RSADataSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 768F89B41B6B4EF80054F73C /* RSADataSigner.m */; };
 		768F89BE1B6B4EF80054F73C /* RSADataVerifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 768F89B61B6B4EF80054F73C /* RSADataVerifier.m */; };
+		768F89C01B6B65150054F73C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 768F89BF1B6B65150054F73C /* SystemConfiguration.framework */; };
+		768F89C21B6B651B0054F73C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 768F89C11B6B651B0054F73C /* QuartzCore.framework */; };
+		768F89C41B6B65230054F73C /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 768F89C31B6B65230054F73C /* CoreTelephony.framework */; };
+		768F89C61B6B65310054F73C /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 768F89C51B6B65310054F73C /* CoreText.framework */; };
+		768F89C81B6B653A0054F73C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 768F89C71B6B653A0054F73C /* Foundation.framework */; };
+		768F89CA1B6B65460054F73C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 768F89C91B6B65460054F73C /* CoreGraphics.framework */; };
+		768F89CC1B6B654B0054F73C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 768F89CB1B6B654B0054F73C /* UIKit.framework */; };
 		768FFAF11B4238D9008E577F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF01B4238D9008E577F /* main.m */; };
 		768FFAF41B4238D9008E577F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 768FFAF31B4238D9008E577F /* AppDelegate.m */; };
 		768FFAFC1B4238D9008E577F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 768FFAFB1B4238D9008E577F /* Images.xcassets */; };
@@ -672,6 +679,13 @@
 		768F89B41B6B4EF80054F73C /* RSADataSigner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSADataSigner.m; sourceTree = "<group>"; };
 		768F89B51B6B4EF80054F73C /* RSADataVerifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSADataVerifier.h; sourceTree = "<group>"; };
 		768F89B61B6B4EF80054F73C /* RSADataVerifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSADataVerifier.m; sourceTree = "<group>"; };
+		768F89BF1B6B65150054F73C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		768F89C11B6B651B0054F73C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		768F89C31B6B65230054F73C /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		768F89C51B6B65310054F73C /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		768F89C71B6B653A0054F73C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		768F89C91B6B65460054F73C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		768F89CB1B6B654B0054F73C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		768FFAEB1B4238D9008E577F /* education.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = education.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		768FFAEF1B4238D9008E577F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		768FFAF01B4238D9008E577F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -714,6 +728,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				768F89CC1B6B654B0054F73C /* UIKit.framework in Frameworks */,
+				768F89CA1B6B65460054F73C /* CoreGraphics.framework in Frameworks */,
+				768F89C81B6B653A0054F73C /* Foundation.framework in Frameworks */,
+				768F89C61B6B65310054F73C /* CoreText.framework in Frameworks */,
+				768F89C41B6B65230054F73C /* CoreTelephony.framework in Frameworks */,
+				768F89C21B6B651B0054F73C /* QuartzCore.framework in Frameworks */,
+				768F89C01B6B65150054F73C /* SystemConfiguration.framework in Frameworks */,
 				1892CE4A1B6728460060DD16 /* MediaPlayer.framework in Frameworks */,
 				768F89541B6B10050054F73C /* libcrypto.a in Frameworks */,
 				768F89551B6B10050054F73C /* libssl.a in Frameworks */,
@@ -1694,6 +1715,13 @@
 		F1EB6EBBFAC28762B81FD7B0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				768F89CB1B6B654B0054F73C /* UIKit.framework */,
+				768F89C91B6B65460054F73C /* CoreGraphics.framework */,
+				768F89C71B6B653A0054F73C /* Foundation.framework */,
+				768F89C51B6B65310054F73C /* CoreText.framework */,
+				768F89C31B6B65230054F73C /* CoreTelephony.framework */,
+				768F89C11B6B651B0054F73C /* QuartzCore.framework */,
+				768F89BF1B6B65150054F73C /* SystemConfiguration.framework */,
 				768F89521B6B10050054F73C /* libcrypto.a */,
 				768F89531B6B10050054F73C /* libssl.a */,
 				768F894E1B6B0E280054F73C /* AlipaySDK.bundle */,
