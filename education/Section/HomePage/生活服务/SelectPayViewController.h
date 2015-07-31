@@ -10,4 +10,9 @@
 
 @interface SelectPayViewController : UIViewController
 
+@property (nonatomic,strong) NSString *orderId;
+@property (nonatomic,strong) NSString *priceStr;
+@property (nonatomic,strong) NSString *proName;
+@property (nonatomic,strong) NSString *proIntro;
+
 @end

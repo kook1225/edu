@@ -16,6 +16,7 @@
 #import "IQKeyboardManager.h"
 #import "GuidePageViewController.h"
 #import <AlipaySDK/AlipaySDK.h>
+#import "PayEndViewController.h"
 
 @interface AppDelegate ()
 
@@ -74,8 +75,76 @@
         [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
             NSLog(@"result = %@",resultDic);
             if ([resultDic[@"resultStatus"] intValue] == 9000) {
-                NSLog(@"1231231");
                 
+                NSString * resultStr =resultDic[@"result"];
+                
+                // 用 nil 代替 \"
+                NSString *str = [resultStr stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+                
+                // 去除字符串中的 & 符号
+                NSArray *strarray = [str componentsSeparatedByString:@"&"];
+                
+                NSString *order_no;
+                
+                for (NSString *resultkv in strarray) {
+                    // 在字符串中搜索子串
+                    NSRange range = [resultkv rangeOfString:@"out_trade_no"];
+                    
+                    if (range.length > 0) {
+                        NSArray *strarray = [resultkv componentsSeparatedByString:@"="];
+                        order_no = strarray[1];
+                        break;
+                    }
+                }
+                
+                
+                AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+                
+                NSDictionary *parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],
+                                            @"code":@"43242",
+                                            @"order_num":order_no,
+                                            @"status":@"2"
+                                            };
+                
+                
+                
+                NSString *urlStr = [NSString stringWithFormat:@"%@SetOrder",SERVER_HOST];
+                
+                // 设置超时时间
+                [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+                manager.requestSerializer.timeoutInterval = 10.f;
+                [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+                
+                [manager POST:urlStr parameters:parameter
+                      success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                          
+                          if ([responseObject[@"responseCode"] intValue] == 0) {
+                              
+                              PayEndViewController *payEndVC = [[PayEndViewController alloc] init];
+                              
+                              UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:payEndVC];
+                              
+                              payEndVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+                              
+                              AppDelegate *appd = (AppDelegate *)application.delegate;
+                              [appd.window.rootViewController presentViewController:nav animated:NO completion:nil];
+                              
+                          }
+                          else {
+                              SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
+                          }
+                          
+                      }
+                      failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                          
+                          if(error.code == -1001)
+                          {
+                              SHOW_ALERT(@"提示", @"网络请求超时");
+                          }else if (error.code == -1009)
+                          {
+                              SHOW_ALERT(@"提示", @"网络连接已断开");
+                          }
+                      }];
             }
             
         }];
@@ -84,7 +153,76 @@
         [[AlipaySDK defaultService] processAuthResult:url standbyCallback:^(NSDictionary *resultDic) {
             NSLog(@"result = %@",resultDic);
             if ([resultDic[@"resultStatus"] intValue] == 9000) {
-                NSLog(@"32131231");
+                
+                NSString * resultStr =resultDic[@"result"];
+                
+                // 用 nil 代替 \"
+                NSString *str = [resultStr stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+                
+                // 去除字符串中的 & 符号
+                NSArray *strarray = [str componentsSeparatedByString:@"&"];
+                
+                NSString *order_no;
+                
+                for (NSString *resultkv in strarray) {
+                    // 在字符串中搜索子串
+                    NSRange range = [resultkv rangeOfString:@"out_trade_no"];
+                    
+                    if (range.length > 0) {
+                        NSArray *strarray = [resultkv componentsSeparatedByString:@"="];
+                        order_no = strarray[1];
+                        break;
+                    }
+                }
+                
+                AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+                
+                NSDictionary *parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],
+                                            @"code":@"43242",
+                                            @"order_num":order_no,
+                                            @"status":@"2"
+                                            };
+                
+                
+                
+                NSString *urlStr = [NSString stringWithFormat:@"%@SetOrder",SERVER_HOST];
+                
+                // 设置超时时间
+                [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+                manager.requestSerializer.timeoutInterval = 10.f;
+                [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+                
+                [manager POST:urlStr parameters:parameter
+                      success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                          
+                          if ([responseObject[@"responseCode"] intValue] == 0) {
+                              
+                              PayEndViewController *payEndVC = [[PayEndViewController alloc] init];
+                              
+                              UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:payEndVC];
+                              
+                              payEndVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+                              
+                              AppDelegate *appd = (AppDelegate *)application.delegate;
+                              [appd.window.rootViewController presentViewController:nav animated:NO completion:nil];
+                              
+                              
+                          }
+                          else {
+                              SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
+                          }
+                          
+                      }
+                      failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                          
+                          if(error.code == -1001)
+                          {
+                              SHOW_ALERT(@"提示", @"网络请求超时");
+                          }else if (error.code == -1009)
+                          {
+                              SHOW_ALERT(@"提示", @"网络连接已断开");
+                          }
+                      }];
             }
             
         }];

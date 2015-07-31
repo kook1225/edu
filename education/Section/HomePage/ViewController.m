@@ -77,6 +77,7 @@
     
     tabBarViewController = (SETabBarViewController *)self.navigationController.parentViewController;
     
+    [[[UIApplication sharedApplication] delegate] window].rootViewController = tabBarViewController;
     
     //拿取banner图片
     [self imageAFNRequest];
