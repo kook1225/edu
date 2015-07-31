@@ -298,6 +298,7 @@
               UserModel *model = [[UserModel alloc] initWithDictionary:responseObject[@"data"] error:&err];
               
               if ([responseObject[@"responseCode"] intValue] == 0) {
+            
                   [SEUtils setUserInfo:model];
               }
               else {

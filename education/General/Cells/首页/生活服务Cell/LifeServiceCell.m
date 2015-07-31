@@ -63,7 +63,7 @@
     
     NSString *urlStr = [NSString stringWithFormat:@"%@%@",IMG_HOST,model.samll_img];
     NSURL *url = [NSURL URLWithString:urlStr];
-    [_topImageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"1"]];
+    [_topImageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"icon_default"]];
     
     _contentLabel.frame = CGRectMake(10 , CGRectGetMaxY(_topImageView.frame) + 5, _mainView.frame.size.width - 15, 20);
     _contentLabel.font = [UIFont systemFontOfSize:12];

@@ -121,7 +121,7 @@
                  
                  NSString *urlStr = [NSString stringWithFormat:@"%@%@",IMG_HOST,imagesArray[0]];
                  NSURL *url = [NSURL URLWithString:urlStr];
-                 [_topImageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"1"]];
+                 [_topImageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"icon_default"]];
                  
                  UIImageView *numImageView = [[UIImageView alloc] initWithFrame:CGRectMake(260 * scale, 175 * scale, 50, 30)];
                  [numImageView setImage:[UIImage imageNamed:@"blackNav"]];

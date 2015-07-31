@@ -12,7 +12,7 @@
 #import "BottomCell.h"
 #import "TopCell.h"
 
-#define IMAGE_HEIGHT ([UIScreen mainScreen].bounds.size.width > 320 ? 95 : 75)
+#define IMAGE_HEIGHT ([UIScreen mainScreen].bounds.size.width > 320 ? (([UIScreen mainScreen].bounds.size.width > 375) ? 108 : 95) : 75)
 
 @implementation ClassCircleCell
 

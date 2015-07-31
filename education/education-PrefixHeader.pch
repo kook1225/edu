@@ -31,7 +31,7 @@
 #define SERVER_HOST @"http://218.77.55.4:8090/api/"
 #define IMAGE_HOST @"http://218.77.55.4:8090"
 #define IMG_HOST @"http://218.77.55.4:8091"
-#define NOTIFLURL @"http://218.77.55.4:8093/payment/zhifubao_return.aspx"
+#define NOTIFLURL @"http://218.77.55.4:8090/payment/zhifubao_return.aspx"
 
 #define TEXTCOLOR  [UIColor colorWithRed:51/255.0f green:51/255.0f blue:1/255.0f alpha:1.0]
 #define LINECOLOR  [UIColor colorWithRed:233/255.0f green:233/255.0f blue:233/255.0f alpha:1.0]

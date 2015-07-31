@@ -59,7 +59,7 @@
     
     NSString *urlStr = [NSString stringWithFormat:@"%@%@",IMG_HOST,_model.samll_img];
     NSURL *url = [NSURL URLWithString:urlStr];
-    [_leftImageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"1"]];
+    [_leftImageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"icon_default"]];
     
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(112, 35, 10, 20)];
     label.textColor = [UIColor colorWithRed:255.0/255.0 green:42.0/255.0 blue:45/255.0 alpha:1.000];
@@ -212,7 +212,7 @@
         num--;
         _numLabel.text = [NSString stringWithFormat:@"%d",num];
         _goodsNumLabel.text = [NSString stringWithFormat:@"x %d",num];
-        _totalPrice.text = [NSString stringWithFormat:@"%d",[_priceLabel.text intValue] * num];
+        _totalPrice.text = [NSString stringWithFormat:@"%g",[_priceLabel.text floatValue] * num];
     }
 }
 - (IBAction)addBtn:(id)sender {
@@ -220,7 +220,7 @@
         num++;
         _numLabel.text = [NSString stringWithFormat:@"%d",num];
         _goodsNumLabel.text = [NSString stringWithFormat:@"x %d",num];
-        _totalPrice.text = [NSString stringWithFormat:@"%d",[_priceLabel.text intValue] * num];
+        _totalPrice.text = [NSString stringWithFormat:@"%g",[_priceLabel.text floatValue] * num];
     }
 }
 
@@ -335,7 +335,6 @@
                              if ([resultDic[@"resultStatus"] intValue] == 9000) {
                                  SelectPayViewController *selectPayVC = [[SelectPayViewController alloc] init];
                                  [self.navigationController pushViewController:selectPayVC animated:YES];
-                                 
                              }
                              
                          }];
