@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface EDOrderHeadCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *orderNumLabel;
+@property (weak, nonatomic) IBOutlet UILabel *orderStatusLabel;
 
+- (void)setDataDic:(NSDictionary *)dic;
 @end

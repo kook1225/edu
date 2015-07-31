@@ -9,5 +9,16 @@
 #import <UIKit/UIKit.h>
 
 @interface EDMyOrderCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *headImg;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *countLabel;
+@property (weak, nonatomic) IBOutlet UILabel *oriPriceLabel;
 
+
+@property (weak, nonatomic) IBOutlet UILabel *sumCountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *sumPriceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *orderNumLabel;
+@property (weak, nonatomic) IBOutlet UILabel *orderStatusLabel;
+- (void)setDataDic:(NSDictionary *)dic;
 @end

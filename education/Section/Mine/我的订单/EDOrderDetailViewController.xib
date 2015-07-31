@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -22,7 +23,7 @@
                 <outlet property="noteTextField" destination="ovf-kX-1VS" id="Zzb-mp-UrV"/>
                 <outlet property="orderNum" destination="Zgt-0l-C9P" id="9S7-kk-IQq"/>
                 <outlet property="orderPrice" destination="CZm-x3-SSP" id="NZb-Ks-6LJ"/>
-                <outlet property="orderStatus" destination="fwW-jA-ciI" id="Gxi-q2-rm3"/>
+                <outlet property="orderStatus" destination="fwW-jA-ciI" id="bQc-hT-W6B"/>
                 <outlet property="orderTime" destination="Ewk-BP-Y6t" id="Rfg-qP-sl1"/>
                 <outlet property="userAddress" destination="bIB-gs-Lns" id="Zpg-ZL-Y6e"/>
                 <outlet property="userName" destination="SJV-ye-Avk" id="XuP-DY-gjf"/>
