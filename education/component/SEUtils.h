@@ -33,6 +33,7 @@
 + (NSData *)DESEncrypt:(NSData *)data WithKey:(NSString *)key;
 
 + (NSString *)setXQ:(NSString *)xq;
++ (NSString*)weekdayStringFromDate:(NSDate*)inputDate;
 //+(BOOL)isRequestSuccessWithStatusCode:(int)statusCode;
 //+(BOOL)checkNetworkWithRequest:(ASIHTTPRequest *)request;
 

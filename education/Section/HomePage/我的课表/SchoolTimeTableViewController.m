@@ -54,11 +54,14 @@
     
     [self timeTable];
     
+    
     NSDateFormatter *formatter_minDate = [[NSDateFormatter alloc]init];
+    /*
     //[formatter_minDate setDateFormat:@"yyyy-MM-dd EEE"];
     [formatter_minDate setDateFormat:@"EEEE"];
     NSString *dateString = [formatter_minDate stringFromDate:[NSDate date]];
-    NSString *xqStr = [SEUtils setXQ:dateString];
+     */
+    NSString *xqStr = [SEUtils weekdayStringFromDate:[NSDate date]];
     
     [formatter_minDate setDateFormat:@"yyyy-MM-dd"];
     NSString *dateString2 = [formatter_minDate stringFromDate:[NSDate date]];
