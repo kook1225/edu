@@ -132,13 +132,13 @@
                     <rect key="frame" x="0.0" y="105" width="320" height="80"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收货人: 李小白鸡" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SJV-ye-Avk">
-                            <rect key="frame" x="32" y="14" width="108" height="15"/>
+                            <rect key="frame" x="32" y="14" width="181" height="15"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="15212312312" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PKh-dv-0lK">
-                            <rect key="frame" x="187" y="12" width="93" height="15"/>
+                            <rect key="frame" x="221" y="12" width="93" height="15"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="93" id="Q5o-MH-lLs"/>
                             </constraints>
@@ -167,7 +167,7 @@
                         <constraint firstItem="bIB-gs-Lns" firstAttribute="firstBaseline" secondItem="s9s-DK-nlA" secondAttribute="baseline" id="093-ms-0CW"/>
                         <constraint firstItem="s9s-DK-nlA" firstAttribute="top" secondItem="SJV-ye-Avk" secondAttribute="bottom" id="78T-ck-zxY"/>
                         <constraint firstItem="SJV-ye-Avk" firstAttribute="leading" secondItem="j9K-a5-t9Z" secondAttribute="trailing" constant="2" id="FLj-CJ-D2C"/>
-                        <constraint firstItem="PKh-dv-0lK" firstAttribute="leading" secondItem="SJV-ye-Avk" secondAttribute="trailing" constant="47" id="NWe-Eh-RHi"/>
+                        <constraint firstItem="PKh-dv-0lK" firstAttribute="leading" secondItem="SJV-ye-Avk" secondAttribute="trailing" constant="8" id="NWe-Eh-RHi"/>
                         <constraint firstItem="j9K-a5-t9Z" firstAttribute="top" secondItem="2d7-Z7-yv6" secondAttribute="top" constant="10" id="R15-BA-lxz"/>
                         <constraint firstItem="SJV-ye-Avk" firstAttribute="top" secondItem="2d7-Z7-yv6" secondAttribute="top" constant="14" id="WJC-aP-5hM"/>
                         <constraint firstAttribute="bottom" secondItem="s9s-DK-nlA" secondAttribute="bottom" constant="30" id="WYs-KJ-8cf"/>
@@ -178,7 +178,7 @@
                         <constraint firstItem="bIB-gs-Lns" firstAttribute="leading" secondItem="SJV-ye-Avk" secondAttribute="leading" id="g8Y-P9-RBg"/>
                         <constraint firstItem="bIB-gs-Lns" firstAttribute="centerX" secondItem="s9s-DK-nlA" secondAttribute="centerX" id="gS9-B1-0a5"/>
                         <constraint firstItem="s9s-DK-nlA" firstAttribute="leading" secondItem="2d7-Z7-yv6" secondAttribute="leading" constant="63" id="q1o-7u-iYM"/>
-                        <constraint firstAttribute="trailing" secondItem="PKh-dv-0lK" secondAttribute="trailing" constant="40" id="s2H-Ta-xYW"/>
+                        <constraint firstAttribute="trailing" secondItem="PKh-dv-0lK" secondAttribute="trailing" constant="6" id="s2H-Ta-xYW"/>
                         <constraint firstItem="bIB-gs-Lns" firstAttribute="top" secondItem="PKh-dv-0lK" secondAttribute="bottom" constant="8" symbolic="YES" id="t1u-Nn-mfj"/>
                         <constraint firstItem="PKh-dv-0lK" firstAttribute="top" secondItem="2d7-Z7-yv6" secondAttribute="top" constant="12" id="tsY-7D-NuT"/>
                     </constraints>
