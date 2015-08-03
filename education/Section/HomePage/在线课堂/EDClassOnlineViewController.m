@@ -184,15 +184,18 @@
         [HUD setHidden:YES];
         NSLog(@"res--%@",responseObject);
         if ([responseObject[@"responseCode"] intValue] ==0) {
-           
+            
+            if (responseObject[@"data"][@"list"] != [NSNull null]) {
                 dataArray = responseObject[@"data"][@"list"];
                 
-            if (dataArray.count == 0 ) {
-                SHOW_ALERT(@"提示", @"暂无数据");
-            }else
-            {
-                [_tableView reloadData];
+                if (dataArray.count == 0) {
+                    SHOW_ALERT(@"提示", @"暂无数据");
+                }else
+                {
+                    [_tableView reloadData];
+                }
             }
+        
             
         }else
         {

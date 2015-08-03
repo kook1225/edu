@@ -99,7 +99,7 @@
             
             NSString *urlStr = [NSString stringWithFormat:@"%@%@",IMG_HOST,[array objectAtIndex:i]];
             NSURL *url = [NSURL URLWithString:urlStr];
-            [imageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"1"]];
+            [imageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"icon_default"]];
             
             imageView.userInteractionEnabled = YES;
             
