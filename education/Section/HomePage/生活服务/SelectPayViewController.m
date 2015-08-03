@@ -110,53 +110,13 @@
                 //PayEndViewController *payEndVC = [[PayEndViewController alloc] init];
                 //[self.navigationController pushViewController:payEndVC animated:YES];
                 
+                PayEndViewController *payEndVC = [[PayEndViewController alloc] init];
                 
-                AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+                UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:payEndVC];
                 
-                NSDictionary *parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],
-                                            @"code":@"43242",
-                                            @"order_num":_orderId,
-                                            @"status":@"2"
-                                            };
+                payEndVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
                 
-                
-                
-                NSString *urlStr = [NSString stringWithFormat:@"%@SetOrder",SERVER_HOST];
-                
-                // 设置超时时间
-                [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
-                manager.requestSerializer.timeoutInterval = 10.f;
-                [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
-                
-                [manager POST:urlStr parameters:parameter
-                      success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                          
-                          if ([responseObject[@"responseCode"] intValue] == 0) {
-                              
-                              PayEndViewController *payEndVC = [[PayEndViewController alloc] init];
-                              
-                              UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:payEndVC];
-                              
-                              payEndVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-                             
-                              [self presentViewController:nav animated:NO completion:nil];
-                              
-                          }
-                          else {
-                              SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
-                          }
-                          
-                      }
-                      failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                          
-                          if(error.code == -1001)
-                          {
-                              SHOW_ALERT(@"提示", @"网络请求超时");
-                          }else if (error.code == -1009)
-                          {
-                              SHOW_ALERT(@"提示", @"网络连接已断开");
-                          }
-                      }];
+                [self presentViewController:nav animated:NO completion:nil];
                 
             }
         }];
