@@ -64,6 +64,30 @@
                         <outletCollection property="gestureRecognizers" destination="hFE-mL-mIs" appends="YES" id="F6J-Sd-KMv"/>
                     </connections>
                 </view>
+                <view contentMode="scaleToFill" id="FAa-SV-415">
+                    <rect key="frame" x="0.0" y="257" width="320" height="48"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow" id="1vT-jr-VyT">
+                            <rect key="frame" x="292" y="14" width="20" height="20"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <view contentMode="scaleToFill" id="1Pc-Q1-fZH">
+                            <rect key="frame" x="10" y="47" width="300" height="1"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <color key="backgroundColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </view>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yinlian" id="hWy-JU-be9">
+                            <rect key="frame" x="8" y="7" width="54" height="34"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <gestureRecognizers/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="Vnb-qs-yi1" appends="YES" id="gSg-9P-xZG"/>
+                    </connections>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
@@ -74,10 +98,16 @@
                 <action selector="zhifubaoPay:" destination="-1" id="XWl-nr-W8A"/>
             </connections>
         </tapGestureRecognizer>
+        <tapGestureRecognizer id="Vnb-qs-yi1">
+            <connections>
+                <action selector="yinLianPay:" destination="-1" id="YYD-DJ-ZGl"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="arrow" width="20" height="20"/>
         <image name="smile" width="48" height="48"/>
+        <image name="yinlian" width="55" height="35"/>
         <image name="zhifubao" width="60" height="40"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

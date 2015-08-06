@@ -36,7 +36,7 @@
     else {
         _nameLabel.text = [[[[SEUtils getUserInfo] UserDetail] studentInfo] XSXM];
         _schoolLabel.text = [[[[SEUtils getUserInfo] UserDetail] schoolInfo] DWMC];
-        _classLabel.text = [NSString stringWithFormat:@"%@%@",[[[[SEUtils getUserInfo] UserDetail] studentInfo] NJMC],[[[[SEUtils getUserInfo] UserDetail] studentInfo] BJMC]];
+        _classLabel.text = [NSString stringWithFormat:@"%@班",[[[[SEUtils getUserInfo] UserDetail] studentInfo] BJMC]];
         
         [_nameLabel sizeToFit];
         

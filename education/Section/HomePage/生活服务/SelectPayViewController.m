@@ -11,8 +11,9 @@
 #import "Order.h"
 #import "DataSigner.h"
 #import <AlipaySDK/AlipaySDK.h>
+#import "UPPayPlugin.h"
 
-@interface SelectPayViewController ()
+@interface SelectPayViewController ()<UPPayPluginDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
 
@@ -75,7 +76,7 @@
     order.seller = seller;
     order.tradeNO = _orderId; //订单ID（由商家自行制定）
     order.productName = _proName; //商品标题
-    order.productDescription = _proIntro; //商品描述
+    order.productDescription = _proName; //商品描述
     order.amount = _priceStr; //商品价格
     order.notifyURL = NOTIFLURL; //回调URL
     
@@ -124,6 +125,124 @@
     }
     
 }
+- (IBAction)yinLianPay:(id)sender {
+    MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    HUD.mode = MBProgressHUDModeIndeterminate;
+    HUD.labelText = @"加载中...";
+    HUD.removeFromSuperViewOnHide = YES;
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+    manager.requestSerializer.timeoutInterval = 10.f;
+    [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+    
+    NSDictionary *pramaters = @{@"access_token":[SEUtils getUserInfo].TokenInfo.access_token,
+                                @"code":[SEUtils getUserInfo].TokenInfo.access_token,
+                                @"order_num":_orderId,
+                                @"descript":_proName,
+                                };
+    
+    
+    NSString *urlString = [NSString stringWithFormat:@"%@UnionPay",SERVER_HOST];
+    
+    [manager GET:urlString parameters:pramaters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [HUD hide:YES];
+        NSLog(@"res--%@",responseObject);
+        if ([responseObject[@"responseCode"] intValue] ==0) {
+            
+            [UPPayPlugin startPay:responseObject[@"data"] mode:@"00" viewController:self delegate:self];
+            
+        }else
+        {
+            
+            SHOW_ALERT(@"提示", responseObject[@"responseMessage"])
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [HUD hide:YES];
+        if (operation.response.statusCode == 401) {
+            NSLog(@"请求超时");
+            //   [SEUtils repetitionLogin];
+        }else if(error.code == -1001)
+        {
+            SHOW_ALERT(@"提示", @"网络请求超时");
+        }else if (error.code == -1009)
+        {
+            SHOW_ALERT(@"提示", @"网络连接已断开");
+        }
+        else {
+            NSLog(@"Error:%@",error);
+            NSLog(@"err:%@",operation.responseObject[@"message"]);
+            //   SHOW_ALERT(@"提示",operation.responseObject[@"message"])
+        }
+    }];
+    
+    
+}
+
+
+-(void)UPPayPluginResult:(NSString*)result {
+    if ([result isEqualToString:@"success"]) {
+        
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+        manager.requestSerializer.timeoutInterval = 10.f;
+        [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+        
+        NSDictionary *pramaters = @{@"access_token":[SEUtils getUserInfo].TokenInfo.access_token,
+                                    @"code":[SEUtils getUserInfo].TokenInfo.access_token,
+                                    @"order_num":_orderId,
+                                    @"status":@"2",
+                                    };
+        
+        
+        NSString *urlString = [NSString stringWithFormat:@"%@setOrder",SERVER_HOST];
+        
+        [manager POST:urlString parameters:pramaters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSLog(@"res--%@",responseObject);
+            if ([responseObject[@"responseCode"] intValue] ==0) {
+                
+                PayEndViewController *payEndVC = [[PayEndViewController alloc] init];
+                
+                UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:payEndVC];
+                
+                payEndVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+                
+                [self presentViewController:nav animated:NO completion:nil];
+                
+            }else
+            {
+                
+                SHOW_ALERT(@"提示", responseObject[@"responseMessage"])
+            }
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            if (operation.response.statusCode == 401) {
+                NSLog(@"请求超时");
+                //   [SEUtils repetitionLogin];
+            }else if(error.code == -1001)
+            {
+                SHOW_ALERT(@"提示", @"网络请求超时");
+            }else if (error.code == -1009)
+            {
+                SHOW_ALERT(@"提示", @"网络连接已断开");
+            }
+            else {
+                NSLog(@"Error:%@",error);
+                NSLog(@"err:%@",operation.responseObject[@"message"]);
+                //   SHOW_ALERT(@"提示",operation.responseObject[@"message"])
+            }
+        }];
+
+    }
+    else if ([result isEqualToString:@"fail"]) {
+        SHOW_ALERT(@"提示", @"支付未完成");
+    }
+    else {
+        SHOW_ALERT(@"提示", @"取消支付");
+    }
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
