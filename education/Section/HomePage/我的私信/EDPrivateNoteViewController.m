@@ -267,7 +267,14 @@
           if (selectedCell == nil) {
               selectedCell = [[[NSBundle mainBundle]loadNibNamed:@"EDPrivateNoteSelectedCell" owner:self options:nil]lastObject];
           }
-          selectedCell.nameLabel.text = dataArray[indexPath.row][@"author"][@"XM"];
+          if([type isEqualToString:@"1"])
+          {
+              selectedCell.nameLabel.text = dataArray[indexPath.row][@"Receiver"][@"XM"];
+          }else
+          {
+              selectedCell.nameLabel.text = dataArray[indexPath.row][@"author"][@"XM"];
+          }
+
           selectedCell.contentLabel.text = dataArray[indexPath.row][@"messageInfo"][@"XXNR"];
           selectedCell.dateLabel.text = dataArray[indexPath.row][@"messageInfo"][@"FSSJ"];
           return selectedCell;
@@ -277,7 +284,14 @@
           if (nomalCell == nil) {
               nomalCell = [[[NSBundle mainBundle]loadNibNamed:@"EDPrivateNoteCell" owner:self options:nil]lastObject];
           }
-          nomalCell.nameLabel.text = dataArray[indexPath.row][@"author"][@"XM"];
+          if([type isEqualToString:@"1"])
+          {
+              nomalCell.nameLabel.text = dataArray[indexPath.row][@"Receiver"][@"XM"];
+          }else
+          {
+              nomalCell.nameLabel.text = dataArray[indexPath.row][@"author"][@"XM"];
+          }
+          
           nomalCell.contentLabel.text = dataArray[indexPath.row][@"messageInfo"][@"XXNR"];
           nomalCell.dateLabel.text = dataArray[indexPath.row][@"messageInfo"][@"FSSJ"];
           return nomalCell;
@@ -321,6 +335,8 @@
                 privateDetailVC.imagesString = dataArray[indexPath.row][@"messageInfo"][@"TPDZ"];
                 privateDetailVC.title = @"私信详情";
                 privateDetailVC.type = @"私信";
+                privateDetailVC.jsid = dataArray[indexPath.row][@"messageInfo"][@"JSID"];
+                privateDetailVC.jsType = dataArray[indexPath.row][@"messageInfo"][@"XXLX"];
                 [self.navigationController pushViewController:privateDetailVC animated:YES];
                 
             }else

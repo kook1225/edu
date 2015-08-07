@@ -15,7 +15,7 @@
 #import "MJRefresh.h"
 
 
-#define LINEWIDTH SCREENWIDTH/4
+#define LINEWIDTH SCREENWIDTH/5
 @interface EDMyOrderViewController ()<MJRefreshBaseViewDelegate,EDOrderDetailViewControllerDelegate>
 {
     SETabBarViewController *tabBarView;
@@ -139,7 +139,7 @@
 - (IBAction)typeBtnFunction:(id)sender {
     UIButton *button = (UIButton *)sender;
     [button setSelected:YES];
-    for (int i=0; i<4; i++) {
+    for (int i=0; i<5; i++) {
         UIButton *btn = (UIButton *)[_headView viewWithTag:i+400];
         if(i != button.tag-400)
         {
@@ -165,7 +165,10 @@
             type = @"3";
             lineView.frame = CGRectMake(3*LINEWIDTH, 43, LINEWIDTH, 2);
             break;
-            
+        case 404:
+            type = @"5";
+            lineView.frame = CGRectMake(4*LINEWIDTH, 43, LINEWIDTH, 2);
+            break;
         default:
             break;
     }

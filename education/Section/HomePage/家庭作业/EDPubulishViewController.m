@@ -55,8 +55,12 @@
 - (void)hiddenView
 {
     _msgView.hidden = YES;
+    [self.navigationController popViewControllerAnimated:YES];
 }
-
+- (void)hiddenView2
+{
+    _msgView.hidden = YES;
+}
 - (void)drawlayer
 {
     _dateView.layer.cornerRadius = 4.0f;
@@ -108,12 +112,12 @@
                 _msgView.hidden = NO;
                 _msgLabel.text = responseObject[@"responseMessage"];
                 [self performSelector:@selector(hiddenView) withObject:self afterDelay:2.0];
-                [self.navigationController popViewControllerAnimated:YES];
+                
             }else
             {
                 _msgView.hidden = NO;
                 _msgLabel.text = responseObject[@"responseMessage"];
-                [self performSelector:@selector(hiddenView) withObject:self afterDelay:2.0];
+                [self performSelector:@selector(hiddenView2) withObject:self afterDelay:2.0];
             }
             
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

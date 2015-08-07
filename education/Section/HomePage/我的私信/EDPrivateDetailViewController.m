@@ -8,6 +8,7 @@
 
 #import "EDPrivateDetailViewController.h"
 #import "CheckImageViewController.h"
+#import "EDSendMsgViewController.h"
 
 @interface EDPrivateDetailViewController ()
 {
@@ -32,6 +33,15 @@
     
     
     self.navigationItem.leftBarButtonItem = [Tools getNavBarItem:self clickAction:@selector(back)];
+    
+    UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    rightBtn.frame = CGRectMake(275, 0, 40, 25);
+    [rightBtn setTitle:@"回复" forState:UIControlStateNormal];
+    [rightBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [rightBtn addTarget:self action:@selector(replyBtn) forControlEvents:UIControlEventTouchUpInside];
+    rightBtn.titleLabel.font = [UIFont boldSystemFontOfSize:16.0];
+    UIBarButtonItem *right = [[UIBarButtonItem alloc]initWithCustomView:rightBtn];
+    self.navigationItem.rightBarButtonItem = right;
     
     if ([self.title  isEqual: @"详情"]) {
         _nameLabel.text = [NSString stringWithFormat:@"%@",_model.XXBT];
@@ -63,7 +73,14 @@
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
-
+- (void)replyBtn
+{
+    NSLog(@"回复");
+    EDSendMsgViewController *sendMsgVC = [[EDSendMsgViewController alloc]init];
+    sendMsgVC.type = _jsType;
+    sendMsgVC.detailId = _jsid;
+    [self.navigationController pushViewController:sendMsgVC animated:YES];
+}
 - (void)drawlayer:(NSString *)text array:(NSMutableArray *)array
 {
     _containView.layer.borderColor = LINECOLOR.CGColor;

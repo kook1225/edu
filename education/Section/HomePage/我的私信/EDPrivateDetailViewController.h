@@ -20,4 +20,7 @@
 @property (nonatomic,strong) NSString *date;
 @property (nonatomic,strong) NSString *content;
 @property (nonatomic,strong) NSString *imagesString;
+
+@property (nonatomic,strong) NSString *jsid;
+@property (nonatomic,strong) NSString *jsType;
 @end

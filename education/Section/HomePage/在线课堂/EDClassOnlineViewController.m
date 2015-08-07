@@ -269,8 +269,11 @@
         if ([responseObject[@"responseCode"] intValue] ==0) {
             
            
+            if([responseObject[@"data"][@"ZYNR"] length] >0 )
+            {
+                [self openmovie:responseObject[@"data"][@"ZYNR"]];
+            }
             
-            [self openmovie:responseObject[@"data"][@"ZYNR"]];
             
         }else
         {
