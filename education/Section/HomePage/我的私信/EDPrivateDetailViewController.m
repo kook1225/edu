@@ -59,7 +59,11 @@
     else {
         _nameLabel.text = [NSString stringWithFormat:@"%@留言",_name];
         _dateLabel.text = _date;
-        imgArray = [NSMutableArray arrayWithArray:[_imagesString componentsSeparatedByString:@","]];
+        if (![_imagesString isEqualToString:@""])
+        {
+            imgArray = [NSMutableArray arrayWithArray:[_imagesString componentsSeparatedByString:@","]];
+
+        }
         [self drawlayer:_content array:imgArray];
     }
     

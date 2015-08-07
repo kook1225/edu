@@ -60,10 +60,7 @@
     
     [self album];
 }
-- (void)hiddenView
-{
-    _msgView.hidden = YES;
-}
+
 
 - (void)album {
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
