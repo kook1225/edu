@@ -51,26 +51,23 @@
             SHOW_ALERT(@"提示", @"密码不能为空");
         }
         else {
-            if (![SEUtils isValidateMobile:_userName.text]) {
-                SHOW_ALERT(@"提示", @"手机号码格式不正确");
+            
+            if (!(([_pwd.text length] >= 6 && [_pwd.text length] <= 20) && ([_surePwd.text length] >= 6 && [_surePwd.text length] <= 20))) {
+                SHOW_ALERT(@"提示", @"密码长度不正确");
             }
             else {
-                if (!(([_pwd.text length] >= 6 && [_pwd.text length] <= 20) && ([_surePwd.text length] >= 6 && [_surePwd.text length] <= 20))) {
-                    SHOW_ALERT(@"提示", @"密码长度不正确");
+                if (![_pwd.text isEqualToString: _surePwd.text]) {
+                    SHOW_ALERT(@"提示", @"两次密码不一致");
                 }
                 else {
-                    if (![_pwd.text isEqualToString: _surePwd.text]) {
-                        SHOW_ALERT(@"提示", @"两次密码不一致");
-                    }
-                    else {
-                        FillInforViewController *fillIntroVC = [[FillInforViewController alloc] init];
-                        fillIntroVC.userName = _userName.text;
-                        fillIntroVC.pwd = _pwd.text;
-                        fillIntroVC.delegate = self;
-                        [self.navigationController pushViewController:fillIntroVC animated:YES];
-                    }
+                    FillInforViewController *fillIntroVC = [[FillInforViewController alloc] init];
+                    fillIntroVC.userName = _userName.text;
+                    fillIntroVC.pwd = _pwd.text;
+                    fillIntroVC.delegate = self;
+                    [self.navigationController pushViewController:fillIntroVC animated:YES];
                 }
             }
+            
         }
     }
 }
