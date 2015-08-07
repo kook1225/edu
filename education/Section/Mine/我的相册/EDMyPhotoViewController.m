@@ -60,10 +60,7 @@
     
     [self album];
 }
-- (void)hiddenView
-{
-    _msgView.hidden = YES;
-}
+
 
 - (void)album {
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
@@ -111,12 +108,12 @@
              else {
                  _msgView.hidden = NO;
                  _msgLabel.text = responseObject[@"responseMessage"];
-                 [self performSelector:@selector(hidden) withObject:self afterDelay:2.0];
              }
              
              
          }
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             
              [HUD hide:YES];
              if(error.code == -1001)
              {
@@ -228,10 +225,12 @@
                 
                 [_tableView reloadData];
                 
+                
             }else
             {
                 SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
             }
+            
             
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             [HUD setHidden:YES];
@@ -252,13 +251,13 @@
             }
         }];
         
+        [self performSelector:@selector(hidden) withObject:nil afterDelay:1.5];
         
-        [self performSelector:@selector(hiddenView) withObject:nil afterDelay:1.5];
     }
     if (_baseview == _headerview) {
         [self album];
         //        _baseview = refreshView;
-        [self performSelector:@selector(hiddenView) withObject:nil afterDelay:1.5];
+        [self performSelector:@selector(hidden) withObject:nil afterDelay:1.5];
     }
     
 }
