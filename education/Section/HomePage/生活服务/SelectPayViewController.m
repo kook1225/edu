@@ -183,57 +183,13 @@
 
 -(void)UPPayPluginResult:(NSString*)result {
     if ([result isEqualToString:@"success"]) {
+        PayEndViewController *payEndVC = [[PayEndViewController alloc] init];
         
-        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-        [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
-        manager.requestSerializer.timeoutInterval = 10.f;
-        [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:payEndVC];
         
-        NSDictionary *pramaters = @{@"access_token":[SEUtils getUserInfo].TokenInfo.access_token,
-                                    @"code":[SEUtils getUserInfo].TokenInfo.access_token,
-                                    @"order_num":_orderId,
-                                    @"status":@"2",
-                                    };
+        payEndVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         
-        
-        NSString *urlString = [NSString stringWithFormat:@"%@setOrder",SERVER_HOST];
-        
-        [manager POST:urlString parameters:pramaters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            NSLog(@"res--%@",responseObject);
-            if ([responseObject[@"responseCode"] intValue] ==0) {
-                
-                PayEndViewController *payEndVC = [[PayEndViewController alloc] init];
-                
-                UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:payEndVC];
-                
-                payEndVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-                
-                [self presentViewController:nav animated:NO completion:nil];
-                
-            }else
-            {
-                
-                SHOW_ALERT(@"提示", responseObject[@"responseMessage"])
-            }
-            
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            if (operation.response.statusCode == 401) {
-                NSLog(@"请求超时");
-                //   [SEUtils repetitionLogin];
-            }else if(error.code == -1001)
-            {
-                SHOW_ALERT(@"提示", @"网络请求超时");
-            }else if (error.code == -1009)
-            {
-                SHOW_ALERT(@"提示", @"网络连接已断开");
-            }
-            else {
-                NSLog(@"Error:%@",error);
-                NSLog(@"err:%@",operation.responseObject[@"message"]);
-                //   SHOW_ALERT(@"提示",operation.responseObject[@"message"])
-            }
-        }];
-
+        [self presentViewController:nav animated:NO completion:nil];
     }
     else if ([result isEqualToString:@"fail"]) {
         SHOW_ALERT(@"提示", @"支付未完成");
