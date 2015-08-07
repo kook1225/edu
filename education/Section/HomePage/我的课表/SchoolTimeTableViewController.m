@@ -46,10 +46,10 @@
     _dateView.layer.cornerRadius = 5.0f;
     
     if ([[[[[SEUtils getUserInfo] UserDetail] userinfo] YHLB] intValue] == 3) {
-        _gradeLabel.text = [NSString stringWithFormat:@"%@%@课表安排",_nianji,_banji];
+        _gradeLabel.text = [NSString stringWithFormat:@"%@班课表安排",_banji];
     }
     else {
-        _gradeLabel.text = [NSString stringWithFormat:@"%@%@课表安排",[[[[SEUtils getUserInfo] UserDetail] studentInfo] NJMC],[[[[SEUtils getUserInfo] UserDetail] studentInfo] BJMC]];
+        _gradeLabel.text = [NSString stringWithFormat:@"%@班课表安排",[[[[SEUtils getUserInfo] UserDetail] studentInfo] BJMC]];
     }
     
     [self timeTable];
