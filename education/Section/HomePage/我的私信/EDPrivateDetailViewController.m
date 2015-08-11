@@ -34,14 +34,18 @@
     
     self.navigationItem.leftBarButtonItem = [Tools getNavBarItem:self clickAction:@selector(back)];
     
-    UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    rightBtn.frame = CGRectMake(275, 0, 40, 25);
-    [rightBtn setTitle:@"回复" forState:UIControlStateNormal];
-    [rightBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [rightBtn addTarget:self action:@selector(replyBtn) forControlEvents:UIControlEventTouchUpInside];
-    rightBtn.titleLabel.font = [UIFont boldSystemFontOfSize:16.0];
-    UIBarButtonItem *right = [[UIBarButtonItem alloc]initWithCustomView:rightBtn];
-    self.navigationItem.rightBarButtonItem = right;
+    if([_type isEqualToString:@"收件箱"])
+    {
+        UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        rightBtn.frame = CGRectMake(275, 0, 40, 25);
+        [rightBtn setTitle:@"回复" forState:UIControlStateNormal];
+        [rightBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [rightBtn addTarget:self action:@selector(replyBtn) forControlEvents:UIControlEventTouchUpInside];
+        rightBtn.titleLabel.font = [UIFont boldSystemFontOfSize:16.0];
+        UIBarButtonItem *right = [[UIBarButtonItem alloc]initWithCustomView:rightBtn];
+        self.navigationItem.rightBarButtonItem = right;
+
+    }
     
     if ([self.title  isEqual: @"详情"]) {
         _nameLabel.text = [NSString stringWithFormat:@"%@",_model.XXBT];
