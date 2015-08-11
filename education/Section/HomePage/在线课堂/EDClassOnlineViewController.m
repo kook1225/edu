@@ -186,14 +186,20 @@
         if ([responseObject[@"responseCode"] intValue] ==0) {
             
             if (responseObject[@"data"][@"list"] != [NSNull null]) {
+                _nonDataView.hidden = YES;
+                _tableView.hidden = NO;
                 dataArray = responseObject[@"data"][@"list"];
-                
-                if (dataArray.count == 0) {
-                    SHOW_ALERT(@"提示", @"暂无数据");
-                }else
-                {
-                    [_tableView reloadData];
-                }
+               [_tableView reloadData];
+//                if (dataArray.count == 0) {
+//                    
+//                }else
+//                {
+//                    [_tableView reloadData];
+//                }
+            }else
+            {
+                _nonDataView.hidden = NO;
+                _tableView.hidden = YES;
             }
         
             
@@ -259,6 +265,8 @@
     manager.requestSerializer.timeoutInterval = 10.f;
     [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
     
+    
+    NSLog(@"id--%@",dataArray[indexPath.row][@"ID"]);
     NSDictionary *pramaters = @{@"access_token":[SEUtils getUserInfo].TokenInfo.access_token,
                                 @"infoId":dataArray[indexPath.row][@"ID"]};
     NSString *urlString = [NSString stringWithFormat:@"%@EduOnlineDetail",SERVER_HOST];
