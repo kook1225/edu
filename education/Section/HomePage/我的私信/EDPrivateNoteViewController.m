@@ -260,46 +260,49 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-      if([dataArray[indexPath.row][@"messageInfo"][@"SFYD"] intValue] ==1)
-      {
-          EDPrivateNoteSelectedCell *selectedCell = [tableView dequeueReusableCellWithIdentifier:@"selected"];
-          if (selectedCell == nil) {
-              selectedCell = [[[NSBundle mainBundle]loadNibNamed:@"EDPrivateNoteSelectedCell" owner:self options:nil]lastObject];
-          }
-          if([type isEqualToString:@"1"])
-          {
-              selectedCell.nameLabel.text = dataArray[indexPath.row][@"Receiver"][@"XM"];
-          }else
-          {
-              selectedCell.nameLabel.text = dataArray[indexPath.row][@"author"][@"XM"];
-          }
+    if([type intValue] == 2)
+    {
+        if([dataArray[indexPath.row][@"messageInfo"][@"SFYD"] intValue] ==1)
+        {
+            EDPrivateNoteSelectedCell *selectedCell = [tableView dequeueReusableCellWithIdentifier:@"selected"];
+            if (selectedCell == nil) {
+                selectedCell = [[[NSBundle mainBundle]loadNibNamed:@"EDPrivateNoteSelectedCell" owner:self options:nil]lastObject];
+            }
+           
+            selectedCell.nameLabel.text = dataArray[indexPath.row][@"author"][@"XM"];
+            selectedCell.contentLabel.text = dataArray[indexPath.row][@"messageInfo"][@"XXNR"];
+            selectedCell.dateLabel.text = dataArray[indexPath.row][@"messageInfo"][@"FSSJ"];
+            return selectedCell;
+        }else
+        {
+            EDPrivateNoteCell *nomalCell = [tableView dequeueReusableCellWithIdentifier:@"nomal"];
+            if (nomalCell == nil) {
+                nomalCell = [[[NSBundle mainBundle]loadNibNamed:@"EDPrivateNoteCell" owner:self options:nil]lastObject];
+            }
 
-          selectedCell.contentLabel.text = dataArray[indexPath.row][@"messageInfo"][@"XXNR"];
-          selectedCell.dateLabel.text = dataArray[indexPath.row][@"messageInfo"][@"FSSJ"];
-          return selectedCell;
-      }else
-      {
-          EDPrivateNoteCell *nomalCell = [tableView dequeueReusableCellWithIdentifier:@"nomal"];
-          if (nomalCell == nil) {
-              nomalCell = [[[NSBundle mainBundle]loadNibNamed:@"EDPrivateNoteCell" owner:self options:nil]lastObject];
-          }
-          if([type isEqualToString:@"1"])
-          {
-              nomalCell.nameLabel.text = dataArray[indexPath.row][@"Receiver"][@"XM"];
-          }else
-          {
-              nomalCell.nameLabel.text = dataArray[indexPath.row][@"author"][@"XM"];
-          }
-          
-          nomalCell.contentLabel.text = dataArray[indexPath.row][@"messageInfo"][@"XXNR"];
-          nomalCell.dateLabel.text = dataArray[indexPath.row][@"messageInfo"][@"FSSJ"];
-          return nomalCell;
-      }
-    
-    
+            nomalCell.nameLabel.text = dataArray[indexPath.row][@"author"][@"XM"];
+            nomalCell.contentLabel.text = dataArray[indexPath.row][@"messageInfo"][@"XXNR"];
+            nomalCell.dateLabel.text = dataArray[indexPath.row][@"messageInfo"][@"FSSJ"];
+            return nomalCell;
+        }
 
+    }else
+    {
+        EDPrivateNoteSelectedCell *selectedCell = [tableView dequeueReusableCellWithIdentifier:@"selected"];
+        if (selectedCell == nil) {
+            selectedCell = [[[NSBundle mainBundle]loadNibNamed:@"EDPrivateNoteSelectedCell" owner:self options:nil]lastObject];
+        }
         
+        selectedCell.nameLabel.text = dataArray[indexPath.row][@"Receiver"][@"XM"];
+        selectedCell.contentLabel.text = dataArray[indexPath.row][@"messageInfo"][@"XXNR"];
+        selectedCell.dateLabel.text = dataArray[indexPath.row][@"messageInfo"][@"FSSJ"];
+        return selectedCell;
+
+    }
+    
+    
+
+    
     
 }
 
@@ -334,7 +337,7 @@
                 privateDetailVC.content = dataArray[indexPath.row][@"messageInfo"][@"XXNR"];
                 privateDetailVC.imagesString = dataArray[indexPath.row][@"messageInfo"][@"TPDZ"];
                 privateDetailVC.title = @"私信详情";
-                privateDetailVC.type = @"私信";
+                privateDetailVC.type = @"收件箱";
                 privateDetailVC.jsid = dataArray[indexPath.row][@"messageInfo"][@"JSID"];
                 privateDetailVC.jsType = dataArray[indexPath.row][@"messageInfo"][@"XXLX"];
                 [self.navigationController pushViewController:privateDetailVC animated:YES];
@@ -364,6 +367,16 @@
         }];
 
         
+    }else
+    {
+        EDPrivateDetailViewController *privateDetailVC = [[EDPrivateDetailViewController alloc]init];
+        privateDetailVC.name = dataArray[indexPath.row][@"author"][@"XM"];
+        privateDetailVC.date = dataArray[indexPath.row][@"messageInfo"][@"FSSJ"];
+        privateDetailVC.content = dataArray[indexPath.row][@"messageInfo"][@"XXNR"];
+        privateDetailVC.imagesString = dataArray[indexPath.row][@"messageInfo"][@"TPDZ"];
+        privateDetailVC.title = @"私信详情";
+        privateDetailVC.type = @"发件箱";
+        [self.navigationController pushViewController:privateDetailVC animated:YES];
     }
     
     

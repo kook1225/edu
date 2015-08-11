@@ -60,7 +60,7 @@
 }
 - (IBAction)commitFunction:(id)sender
 {
-    if ([_textView.text isEqualToString:@""]||[_textView.text isEqualToString:@"欢迎反映意见或建议"]) {
+    if ([_textView.text isEqualToString:@""]||[_textView.text isEqualToString:@"请输入您要反馈的问题"]) {
         _msgView.hidden = NO;
         
         _msgLabel.text = @"反馈意见不能为空";
