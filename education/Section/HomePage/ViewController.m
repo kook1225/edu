@@ -33,6 +33,8 @@
 #import "ClassCircleCell.h"
 #import "CheckImageViewController.h"
 #import "IQKeyboardManager.h"
+#import "EDEditTeacherInfoViewController.h"
+#import "EDEditInfoViewController.h"
 
 #define IMAGEHEIGHT ([UIScreen mainScreen].bounds.size.height > 480 ? (160 * ([UIScreen mainScreen].bounds.size.height/568.0)) : 160)
 #define USERINTROHEIGHT ([UIScreen mainScreen].bounds.size.height > 480 ? (64 * ([UIScreen mainScreen].bounds.size.height/568.0)) : 64)
@@ -131,7 +133,18 @@
 }
 
 #pragma mark - Custom Method
+- (void)iconInfo
+{
+    if ([[SEUtils getUserInfo].UserDetail.userinfo.YHLB intValue] == 3) {
+        EDEditTeacherInfoViewController *teacherInfoVC = [[EDEditTeacherInfoViewController alloc]init];
+        [self.navigationController pushViewController:teacherInfoVC animated:YES];
+    }else
+    {
+        EDEditInfoViewController *editInfoVC = [[EDEditInfoViewController alloc]init];
+        [self.navigationController pushViewController:editInfoVC animated:YES];
+    }
 
+}
 - (void)classCircleApi {
     stringArray = [NSMutableArray array];
     imagesArray = [NSMutableArray array];
@@ -577,6 +590,9 @@
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         [cell setData];
         [cell.schoolBtn addTarget:self action:@selector(skipWeb) forControlEvents:UIControlEventTouchUpInside];
+        cell.leftImageView.userInteractionEnabled = YES;
+        UITapGestureRecognizer *iconTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(iconInfo)];
+        [cell.leftImageView addGestureRecognizer:iconTap];
         return cell;
     }
     else if (indexPath.row == 2) {

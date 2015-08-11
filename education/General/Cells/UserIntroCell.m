@@ -7,6 +7,8 @@
 //
 
 #import "UserIntroCell.h"
+#import "EDEditInfoViewController.h"
+#import "EDEditTeacherInfoViewController.h"
 
 @implementation UserIntroCell
 
@@ -60,6 +62,7 @@
     
     
 }
+
 
 
 
