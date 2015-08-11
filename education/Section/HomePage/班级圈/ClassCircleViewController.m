@@ -23,6 +23,7 @@
     NSMutableArray *imagesArray;
     NSMutableArray *dataArray;
     NSMutableArray *imageArrays;
+    NSMutableArray *bigImageArray;
     int replyTag;
     MJRefreshBaseView *_baseview;
     MJRefreshFooterView *_footerview;
@@ -49,6 +50,7 @@
     
     stringArray = [NSMutableArray array];
     imagesArray = [NSMutableArray array];
+    bigImageArray = [NSMutableArray array];
     dataArray = [NSMutableArray array];
     
     pageNum = 1;
@@ -93,6 +95,7 @@
     stringArray = [NSMutableArray array];
     imagesArray = [NSMutableArray array];
     dataArray = [NSMutableArray array];
+    bigImageArray = [NSMutableArray array];
     
     [self classCircleApi];
 }
@@ -186,7 +189,7 @@
     
     CheckImageViewController *checkImageVC = [[CheckImageViewController alloc] init];
     
-    NSString *imageStr = [imagesArray objectAtIndex:[dic[@"tag"] intValue]/100];
+    NSString *imageStr = [bigImageArray objectAtIndex:[dic[@"tag"] intValue]/100];
     imageArrays = [NSMutableArray arrayWithArray:[imageStr componentsSeparatedByString:@","]];
     
     checkImageVC.dataArray = imageArrays;
@@ -268,6 +271,7 @@
 - (void)classCircleApi {
     stringArray = [NSMutableArray array];
     imagesArray = [NSMutableArray array];
+    bigImageArray = [NSMutableArray array];
     
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     HUD.mode = MBProgressHUDModeIndeterminate;
@@ -316,6 +320,7 @@
                      for (int i = 0; i < [dataArray count]; i++) {
                          [stringArray addObject:[[dataArray objectAtIndex:i] dynamicInfo].TPSM];
                          [imagesArray addObject:[[dataArray objectAtIndex:i] dynamicInfo].SLT];
+                         [bigImageArray addObject:[[dataArray objectAtIndex:i] dynamicInfo].TPLY];
                      }
                  //NSLog(@"string---------:%@",stringArray);
                  //NSLog(@"array:%@",imagesArray);
@@ -344,7 +349,7 @@
 
 #pragma mark - UITableViewDelegate Method
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    [_replyTextField resignFirstResponder];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -458,10 +463,12 @@
                 if (responseObject[@"data"][@"list"] != [NSNull null]) {
                     stringArray = [NSMutableArray array];
                     imagesArray = [NSMutableArray array];
+                    bigImageArray = [NSMutableArray array];
                     
                     for (int i = 0; i < [dataArray count]; i++) {
                         [stringArray addObject:[[dataArray objectAtIndex:i] dynamicInfo].TPSM];
                         [imagesArray addObject:[[dataArray objectAtIndex:i] dynamicInfo].SLT];
+                        [bigImageArray addObject:[[dataArray objectAtIndex:i] dynamicInfo].TPLY];
                     }
                 }
         

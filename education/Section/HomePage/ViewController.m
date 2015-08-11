@@ -44,6 +44,7 @@
     CGFloat scale;
     NSMutableArray *stringArray;
     NSMutableArray *imagesArray;
+    NSMutableArray *bigImageArray;
     UIView *borderView;
     UIButton *imageBtn;
     NSTimer *myTimer;
@@ -73,6 +74,7 @@
     
     stringArray = [NSMutableArray array];
     imagesArray = [NSMutableArray array];
+    bigImageArray = [NSMutableArray array];
     dataArray = [NSArray array];
     
     vipTag = [[[[SEUtils getUserInfo] UserDetail] userinfo] IsVip];
@@ -148,6 +150,7 @@
 - (void)classCircleApi {
     stringArray = [NSMutableArray array];
     imagesArray = [NSMutableArray array];
+    bigImageArray = [NSMutableArray array];
     
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     HUD.mode = MBProgressHUDModeIndeterminate;
@@ -183,6 +186,7 @@
                  for (int i = 0; i < [dataArray count]; i++) {
                      [stringArray addObject:[[dataArray objectAtIndex:i] dynamicInfo].TPSM];
                      [imagesArray addObject:[[dataArray objectAtIndex:i] dynamicInfo].SLT];
+                     [bigImageArray addObject:[[dataArray objectAtIndex:i] dynamicInfo].TPLY];
                  }
                  //NSLog(@"string---------:%@",stringArray);
                  //NSLog(@"array:%@",imagesArray);
@@ -536,14 +540,7 @@
 
 #pragma mark - UITableViewDelegate Method
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    /*
-    if (indexPath.row > 3) {
-        EDPhotoDetailViewController *photoDetail = [[EDPhotoDetailViewController alloc]init];
-        photoDetail.model = [dataArray objectAtIndex:indexPath.row - 4];
-        photoDetail.xxId = [[[dataArray objectAtIndex:indexPath.row - 4] dynamicInfo] ID];
-        [self.navigationController pushViewController:photoDetail animated:YES];
-    }
-     */
+    [_replyTextField resignFirstResponder];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -735,7 +732,7 @@
     
     CheckImageViewController *checkImageVC = [[CheckImageViewController alloc] init];
     
-    NSString *imageStr = [imagesArray objectAtIndex:[dic[@"tag"] intValue]/100];
+    NSString *imageStr = [bigImageArray objectAtIndex:[dic[@"tag"] intValue]/100];
     imageArrays = [NSMutableArray arrayWithArray:[imageStr componentsSeparatedByString:@","]];
     
     checkImageVC.dataArray = imageArrays;
