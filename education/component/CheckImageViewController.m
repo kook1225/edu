@@ -10,6 +10,8 @@
 #import "AppDelegate.h"
 #import "UIImageView+AFNetworking.h"
 #import "SETabBarViewController.h"
+#import "VIPhotoView.h"
+#import <UIImageView+WebCache.h>
 
 @interface CheckImageViewController ()<UIScrollViewDelegate> {
     int currentPage;
@@ -44,30 +46,7 @@
     _scrollView.contentOffset = CGPointMake(0, 0);
     _scrollView.contentSize = CGSizeMake(SCREENWIDTH*[_dataArray count],0);
     
-    
-    
-    
-    for (int i = 0;i<[_dataArray count];i++) {
-        //loop this bit
-        
-        NSString *urlStr = [NSString stringWithFormat:@"%@%@",IMG_HOST,_dataArray[i]];
-        NSURL *url = [NSURL URLWithString:urlStr];
-        UIImageView *imageView = [[UIImageView alloc] init];
-        [imageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"icon_default"]];
-        
-        imageView.contentMode = UIViewContentModeScaleAspectFit;
-        if ([UIScreen mainScreen].bounds.size.height == 480) {
-            imageView.frame = CGRectMake(SCREENWIDTH*i, 0, SCREENWIDTH, 400);
-        }
-        else {
-            imageView.frame = CGRectMake(SCREENWIDTH*i, 0, SCREENWIDTH, _scrollView.frame.size.height);
-        }
-        imageView.userInteractionEnabled = YES;
-        [_scrollView addSubview:imageView];
-        
-    }
-    
-    
+    [self loadImage:@""];
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     
@@ -75,10 +54,15 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    
     _scrollView.contentOffset = CGPointMake(SCREENWIDTH * _page, 0);
     
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"black_nav"] forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [self loadImage:@"icon_default"];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -90,6 +74,38 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (void)loadImage:(NSString *)default_image {
+    for (int i = 0;i<[_dataArray count];i++) {
+        //loop this bit
+        
+        NSString *urlStr = [NSString stringWithFormat:@"%@%@",IMG_HOST,_dataArray[i]];
+        NSURL *url = [NSURL URLWithString:urlStr];
+        UIImageView *imageView = [[UIImageView alloc] init];
+        [imageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:default_image]];
+        
+        //imageView.contentMode = UIViewContentModeScaleAspectFit;
+        //UIImage *image = imageView.image;
+        
+        VIPhotoView *photoView;
+        
+        if ([UIScreen mainScreen].bounds.size.height == 480) {
+            photoView = [[VIPhotoView alloc] initWithFrame:CGRectMake(SCREENWIDTH*i, 0, SCREENWIDTH, 400) andImage:imageView.image];
+            
+            //imageView.frame = CGRectMake(SCREENWIDTH*i, 0, SCREENWIDTH, 400);
+        }
+        else {
+            photoView = [[VIPhotoView alloc] initWithFrame:CGRectMake(SCREENWIDTH*i, 0, SCREENWIDTH, 400) andImage:imageView.image];
+            //imageView.frame = CGRectMake(SCREENWIDTH*i, 0, SCREENWIDTH, _scrollView.frame.size.height);
+        }
+        photoView.autoresizingMask = (1 << 6) -1;
+        
+        //imageView.userInteractionEnabled = YES;
+        
+        [_scrollView addSubview:photoView];
+        
+    }
+
+}
 
 #pragma mark - UIScrollViewDelegate Method
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView

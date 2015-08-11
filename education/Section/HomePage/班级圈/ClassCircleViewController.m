@@ -87,6 +87,7 @@
                                              selector:@selector(replyAction:)
                                                  name:@"ClassCircleCell"
                                                object:@"ReplyAction"];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
