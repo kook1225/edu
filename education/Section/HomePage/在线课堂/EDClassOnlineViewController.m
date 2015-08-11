@@ -272,6 +272,9 @@
             if([responseObject[@"data"][@"ZYNR"] length] >0 )
             {
                 [self openmovie:responseObject[@"data"][@"ZYNR"]];
+            }else
+            {
+                SHOW_ALERT(@"提示", @"暂无视频数据！");
             }
             
             
