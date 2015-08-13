@@ -30,10 +30,10 @@
 
 // 测试环境
 
-#define SERVER_HOST @"http://218.77.55.4:8090/api/"
-#define IMAGE_HOST @"http://218.77.55.4:8090"
-#define IMG_HOST @"http://218.77.55.4:8091"
-#define NOTIFLURL @"http://218.77.55.4:8090/payment/zhifubao_return.aspx"
+#define SERVER_HOST @"http://api.hunanedu.com/api/"
+#define IMAGE_HOST @"http://api.hunanedu.com"
+#define IMG_HOST @"http://image.hunanedu.com"
+#define NOTIFLURL @"http://api.hunanedu.com/payment/zhifubao_return.aspx"
 
 // 正式环境
 /*
