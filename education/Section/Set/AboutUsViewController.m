@@ -13,6 +13,7 @@
 {
     SETabBarViewController *tabBarView;
 }
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet UIView *msgView;
 @property (weak, nonatomic) IBOutlet UILabel *msgLabel;
@@ -99,4 +100,18 @@
     _msgView.hidden = YES;
 }
 
+#pragma mark webView代理
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    
+    
+    
+    float height = [[_webView stringByEvaluatingJavaScriptFromString:@"document.body.offsetHeight;"] floatValue];
+    
+    NSLog(@"remark高度是---%f",height);
+    [_webView setFrame:CGRectMake(0, 0, SCREENWIDTH, height+100)];
+    
+    _scrollView.contentSize = CGSizeMake(SCREENWIDTH, CGRectGetMaxY(_webView.frame)+50);
+    
+}
 @end
