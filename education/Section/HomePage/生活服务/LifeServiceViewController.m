@@ -181,9 +181,14 @@
                   }
                   
                   if ([_vipStr  isEqual: @"成为vip"]) {
-                      UIButton *btn = (UIButton *)[_scrollView viewWithTag:401];
-                      [self selectBtn:btn];
-                      btnTag = 1;
+                      for (int i = 0; i < [titleArray count]; i++) {
+                          if ([titleArray[i]  isEqual: @"VIP优惠包"]) {
+                              UIButton *btn = (UIButton *)[_scrollView viewWithTag:400+i];
+                              [self selectBtn:btn];
+                              btnTag = 1;
+                          }
+                      }
+                      
                   }
                   
                   [self productList:btnTag];
