@@ -72,9 +72,27 @@
     //    _born.text = _detailDic[@"SRZW"];
     
     _momName.text = _detailDic[@"MQXM"];
-    _momPhone.text = _detailDic[@"MQDH"];
+    NSLog(@"妈妈电话是---%@",_detailDic[@"MQDH"]);
+    NSLog(@"爸爸电话是---%@",_detailDic[@"FQDH"]);
+
+    
+    if([_detailDic[@"MQDH"] length] >0)
+    {
+        _momPhone.text = [_detailDic[@"MQDH"] stringByReplacingCharactersInRange:NSMakeRange(3, 4) withString:@"****"];
+    }
+        else{
+        _momPhone.text = @"暂无电话";
+    }
+    
     _dadName.text = _detailDic[@"FQXM"];
-    _dadPhone.text = _detailDic[@"FQDH"];
+    if([_detailDic[@"FQDH"] length] >0)
+    {
+        _dadPhone.text =  [_detailDic[@"FQDH"] stringByReplacingCharactersInRange:NSMakeRange(3, 4) withString:@"****"];
+    }else
+    {
+        _dadPhone.text = @"暂无电话";
+    }
+    
     
 }
 - (IBAction)sendMsgBtn:(id)sender {
