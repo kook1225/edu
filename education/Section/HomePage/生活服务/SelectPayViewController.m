@@ -192,7 +192,7 @@
 -(void)UPPayPluginResult:(NSString*)result {
     if ([result isEqualToString:@"success"]) {
         PayEndViewController *payEndVC = [[PayEndViewController alloc] init];
-        
+        payEndVC.typeName = _typeName;
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:payEndVC];
         
         payEndVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;

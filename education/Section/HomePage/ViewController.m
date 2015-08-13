@@ -77,7 +77,7 @@
     bigImageArray = [NSMutableArray array];
     dataArray = [NSArray array];
     
-    vipTag = [[[[SEUtils getUserInfo] UserDetail] userinfo] IsVip];
+    
     
     tabBarViewController = (SETabBarViewController *)self.navigationController.parentViewController;
     
@@ -117,6 +117,8 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    vipTag = [[[[SEUtils getUserInfo] UserDetail] userinfo] IsVip];
+    
     [[IQKeyboardManager sharedManager] setEnableAutoToolbar:NO];
     
     [self classCircleApi];
