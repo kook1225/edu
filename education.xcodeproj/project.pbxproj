@@ -127,6 +127,9 @@
 		1892CE5E1B69CA1D0060DD16 /* EDProblemDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1892CE5C1B69CA1D0060DD16 /* EDProblemDetailViewController.xib */; };
 		761749041B451C87006DD0AA /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 761749021B451C87006DD0AA /* MineViewController.m */; };
 		761749051B451C87006DD0AA /* MineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 761749031B451C87006DD0AA /* MineViewController.xib */; };
+		762A38081B7C898700F8A0AF /* TermsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 762A38061B7C898700F8A0AF /* TermsViewController.m */; };
+		762A38091B7C898700F8A0AF /* TermsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 762A38071B7C898700F8A0AF /* TermsViewController.xib */; };
+		762A380D1B7C929500F8A0AF /* 注册免责条款.html in Resources */ = {isa = PBXBuildFile; fileRef = 762A380C1B7C929500F8A0AF /* 注册免责条款.html */; };
 		7644064D1B458B1700541C86 /* BottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 764406421B458B1700541C86 /* BottomCell.m */; };
 		7644064E1B458B1700541C86 /* BottomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 764406431B458B1700541C86 /* BottomCell.xib */; };
 		7644064F1B458B1700541C86 /* ClassCircleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 764406451B458B1700541C86 /* ClassCircleCell.m */; };
@@ -456,6 +459,10 @@
 		761749011B451C87006DD0AA /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
 		761749021B451C87006DD0AA /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
 		761749031B451C87006DD0AA /* MineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MineViewController.xib; sourceTree = "<group>"; };
+		762A38051B7C898700F8A0AF /* TermsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermsViewController.h; sourceTree = "<group>"; };
+		762A38061B7C898700F8A0AF /* TermsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermsViewController.m; sourceTree = "<group>"; };
+		762A38071B7C898700F8A0AF /* TermsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TermsViewController.xib; sourceTree = "<group>"; };
+		762A380C1B7C929500F8A0AF /* 注册免责条款.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "注册免责条款.html"; sourceTree = "<group>"; };
 		764406411B458B1700541C86 /* BottomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BottomCell.h; sourceTree = "<group>"; };
 		764406421B458B1700541C86 /* BottomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BottomCell.m; sourceTree = "<group>"; };
 		764406431B458B1700541C86 /* BottomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BottomCell.xib; sourceTree = "<group>"; };
@@ -1341,6 +1348,9 @@
 				764406C11B4D6C0E00541C86 /* FillInforViewController.h */,
 				764406C21B4D6C0E00541C86 /* FillInforViewController.m */,
 				764406C31B4D6C0E00541C86 /* FillInforViewController.xib */,
+				762A38051B7C898700F8A0AF /* TermsViewController.h */,
+				762A38061B7C898700F8A0AF /* TermsViewController.m */,
+				762A38071B7C898700F8A0AF /* TermsViewController.xib */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -1597,6 +1607,7 @@
 		768FFAEE1B4238D9008E577F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				762A380C1B7C929500F8A0AF /* 注册免责条款.html */,
 				1857A0F71B5754FB00501EA0 /* details.html */,
 				768FFAEF1B4238D9008E577F /* Info.plist */,
 				187F7DD11B43C789005CC8D8 /* education-PrefixHeader.pch */,
@@ -1878,6 +1889,7 @@
 				7644069A1B4BBE2000541C86 /* ManageAddViewController.xib in Resources */,
 				761749051B451C87006DD0AA /* MineViewController.xib in Resources */,
 				1808B32A1B44293C0050E3B4 /* EDDayInfoCell.xib in Resources */,
+				762A380D1B7C929500F8A0AF /* 注册免责条款.html in Resources */,
 				768F89501B6B0E280054F73C /* AlipaySDK.bundle in Resources */,
 				764406C51B4D6C0E00541C86 /* FillInforViewController.xib in Resources */,
 				1857A0651B4D082100501EA0 /* EDPhotoDetailHeadCell.xib in Resources */,
@@ -1901,6 +1913,7 @@
 				764406861B4A5CAA00541C86 /* LifeServiceIntroViewController.xib in Resources */,
 				768FFAFC1B4238D9008E577F /* Images.xcassets in Resources */,
 				768FFB381B42C8C4008E577F /* ButtonViewCell.xib in Resources */,
+				762A38091B7C898700F8A0AF /* TermsViewController.xib in Resources */,
 				18579FFC1B4BC2B800501EA0 /* EDAlterPwdViewController.xib in Resources */,
 				184AEA0E1B62B5D500FAEC5A /* EDProblemAnalyViewController.xib in Resources */,
 				768F89441B65BBC50054F73C /* GuidePageViewController.xib in Resources */,
@@ -2021,6 +2034,7 @@
 				187119301B5CFB29000F8DD4 /* ChineseString.m in Sources */,
 				768F890F1B5B88860054F73C /* CheckImageViewController.m in Sources */,
 				764406CE1B4E763F00541C86 /* EvaluteAndEncourageViewController.m in Sources */,
+				762A38081B7C898700F8A0AF /* TermsViewController.m in Sources */,
 				1857A0151B4BC3CB00501EA0 /* EDPhysicalContentCell.m in Sources */,
 				7644064F1B458B1700541C86 /* ClassCircleCell.m in Sources */,
 				768FFB371B42C8C4008E577F /* ButtonViewCell.m in Sources */,
