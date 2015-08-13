@@ -293,9 +293,13 @@
             selectedCell = [[[NSBundle mainBundle]loadNibNamed:@"EDPrivateNoteSelectedCell" owner:self options:nil]lastObject];
         }
         
-        selectedCell.nameLabel.text = dataArray[indexPath.row][@"Receiver"][@"XM"];
-        selectedCell.contentLabel.text = dataArray[indexPath.row][@"messageInfo"][@"XXNR"];
-        selectedCell.dateLabel.text = dataArray[indexPath.row][@"messageInfo"][@"FSSJ"];
+        if(dataArray.count !=0)
+        {
+            selectedCell.nameLabel.text = dataArray[indexPath.row][@"Receiver"][@"XM"];
+            selectedCell.contentLabel.text = dataArray[indexPath.row][@"messageInfo"][@"XXNR"];
+            selectedCell.dateLabel.text = dataArray[indexPath.row][@"messageInfo"][@"FSSJ"];
+            
+        }
         return selectedCell;
 
     }
