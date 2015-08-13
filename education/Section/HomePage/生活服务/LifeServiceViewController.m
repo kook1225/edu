@@ -185,7 +185,7 @@
                           if ([titleArray[i]  isEqual: @"VIP优惠包"]) {
                               UIButton *btn = (UIButton *)[_scrollView viewWithTag:400+i];
                               [self selectBtn:btn];
-                              btnTag = 1;
+                              btnTag = i;
                           }
                       }
                       
