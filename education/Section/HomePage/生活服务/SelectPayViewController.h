@@ -15,5 +15,6 @@
 @property (nonatomic,strong) NSString *proName;
 @property (nonatomic,strong) NSString *proIntro;
 @property (nonatomic,strong) NSString *type;
+@property (nonatomic,strong) NSString *typeName;
 
 @end

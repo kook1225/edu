@@ -149,6 +149,7 @@
         selectPayVC.priceStr = _dic[@"orderinfo"][@"amount"];
         selectPayVC.proName = _dic[@"productinfo"][@"name"];
         selectPayVC.proIntro = _dic[@"productinfo"][@"intro"];
+        selectPayVC.typeName = _dic[@"productinfo"][@"typename"];
         selectPayVC.type = @"订单";
         [self.navigationController pushViewController:selectPayVC animated:YES];
         

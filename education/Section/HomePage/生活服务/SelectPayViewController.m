@@ -37,6 +37,14 @@
                                              selector:@selector(popOrderList)
                                                  name:@"PayEndViewController"
                                                object:@"popOrderList"];
+    
+    if ([_typeName  isEqual: @"VIP优惠包"]) {
+        NSDictionary *typeName = @{@"typeName":_typeName};
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"SelectPayViewController"
+                          object:@"vip"
+                        userInfo:typeName];
+    }
 }
 
 #pragma mark - Custom Method
@@ -112,7 +120,7 @@
                 //[self.navigationController pushViewController:payEndVC animated:YES];
                 
                 PayEndViewController *payEndVC = [[PayEndViewController alloc] init];
-                
+                payEndVC.typeName = _typeName;
                 UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:payEndVC];
                 
                 payEndVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;

@@ -278,6 +278,7 @@
                      selectPayVC.priceStr = responseObject[@"data"][0][@"orderinfo"][@"amount"];
                      selectPayVC.proName = _model.name;
                      selectPayVC.proIntro = _model.intro;
+                     selectPayVC.typeName = _model.typename;
                      [self.navigationController pushViewController:selectPayVC animated:YES];
                  
                  }

@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ProductListModel.h"
 
 @interface LifeServiceIntroViewController : UIViewController
 
 @property (nonatomic,strong) NSString *proId;
+@property (nonatomic,strong) ProductListModel *proListModel;
 
 @end

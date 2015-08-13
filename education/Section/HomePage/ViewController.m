@@ -440,7 +440,7 @@
             [self.navigationController pushViewController:gradeVC animated:YES];
         }
         else {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"成为VIP才能使用该功能哟!" delegate:self cancelButtonTitle:@"先逛逛" otherButtonTitles:@"成为VIP", nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"VIP会员尊享家庭作业、成长足迹、成绩档案、在线视频四大核心业务。您还不是会员，赶紧去开通吧!" delegate:self cancelButtonTitle:@"返回首页" otherButtonTitles:@"成为VIP", nil];
             alert.tag = 201;
             [alert show];
         }
@@ -462,7 +462,7 @@
             [self.navigationController pushViewController:homeWorkVC animated:YES];
         }
         else {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"成为VIP才能使用该功能哟!" delegate:self cancelButtonTitle:@"先逛逛" otherButtonTitles:@"成为VIP", nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"VIP会员尊享家庭作业、成长足迹、成绩档案、在线视频四大核心业务。您还不是会员，赶紧去开通吧!" delegate:self cancelButtonTitle:@"返回首页" otherButtonTitles:@"成为VIP", nil];
             alert.tag = 201;
             [alert show];
         }
@@ -485,7 +485,7 @@
             [self.navigationController pushViewController:growthTrailVC animated:YES];
         }
         else {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"成为VIP才能使用该功能哟!" delegate:self cancelButtonTitle:@"先逛逛" otherButtonTitles:@"成为VIP", nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"VIP会员尊享家庭作业、成长足迹、成绩档案、在线视频四大核心业务。您还不是会员，赶紧去开通吧!" delegate:self cancelButtonTitle:@"返回首页" otherButtonTitles:@"成为VIP", nil];
             alert.tag = 201;
             [alert show];
         }
@@ -517,7 +517,7 @@
          [self.navigationController pushViewController:classOnlineVC animated:YES];
         }
         else {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"成为VIP才能使用该功能哟!" delegate:self cancelButtonTitle:@"先逛逛" otherButtonTitles:@"成为VIP", nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"VIP会员尊享家庭作业、成长足迹、成绩档案、在线视频四大核心业务。您还不是会员，赶紧去开通吧!" delegate:self cancelButtonTitle:@"返回首页" otherButtonTitles:@"成为VIP", nil];
             alert.tag = 201;
             [alert show];
         }
@@ -533,7 +533,9 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (alertView.tag == 201) {
         if (buttonIndex == 1) {
-            NSLog(@"123123");
+            LifeServiceViewController *lifeServiceVC = [[LifeServiceViewController alloc] init];
+            lifeServiceVC.vipStr = @"成为vip";
+            [self.navigationController pushViewController:lifeServiceVC animated:YES];
         }
     }
 }

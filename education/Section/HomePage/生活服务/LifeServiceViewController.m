@@ -64,6 +64,7 @@
     
     [titleArray addObject:@"全部"];
     
+    
     btnTag = 0;
     pageNum = 1;
     
@@ -75,8 +76,6 @@
     
     
     [self productType];
-    
-    [self productList:btnTag];
     
     self.navigationItem.leftBarButtonItem = [Tools getNavBarItem:self clickAction:@selector(back)];
     
@@ -180,6 +179,14 @@
                       [btn setTitle:[titleArray objectAtIndex:i] forState:UIControlStateNormal];
                       [_scrollView addSubview:btn];
                   }
+                  
+                  if ([_vipStr  isEqual: @"成为vip"]) {
+                      UIButton *btn = (UIButton *)[_scrollView viewWithTag:401];
+                      [self selectBtn:btn];
+                      btnTag = 1;
+                  }
+                  
+                  [self productList:btnTag];
                   
                   UIView *borderView = [[UIView alloc] initWithFrame:CGRectMake(0, -25, 60*[titleArray count], 1)];
                   borderView.backgroundColor = [UIColor colorWithRed:232.0/255.0f green:232.0/255.0f blue:232.0/255.0f alpha:1.000];

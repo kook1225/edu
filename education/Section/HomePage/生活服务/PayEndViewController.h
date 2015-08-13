@@ -10,4 +10,6 @@
 
 @interface PayEndViewController : UIViewController
 
+@property (nonatomic,strong) NSString *typeName;
+
 @end

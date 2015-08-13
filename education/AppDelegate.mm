@@ -18,7 +18,9 @@
 #import <AlipaySDK/AlipaySDK.h>
 #import "PayEndViewController.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () {
+    NSString *typeName;
+}
 
 @end
 
@@ -63,10 +65,23 @@
         LoginViewController *loginVC = [[LoginViewController alloc] init];
         self.window.rootViewController = loginVC;
     }
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(vip:)
+                                                 name:@"SelectPayViewController"
+                                               object:@"vip"];
+    
+    
 
     [self.window makeKeyAndVisible];
     
     return YES;
+}
+
+- (void)vip:(NSNotification *)notification {
+    NSDictionary *dic = notification.userInfo;
+    typeName = dic[@"typeName"];
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
@@ -77,7 +92,7 @@
             if ([resultDic[@"resultStatus"] intValue] == 9000) {
                 
                 PayEndViewController *payEndVC = [[PayEndViewController alloc] init];
-                
+                payEndVC.typeName = typeName;
                 UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:payEndVC];
                 
                 payEndVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
@@ -96,7 +111,7 @@
             if ([resultDic[@"resultStatus"] intValue] == 9000) {
                 
                 PayEndViewController *payEndVC = [[PayEndViewController alloc] init];
-                
+                payEndVC.typeName = typeName;
                 UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:payEndVC];
                 
                 payEndVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;

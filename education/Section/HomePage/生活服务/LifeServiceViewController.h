@@ -10,4 +10,6 @@
 
 @interface LifeServiceViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 
+@property (nonatomic,strong) NSString *vipStr;
+
 @end
