@@ -192,8 +192,6 @@
                  [_saledLabel setAttributedText:attri2];
                  [_introView addSubview:_saledLabel];
                  
-                 
-                 _scrollView.contentSize = CGSizeMake(SCREENWIDTH, CGRectGetMaxY(_introView.frame) + _webView.frame.size.height);
              }
              else {
                  SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
@@ -222,7 +220,9 @@
     float height = [[_webView stringByEvaluatingJavaScriptFromString:@"document.body.offsetHeight;"] floatValue];
     
     NSLog(@"remark高度是---%f",height);
-    [_webView setFrame:CGRectMake(0, 304, SCREENWIDTH, height+10)];
+    [_webView setFrame:CGRectMake(0, CGRectGetMaxY(_introView.frame), SCREENWIDTH, height+80)];
+    
+    _scrollView.contentSize = CGSizeMake(SCREENWIDTH, CGRectGetMaxY(_introView.frame) + _webView.frame.size.height);
     /*
     [_commentView setFrame:CGRectMake(0, CGRectGetMaxY(_webView.frame), 320, 42)];
     if([UIScreen mainScreen].bounds.size.height ==480)
