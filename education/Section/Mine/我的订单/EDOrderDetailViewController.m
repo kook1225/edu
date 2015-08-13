@@ -63,7 +63,14 @@
     _nonAddress.hidden = YES;
     _cancelBtn.hidden = YES;
     
-    
+    if([_dic[@"productinfo"][@"typename"] isEqualToString:@"VIP优惠包"])
+    {
+        _commitBtn.hidden = YES;
+    }else
+    {
+        _commitBtn.hidden  = NO;
+       
+    }
     
     
     NSString *status;
@@ -80,7 +87,15 @@
 
     }else if ([_dic[@"orderinfo"][@"status"] intValue] ==3) {
         status = @"待收货";
-        [_commitBtn setTitle:@"确认收货" forState:UIControlStateNormal];
+        if([_dic[@"productinfo"][@"typename"] isEqualToString:@"VIP优惠包"])
+        {
+            _commitBtn.hidden = YES;
+        }else
+        {
+            _commitBtn.hidden  = NO;
+            [_commitBtn setTitle:@"确认收货" forState:UIControlStateNormal];
+        }
+        
 
     }else if ([_dic[@"orderinfo"][@"status"] intValue] ==4) {
         status = @"交易成功";
