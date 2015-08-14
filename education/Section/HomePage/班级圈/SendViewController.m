@@ -72,11 +72,26 @@
         
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         
-        NSDictionary *parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],
-                                    @"bjid":@"",
-                                    @"images":picAdd,
-                                    @"content":_textView.text,
-                                   };
+        
+        NSDictionary *parameter;
+        
+        if ([[[[SEUtils getUserInfo] UserDetail] userinfo].YHLB intValue] == 3) {
+            parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],
+                          @"bjid":_bjid,
+                          @"images":picAdd,
+                          @"content":_textView.text,
+                          };
+
+        }
+        else {
+            parameter = @{@"access_token":[[[SEUtils getUserInfo] TokenInfo] access_token],
+                          @"bjid":@"",
+                          @"images":picAdd,
+                          @"content":_textView.text,
+                          };
+
+        }
+        
         
         NSString *urlStr = [NSString stringWithFormat:@"%@ClassZoneDynamic",SERVER_HOST];
         

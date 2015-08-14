@@ -10,4 +10,7 @@
 
 @interface SendViewController : UIViewController
 
+
+@property (nonatomic,strong) NSString *bjid;
+
 @end
