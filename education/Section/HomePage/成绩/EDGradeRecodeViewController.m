@@ -212,7 +212,12 @@
             [HUD setHidden:YES];
             NSLog(@"res--%@",responseObject);
             if ([responseObject[@"responseCode"] intValue] ==0) {
-                [dataArray addObjectsFromArray:[MUScoreModel arrayOfModelsFromDictionaries:responseObject[@"data"] error:nil]];
+                
+                if(responseObject[@"data"][@"list"] != [NSNull null])
+                {
+                      [dataArray addObjectsFromArray:[MUScoreModel arrayOfModelsFromDictionaries:responseObject[@"data"] error:nil]];
+                }
+              
                 [_tableView reloadData];
                 
             }else
