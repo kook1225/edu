@@ -527,8 +527,12 @@
 }
 
 - (void)skipWeb {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[[[[SEUtils getUserInfo] UserDetail] schoolInfo] DWWZ]]]];
+    
+    /*
     WebViewViewController *webViewVC = [[WebViewViewController alloc] init];
     [self.navigationController pushViewController:webViewVC animated:YES];
+     */
 }
 
 #pragma mark - UIAlertViewDelegate Method
