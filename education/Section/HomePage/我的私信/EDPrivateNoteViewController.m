@@ -262,30 +262,38 @@
 {
     if([type intValue] == 2)
     {
-        if([dataArray[indexPath.row][@"messageInfo"][@"SFYD"] intValue] ==1)
-        {
-            EDPrivateNoteSelectedCell *selectedCell = [tableView dequeueReusableCellWithIdentifier:@"selected"];
-            if (selectedCell == nil) {
-                selectedCell = [[[NSBundle mainBundle]loadNibNamed:@"EDPrivateNoteSelectedCell" owner:self options:nil]lastObject];
+        
+        EDPrivateNoteSelectedCell *selectedCell = [tableView dequeueReusableCellWithIdentifier:@"selected"];
+        EDPrivateNoteCell *nomalCell = [tableView dequeueReusableCellWithIdentifier:@"nomal"];
+        if (dataArray.count !=0) {
+            if([dataArray[indexPath.row][@"messageInfo"][@"SFYD"] intValue] ==1)
+            {
+                if (selectedCell == nil) {
+                    selectedCell = [[[NSBundle mainBundle]loadNibNamed:@"EDPrivateNoteSelectedCell" owner:self options:nil]lastObject];
+                }
+                
+                selectedCell.nameLabel.text = dataArray[indexPath.row][@"author"][@"XM"];
+                selectedCell.contentLabel.text = dataArray[indexPath.row][@"messageInfo"][@"XXNR"];
+                selectedCell.dateLabel.text = [dataArray[indexPath.row][@"messageInfo"][@"FSSJ"] substringToIndex:16];
+                return selectedCell;
+            }else
+            {
+                
+                if (nomalCell == nil) {
+                    nomalCell = [[[NSBundle mainBundle]loadNibNamed:@"EDPrivateNoteCell" owner:self options:nil]lastObject];
+                }
+                
+                nomalCell.nameLabel.text = dataArray[indexPath.row][@"author"][@"XM"];
+                nomalCell.contentLabel.text = dataArray[indexPath.row][@"messageInfo"][@"XXNR"];
+                nomalCell.dateLabel.text = [dataArray[indexPath.row][@"messageInfo"][@"FSSJ"] substringToIndex:16];
+                return nomalCell;
             }
-           
-            selectedCell.nameLabel.text = dataArray[indexPath.row][@"author"][@"XM"];
-            selectedCell.contentLabel.text = dataArray[indexPath.row][@"messageInfo"][@"XXNR"];
-            selectedCell.dateLabel.text = [dataArray[indexPath.row][@"messageInfo"][@"FSSJ"] substringToIndex:16];
-            return selectedCell;
+
         }else
         {
-            EDPrivateNoteCell *nomalCell = [tableView dequeueReusableCellWithIdentifier:@"nomal"];
-            if (nomalCell == nil) {
-                nomalCell = [[[NSBundle mainBundle]loadNibNamed:@"EDPrivateNoteCell" owner:self options:nil]lastObject];
-            }
-
-            nomalCell.nameLabel.text = dataArray[indexPath.row][@"author"][@"XM"];
-            nomalCell.contentLabel.text = dataArray[indexPath.row][@"messageInfo"][@"XXNR"];
-            nomalCell.dateLabel.text = [dataArray[indexPath.row][@"messageInfo"][@"FSSJ"] substringToIndex:16];
-            return nomalCell;
+            return [[UITableViewCell alloc]init];
         }
-
+       
     }else
     {
         EDPrivateNoteSelectedCell *selectedCell = [tableView dequeueReusableCellWithIdentifier:@"selected"];
@@ -298,9 +306,12 @@
             selectedCell.nameLabel.text = dataArray[indexPath.row][@"Receiver"][@"XM"];
             selectedCell.contentLabel.text = dataArray[indexPath.row][@"messageInfo"][@"XXNR"];
             selectedCell.dateLabel.text = [dataArray[indexPath.row][@"messageInfo"][@"FSSJ"] substringToIndex:16];
-            
+            return selectedCell;
+        }else
+        {
+            return [[UITableViewCell alloc]init];
         }
-        return selectedCell;
+        
 
     }
     
