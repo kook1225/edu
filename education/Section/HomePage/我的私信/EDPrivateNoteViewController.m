@@ -196,7 +196,11 @@
             NSLog(@"res--%@",responseObject[@"data"]);
             if ([responseObject[@"responseCode"] intValue] ==0) {
                 
-                [dataArray addObjectsFromArray:[NSMutableArray arrayWithArray:responseObject[@"data"][@"list"]]];
+                if(responseObject[@"data"][@"list"] != [NSNull null])
+                {
+                    [dataArray addObjectsFromArray:[NSMutableArray arrayWithArray:responseObject[@"data"][@"list"]]];
+                }
+                
                 
                 
                 

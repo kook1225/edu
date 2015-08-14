@@ -290,6 +290,7 @@
             NSLog(@"res--%@",responseObject);
             if ([responseObject[@"responseCode"] intValue] ==0) {
                 EDInfomationModel *dic = [[EDInfomationModel alloc]initWithDictionary:responseObject[@"data"] error:nil];
+                
                 [dataArray addObjectsFromArray:[EDInfoArrayModel arrayOfModelsFromDictionaries:dic.list error:nil]];
                 [_tableView reloadData];
                 

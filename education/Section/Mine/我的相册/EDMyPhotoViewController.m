@@ -220,8 +220,12 @@
             if ([responseObject[@"responseCode"] intValue] ==0) {
                 
                 // dataArray = [growUpModel arrayOfModelsFromDictionaries:responseObject[@"data"] error:&err];
+                if(responseObject[@"data"] != [NSNull null])
+                {
+                    [dataArray addObjectsFromArray:[ListModel arrayOfModelsFromDictionaries:responseObject[@"data"]]];
+                }
                 
-                [dataArray addObjectsFromArray:[ListModel arrayOfModelsFromDictionaries:responseObject[@"data"]]];
+                
                 
                 [_tableView reloadData];
                 

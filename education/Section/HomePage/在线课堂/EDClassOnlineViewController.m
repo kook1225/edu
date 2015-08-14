@@ -403,7 +403,11 @@
             NSLog(@"res--%@",responseObject);
             if ([responseObject[@"responseCode"] intValue] ==0) {
                 
-                [dataArray addObjectsFromArray:responseObject[@"data"][@"list"]];
+                if(responseObject[@"data"][@"list"] != [NSNull null])
+                {
+                    [dataArray addObjectsFromArray:[NSMutableArray arrayWithArray:responseObject[@"data"][@"list"]]];
+                }
+                
                 
                 if (dataArray.count == 0 ) {
                     SHOW_ALERT(@"提示", @"暂无数据");
