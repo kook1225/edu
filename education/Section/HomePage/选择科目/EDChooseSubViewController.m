@@ -123,12 +123,14 @@
                 
             }else
             {
-                if (responseObject[@"data"] == [NSNull null]) {
+                if ([responseObject[@"data"] count]== 0) {
                     _nonDataLabel2.hidden = NO;
+                    _nonDataLabel.hidden = NO;
                     _gradeTableView.hidden = YES;
                 }else
                 {
                     _nonDataLabel2.hidden = YES;
+                    _nonDataLabel.hidden = YES;
                     _gradeTableView.hidden = NO;
                     grdArray = responseObject[@"data"];
                     [_gradeTableView reloadData];
