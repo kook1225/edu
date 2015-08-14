@@ -96,7 +96,7 @@
         if ([responseObject[@"responseCode"] intValue] ==0) {
             
             if (num==1) {
-                if (responseObject[@"data"] == [NSNull null]) {
+                if ([responseObject[@"data"] count]== 0) {
                     _nonDataLabel2.hidden = NO;
                     _gradeTableView.hidden = YES;
                 }else
