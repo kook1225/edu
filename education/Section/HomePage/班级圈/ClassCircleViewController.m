@@ -125,6 +125,9 @@
 
 - (void)sendBtn {
     SendViewController *sendVC = [[SendViewController alloc] init];
+    if ([[[[SEUtils getUserInfo] UserDetail] userinfo].YHLB intValue] == 3) {
+        sendVC.bjid = _detailId;
+    }
     [self.navigationController pushViewController:sendVC animated:YES];
 }
 
