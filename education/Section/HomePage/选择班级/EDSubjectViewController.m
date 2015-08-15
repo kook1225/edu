@@ -25,6 +25,7 @@
     NSArray *subArray;
     NSMutableArray *grdSelected;
     NSMutableArray *subSelected;
+    NSString *nianji;
    
 }
 @property (weak, nonatomic) IBOutlet UITableView *gradeTableView;
@@ -138,7 +139,7 @@
                 
             }
             
-            
+            nianji = grdArray[0][@"NJMC"];
         }else
         {
             SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
@@ -228,7 +229,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *nianji;
+    
     
     if (tableView == _gradeTableView) {
        
