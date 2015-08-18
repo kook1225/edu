@@ -125,6 +125,7 @@
 		1892CE591B6871930060DD16 /* EDPubulishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1892CE571B6871930060DD16 /* EDPubulishViewController.xib */; };
 		1892CE5D1B69CA1D0060DD16 /* EDProblemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1892CE5B1B69CA1D0060DD16 /* EDProblemDetailViewController.m */; };
 		1892CE5E1B69CA1D0060DD16 /* EDProblemDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1892CE5C1B69CA1D0060DD16 /* EDProblemDetailViewController.xib */; };
+		18D420EB1B83620600792B0A /* EDHomeWorkTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D420E91B83620600792B0A /* EDHomeWorkTableViewCell.m */; };
 		761749041B451C87006DD0AA /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 761749021B451C87006DD0AA /* MineViewController.m */; };
 		761749051B451C87006DD0AA /* MineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 761749031B451C87006DD0AA /* MineViewController.xib */; };
 		762A38081B7C898700F8A0AF /* TermsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 762A38061B7C898700F8A0AF /* TermsViewController.m */; };
@@ -455,6 +456,8 @@
 		1892CE5A1B69CA1D0060DD16 /* EDProblemDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDProblemDetailViewController.h; sourceTree = "<group>"; };
 		1892CE5B1B69CA1D0060DD16 /* EDProblemDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDProblemDetailViewController.m; sourceTree = "<group>"; };
 		1892CE5C1B69CA1D0060DD16 /* EDProblemDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDProblemDetailViewController.xib; sourceTree = "<group>"; };
+		18D420E81B83620600792B0A /* EDHomeWorkTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDHomeWorkTableViewCell.h; sourceTree = "<group>"; };
+		18D420E91B83620600792B0A /* EDHomeWorkTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDHomeWorkTableViewCell.m; sourceTree = "<group>"; };
 		4A377B404F6F3665E19C14D4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		761749011B451C87006DD0AA /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
 		761749021B451C87006DD0AA /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
@@ -1037,6 +1040,8 @@
 				1857A0A01B4E702C00501EA0 /* EDHomeWorkViewController.h */,
 				1857A0A11B4E702C00501EA0 /* EDHomeWorkViewController.m */,
 				1857A0A21B4E702C00501EA0 /* EDHomeWorkViewController.xib */,
+				18D420E81B83620600792B0A /* EDHomeWorkTableViewCell.h */,
+				18D420E91B83620600792B0A /* EDHomeWorkTableViewCell.m */,
 				1892CE551B6871930060DD16 /* EDPubulishViewController.h */,
 				1892CE561B6871930060DD16 /* EDPubulishViewController.m */,
 				1892CE571B6871930060DD16 /* EDPubulishViewController.xib */,
@@ -2032,6 +2037,7 @@
 				1857A0981B4E4F1000501EA0 /* EDGrowDetailViewController.m in Sources */,
 				768FFAF41B4238D9008E577F /* AppDelegate.mm in Sources */,
 				187119301B5CFB29000F8DD4 /* ChineseString.m in Sources */,
+				18D420EB1B83620600792B0A /* EDHomeWorkTableViewCell.m in Sources */,
 				768F890F1B5B88860054F73C /* CheckImageViewController.m in Sources */,
 				764406CE1B4E763F00541C86 /* EvaluteAndEncourageViewController.m in Sources */,
 				762A38081B7C898700F8A0AF /* TermsViewController.m in Sources */,

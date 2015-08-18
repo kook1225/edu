@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -16,10 +16,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xiU-LW-S3d">
-                        <rect key="frame" x="10" y="43" width="300" height="1"/>
+                        <rect key="frame" x="10" y="44" width="300" height="1"/>
                         <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="1" id="9bs-2g-tGu"/>
+                            <constraint firstAttribute="height" constant="1" id="iXP-H3-Gqz"/>
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="一年级上学期期中考试成绩" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ip9-ST-Z8s">
@@ -32,25 +32,23 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2015-06-29" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="12K-0b-siy">
-                        <rect key="frame" x="214" y="17" width="96" height="13"/>
+                        <rect key="frame" x="245" y="17" width="65" height="13"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="xiU-LW-S3d" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="9hX-qV-kEG"/>
+                    <constraint firstItem="xiU-LW-S3d" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="5NC-YL-HDN"/>
                     <constraint firstItem="ip9-ST-Z8s" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="6" id="DDT-AJ-d9f"/>
-                    <constraint firstItem="12K-0b-siy" firstAttribute="leading" secondItem="ip9-ST-Z8s" secondAttribute="trailing" constant="30" id="SVc-wC-7x7"/>
-                    <constraint firstItem="xiU-LW-S3d" firstAttribute="trailing" secondItem="12K-0b-siy" secondAttribute="trailing" id="TsJ-aU-XEk"/>
-                    <constraint firstItem="xiU-LW-S3d" firstAttribute="leading" secondItem="ip9-ST-Z8s" secondAttribute="leading" id="WeR-TM-Rh5"/>
+                    <constraint firstItem="xiU-LW-S3d" firstAttribute="top" secondItem="12K-0b-siy" secondAttribute="bottom" constant="14" id="GqX-rt-1jW"/>
+                    <constraint firstAttribute="bottom" secondItem="xiU-LW-S3d" secondAttribute="bottom" id="LZt-jV-Pjc"/>
                     <constraint firstAttribute="bottom" secondItem="xiU-LW-S3d" secondAttribute="bottom" constant="-1" id="X6u-Yg-42c"/>
                     <constraint firstItem="ip9-ST-Z8s" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="air-sj-g88"/>
-                    <constraint firstItem="xiU-LW-S3d" firstAttribute="top" secondItem="12K-0b-siy" secondAttribute="bottom" constant="13" id="bQe-u6-5L7"/>
+                    <constraint firstAttribute="trailing" secondItem="12K-0b-siy" secondAttribute="trailing" constant="10" id="cmt-QA-MWw"/>
                     <constraint firstItem="ip9-ST-Z8s" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="esG-P5-I63"/>
-                    <constraint firstItem="xiU-LW-S3d" firstAttribute="top" secondItem="ip9-ST-Z8s" secondAttribute="bottom" constant="12" id="gQk-aF-7qA"/>
-                    <constraint firstAttribute="bottom" secondItem="xiU-LW-S3d" secondAttribute="bottom" id="luQ-cc-wUd"/>
-                    <constraint firstItem="12K-0b-siy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="9" id="tzb-1W-deO"/>
+                    <constraint firstItem="12K-0b-siy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="17" id="odE-U1-yqC"/>
+                    <constraint firstAttribute="trailing" secondItem="xiU-LW-S3d" secondAttribute="trailing" constant="10" id="wFf-mr-SDF"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">

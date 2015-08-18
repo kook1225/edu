@@ -9,6 +9,7 @@
 #import "EDHomeWorkViewController.h"
 #import "SETabBarViewController.h"
 #import "EDPubulishViewController.h"
+#import "EDHomeWorkTableViewCell.h"
 
 @interface EDHomeWorkViewController ()
 {
@@ -37,6 +38,7 @@
 
 @property (weak, nonatomic) IBOutlet UIView *msgView;
 @property (weak, nonatomic) IBOutlet UILabel *msgLabel;
+
 
 @end
 
@@ -119,7 +121,11 @@
     [formatter_minDate setDateFormat:@"yyyy-MM-dd EEE"];
     dateString = [formatter_minDate stringFromDate:[NSDate date]];
     _dateLabel.text = dateString;
+    
+    [_tableView registerClass:[EDHomeWorkTableViewCell class] forCellReuseIdentifier:@"cell"];
     [self AFNRequest:[dateString substringToIndex:10]];
+    
+    
 }
 
 
@@ -273,12 +279,14 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 40;
+    UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
+    
+    return cell.frame.size.height;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"homeWork"];
+    /*UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"homeWork"];
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     UILabel *homeWork = [[UILabel alloc]initWithFrame:CGRectMake(10, 5, TAB_WITHDE-20, 40)];
     homeWork.textColor = [UIColor colorWithRed:255/255.0f green:124/255.0f blue:6/255.0f alpha:1.0];
@@ -293,7 +301,18 @@
     
     //文本赋值
     homeWork.attributedText = attributedString;
-    [cell addSubview:homeWork];
+    
+    CGSize labelSize = [text sizeWithFont:[UIFont systemFontOfSize:12.0] constrainedToSize:CGSizeMake(TAB_WITHDE-20, 2000) lineBreakMode:NSLineBreakByClipping];
+    homeWork.frame = CGRectMake(10, 5, labelSize.width, labelSize.height);
+    
+    [cell addSubview:homeWork];*/
+    
+    
+    
+    
+    EDHomeWorkTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+     NSString *text = [NSString stringWithFormat:@"%@: %@",dataArray[indexPath.row][@"ZYMC"],dataArray[indexPath.row][@"ZYNR"]];
+    [cell setIntroductionText:text height:TAB_WITHDE];
     
     return cell;
 }
