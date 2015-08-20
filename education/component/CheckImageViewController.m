@@ -46,14 +46,16 @@
     _scrollView.contentOffset = CGPointMake(0, 0);
     _scrollView.contentSize = CGSizeMake(SCREENWIDTH*[_dataArray count],0);
     
-    [self loadImage:@""];
+    
     
     self.automaticallyAdjustsScrollViewInsets = NO;
+    
     
     // Do any additional setup after loading the view from its nib.
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [self loadImage:@""];
     
     _scrollView.contentOffset = CGPointMake(SCREENWIDTH * _page, 0);
     
@@ -83,7 +85,7 @@
         UIImageView *imageView = [[UIImageView alloc] init];
         [imageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:default_image]];
         
-        //imageView.contentMode = UIViewContentModeScaleAspectFit;
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
         //UIImage *image = imageView.image;
         
         VIPhotoView *photoView;
