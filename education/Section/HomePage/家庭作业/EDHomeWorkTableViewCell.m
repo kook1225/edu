@@ -30,7 +30,7 @@
         
         _contentLabel = [[UILabel alloc]init];
         _contentLabel.textColor = [UIColor colorWithRed:255/255.0f green:124/255.0f blue:6/255.0f alpha:1.0];
-        _contentLabel.font = [UIFont systemFontOfSize:12];
+        _contentLabel.font = [UIFont systemFontOfSize:14];
         _contentLabel.numberOfLines = 0;
         
         
@@ -53,7 +53,7 @@
     
     CGSize size = CGSizeMake(high-20, 1000);
    
-    CGSize labelSize = [self.contentLabel.text sizeWithFont:[UIFont systemFontOfSize:12] constrainedToSize:size lineBreakMode:NSLineBreakByClipping];
+    CGSize labelSize = [self.contentLabel.text sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:size lineBreakMode:NSLineBreakByClipping];
     self.contentLabel.frame = CGRectMake(10,5,labelSize.width, labelSize.height);
   
     _contentLabel.numberOfLines =  0;
