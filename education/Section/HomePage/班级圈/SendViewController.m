@@ -255,7 +255,7 @@
         }
         else
         {
-            data = UIImagePNGRepresentation(image);
+            data = UIImageJPEGRepresentation(image, 1.0);
         }
         
         
@@ -273,6 +273,7 @@
         
         //得到选择后沙盒中图片的完整路径
         filePath = [[NSString alloc]initWithFormat:@"%@%@",DocumentsPath,  @"/image.png"];
+
         
         NSError *err;
         
