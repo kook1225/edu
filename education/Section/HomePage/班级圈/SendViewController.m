@@ -131,6 +131,8 @@
 - (void)drawlayer
 {
     imageNum = 0;
+    _textView.layer.cornerRadius = 4.0f;
+    _textView.layer.masksToBounds = YES;
     _textView.layer.borderColor = LINECOLOR.CGColor;
     _textView.layer.borderWidth = 1.0f;
     
@@ -155,13 +157,68 @@
 {
     imgView = [[UIImageView alloc]init];
     
-    imgView.frame = CGRectMake(10+74*(num-1), 10, 70, 70);
-    imgView.tag = 400+num;
+    int slide_x = 0;
+    
+    if (SCREENWIDTH ==375) {
+         slide_x = 140;
+    }else if(SCREENWIDTH == 320)
+    {
+        slide_x = 113;
+    }else
+    {
+        slide_x = 160;
+    }
+    
+        if (num <3) {
+            imgView.frame = CGRectMake(10+slide_x*(num-1), 10, 70, 70);
+            imgView.tag = 400+num;
+            imgView.image = img;
+            [_headView addSubview:imgView];
+            addImgBtn.frame = CGRectMake(10+slide_x*num, 10, 70, 70);
+        }else if (num ==3)
+        {
+            _headView.frame = CGRectMake(0, 0, SCREENWIDTH, 95+80);
+            _textView.frame = CGRectMake(10, CGRectGetMaxY(_headView.frame), SCREENWIDTH-20, 181);
+            imgView.frame = CGRectMake(10+slide_x*(num-1), 10, 70, 70);
+            imgView.tag = 400+num;
+            imgView.image = img;
+            [_headView addSubview:imgView];
+            addImgBtn.frame = CGRectMake(10+slide_x*(num-3), 90, 70, 70);
+        }
+        else if (num <6)
+        {
+            imgView.frame = CGRectMake(10+slide_x*(num-4), 90, 70, 70);
+            imgView.tag = 400+num;
+            imgView.image = img;
+            [_headView addSubview:imgView];
+            addImgBtn.frame = CGRectMake(10+slide_x*(num-3), 90, 70, 70);
+        }else if (num ==6)
+        {
+            _headView.frame = CGRectMake(0, 0, SCREENWIDTH, 95+80*2);
+            if (SCREENHEIGHT == 480) {
+                _textView.frame = CGRectMake(10, CGRectGetMaxY(_headView.frame), SCREENWIDTH-20, 150);
+
+            }else
+            {
+                _textView.frame = CGRectMake(10, CGRectGetMaxY(_headView.frame), SCREENWIDTH-20, 181);
+
+            }
+            imgView.frame = CGRectMake(10+slide_x*(num-4), 90, 70, 70);
+            imgView.tag = 400+num;
+            imgView.image = img;
+            [_headView addSubview:imgView];
+            addImgBtn.frame = CGRectMake(10+slide_x*(num-6), 170, 70, 70);
+        }else
+        {
+            imgView.frame = CGRectMake(10+slide_x*(num-7), 170, 70, 70);
+            imgView.tag = 400+num;
+            imgView.image = img;
+            [_headView addSubview:imgView];
+            addImgBtn.frame = CGRectMake(10+slide_x*(num-6), 170, 70, 70);
+        }
     
     
-    imgView.image = img;
-    [_headView addSubview:imgView];
-    addImgBtn.frame = CGRectMake(10+74*num, 10, 70, 70);
+    
     
 }
 
@@ -288,7 +345,7 @@
             
             [self setImgFrame:imageNum image:[UIImage imageWithContentsOfFile:filePath]];
             
-            if (imageNum == 3) {
+            if (imageNum == 9) {
                 addImgBtn.hidden = YES;
             }
             

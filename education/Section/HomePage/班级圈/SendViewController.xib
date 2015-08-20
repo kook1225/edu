@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
@@ -8,7 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SendViewController">
             <connections>
                 <outlet property="headView" destination="zCB-ft-N1l" id="TlS-lu-RNO"/>
-                <outlet property="textView" destination="bnl-fr-lGB" id="Txn-Ht-Rs0"/>
+                <outlet property="textView" destination="CdQ-1o-izj" id="Lyd-mQ-2Pz"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,53 +17,23 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="想和老师/小伙伴说些什么呢？" translatesAutoresizingMaskIntoConstraints="NO" id="CdQ-1o-izj">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="想和老师/小伙伴说些什么呢？" id="CdQ-1o-izj">
                     <rect key="frame" x="10" y="96" width="300" height="181"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="181" id="5qc-2d-vSe"/>
-                    </constraints>
-                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                </textView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fGn-qv-aJ0">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="95"/>
-                </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zCB-ft-N1l">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="95"/>
-                </view>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="想和老师/小伙伴说些什么呢？" translatesAutoresizingMaskIntoConstraints="NO" id="bnl-fr-lGB">
-                    <rect key="frame" x="10" y="96" width="300" height="181"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="181" id="syf-8Y-fze"/>
-                    </constraints>
                     <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     <connections>
-                        <outlet property="delegate" destination="-1" id="aDF-zB-Kor"/>
+                        <outlet property="delegate" destination="-1" id="b2f-VE-iVL"/>
                     </connections>
                 </textView>
+                <view contentMode="scaleToFill" id="zCB-ft-N1l">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="95"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                </view>
             </subviews>
             <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
-            <constraints>
-                <constraint firstItem="bnl-fr-lGB" firstAttribute="top" secondItem="zCB-ft-N1l" secondAttribute="bottom" constant="1" id="4tf-uq-wAV"/>
-                <constraint firstItem="zCB-ft-N1l" firstAttribute="top" secondItem="fGn-qv-aJ0" secondAttribute="top" id="7rI-H5-Kd8"/>
-                <constraint firstItem="bnl-fr-lGB" firstAttribute="leading" secondItem="CdQ-1o-izj" secondAttribute="leading" id="Ba0-8m-AZz"/>
-                <constraint firstItem="bnl-fr-lGB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="96" id="UBs-KF-Lkq"/>
-                <constraint firstAttribute="trailing" secondItem="zCB-ft-N1l" secondAttribute="trailing" id="Uog-bT-A7P"/>
-                <constraint firstItem="zCB-ft-N1l" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="UzL-Pa-y0U"/>
-                <constraint firstItem="zCB-ft-N1l" firstAttribute="leading" secondItem="fGn-qv-aJ0" secondAttribute="leading" id="VGa-DS-w8F"/>
-                <constraint firstItem="CdQ-1o-izj" firstAttribute="top" secondItem="fGn-qv-aJ0" secondAttribute="bottom" constant="1" id="WQz-h7-4yz"/>
-                <constraint firstItem="bnl-fr-lGB" firstAttribute="centerX" secondItem="zCB-ft-N1l" secondAttribute="centerX" id="btF-bl-5hJ"/>
-                <constraint firstItem="zCB-ft-N1l" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="eQ2-h6-vlT"/>
-                <constraint firstItem="bnl-fr-lGB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="hY3-m4-ubr"/>
-                <constraint firstItem="CdQ-1o-izj" firstAttribute="centerX" secondItem="fGn-qv-aJ0" secondAttribute="centerX" id="lF8-u9-5MW"/>
-                <constraint firstItem="fGn-qv-aJ0" firstAttribute="trailing" secondItem="zCB-ft-N1l" secondAttribute="trailing" id="qGq-Px-E8L"/>
-                <constraint firstItem="CdQ-1o-izj" firstAttribute="top" secondItem="bnl-fr-lGB" secondAttribute="top" id="wjC-8p-6w9"/>
-            </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <point key="canvasLocation" x="190" y="247"/>
         </view>
