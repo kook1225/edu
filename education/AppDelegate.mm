@@ -62,8 +62,29 @@
     else{
 //        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"everLaunched"];
         
-        LoginViewController *loginVC = [[LoginViewController alloc] init];
-        self.window.rootViewController = loginVC;
+        if ([SEUtils getUserInfo]) {
+            ViewController *viewController = [[ViewController alloc] init];
+            UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:viewController];
+            
+            EDContactViewController *contactVC = [[EDContactViewController alloc] init];
+            UINavigationController *nav2 = [[UINavigationController alloc] initWithRootViewController:contactVC];
+            
+            MineViewController *mineVC = [[MineViewController alloc] init];
+            UINavigationController *nav3 = [[UINavigationController alloc] initWithRootViewController:mineVC];
+            
+            EDSettingViewController *settingVC = [[EDSettingViewController alloc] init];
+            UINavigationController *nav4 = [[UINavigationController alloc] initWithRootViewController:settingVC];
+            
+            SETabBarViewController *tabBarVC = [[SETabBarViewController alloc] initWithViewController:@[nav,nav2,nav3,nav4]];
+            
+            self.window.rootViewController = tabBarVC;
+        }
+        else {
+            LoginViewController *loginVC = [[LoginViewController alloc] init];
+            self.window.rootViewController = loginVC;
+        }
+        
+        
     }
     
     
