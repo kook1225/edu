@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *addLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *topImgView;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
 
@@ -66,6 +67,12 @@
     [_topImgView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"1"]];
     
     [tabBarViewController tabBarViewShow];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    if (SCREENHEIGHT == 480) {
+        _scrollView.contentSize = CGSizeMake(SCREENWIDTH, 568 - 64);
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated

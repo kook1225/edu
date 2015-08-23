@@ -16,6 +16,7 @@
 {
     SETabBarViewController *tabBarView;
 }
+@property (weak, nonatomic) IBOutlet UIView *systemView;
 @end
 
 @implementation EDSettingViewController
@@ -24,6 +25,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"设置";
+    
+    _systemView.hidden = YES;
     
     tabBarView = (SETabBarViewController *)self.navigationController.parentViewController;
 }
