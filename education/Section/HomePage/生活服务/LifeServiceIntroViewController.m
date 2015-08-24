@@ -63,6 +63,7 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     self.navigationController.navigationBar.hidden = NO;
+    
     [self.navigationController.navigationBar setTranslucent:NO];
     
 }

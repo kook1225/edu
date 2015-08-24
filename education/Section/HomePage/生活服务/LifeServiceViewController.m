@@ -153,6 +153,10 @@
                       
                       [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
                       
+                      // 防止同时点击
+                      [btn setExclusiveTouch:YES];
+                      
+                      
                       [blurView addSubview:btn];
                   }
                   
@@ -177,6 +181,10 @@
                       
                       [btn addTarget:self action:@selector(selectBtn:) forControlEvents:UIControlEventTouchUpInside];
                       [btn setTitle:[titleArray objectAtIndex:i] forState:UIControlStateNormal];
+                      
+                      // 防止同时点击
+                      [btn setExclusiveTouch:YES];
+                      
                       [_scrollView addSubview:btn];
                   }
                   
