@@ -35,6 +35,11 @@
     [super viewDidLoad];
     self.title = @"成长足迹";
     
+    if (!IOS7_LATER) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.extendedLayoutIncludesOpaqueBars = NO;
+    }
+    
     _nonDataLabel.hidden = YES;
     
     tabBarViewController = (SETabBarViewController *)self.navigationController.parentViewController;

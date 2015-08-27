@@ -32,6 +32,11 @@
     [super viewDidLoad];
     self.title = @"详情";
     
+    if (!IOS7_LATER) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.extendedLayoutIncludesOpaqueBars = NO;
+    }
+    
     dataArray = [NSArray array];
     
     NSString *text = _model.FBNR;

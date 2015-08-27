@@ -31,6 +31,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    if (!IOS7_LATER) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.extendedLayoutIncludesOpaqueBars = NO;
+    }
+    
     self.navigationItem.leftBarButtonItem = [Tools getNavBarItem:self clickAction:@selector(back)];
     
 }
