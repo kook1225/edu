@@ -52,6 +52,10 @@
     
     [self addList];
     
+    if (!IOS7_LATER) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.extendedLayoutIncludesOpaqueBars = NO;
+    }
     
     _proName.text = _model.name;
     

@@ -74,6 +74,27 @@
     tabBarViewController = (SETabBarViewController *)self.navigationController.parentViewController;
     [tabBarViewController tabBarViewHidden];
     
+    if (!IOS7_LATER) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.extendedLayoutIncludesOpaqueBars = NO;
+    }
+    
+    
+    
+    //如果你不想让scroll view的内容自动调整，将这个属性设为NO（默认值YES）。
+    if (IOS7_LATER) {
+        _scrollView.frame = CGRectMake(0, 0, 290 * scale, 40);
+        _scrollView.contentSize = CGSizeMake(60*[titleArray count],0);
+    }
+    else {
+        _scrollView.frame = CGRectMake(0, 64, 290 * scale, 40);
+        self.automaticallyAdjustsScrollViewInsets = NO;
+        _scrollView.contentSize = CGSizeMake(60*[titleArray count],-64);
+    }
+    
+    _menuBtn.frame = CGRectMake(CGRectGetMaxX(_scrollView.frame), _scrollView.frame.origin.y, 30 * scale, 40);
+    _collectionView.frame = CGRectMake(0, CGRectGetMaxY(_scrollView.frame), SCREENWIDTH, 413 * scale);
+    
     
     [self productType];
     
@@ -84,7 +105,7 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    _scrollView.contentSize = CGSizeMake(60*[titleArray count],0);
+    
 }
 
 #pragma mark 常用方法
@@ -99,7 +120,7 @@
     HUD.labelText = @"加载中...";
     HUD.removeFromSuperViewOnHide = YES;
     
-    
+
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
     NSDictionary *parameter;
@@ -140,7 +161,7 @@
                   [self.view addSubview:blurView];
                   
                   for (int i = 0; i < [titleArray count]; i++) {
-                      UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(10 * scale + (SCREENHEIGHT / 4.0 - 62 * scale) * (i - 4 * (i / 4)) , 20 + (i / 4) * ((30 * scale) + 20), 60 * scale, 30 * scale)];
+                      UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(10 * scale + (SCREENWIDTH / 4.0) * (i - 4 * (i / 4)) , 20 + (i / 4) * ((30 * scale) + 20), 60 * scale, 30 * scale)];
                       [btn setTitle:[titleArray objectAtIndex:i] forState:UIControlStateNormal];
                       btn.titleLabel.font = [UIFont systemFontOfSize:15];
                       btn.backgroundColor = [UIColor colorWithRed:232.0/255.0f green:232.0/255.0f blue:232.0/255.0f alpha:1.000];

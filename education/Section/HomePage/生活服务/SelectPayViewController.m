@@ -29,6 +29,11 @@
         _contentLabel.text = @"请尽快支付哟~";
     }
     
+    if (!IOS7_LATER) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.extendedLayoutIncludesOpaqueBars = NO;
+    }
+    
     _priceLabel.text = [NSString stringWithFormat:@"你需要支付 : ¥%@",_priceStr];
     
     self.navigationItem.leftBarButtonItem = [Tools getNavBarItem:self clickAction:@selector(back)];

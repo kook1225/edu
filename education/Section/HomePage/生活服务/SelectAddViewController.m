@@ -28,6 +28,11 @@
     [super viewDidLoad];
     self.title = @"选择收货地址";
     
+    if (!IOS7_LATER) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.extendedLayoutIncludesOpaqueBars = NO;
+    }
+    
     _manageAddBtn.layer.cornerRadius = 5.0f;
     
     tabBarView = (SETabBarViewController *)self.navigationController.parentViewController;

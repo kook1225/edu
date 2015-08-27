@@ -19,6 +19,11 @@
 - (void)viewDidLoad {
     self.title = @"支付结果";
     
+    if (!IOS7_LATER) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.extendedLayoutIncludesOpaqueBars = NO;
+    }
+    
     _seeOrderBtn.layer.cornerRadius = 5.0f;
     
     UIButton *leftBarBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];

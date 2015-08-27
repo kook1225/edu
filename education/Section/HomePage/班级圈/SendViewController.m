@@ -33,6 +33,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    if (!IOS7_LATER) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.extendedLayoutIncludesOpaqueBars = NO;
+    }
+    
     picAdd = [NSMutableString string];
     
     self.title = @"班级圈";

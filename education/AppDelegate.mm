@@ -37,7 +37,11 @@
         // 使用图片给导航栏附加颜色
         // [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"nav_color"] forBarMetrics:UIBarMetricsDefault];
         [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navColor"] forBarMetrics:UIBarMetricsDefault];
-        [[UINavigationBar appearance] setTranslucent:NO];
+        if (IOS7_LATER) {
+            [[UINavigationBar appearance] setTranslucent:NO];
+        }
+        
+        
 //        // 直接附加颜色
 //        [[UINavigationBar appearance] setBarTintColor:[UIColor grayColor]];
         

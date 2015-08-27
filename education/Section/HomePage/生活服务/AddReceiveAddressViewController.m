@@ -44,6 +44,11 @@
     [super viewDidLoad];
     self.title = @"新增收货地址";
     
+    if (!IOS7_LATER) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.extendedLayoutIncludesOpaqueBars = NO;
+    }
+    
     addFlag = 0;
     
     _saveBtn.layer.cornerRadius = 5.0f;

@@ -44,6 +44,11 @@
     [super viewDidLoad];
     self.title = @"编辑地址";
     
+    if (!IOS7_LATER) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.extendedLayoutIncludesOpaqueBars = NO;
+    }
+    
     _saveBtn.layer.cornerRadius = 5.0f;
     
     provinceArray = [NSArray array];

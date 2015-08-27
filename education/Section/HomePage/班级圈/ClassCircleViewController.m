@@ -46,6 +46,11 @@
     [super viewDidLoad];
     self.title = @"班级圈";
     
+    if (!IOS7_LATER) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.extendedLayoutIncludesOpaqueBars = NO;
+    }
+    
     _nonDataLabel.hidden = YES;
     
     stringArray = [NSMutableArray array];
