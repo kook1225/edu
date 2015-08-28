@@ -22,7 +22,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *classLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *sexLabel;
-@property (weak, nonatomic) IBOutlet UILabel *bornLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *momName;
 @property (weak, nonatomic) IBOutlet UILabel *momPhone;
@@ -48,7 +47,16 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    _scrollView.contentSize = CGSizeMake(SCREENWIDTH, 950);
+    
+    if(!IOS7_LATER)
+    {
+        _scrollView.contentSize = CGSizeMake(SCREENWIDTH, 800);
+
+    }else
+    {
+        _scrollView.contentSize = CGSizeMake(SCREENWIDTH, 950);
+
+    }
 }
 
 #pragma mark 常用方法

@@ -39,6 +39,8 @@
     if (self = [super init]) {
         tag = 400;
         
+      
+        
         // reverseObjectEnumerator 倒序获取数组
         viewControllerArray = [[viewControllers reverseObjectEnumerator]allObjects];
         

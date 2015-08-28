@@ -25,7 +25,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"设置";
-    
+    if (!IOS7_LATER) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.extendedLayoutIncludesOpaqueBars = NO;
+    }
     _systemView.hidden = YES;
     
     tabBarView = (SETabBarViewController *)self.navigationController.parentViewController;

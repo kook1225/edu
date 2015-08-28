@@ -44,6 +44,8 @@
     // Do any additional setup after loading the view from its nib.
     self.title = @"通讯录";
     
+
+    
     teaTitleArrray = [NSMutableArray array];
     stuTitleArray = [NSMutableArray array];
     teacherArray = [NSMutableArray array];
@@ -282,14 +284,28 @@
 {
      if ([typeString isEqualToString:@"学生"])
      {
-         EDStudentViewController *studentVC = [[EDStudentViewController alloc]init];
+         EDStudentViewController *studentVC;
+         if (!IOS7_LATER) {
+             studentVC = [[EDStudentViewController alloc]initWithNibName:@"EDStudentViewController7.0" bundle:nil];
+
+         }else
+         {
+             studentVC = [[EDStudentViewController alloc]initWithNibName:@"EDStudentViewController" bundle:nil];
+         }
          studentVC.detailDic = studentArray[indexPath.section][indexPath.row];
          [self.navigationController pushViewController:studentVC animated:YES];
 
          
      }else
      {
-         EDTeacherInfoViewController *teacherVC = [[EDTeacherInfoViewController alloc]init];
+         EDTeacherInfoViewController *teacherVC;
+         if (!IOS7_LATER) {
+             teacherVC = [[EDTeacherInfoViewController alloc]initWithNibName:@"EDTeacherInfoViewController7.0" bundle:nil];
+             
+         }else
+         {
+             teacherVC = [[EDTeacherInfoViewController alloc]initWithNibName:@"EDTeacherInfoViewController" bundle:nil];
+         }
          teacherVC.detailDic =  teacherArray[indexPath.section][indexPath.row];
          [self.navigationController pushViewController:teacherVC animated:YES];
      }

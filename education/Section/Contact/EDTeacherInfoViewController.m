@@ -34,6 +34,11 @@
     // Do any additional setup after loading the view from its nib.
     self.title = @"教师信息";
     
+    if (!IOS7_LATER) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.extendedLayoutIncludesOpaqueBars = NO;
+    }
+    
     self.navigationItem.leftBarButtonItem = [Tools getNavBarItem:self clickAction:@selector(back)];
     
     tabBarView = (SETabBarViewController *)self.navigationController.parentViewController;

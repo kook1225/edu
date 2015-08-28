@@ -26,6 +26,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"订单详情";
+    
+    if (!IOS7_LATER) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.extendedLayoutIncludesOpaqueBars = NO;
+    }
     self.navigationItem.leftBarButtonItem = [Tools getNavBarItem:self clickAction:@selector(back)];
     
     tabBarView = (SETabBarViewController *)self.navigationController.parentViewController;
@@ -36,6 +41,15 @@
     _msgView.layer.cornerRadius = 4.0f;
     _msgView.layer.masksToBounds = YES;
     
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    if (!IOS7_LATER) {
+        if (SCREENHEIGHT ==480) {
+            _scrollView.contentSize = CGSizeMake(SCREENWIDTH, 560);
+        }
+    }
 }
 
 #pragma mark 常用方法

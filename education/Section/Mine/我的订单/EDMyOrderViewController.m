@@ -41,6 +41,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"我的订单";
+    
+    if (!IOS7_LATER) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.extendedLayoutIncludesOpaqueBars = NO;
+    }
+
+    
     self.navigationItem.leftBarButtonItem = [Tools getNavBarItem:self clickAction:@selector(back)];
     
     dataArray = [NSMutableArray array];
@@ -64,6 +71,14 @@
     [self initheaderview];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    _allBtn.frame = CGRectMake(0, 0, LINEWIDTH, 43);
+    _no_payBtn.frame = CGRectMake(LINEWIDTH, 0, LINEWIDTH, 43);
+    _no_deliverBtn.frame = CGRectMake(LINEWIDTH*2, 0, LINEWIDTH, 43);
+    _no_recieveBtn.frame = CGRectMake(LINEWIDTH*3, 0, LINEWIDTH, 43);
+    _refundBtn.frame = CGRectMake(LINEWIDTH*4, 0, LINEWIDTH, 43);
+}
 
 #pragma mark 常用方法
 - (void)back
@@ -208,8 +223,15 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    EDOrderDetailViewController *orderDetaiVC;
+    if(!IOS7_LATER)
+    {
+        orderDetaiVC = [[EDOrderDetailViewController alloc]initWithNibName:@"EDOrderDetailViewController7.0" bundle:nil];
+    }else
+    {
+        orderDetaiVC = [[EDOrderDetailViewController alloc]initWithNibName:@"EDOrderDetailViewController" bundle:nil];
+    }
     
-    EDOrderDetailViewController *orderDetaiVC = [[EDOrderDetailViewController alloc]init];
     orderDetaiVC.dic = dataArray[indexPath.row];
     orderDetaiVC.type = type;
     orderDetaiVC.delegate = self;

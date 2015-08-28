@@ -125,6 +125,10 @@
 		1892CE591B6871930060DD16 /* EDPubulishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1892CE571B6871930060DD16 /* EDPubulishViewController.xib */; };
 		1892CE5D1B69CA1D0060DD16 /* EDProblemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1892CE5B1B69CA1D0060DD16 /* EDProblemDetailViewController.m */; };
 		1892CE5E1B69CA1D0060DD16 /* EDProblemDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1892CE5C1B69CA1D0060DD16 /* EDProblemDetailViewController.xib */; };
+		18B488D21B9001B30012751F /* EDContactViewController7.0.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18B488D11B9001B30012751F /* EDContactViewController7.0.xib */; };
+		18B488D41B9004FF0012751F /* EDOrderDetailViewController7.0.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18B488D31B9004FF0012751F /* EDOrderDetailViewController7.0.xib */; };
+		18B488D61B901C9C0012751F /* EDStudentViewController7.0.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18B488D51B901C9C0012751F /* EDStudentViewController7.0.xib */; };
+		18B488D81B903DA50012751F /* EDTeacherInfoViewController7.0.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18B488D71B903DA50012751F /* EDTeacherInfoViewController7.0.xib */; };
 		18D420EB1B83620600792B0A /* EDHomeWorkTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D420E91B83620600792B0A /* EDHomeWorkTableViewCell.m */; };
 		761749041B451C87006DD0AA /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 761749021B451C87006DD0AA /* MineViewController.m */; };
 		761749051B451C87006DD0AA /* MineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 761749031B451C87006DD0AA /* MineViewController.xib */; };
@@ -456,6 +460,10 @@
 		1892CE5A1B69CA1D0060DD16 /* EDProblemDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDProblemDetailViewController.h; sourceTree = "<group>"; };
 		1892CE5B1B69CA1D0060DD16 /* EDProblemDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDProblemDetailViewController.m; sourceTree = "<group>"; };
 		1892CE5C1B69CA1D0060DD16 /* EDProblemDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDProblemDetailViewController.xib; sourceTree = "<group>"; };
+		18B488D11B9001B30012751F /* EDContactViewController7.0.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDContactViewController7.0.xib; sourceTree = "<group>"; };
+		18B488D31B9004FF0012751F /* EDOrderDetailViewController7.0.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDOrderDetailViewController7.0.xib; sourceTree = "<group>"; };
+		18B488D51B901C9C0012751F /* EDStudentViewController7.0.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDStudentViewController7.0.xib; sourceTree = "<group>"; };
+		18B488D71B903DA50012751F /* EDTeacherInfoViewController7.0.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EDTeacherInfoViewController7.0.xib; sourceTree = "<group>"; };
 		18D420E81B83620600792B0A /* EDHomeWorkTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDHomeWorkTableViewCell.h; sourceTree = "<group>"; };
 		18D420E91B83620600792B0A /* EDHomeWorkTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDHomeWorkTableViewCell.m; sourceTree = "<group>"; };
 		4A377B404F6F3665E19C14D4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -799,12 +807,15 @@
 				1808B32C1B4439ED0050E3B4 /* EDContactViewController.h */,
 				1808B32D1B4439ED0050E3B4 /* EDContactViewController.m */,
 				1808B32E1B4439ED0050E3B4 /* EDContactViewController.xib */,
+				18B488D11B9001B30012751F /* EDContactViewController7.0.xib */,
 				1808B3411B44EADB0050E3B4 /* EDTeacherInfoViewController.h */,
 				1808B3421B44EADB0050E3B4 /* EDTeacherInfoViewController.m */,
 				1808B3431B44EADB0050E3B4 /* EDTeacherInfoViewController.xib */,
+				18B488D71B903DA50012751F /* EDTeacherInfoViewController7.0.xib */,
 				184AE9F51B5F967F00FAEC5A /* EDStudentViewController.h */,
 				184AE9F61B5F967F00FAEC5A /* EDStudentViewController.m */,
 				184AE9F71B5F967F00FAEC5A /* EDStudentViewController.xib */,
+				18B488D51B901C9C0012751F /* EDStudentViewController7.0.xib */,
 				1808B34B1B44FD1C0050E3B4 /* EDSendMsgViewController.h */,
 				1808B34C1B44FD1C0050E3B4 /* EDSendMsgViewController.m */,
 				1808B34D1B44FD1C0050E3B4 /* EDSendMsgViewController.xib */,
@@ -896,6 +907,7 @@
 				18579FF01B4BC2B800501EA0 /* EDOrderDetailViewController.h */,
 				18579FF11B4BC2B800501EA0 /* EDOrderDetailViewController.m */,
 				768F89D11B6BDEA20054F73C /* EDOrderDetailViewController.xib */,
+				18B488D31B9004FF0012751F /* EDOrderDetailViewController7.0.xib */,
 			);
 			path = "我的订单";
 			sourceTree = "<group>";
@@ -1889,6 +1901,7 @@
 				764406E81B4F5A8600541C86 /* IntroDetailViewController.xib in Resources */,
 				1857A0261B4BC3FB00501EA0 /* EDOrderBottomCell.xib in Resources */,
 				768FFB3D1B42DE44008E577F /* HomePageListCell.xib in Resources */,
+				18B488D81B903DA50012751F /* EDTeacherInfoViewController7.0.xib in Resources */,
 				768F893E1B63A45A0054F73C /* EDMyPhotoCell.xib in Resources */,
 				1892CE5E1B69CA1D0060DD16 /* EDProblemDetailViewController.xib in Resources */,
 				7644069A1B4BBE2000541C86 /* ManageAddViewController.xib in Resources */,
@@ -1900,6 +1913,7 @@
 				764406A41B4BCD4600541C86 /* EditAddViewController.xib in Resources */,
 				1808B3451B44EADB0050E3B4 /* EDTeacherInfoViewController.xib in Resources */,
 				1857A0181B4BC3CB00501EA0 /* EDPhysicalDetailHeadCell.xib in Resources */,
+				18B488D41B9004FF0012751F /* EDOrderDetailViewController7.0.xib in Resources */,
 				764406A91B4BD07F00541C86 /* SelectPayViewController.xib in Resources */,
 				1892CE4F1B6780BC0060DD16 /* EDEditTeacherInfoViewController.xib in Resources */,
 				768FFB331B42C333008E577F /* UserIntroCell.xib in Resources */,
@@ -1916,6 +1930,7 @@
 				1892CE591B6871930060DD16 /* EDPubulishViewController.xib in Resources */,
 				764406861B4A5CAA00541C86 /* LifeServiceIntroViewController.xib in Resources */,
 				768FFAFC1B4238D9008E577F /* Images.xcassets in Resources */,
+				18B488D21B9001B30012751F /* EDContactViewController7.0.xib in Resources */,
 				768FFB381B42C8C4008E577F /* ButtonViewCell.xib in Resources */,
 				762A38091B7C898700F8A0AF /* TermsViewController.xib in Resources */,
 				18579FFC1B4BC2B800501EA0 /* EDAlterPwdViewController.xib in Resources */,
@@ -1938,6 +1953,7 @@
 				1808B31E1B43D6650050E3B4 /* EDSubjectCell.xib in Resources */,
 				184AEA021B62AE3800FAEC5A /* EDSubjectViewController.xib in Resources */,
 				18579F8E1B45401100501EA0 /* EDEditInfoViewController.xib in Resources */,
+				18B488D61B901C9C0012751F /* EDStudentViewController7.0.xib in Resources */,
 				1857A02E1B4CAB2B00501EA0 /* EDMyPhotoViewController.xib in Resources */,
 				768F89351B61D7CD0054F73C /* WebViewViewController.xib in Resources */,
 				7644068B1B4A783A00541C86 /* SureOrderViewController.xib in Resources */,
@@ -2273,7 +2289,7 @@
 					"$(PROJECT_DIR)/education/component/libs",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "1da2dff5-aea5-49a7-9904-c740c5d585fb";
 			};
 			name = Debug;
 		};
@@ -2283,7 +2299,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Hunan Wufang technology CO., LTD (77BN3AW3ZP)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Hunan Wufang technology CO., LTD (77BN3AW3ZP)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2301,7 +2317,7 @@
 					"$(PROJECT_DIR)/education/component/libs",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "1da2dff5-aea5-49a7-9904-c740c5d585fb";
 			};
 			name = Release;
 		};

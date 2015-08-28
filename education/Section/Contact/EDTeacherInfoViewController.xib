@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
@@ -28,14 +28,14 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SwZ-X1-stA" userLabel="教师-View">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="34"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="33.5"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ES-hF-xzA">
-                                    <rect key="frame" x="10" y="12" width="4" height="15"/>
+                                    <rect key="frame" x="10" y="12" width="4" height="14.5"/>
                                     <color key="backgroundColor" red="1" green="0.48627450980392156" blue="0.023529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="教师信息" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7q-cR-Pos">
-                                    <rect key="frame" x="22" y="13" width="73" height="15"/>
+                                    <rect key="frame" x="22" y="13" width="73" height="14.5"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="73" id="Ed7-0b-h1d"/>
                                     </constraints>
@@ -55,10 +55,10 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rFQ-YB-1Tt" userLabel="头像-View">
-                            <rect key="frame" x="0.0" y="35" width="320" height="65"/>
+                            <rect key="frame" x="0.0" y="34" width="320" height="65"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="头像" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XHW-G2-WgU">
-                                    <rect key="frame" x="10" y="28" width="42" height="15"/>
+                                    <rect key="frame" x="10" y="28" width="42" height="14.5"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="42" id="PyX-Zo-U7a"/>
                                     </constraints>
@@ -92,10 +92,10 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xEK-Cg-cwi" userLabel="区域-View">
-                            <rect key="frame" x="1" y="100" width="320" height="45"/>
+                            <rect key="frame" x="1" y="99" width="320" height="44.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="区域" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wVc-KX-hjt">
-                                    <rect key="frame" x="10" y="15" width="42" height="15"/>
+                                    <rect key="frame" x="10" y="15" width="42" height="14.5"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="42" id="Jw5-dk-RMS"/>
                                     </constraints>
@@ -104,13 +104,13 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PqN-6D-p1L">
-                                    <rect key="frame" x="10" y="44" width="300" height="1"/>
+                                    <rect key="frame" x="10" y="43" width="300" height="1"/>
                                     <color key="backgroundColor" red="0.91372549020000005" green="0.91372549020000005" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="长沙市" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GrU-7x-saK">
-                                    <rect key="frame" x="210" y="15" width="100" height="15"/>
+                                    <rect key="frame" x="122" y="15" width="188" height="14.5"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="100" id="IwF-Hu-9tg"/>
+                                        <constraint firstAttribute="width" constant="188" id="IwF-Hu-9tg"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -134,7 +134,7 @@
                             <rect key="frame" x="0.0" y="145" width="320" height="45"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="学校" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M30-t7-yH2">
-                                    <rect key="frame" x="10" y="15" width="42" height="15"/>
+                                    <rect key="frame" x="10" y="15" width="42" height="14.5"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="42" id="aX6-C8-yhv"/>
                                     </constraints>
@@ -142,12 +142,12 @@
                                     <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PFJ-Kw-Zij">
-                                    <rect key="frame" x="10" y="44" width="300" height="1"/>
+                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PFJ-Kw-Zij">
+                                    <rect key="frame" x="10" y="43" width="300" height="1"/>
                                     <color key="backgroundColor" red="0.91372549020000005" green="0.91372549020000005" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="第五中学" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xhY-1l-Eq7">
-                                    <rect key="frame" x="60" y="15" width="250" height="15"/>
+                                    <rect key="frame" x="60" y="15" width="250" height="14.5"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="250" id="Urb-AG-Lut"/>
                                     </constraints>
@@ -173,7 +173,7 @@
                             <rect key="frame" x="0.0" y="190" width="320" height="45"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="姓名" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uBP-tq-2m9">
-                                    <rect key="frame" x="10" y="15" width="42" height="15"/>
+                                    <rect key="frame" x="10" y="15" width="42" height="14.5"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="42" id="Rgg-Hq-fGS"/>
                                     </constraints>
@@ -181,12 +181,12 @@
                                     <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N07-Oz-3kV">
-                                    <rect key="frame" x="10" y="44" width="300" height="1"/>
+                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N07-Oz-3kV">
+                                    <rect key="frame" x="10" y="43" width="300" height="1"/>
                                     <color key="backgroundColor" red="0.91372549020000005" green="0.91372549020000005" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="程一涵" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H52-e6-pMi">
-                                    <rect key="frame" x="210" y="15" width="100" height="15"/>
+                                    <rect key="frame" x="210" y="15" width="100" height="14.5"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="100" id="nBM-PM-94W"/>
                                     </constraints>
@@ -212,7 +212,7 @@
                             <rect key="frame" x="0.0" y="235" width="320" height="45"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="任教学科" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IEw-sR-gka">
-                                    <rect key="frame" x="10" y="15" width="54" height="15"/>
+                                    <rect key="frame" x="10" y="15" width="54" height="14.5"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="54" id="fZe-S2-LIJ"/>
                                     </constraints>
@@ -220,12 +220,12 @@
                                     <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="96w-Rl-Jt4">
-                                    <rect key="frame" x="10" y="44" width="300" height="1"/>
+                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="96w-Rl-Jt4">
+                                    <rect key="frame" x="10" y="43" width="300" height="1"/>
                                     <color key="backgroundColor" red="0.91372549020000005" green="0.91372549020000005" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="语文" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WKJ-uV-V2f">
-                                    <rect key="frame" x="210" y="15" width="100" height="15"/>
+                                    <rect key="frame" x="210" y="15" width="100" height="14.5"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="100" id="BMK-YG-Qui"/>
                                     </constraints>
@@ -251,7 +251,7 @@
                             <rect key="frame" x="0.0" y="280" width="320" height="45"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="所任职务" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5xQ-EI-2cI">
-                                    <rect key="frame" x="10" y="15" width="53" height="15"/>
+                                    <rect key="frame" x="10" y="15" width="53" height="14.5"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="53" id="Xo5-Z2-3zH"/>
                                     </constraints>
@@ -259,12 +259,12 @@
                                     <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tTr-Yk-KTw">
-                                    <rect key="frame" x="10" y="44" width="300" height="1"/>
+                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tTr-Yk-KTw">
+                                    <rect key="frame" x="10" y="43" width="300" height="1"/>
                                     <color key="backgroundColor" red="0.91372549020000005" green="0.91372549020000005" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="语文老师" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EDj-8l-hDS">
-                                    <rect key="frame" x="210" y="15" width="100" height="15"/>
+                                    <rect key="frame" x="210" y="15" width="100" height="14.5"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="100" id="5bR-j0-zaP"/>
                                     </constraints>
@@ -286,7 +286,7 @@
                                 <constraint firstItem="tTr-Yk-KTw" firstAttribute="top" secondItem="5xQ-EI-2cI" secondAttribute="bottom" constant="14" id="yAI-jR-nZy"/>
                             </constraints>
                         </view>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OAE-g5-VFD">
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OAE-g5-VFD">
                             <rect key="frame" x="60" y="360" width="200" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="RDk-EQ-j7d"/>

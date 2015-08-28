@@ -70,7 +70,14 @@
             ViewController *viewController = [[ViewController alloc] init];
             UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:viewController];
             
-            EDContactViewController *contactVC = [[EDContactViewController alloc] init];
+            EDContactViewController *contactVC;
+            if(!IOS7_LATER)
+            {
+                contactVC = [[EDContactViewController alloc] initWithNibName:@"EDContactViewController7.0" bundle:nil];
+            }else
+            {
+                contactVC = [[EDContactViewController alloc] initWithNibName:@"EDContactViewController" bundle:nil];
+            }
             UINavigationController *nav2 = [[UINavigationController alloc] initWithRootViewController:contactVC];
             
             MineViewController *mineVC = [[MineViewController alloc] init];

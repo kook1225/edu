@@ -33,6 +33,10 @@
     // Do any additional setup after loading the view from its nib.
     self.title = @"我的资料";
     
+    if (!IOS7_LATER) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.extendedLayoutIncludesOpaqueBars = NO;
+    }
     self.navigationItem.leftBarButtonItem = [Tools getNavBarItem:self clickAction:@selector(back)];
     
     tabBarView = (SETabBarViewController *)self.navigationController.parentViewController;
@@ -43,7 +47,14 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    _scrollView.contentSize = CGSizeMake(SCREENWIDTH, 690);
+    if(!IOS7_LATER)
+    {
+        _scrollView.contentSize = CGSizeMake(SCREENWIDTH, 800);
+    }else
+    {
+        _scrollView.contentSize = CGSizeMake(SCREENWIDTH, 690);
+
+    }
 }
 
 #pragma mark 常用方法

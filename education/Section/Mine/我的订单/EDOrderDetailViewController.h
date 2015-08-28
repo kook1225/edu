@@ -21,6 +21,7 @@
 @property (nonatomic,strong) NSDictionary *dic;
 @property (nonatomic,strong)NSString *type;
 
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 //状态View
 @property (weak, nonatomic) IBOutlet UILabel *orderStatus;
