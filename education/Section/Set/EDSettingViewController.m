@@ -45,7 +45,7 @@
     //联系我们
 //    ContactUsViewController *contactUsVC = [[ContactUsViewController alloc] init];
 //    [self.navigationController pushViewController:contactUsVC animated:YES];
-    NSString *tel = @"telprompt://96255";
+    NSString *tel = @"telprompt://0731-96255";
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:tel]];
 }
 - (IBAction)problemTap:(id)sender {

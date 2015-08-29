@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *userName;
 @property (weak, nonatomic) IBOutlet UITextField *userPwd;
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;
+@property (weak, nonatomic) IBOutlet UIButton *registerBtn;
 
 
 @end
@@ -32,6 +33,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //隐藏注册
+    _registerBtn.hidden = YES;
     
     // 获取设备id
     UIDevice *device = [UIDevice currentDevice];//创建设备对象

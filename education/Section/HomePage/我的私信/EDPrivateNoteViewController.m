@@ -82,6 +82,7 @@
 }
 - (IBAction)receiveMsgFunction:(id)sender
 {
+    //收件箱
     [_sendBtn setSelected:NO];
     [_receiveBtn setSelected:YES];
     type = @"2";
@@ -363,8 +364,8 @@
                 privateDetailVC.imagesString = dataArray[indexPath.row][@"messageInfo"][@"TPDZ"];
                 privateDetailVC.title = @"私信详情";
                 privateDetailVC.type = @"收件箱";
-                privateDetailVC.jsid = dataArray[indexPath.row][@"messageInfo"][@"JSID"];
-                privateDetailVC.jsType = dataArray[indexPath.row][@"messageInfo"][@"XXLX"];
+                privateDetailVC.jsid = dataArray[indexPath.row][@"author"][@"ID"];
+                privateDetailVC.jsType = dataArray[indexPath.row][@"author"][@"YHLB"];
                 [self.navigationController pushViewController:privateDetailVC animated:YES];
                 
             }else

@@ -23,7 +23,7 @@
 
 - (void)setDataDic:(NSDictionary *)dic
 {
-    _titleLabel.text = dic[@"KEMU"];
+    _titleLabel.text = dic[@"ZYMC"];
     _playCountLabel.text = [NSString stringWithFormat:@"已播放 %@次",dic[@"CECI"]];
     
     NSString *imgString = [NSString stringWithFormat:@"%@%@",IMAGE_HOST,dic[@"ZYTP"]];

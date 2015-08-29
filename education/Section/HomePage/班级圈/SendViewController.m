@@ -21,6 +21,9 @@
     NSMutableString *picAdd;
     
     UIImagePickerController *pic;
+    
+    int image_width;
+    int slide_x;
 }
 @property (weak, nonatomic) IBOutlet UIView *headView;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
@@ -135,6 +138,31 @@
 
 - (void)drawlayer
 {
+    
+    
+    
+    if (SCREENWIDTH ==375) {
+        image_width = 110;
+        slide_x = image_width+12;
+
+    }else if(SCREENWIDTH == 320)
+    {
+        image_width = 92;
+        slide_x = image_width+12;
+    }else
+    {
+        image_width = 124;
+        slide_x = image_width+11;
+    }
+    _headView.frame = CGRectMake(0, 0, SCREENWIDTH, image_width +20);
+    if (SCREENHEIGHT == 480) {
+        _textView.frame = CGRectMake(10, CGRectGetMaxY(_headView.frame), SCREENWIDTH-20, 90);
+        
+    }else
+    {
+        _textView.frame = CGRectMake(10, CGRectGetMaxY(_headView.frame), SCREENWIDTH-20, 180);
+        
+    }
     imageNum = 0;
     _textView.layer.cornerRadius = 4.0f;
     _textView.layer.masksToBounds = YES;
@@ -142,7 +170,7 @@
     _textView.layer.borderWidth = 1.0f;
     
     addImgBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    addImgBtn.frame = CGRectMake(10, 10, 78, 78);
+    addImgBtn.frame = CGRectMake(10, 10, image_width,image_width);
     [addImgBtn setImage:[UIImage imageNamed:@"addImg"] forState:UIControlStateNormal];
     [addImgBtn addTarget:self action:@selector(addImageView) forControlEvents:UIControlEventTouchUpInside];
     [_headView addSubview:addImgBtn];
@@ -162,64 +190,62 @@
 {
     imgView = [[UIImageView alloc]init];
     
-    int slide_x = 0;
-    
-    if (SCREENWIDTH ==375) {
-         slide_x = 140;
-    }else if(SCREENWIDTH == 320)
-    {
-        slide_x = 113;
-    }else
-    {
-        slide_x = 160;
-    }
     
         if (num <3) {
-            imgView.frame = CGRectMake(10+slide_x*(num-1), 10, 70, 70);
+            imgView.frame = CGRectMake(10+slide_x*(num-1), 10, image_width, image_width);
             imgView.tag = 400+num;
             imgView.image = img;
             [_headView addSubview:imgView];
-            addImgBtn.frame = CGRectMake(10+slide_x*num, 10, 70, 70);
+            addImgBtn.frame = CGRectMake(10+slide_x*num, 10, image_width, image_width);
         }else if (num ==3)
         {
-            _headView.frame = CGRectMake(0, 0, SCREENWIDTH, 95+80);
-            _textView.frame = CGRectMake(10, CGRectGetMaxY(_headView.frame), SCREENWIDTH-20, 181);
-            imgView.frame = CGRectMake(10+slide_x*(num-1), 10, 70, 70);
+            _headView.frame = CGRectMake(0, 0, SCREENWIDTH,image_width*2+30);
+            if (SCREENHEIGHT == 480) {
+                _textView.frame = CGRectMake(10, CGRectGetMaxY(_headView.frame), SCREENWIDTH-20, 90);
+                
+            }else
+            {
+                _textView.frame = CGRectMake(10, CGRectGetMaxY(_headView.frame), SCREENWIDTH-20, 180);
+                
+            }
+         
+            imgView.frame = CGRectMake(10+slide_x*(num-1), 10, image_width, image_width);
             imgView.tag = 400+num;
             imgView.image = img;
             [_headView addSubview:imgView];
-            addImgBtn.frame = CGRectMake(10+slide_x*(num-3), 90, 70, 70);
+            addImgBtn.frame = CGRectMake(10+slide_x*(num-3), image_width+20, image_width, image_width);
         }
         else if (num <6)
         {
-            imgView.frame = CGRectMake(10+slide_x*(num-4), 90, 70, 70);
+            imgView.frame = CGRectMake(10+slide_x*(num-4), image_width+20, image_width, image_width);
             imgView.tag = 400+num;
             imgView.image = img;
             [_headView addSubview:imgView];
-            addImgBtn.frame = CGRectMake(10+slide_x*(num-3), 90, 70, 70);
+            addImgBtn.frame = CGRectMake(10+slide_x*(num-3), image_width+20, image_width, image_width);
         }else if (num ==6)
         {
-            _headView.frame = CGRectMake(0, 0, SCREENWIDTH, 95+80*2);
+            _headView.frame = CGRectMake(0, 0, SCREENWIDTH, image_width*3+40);
+            
             if (SCREENHEIGHT == 480) {
-                _textView.frame = CGRectMake(10, CGRectGetMaxY(_headView.frame), SCREENWIDTH-20, 150);
+                _textView.frame = CGRectMake(10, CGRectGetMaxY(_headView.frame), SCREENWIDTH-20, 90);
 
             }else
             {
-                _textView.frame = CGRectMake(10, CGRectGetMaxY(_headView.frame), SCREENWIDTH-20, 181);
+                _textView.frame = CGRectMake(10, CGRectGetMaxY(_headView.frame), SCREENWIDTH-20, 180);
 
             }
-            imgView.frame = CGRectMake(10+slide_x*(num-4), 90, 70, 70);
+            imgView.frame = CGRectMake(10+slide_x*(num-4), image_width+20, image_width, image_width);
             imgView.tag = 400+num;
             imgView.image = img;
             [_headView addSubview:imgView];
-            addImgBtn.frame = CGRectMake(10+slide_x*(num-6), 170, 70, 70);
+            addImgBtn.frame = CGRectMake(10+slide_x*(num-6),image_width*2+30, image_width, image_width);
         }else
         {
-            imgView.frame = CGRectMake(10+slide_x*(num-7), 170, 70, 70);
+            imgView.frame = CGRectMake(10+slide_x*(num-7), image_width*2+30, image_width, image_width);
             imgView.tag = 400+num;
             imgView.image = img;
             [_headView addSubview:imgView];
-            addImgBtn.frame = CGRectMake(10+slide_x*(num-6), 170, 70, 70);
+            addImgBtn.frame = CGRectMake(10+slide_x*(num-6), image_width*2+30, image_width, image_width);
         }
     
     
@@ -355,10 +381,10 @@
                 addImgBtn.hidden = YES;
             }
             
-            MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
-            HUD.mode = MBProgressHUDModeIndeterminate;
-            HUD.labelText = @"加载中...";
-            HUD.removeFromSuperViewOnHide = YES;
+//            MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+//            HUD.mode = MBProgressHUDModeIndeterminate;
+//            HUD.labelText = @"加载中...";
+//            HUD.removeFromSuperViewOnHide = YES;
             
             
             AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -381,7 +407,7 @@
                 [formData appendPartWithFileData:fileData name:@"media" fileName:@"1.jpg" mimeType:@"image/jpeg"];
             }
                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                      [HUD hide:YES];
+//                      [HUD hide:YES];
                       if ([responseObject[@"responseCode"] intValue] == 0) {
                           if (imageNum == 1) {
                               [picAdd appendString:[NSString stringWithFormat:@"%@",responseObject[@"data"]]];
@@ -400,7 +426,7 @@
                       
                   }
                   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                      [HUD hide:YES];
+//                      [HUD hide:YES];
                       if(error.code == -1001)
                       {
                           SHOW_ALERT(@"提示", @"网络请求超时");
