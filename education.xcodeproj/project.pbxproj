@@ -133,6 +133,7 @@
 		761749041B451C87006DD0AA /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 761749021B451C87006DD0AA /* MineViewController.m */; };
 		761749051B451C87006DD0AA /* MineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 761749031B451C87006DD0AA /* MineViewController.xib */; };
 		76239E331B88505400A7AD82 /* 注册免责条款.html in Resources */ = {isa = PBXBuildFile; fileRef = 76239E321B88505400A7AD82 /* 注册免责条款.html */; };
+		76239E6A1B91875300A7AD82 /* 关于我们.html in Resources */ = {isa = PBXBuildFile; fileRef = 76239E691B91875300A7AD82 /* 关于我们.html */; };
 		762A38081B7C898700F8A0AF /* TermsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 762A38061B7C898700F8A0AF /* TermsViewController.m */; };
 		762A38091B7C898700F8A0AF /* TermsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 762A38071B7C898700F8A0AF /* TermsViewController.xib */; };
 		7644064D1B458B1700541C86 /* BottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 764406421B458B1700541C86 /* BottomCell.m */; };
@@ -471,6 +472,7 @@
 		761749021B451C87006DD0AA /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
 		761749031B451C87006DD0AA /* MineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MineViewController.xib; sourceTree = "<group>"; };
 		76239E321B88505400A7AD82 /* 注册免责条款.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "注册免责条款.html"; sourceTree = "<group>"; };
+		76239E691B91875300A7AD82 /* 关于我们.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "关于我们.html"; sourceTree = "<group>"; };
 		762A38051B7C898700F8A0AF /* TermsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermsViewController.h; sourceTree = "<group>"; };
 		762A38061B7C898700F8A0AF /* TermsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermsViewController.m; sourceTree = "<group>"; };
 		762A38071B7C898700F8A0AF /* TermsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TermsViewController.xib; sourceTree = "<group>"; };
@@ -1624,6 +1626,7 @@
 		768FFAEE1B4238D9008E577F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				76239E691B91875300A7AD82 /* 关于我们.html */,
 				76239E321B88505400A7AD82 /* 注册免责条款.html */,
 				1857A0F71B5754FB00501EA0 /* details.html */,
 				768FFAEF1B4238D9008E577F /* Info.plist */,
@@ -1897,6 +1900,7 @@
 				764406D41B4EA4DF00541C86 /* EvaluteAndEncourageCell.xib in Resources */,
 				764406651B4671BC00541C86 /* LifeServiceViewController.xib in Resources */,
 				18579FE41B4BC24E00501EA0 /* EDSetProblemViewController.xib in Resources */,
+				76239E6A1B91875300A7AD82 /* 关于我们.html in Resources */,
 				768FFAFF1B4238D9008E577F /* LaunchScreen.xib in Resources */,
 				764406E81B4F5A8600541C86 /* IntroDetailViewController.xib in Resources */,
 				1857A0261B4BC3FB00501EA0 /* EDOrderBottomCell.xib in Resources */,
@@ -2289,7 +2293,7 @@
 					"$(PROJECT_DIR)/education/component/libs",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "1da2dff5-aea5-49a7-9904-c740c5d585fb";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -2299,7 +2303,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Hunan Wufang technology CO., LTD (77BN3AW3ZP)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Hunan Wufang technology CO., LTD (77BN3AW3ZP)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2317,7 +2321,7 @@
 					"$(PROJECT_DIR)/education/component/libs",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "1da2dff5-aea5-49a7-9904-c740c5d585fb";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

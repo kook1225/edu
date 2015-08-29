@@ -78,7 +78,6 @@
     dataArray = [NSArray array];
     
     
-    
     tabBarViewController = (SETabBarViewController *)self.navigationController.parentViewController;
     
     [[[UIApplication sharedApplication] delegate] window].rootViewController = tabBarViewController;

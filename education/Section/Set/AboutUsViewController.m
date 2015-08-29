@@ -34,6 +34,13 @@
     _msgView.layer.cornerRadius = 4.0f;
     _msgView.layer.masksToBounds = YES;
     
+    
+    NSString* path = [[NSBundle mainBundle] pathForResource:@"关于我们" ofType:@"html"];
+    NSURL* url = [NSURL fileURLWithPath:path];
+    NSURLRequest* request = [NSURLRequest requestWithURL:url] ;
+    [_webView loadRequest:request];
+    
+    /*
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     HUD.mode = MBProgressHUDModeIndeterminate;
     HUD.labelText = @"加载中...";
@@ -86,7 +93,7 @@
             //   SHOW_ALERT(@"提示",operation.responseObject[@"message"])
         }
     }];
-
+     */
 }
 
 #pragma mark 常用方法
