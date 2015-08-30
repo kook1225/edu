@@ -93,6 +93,8 @@
                                                  name:@"ClassCircleCell"
                                                object:@"ReplyAction"];
     
+     [self classCircleApi];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -103,7 +105,7 @@
     dataArray = [NSMutableArray array];
     bigImageArray = [NSMutableArray array];
     
-    [self classCircleApi];
+   
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -161,7 +163,7 @@
         
         // 设置超时时间
         [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
-        manager.requestSerializer.timeoutInterval = 10.f;
+        manager.requestSerializer.timeoutInterval = 30.f;
         [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
         
         [manager POST:urlStr parameters:parameter
@@ -238,7 +240,7 @@
     
     // 设置超时时间
     [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
-    manager.requestSerializer.timeoutInterval = 10.f;
+    manager.requestSerializer.timeoutInterval = 30.f;
     [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
     
     [manager POST:urlStr parameters:parameter
@@ -305,7 +307,7 @@
     
     // 设置超时时间
     [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
-    manager.requestSerializer.timeoutInterval = 10.f;
+    manager.requestSerializer.timeoutInterval = 30.f;
     [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
     
     [manager GET:urlStr parameters:parameter

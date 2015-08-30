@@ -152,6 +152,7 @@
     EDGradeDetailViewController *gradeDetailVC = [[EDGradeDetailViewController alloc]init];
     gradeDetailVC.titleString = [dataArray[indexPath.row] KSMC];
     gradeDetailVC.dataArray = [dataArray[indexPath.row] list];
+    gradeDetailVC.studentName = _studentName;
     [self.navigationController pushViewController:gradeDetailVC animated:YES];
 }
 

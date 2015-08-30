@@ -11,4 +11,5 @@
 @interface EDGradeRecodeViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) NSString *detailId;
 
+@property (nonatomic,strong) NSString *studentName;
 @end

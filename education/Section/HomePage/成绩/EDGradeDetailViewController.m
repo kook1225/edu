@@ -63,7 +63,13 @@
     
     
     _titleLabel.text = _titleString;
-    _name.text = [NSString stringWithFormat:@"学生姓名: %@",[SEUtils getUserInfo].UserDetail.studentInfo.XSXM];
+    if ([[SEUtils getUserInfo].UserDetail.userinfo.YHLB intValue] ==3) {
+        _name.text = [NSString stringWithFormat:@"学生姓名: %@",_studentName];
+    }else
+    {
+        _name.text = [NSString stringWithFormat:@"学生姓名: %@",[SEUtils getUserInfo].UserDetail.studentInfo.XSXM];
+    }
+    
     
     NSLog(@"array--%@",_dataArray);
 }

@@ -11,4 +11,6 @@
 @interface EDGradeDetailViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) NSString *titleString;
 @property (nonatomic,strong) NSArray *dataArray;
+
+@property (nonatomic,strong) NSString *studentName;
 @end

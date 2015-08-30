@@ -248,7 +248,10 @@
     if (cell== nil) {
         cell = [[[NSBundle mainBundle]loadNibNamed:@"EDClassOnlineCell" owner:self options:nil]lastObject];
     }
-    [cell setDataDic:dataArray[indexPath.row]];
+    if (dataArray.count !=0) {
+        [cell setDataDic:dataArray[indexPath.row]];
+    }
+    
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

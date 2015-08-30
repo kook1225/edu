@@ -86,7 +86,7 @@
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
-    manager.requestSerializer.timeoutInterval = 10.f;
+    manager.requestSerializer.timeoutInterval = 30.f;
     [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
     
     NSDictionary *pramaters= @{@"access_token":[SEUtils getUserInfo].TokenInfo.access_token,
@@ -198,7 +198,7 @@
         contentCell = [[[NSBundle mainBundle]loadNibNamed:@"EDContactContentCell" owner:self options:nil]lastObject];
     }
      contentCell.name.text = studentArray[indexPath.section][indexPath.row][@"XSXM"];
-    NSString *imgString = [NSString stringWithFormat:@"%@%@",IMAGE_HOST,studentArray[indexPath.section][indexPath.row][@"YHTX"]];
+    NSString *imgString = [NSString stringWithFormat:@"%@%@",IMG_HOST,studentArray[indexPath.section][indexPath.row][@"YHTX"]];
         NSURL *url = [NSURL URLWithString:imgString];
         [contentCell.contactImg sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"1"]];
         
@@ -219,11 +219,13 @@
     {
         EDGradeRecodeViewController *gradeVC = [[EDGradeRecodeViewController alloc]init];
         gradeVC.detailId = studentArray[indexPath.section][indexPath.row][@"XSID"];
+        gradeVC.studentName = studentArray[indexPath.section][indexPath.row][@"XSXM"];
         [self.navigationController pushViewController:gradeVC animated:YES];
         
     }else if ([_type isEqualToString:@"体质体能"]){
         EDPhySicalTestViewController *physicalVC = [[EDPhySicalTestViewController alloc]init];
         physicalVC.detailId = studentArray[indexPath.section][indexPath.row][@"XSID"];
+        
         [self.navigationController pushViewController:physicalVC animated:YES];
     }else
     {
