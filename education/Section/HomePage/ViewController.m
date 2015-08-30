@@ -441,9 +441,13 @@
             [self.navigationController pushViewController:gradeVC animated:YES];
         }
         else {
+            EDGradeRecodeViewController *gradeVC = [[EDGradeRecodeViewController alloc]init];
+            [self.navigationController pushViewController:gradeVC animated:YES];
+            /*
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"VIP会员尊享家庭作业、成长足迹、成绩档案、在线视频四大核心业务。您还不是会员，赶紧去开通吧!" delegate:self cancelButtonTitle:@"返回首页" otherButtonTitles:@"成为VIP", nil];
             alert.tag = 201;
             [alert show];
+             */
         }
     }
     
@@ -463,9 +467,13 @@
             [self.navigationController pushViewController:homeWorkVC animated:YES];
         }
         else {
+            EDHomeWorkViewController *homeWorkVC = [[EDHomeWorkViewController alloc]init];
+            [self.navigationController pushViewController:homeWorkVC animated:YES];
+            /*
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"VIP会员尊享家庭作业、成长足迹、成绩档案、在线视频四大核心业务。您还不是会员，赶紧去开通吧!" delegate:self cancelButtonTitle:@"返回首页" otherButtonTitles:@"成为VIP", nil];
             alert.tag = 201;
             [alert show];
+             */
         }
     }
     
@@ -486,9 +494,12 @@
             [self.navigationController pushViewController:growthTrailVC animated:YES];
         }
         else {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"VIP会员尊享家庭作业、成长足迹、成绩档案、在线视频四大核心业务。您还不是会员，赶紧去开通吧!" delegate:self cancelButtonTitle:@"返回首页" otherButtonTitles:@"成为VIP", nil];
+            GrowthTrailViewController *growthTrailVC = [[GrowthTrailViewController alloc] init];
+            [self.navigationController pushViewController:growthTrailVC animated:YES];
+         /*   UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"VIP会员尊享家庭作业、成长足迹、成绩档案、在线视频四大核心业务。您还不是会员，赶紧去开通吧!" delegate:self cancelButtonTitle:@"返回首页" otherButtonTitles:@"成为VIP", nil];
             alert.tag = 201;
             [alert show];
+          */
         }
 
     }
@@ -518,9 +529,13 @@
          [self.navigationController pushViewController:classOnlineVC animated:YES];
         }
         else {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"VIP会员尊享家庭作业、成长足迹、成绩档案、在线视频四大核心业务。您还不是会员，赶紧去开通吧!" delegate:self cancelButtonTitle:@"返回首页" otherButtonTitles:@"成为VIP", nil];
+            EDClassOnlineViewController *classOnlineVC = [[EDClassOnlineViewController alloc]init];
+            [self.navigationController pushViewController:classOnlineVC animated:YES];
+           
+            /*UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"VIP会员尊享家庭作业、成长足迹、成绩档案、在线视频四大核心业务。您还不是会员，赶紧去开通吧!" delegate:self cancelButtonTitle:@"返回首页" otherButtonTitles:@"成为VIP", nil];
             alert.tag = 201;
             [alert show];
+             */
         }
     
 }
