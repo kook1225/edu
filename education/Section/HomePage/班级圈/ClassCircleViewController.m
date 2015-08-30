@@ -93,7 +93,7 @@
                                                  name:@"ClassCircleCell"
                                                object:@"ReplyAction"];
     
-     [self classCircleApi];
+    
     
 }
 
@@ -105,7 +105,7 @@
     dataArray = [NSMutableArray array];
     bigImageArray = [NSMutableArray array];
     
-   
+    [self classCircleApi];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -284,11 +284,12 @@
     imagesArray = [NSMutableArray array];
     bigImageArray = [NSMutableArray array];
     
+    /*
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     HUD.mode = MBProgressHUDModeIndeterminate;
     HUD.labelText = @"加载中...";
     HUD.removeFromSuperViewOnHide = YES;
-    
+    */
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
@@ -312,7 +313,7 @@
     
     [manager GET:urlStr parameters:parameter
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
-             [HUD hide:YES];
+           // [HUD hide:YES];
              
              NSError *err;
              
@@ -346,7 +347,7 @@
              
          }
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-             [HUD hide:YES];
+           //  [HUD hide:YES];
              if(error.code == -1001)
              {
                  SHOW_ALERT(@"提示", @"网络请求超时");
