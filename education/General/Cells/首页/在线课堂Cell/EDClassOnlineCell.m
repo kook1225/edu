@@ -26,7 +26,7 @@
     _titleLabel.text = dic[@"ZYMC"];
     _playCountLabel.text = [NSString stringWithFormat:@"已播放 %@次",dic[@"CECI"]];
     
-    NSString *imgString = [NSString stringWithFormat:@"%@%@",IMAGE_HOST,dic[@"ZYTP"]];
+    NSString *imgString = [NSString stringWithFormat:@"%@%@",IMG_HOST,dic[@"ZYTP"]];
     NSURL *url = [NSURL URLWithString:imgString];
     [_bkgImg sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"icon_default"] ];
 }

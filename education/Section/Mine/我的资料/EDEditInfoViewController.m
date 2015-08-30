@@ -47,14 +47,19 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    if(!IOS7_LATER)
+    int height =0;
+    if (SCREENHEIGHT ==480) {
+        height = 900;
+    }else if(SCREENHEIGHT == 568)
     {
-        _scrollView.contentSize = CGSizeMake(SCREENWIDTH, 800);
-    }else
+        height = 780;
+    }else if (SCREENWIDTH ==375)
     {
-        _scrollView.contentSize = CGSizeMake(SCREENWIDTH, 690);
-
+        height = 700;
     }
+    _scrollView.contentSize = CGSizeMake(SCREENWIDTH, height);
+
+    
 }
 
 #pragma mark 常用方法
@@ -200,7 +205,7 @@
                                         @"extension":@"jpg"
                                         };
             
-            NSString *urlStr = [NSString stringWithFormat:@"%@/UploadAPI/",IMAGE_HOST];
+            NSString *urlStr = [NSString stringWithFormat:@"%@/UploadAPI/",IMG_HOST];
             
             
             // 设置超时时间

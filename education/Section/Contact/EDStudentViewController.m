@@ -9,6 +9,7 @@
 #import "EDStudentViewController.h"
 #import "SETabBarViewController.h"
 #import "EDSendMsgViewController.h"
+#import <UIImageView+WebCache.h>
 
 @interface EDStudentViewController ()
 {
@@ -83,6 +84,11 @@
     NSLog(@"妈妈电话是---%@",_detailDic[@"MQDH"]);
     NSLog(@"爸爸电话是---%@",_detailDic[@"FQDH"]);
 
+    
+    NSString *imgString = [NSString stringWithFormat:@"%@%@",IMG_HOST,_detailDic[@"YHTX"]];
+    NSURL *url = [NSURL URLWithString:imgString];
+    [_headImg sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"1"]];
+    
     
     if([_detailDic[@"MQDH"] length] >0)
     {

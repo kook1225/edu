@@ -192,7 +192,7 @@
                                         @"extension":@"jpg"
                                         };
             
-            NSString *urlStr = [NSString stringWithFormat:@"%@/UploadAPI/",IMAGE_HOST];
+            NSString *urlStr = [NSString stringWithFormat:@"%@/UploadAPI/",IMG_HOST];
             
             
             // 设置超时时间

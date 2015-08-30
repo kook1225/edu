@@ -68,6 +68,9 @@
     _name.text = _detailDic[@"JSXM"];
     _subject.text = _detailDic[@"RJXK"];
     _profession.text = _detailDic[@"SRZW"];
+    NSString *imgString = [NSString stringWithFormat:@"%@%@",IMG_HOST,_detailDic[@"YHTX"]];
+    NSURL *url = [NSURL URLWithString:imgString];
+    [_headImg sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"1"]];
     
 }
 - (IBAction)sendMsgBtn:(id)sender {
