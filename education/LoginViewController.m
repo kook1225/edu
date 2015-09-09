@@ -65,65 +65,60 @@
         SHOW_ALERT(@"提示", @"用户名或密码不能为空");
     }
     else {
-        if (![SEUtils isValidateMobile:_userName.text]) {
-            SHOW_ALERT(@"提示", @"用户名格式不正确");
+        if (!([_userPwd.text length] >= 6 && [_userPwd.text length] <= 20)) {
+            SHOW_ALERT(@"提示", @"密码长度不正确");
         }
         else {
-            if (!([_userPwd.text length] >= 6 && [_userPwd.text length] <= 20)) {
-                SHOW_ALERT(@"提示", @"密码长度不正确");
-            }
-            else {
-                
-                _loginBtn.enabled = NO;
-                
-                MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-                HUD.mode = MBProgressHUDModeIndeterminate;
-                HUD.labelText = @"加载中...";
-                HUD.removeFromSuperViewOnHide = YES;
-                
-                
-                AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-                
-                NSString *urlStr = [NSString stringWithFormat:@"%@Token",SERVER_HOST];
-                
-                NSDictionary *parameter = @{@"registerId":deviceId,@"username":_userName.text,@"password":_userPwd.text,@"deviceType":@"4"};
-                
-                // 设置超时时间
-                [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
-                manager.requestSerializer.timeoutInterval = 10.f;
-                [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
-                
-                [manager POST:urlStr parameters:parameter
-                      success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                          _loginBtn.enabled = YES;
-                          [HUD hide:YES];
-                          
-                          NSError *err;
-                          
-                          UserModel *model = [[UserModel alloc] initWithDictionary:responseObject[@"data"] error:&err];
-                          
-                          if ([responseObject[@"responseCode"] intValue] == 0) {
-                              [SEUtils setUserInfo:model];
-                              [self goHomeWork];
-                          }
-                          else {
-                              SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
-                          }
-                          
-                          
+            
+            _loginBtn.enabled = NO;
+            
+            MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            HUD.mode = MBProgressHUDModeIndeterminate;
+            HUD.labelText = @"加载中...";
+            HUD.removeFromSuperViewOnHide = YES;
+            
+            
+            AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+            
+            NSString *urlStr = [NSString stringWithFormat:@"%@Token",SERVER_HOST];
+            
+            NSDictionary *parameter = @{@"registerId":deviceId,@"username":_userName.text,@"password":_userPwd.text,@"deviceType":@"4"};
+            
+            // 设置超时时间
+            [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+            manager.requestSerializer.timeoutInterval = 10.f;
+            [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+            
+            [manager POST:urlStr parameters:parameter
+                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                      _loginBtn.enabled = YES;
+                      [HUD hide:YES];
+                      
+                      NSError *err;
+                      
+                      UserModel *model = [[UserModel alloc] initWithDictionary:responseObject[@"data"] error:&err];
+                      
+                      if ([responseObject[@"responseCode"] intValue] == 0) {
+                          [SEUtils setUserInfo:model];
+                          [self goHomeWork];
                       }
-                      failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                          _loginBtn.enabled = YES;
-                          [HUD hide:YES];
-                          if(error.code == -1001)
-                          {
-                              SHOW_ALERT(@"提示", @"网络请求超时");
-                          }else if (error.code == -1009)
-                          {
-                              SHOW_ALERT(@"提示", @"网络连接已断开");
-                          }
-                      }];
-            }
+                      else {
+                          SHOW_ALERT(@"提示", responseObject[@"responseMessage"]);
+                      }
+                      
+                      
+                  }
+                  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                      _loginBtn.enabled = YES;
+                      [HUD hide:YES];
+                      if(error.code == -1001)
+                      {
+                          SHOW_ALERT(@"提示", @"网络请求超时");
+                      }else if (error.code == -1009)
+                      {
+                          SHOW_ALERT(@"提示", @"网络连接已断开");
+                      }
+                  }];
         }
     }
 }

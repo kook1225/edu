@@ -126,6 +126,7 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (alertView.tag == 201) {
         if (buttonIndex == 1) {
+            [SEUtils setUserInfo:nil];
             LoginViewController *loginVC = [[LoginViewController alloc] init];
             loginVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
             [self presentViewController:loginVC animated:YES completion:nil];
