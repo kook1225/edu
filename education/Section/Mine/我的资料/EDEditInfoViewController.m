@@ -75,7 +75,7 @@
     
     
     
-    _userId.text = [SEUtils getUserInfo].UserDetail.userinfo.ID;
+    _userId.text = [SEUtils getUserInfo].UserDetail.userinfo.YHM;
     _location.text = [SEUtils getUserInfo].UserDetail.studentInfo.QYMC;
     _school.text = [SEUtils getUserInfo].UserDetail.studentInfo.DWMC;
     _grade.text = [SEUtils getUserInfo].UserDetail.studentInfo.NJMC;
@@ -205,7 +205,7 @@
                                         @"extension":@"jpg"
                                         };
             
-            NSString *urlStr = [NSString stringWithFormat:@"%@/UploadAPI/",IMG_HOST];
+            NSString *urlStr = [NSString stringWithFormat:@"%@/UploadAPI/",IMAGE_HOST];
             
             
             // 设置超时时间

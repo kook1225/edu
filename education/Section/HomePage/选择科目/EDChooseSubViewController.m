@@ -110,7 +110,7 @@
                 
             }else if(num == 2)
             {
-                if ([responseObject[@"data"] count] == 0) {
+                if ([responseObject[@"data"] count]== 0) {
                     _nonDataLabel.hidden = NO;
                     _subjectTableView.hidden = YES;
                 }else

@@ -11,8 +11,8 @@
 #import "AppDelegate.h"
 
 @interface WebViewViewController ()<UIWebViewDelegate> {
-    UIActivityIndicatorView *activityIndicator;
     SETabBarViewController *tabBarViewController;
+    UIActivityIndicatorView *activityIndicator;
 }
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 
