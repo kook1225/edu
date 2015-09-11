@@ -139,7 +139,7 @@
               if ([responseObject[@"responseCode"] intValue] == 0) {
                   dataArray = [SchoolTimeTableModel arrayOfModelsFromDictionaries:responseObject[@"data"] error:&err];
                   
-                  for (int i = 1; i <= 7; i++) {
+                  for (int i = 1; i <= 9; i++) {
                       for (int j = 0; j < [dataArray count]; j++) {
                           if (j == 0) {
                               UILabel *courseLabel = (UILabel *)[_courseView1 viewWithTag:i];
