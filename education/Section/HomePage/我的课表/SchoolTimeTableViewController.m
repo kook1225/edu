@@ -80,8 +80,8 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    if (SCREENHEIGHT == 480) {
-        _scrollView.contentSize = CGSizeMake(SCREENWIDTH, 580);
+    if (SCREENHEIGHT <= 568) {
+        _scrollView.contentSize = CGSizeMake(SCREENWIDTH, 624);
     }
 }
 
@@ -164,6 +164,12 @@
                               else if (i == 7) {
                                   courseLabel.text = [[dataArray objectAtIndex:j] KC07];
                               }
+                              else if (i == 8) {
+                                  courseLabel.text = [[dataArray objectAtIndex:j] KC08];
+                              }
+                              else if (i == 9) {
+                                  courseLabel.text = [[dataArray objectAtIndex:j] KC09];
+                              }
                           }
                           else if (j == 1) {
                               UILabel *courseLabel = (UILabel *)[_courseView2 viewWithTag:i];
@@ -187,6 +193,12 @@
                               }
                               else if (i == 7) {
                                   courseLabel.text = [[dataArray objectAtIndex:j] KC07];
+                              }
+                              else if (i == 8) {
+                                  courseLabel.text = [[dataArray objectAtIndex:j] KC08];
+                              }
+                              else if (i == 9) {
+                                  courseLabel.text = [[dataArray objectAtIndex:j] KC09];
                               }
                           }
                           else if (j == 2) {
@@ -212,6 +224,12 @@
                               else if (i == 7) {
                                   courseLabel.text = [[dataArray objectAtIndex:j] KC07];
                               }
+                              else if (i == 8) {
+                                  courseLabel.text = [[dataArray objectAtIndex:j] KC08];
+                              }
+                              else if (i == 9) {
+                                  courseLabel.text = [[dataArray objectAtIndex:j] KC09];
+                              }
                           }
                           else if (j == 3) {
                               UILabel *courseLabel = (UILabel *)[_courseView4 viewWithTag:i];
@@ -235,6 +253,12 @@
                               }
                               else if (i == 7) {
                                   courseLabel.text = [[dataArray objectAtIndex:j] KC07];
+                              }
+                              else if (i == 8) {
+                                  courseLabel.text = [[dataArray objectAtIndex:j] KC08];
+                              }
+                              else if (i == 9) {
+                                  courseLabel.text = [[dataArray objectAtIndex:j] KC09];
                               }
                           }
                           else if (j == 4) {
@@ -260,6 +284,12 @@
                               else if (i == 7) {
                                   courseLabel.text = [[dataArray objectAtIndex:j] KC07];
                               }
+                              else if (i == 8) {
+                                  courseLabel.text = [[dataArray objectAtIndex:j] KC08];
+                              }
+                              else if (i == 9) {
+                                  courseLabel.text = [[dataArray objectAtIndex:j] KC09];
+                              }
                           }
                           else if (j == 5) {
                               UILabel *courseLabel = (UILabel *)[_courseView6 viewWithTag:i];
@@ -284,6 +314,12 @@
                               else if (i == 7) {
                                   courseLabel.text = [[dataArray objectAtIndex:j] KC07];
                               }
+                              else if (i == 8) {
+                                  courseLabel.text = [[dataArray objectAtIndex:j] KC08];
+                              }
+                              else if (i == 9) {
+                                  courseLabel.text = [[dataArray objectAtIndex:j] KC09];
+                              }
                           }
                           else if (j == 6) {
                               UILabel *courseLabel = (UILabel *)[_courseView7 viewWithTag:i];
@@ -307,6 +343,12 @@
                               }
                               else if (i == 7) {
                                   courseLabel.text = [[dataArray objectAtIndex:j] KC07];
+                              }
+                              else if (i == 8) {
+                                  courseLabel.text = [[dataArray objectAtIndex:j] KC08];
+                              }
+                              else if (i == 9) {
+                                  courseLabel.text = [[dataArray objectAtIndex:j] KC09];
                               }
                           }
                       }
