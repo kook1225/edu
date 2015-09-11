@@ -80,8 +80,8 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    if (SCREENHEIGHT <= 568) {
-        _scrollView.contentSize = CGSizeMake(SCREENWIDTH, 624);
+    if (SCREENHEIGHT < 568) {
+        _scrollView.contentSize = CGSizeMake(SCREENWIDTH, 604);
     }
 }
 
