@@ -96,7 +96,7 @@
         if ([responseObject[@"responseCode"] intValue] ==0) {
             
             if (num==1) {
-                if ([responseObject[@"data"] count]== 0) {
+                if (responseObject[@"data"] == [NSNull null]) {
                     _nonDataLabel2.hidden = NO;
                     _gradeTableView.hidden = YES;
                 }else
@@ -110,7 +110,7 @@
                 
             }else if(num == 2)
             {
-                if ([responseObject[@"data"] count]== 0) {
+                if (responseObject[@"data"]== [NSNull null]) {
                     _nonDataLabel.hidden = NO;
                     _subjectTableView.hidden = YES;
                 }else
@@ -123,7 +123,7 @@
                 
             }else
             {
-                if ([responseObject[@"data"] count]== 0) {
+                if (responseObject[@"data"] == [NSNull null]) {
                     _nonDataLabel2.hidden = NO;
                     _nonDataLabel.hidden = NO;
                     _gradeTableView.hidden = YES;

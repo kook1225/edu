@@ -35,6 +35,11 @@
     // Do any additional setup after loading the view from its nib.
     self.title = @"通知公告";
     
+    if (!IOS7_LATER) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.extendedLayoutIncludesOpaqueBars = NO;
+    }
+    
     [self initfooterview];
     [self initheaderview];
     self.navigationItem.leftBarButtonItem = [Tools getNavBarItem:self clickAction:@selector(back)];
@@ -116,6 +121,13 @@
         }
     }];
     
+    
+}
+
+- (void)saveToPilst
+{
+    NSArray *path = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSLog(@"path---%@",path);
 }
 
 #pragma mark tableView 代理

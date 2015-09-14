@@ -35,6 +35,11 @@ NSString *TMP_UPLOAD_IMG_PATH=@"";
     // Do any additional setup after loading the view from its nib.
     picAdd = [NSMutableString string];
     self.title = @"发送私信";
+    if (!IOS7_LATER) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.extendedLayoutIncludesOpaqueBars = NO;
+    }
+    
     self.navigationItem.leftBarButtonItem = [Tools getNavBarItem:self clickAction:@selector(back)];
     
     picAdd = [NSMutableString string];
