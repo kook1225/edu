@@ -126,7 +126,8 @@
             }else
             {
                 dataArray = [NSMutableArray arrayWithArray:responseObject[@"data"][@"list"]];
-                
+                _tableView.hidden = NO;
+                _nonDataLabel.hidden = YES;
                 [_tableView reloadData];
             }
             
